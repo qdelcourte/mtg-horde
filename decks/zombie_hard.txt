@@ -1,0 +1,42 @@
+1 Army of the Damned
+1 Bad Moon
+1 Barter in Blood
+1 Cackling Fiend
+1 Call to the Grave
+1 Cemetery Reaper
+1 Death Baron
+1 Delirium Skeins
+1 Diregraf Ghoul
+1 Dread Slaver
+1 Endless Ranks of the Dead
+1 Erebos, God of the Dead
+1 Fleshbag Marauder
+1 Ghoulraiser
+1 Gluttonous Zombie
+1 Grave Betrayal
+1 Grave Titan
+1 Infectious Horror
+1 Intimidation
+1 Liliana's Reaver
+1 Maalfeld Twins
+5 Necrosavant
+1 Nested Ghoul
+1 Nocturnal Raid
+1 Noxious Ghoul
+1 Plague Wind
+1 Raving Dead
+1 Rotting Fensnake
+1 Rotting Mastodon
+1 Sibsig Icebreakers
+1 Smallpox
+1 Soulless One
+1 Sutured Ghoul
+1 Syphon Flesh
+1 Twilight's Call
+1 Unbreathing Horde
+1 Undead Warchief
+1 Vengeful Dead
+55 id:409656
+1 Wight of Precinct Six
+1 Zombie Apocalypse
+1 Zombie Brute
