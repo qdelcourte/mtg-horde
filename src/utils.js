@@ -43,7 +43,7 @@ const sync = (info) => ({
 
 function restoreSavepoint(client, gamestateJSON, initialStateJSON) {
     if (gamestateJSON !== null && initialStateJSON !== null) {
-        client.store.dispatch(sync({ state: gamestateJSON, initialStateJSON }));
+        client.store.dispatch(sync({ state: gamestateJSON, initialState: initialStateJSON }));
     }
 }
 
