@@ -75,11 +75,11 @@
     <div id="board">
         <div id="stacks">
             <div id="deck">
-                <img src="/assets/card-back.png" alt="card back - deck">
+                <img src="/assets/card-back.jpg" alt="card back - deck">
             </div>
             {#if state.G.hordeGraveyard.length > 0}
                 <div id="graveyard">
-                    <img src="/assets/card-back.png" alt="graveyard zone" on:click={() => graveyardModalRef.toggle()}>
+                    <img src="/assets/card-back.jpg" alt="graveyard zone" on:click={() => graveyardModalRef.toggle()}>
                 </div>
             {/if}
             {#if state.ctx.phase === 'fightTheHorde'}

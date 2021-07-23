@@ -1,7 +1,6 @@
 <script>
   import { onMount, setContext } from 'svelte';
   import { Client } from 'boardgame.io/client';
-  import { Styles } from 'sveltestrap';
   import Board from './components/Board.svelte';
   import { MTGHorde } from './game';
   import { key } from './context';
@@ -21,8 +20,6 @@
       }
   }
 </script>
-
-<Styles/>
 
 <div id="app">
   <Board/>

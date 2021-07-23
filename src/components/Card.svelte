@@ -19,7 +19,7 @@
     export let canChangeMarker = false;
 </script>
 
-<img src="/assets/card-back.png" alt="a card" 
+<img src="/assets/card-back.jpg" alt="a card" 
     class:tapped={card.tapped}
     class:sorcery={isSorceryCard(card)}
     class:instant={isInstantCard(card)}

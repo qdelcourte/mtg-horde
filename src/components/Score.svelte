@@ -16,7 +16,7 @@
 <div id="score">
     <div id="undo">
         <Tooltip target="btn-undo">Undo</Tooltip>
-        <Button id="btn-undo" on:click={() => client.undo()} color="dark"><Icon name="arrow-counterclockwise"/></Button>
+        <Button id="btn-undo" on:click={() => client.undo()} color="dark" aria-label="undo"><Icon name="arrow-counterclockwise"/></Button>
     </div>
     <div id="horde" class:player-turn={state.ctx.currentPlayer === "0"}>
         <div id="horde-life">
@@ -68,7 +68,7 @@
     </div>
     <div id="redo">
         <Tooltip target="btn-redo">Redo</Tooltip>
-        <Button id="btn-redo" on:click={() => client.redo()} color="dark"><Icon name="arrow-clockwise"/></Button>
+        <Button id="btn-redo" on:click={() => client.redo()} color="dark" aria-label="redo"><Icon name="arrow-clockwise"/></Button>
     </div>
 </div>
 
