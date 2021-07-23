@@ -9,7 +9,7 @@
 
     import { getContext } from 'svelte';
     import { key } from '../context';
-    import { isSorceryCard, isInstantCard, isEnchantmentCard } from '../game';
+    import { isSorceryCard, isInstantCard, isEnchantmentCard } from '../gameHelpers';
 
     let client = getContext(key);
 

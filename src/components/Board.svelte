@@ -17,7 +17,7 @@
     import SettingsModal from './SettingsModal.svelte';
     import AlertToast from './AlertToast.svelte';
 
-    import * as Utils from '../utils';
+    import * as SavepointUtils from '../savepoint';
 
     let gameInfoRef;
     let cardDetailsRef;
@@ -36,12 +36,12 @@
     });
 
     function onSave() {
-        Utils.savepointInLocalStorage(client);
+        SavepointUtils.savepointInLocalStorage(client);
         alertToastRef.alert('Savepoint !');
     }
 
     function onRestore() {
-        Utils.restoreSavepointFromLocalStorage(client);
+        SavepointUtils.restoreSavepointFromLocalStorage(client);
         alertToastRef.alert('Savepoint restored !');
     }
 </script>
