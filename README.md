@@ -8,11 +8,34 @@ Build with [Svelte](https://github.com/sveltejs/svelte) and [boardgame.io](https
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
+## Features
+
+* Add/Remove marker to a card
+* Tap/Untap a card
+* See the horde graveyard
+* Remove a card from the battlefield to the graveyard or the top library
+* Remove a card from the graveyard to the battlefield or the top library or the exile
+* Exile a card from the battlefield or the top library or the graveyard
+* Add token onto the battlefield
+
+* Included decks
+* Manage score
+* Start/Restart game
+* Undo/Redo actions
+* Savepoint (save in browser)
+
 ## Rules
 
 No official rules, so work in progress...
 
-Current rules are a mix between https://tappedout.net/mtg-decks/zombie-horde-co-op-magic/ and https://github.com/dkniffin/mtg-horde
+You can contribute and do some proposals by creating an issue.
+
+Current rules: [RULES.md](./RULES.md)
+
+Resources:
+* https://tappedout.net/mtg-decks/zombie-horde-co-op-magic
+* https://github.com/dkniffin/mtg-horde
+* https://magic-casual.fr/pour-la-horde (FR)
 
 ## Run dev
 
