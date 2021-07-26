@@ -4,7 +4,7 @@
 
 [Demo](https://mtg-horde.netlify.app/)
 
-Build with [Svelte](https://github.com/sveltejs/svelte) and [boardgame.io](https://github.com/boardgameio/boardgame.io)
+Built with [Svelte](https://github.com/sveltejs/svelte) and [boardgame.io](https://github.com/boardgameio/boardgame.io)
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
