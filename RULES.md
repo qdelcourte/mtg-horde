@@ -23,6 +23,11 @@ The Horde (app) and the Survivors (you).
 * The Survivors are a group of one or more players, who can use any pre-built deck of their choosing.
 * The Survivors have a shared life total, which starts at 20 for each player (eg: 1 player = 20 life, 2 players = 40 life, etc)
 
+### Win condition
+
+The first player to decrease the life to 0 or below of the other one is the winner.
+
+
 ## Steps
 
 ### Setup
@@ -53,7 +58,3 @@ Horde turn:
 Survivors turn:
 
 Classic turn
-
-## Win condition
-
-The first player to decrease the life to 0 or below of the other one is the winner.

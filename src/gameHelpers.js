@@ -2,30 +2,30 @@ import { INVALID_MOVE } from 'boardgame.io/core';
 import decks from 'decks';
 
 
-export function computeNbCardsMaxInHordeDeck(nbSurvivors) {
-    switch (nbSurvivors) {
-        case 1:
-            return 45;
-        case 2:
-            return 60;
-        case 3:
-            return 75;
-        case 4:
-            return 100;
-        default:
-            return Infinity;
-    }
-}
+export function loadDeck(deckName, nbSurvivors, tokenProportion) {
+    const expectedNbCardsInDeck = [NaN, 45, 60, 75, 100][nbSurvivors] || Infinity;
+    const expectedNbTokenCardsInDeck = Math.floor(expectedNbCardsInDeck * tokenProportion);
+    const expectedNbNonTokenCardsInDeck = expectedNbCardsInDeck - expectedNbTokenCardsInDeck;
 
-export function loadDeck(ctx, nbSurvivors, deckName) {
-    // Build deck
-    let deck = [];
-    decks[deckName].forEach(card => {
-        deck = deck.concat(Array(card.qty).fill(card.card));
-    });
+    const tokenCards = decks[deckName].filter(card => isTokenCard(card.card));
+    const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
 
-    // Shuffle and slice
-    return deck.sort(function () { return 0.5 - Math.random() }).slice(0, Math.min(computeNbCardsMaxInHordeDeck(nbSurvivors), deck.length));
+    // Prepare tokens
+    const tokenDeck = tokenCards.reduce((acc, card) => {
+        const proportion = totalTokens / card.qty;
+        card.qty = Math.floor(proportion * expectedNbTokenCardsInDeck);
+        return acc.concat(Array(card.qty).fill(card.card));  
+    }, []);
+
+    // Prepare non tokens
+    const nonTokenDeck = decks[deckName]
+            .filter(card => !isTokenCard(card.card))
+            .reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), [])
+            .sort(() => 0.5 - Math.random())
+            .slice(0, expectedNbNonTokenCardsInDeck);
+
+    // Return deck shuffled
+    return tokenDeck.concat(nonTokenDeck).sort(() => 0.5 - Math.random());
 }
 
 export function computeHordeLife(G) {

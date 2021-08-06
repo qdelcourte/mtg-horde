@@ -10,7 +10,6 @@ export const MTGHorde = {
   name: 'mtg-horde',
 
   setup: (ctx) => {
-    let defaultNbSurvivors = 1;
     let defaultDeckName = Object.keys(decks)[0];
 
     return {
@@ -21,19 +20,21 @@ export const MTGHorde = {
       hordeLife: 0,
       nbInitialSurvivorsTurn: 3,
       currentInitialSurvivorTurn: 0,
-      nbSurvivors: defaultNbSurvivors,
-      survivorsLife: 0
+      nbSurvivors: 1,
+      survivorsLife: 0,
+      tokenProportion: 0.5
     };
   },
 
   moves: {
-    startGame: (G, ctx, { nbSurvivors, deckName, nbInitialSurvivorsTurn }) => {
+    startGame: (G, ctx, { nbSurvivors, deckName, nbInitialSurvivorsTurn, tokenProportion }) => {
       G.nbSurvivors = nbSurvivors;
       G.nbInitialSurvivorsTurn = nbInitialSurvivorsTurn;
       G.survivorsLife = computeDefaultSurvivorsLife(G.nbSurvivors);
+      G.tokenProportion = tokenProportion;
 
       G.hordeDeckName = deckName;
-      G.hordeDeck = loadDeck(ctx, G.nbSurvivors, deckName);
+      G.hordeDeck = loadDeck(deckName, G.nbSurvivors, G.tokenProportion);
       G.hordeBattlefield = [];
       G.hordeGraveyard = [];
       G.hordeLife = computeHordeLife(G);

@@ -11,7 +11,8 @@
 
   let inputDeckValue;
   let inputNbSurvivorsValue = 1;
-  let inputNbInitialSurvivorsTurn = 3;
+  let inputNbInitialSurvivorsTurnValue = 3;
+  let inputTokenProportionValue = 30;
 
   async function loadDeckList() {
     const deckList = Object.keys(decks);
@@ -24,7 +25,8 @@
     client.moves.startGame({
       nbSurvivors: inputNbSurvivorsValue,
       deckName: inputDeckValue,
-      nbInitialSurvivorsTurn: inputNbInitialSurvivorsTurn
+      nbInitialSurvivorsTurn: inputNbInitialSurvivorsTurnValue,
+      tokenProportion: inputTokenProportionValue / 100
     });
     dispatch('startGame');
   }
@@ -57,11 +59,24 @@
   <FormGroup>
     <Label for="numInitialSurvivorsTurn">Number of initial survivors turn</Label>
     <Input
-        bind:value={inputNbInitialSurvivorsTurn}
+        bind:value={inputNbInitialSurvivorsTurnValue}
         type="number"
         name="numInitialSurvivorsTurn"
         id="numInitialSurvivorsTurn"
         placeholder="number of initial survivors turn"/>
+  </FormGroup>
+  
+  <FormGroup>
+    <Label for="tokenProportion">Token proportion in deck (%)</Label>
+    <Input
+        bind:value={inputTokenProportionValue}
+        min=1
+        max=100
+        step=1
+        type="number"
+        name="tokenProportion"
+        id="tokenProportion"
+        placeholder="token proportion in deck"/>
   </FormGroup>
 </Form>
 
