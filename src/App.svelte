@@ -2,6 +2,7 @@
   import { onMount, setContext } from 'svelte';
   import { Client } from 'boardgame.io/client';
   import Board from './components/Board.svelte';
+  import GithubCorner from './components/GithubCorner.svelte';
   import { MTGHorde } from './game';
   import { key } from './context';
 
@@ -21,6 +22,7 @@
   }
 </script>
 
+<GithubCorner/>
 <div id="app">
   <Board/>
 </div>
