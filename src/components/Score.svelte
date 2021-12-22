@@ -24,8 +24,8 @@
             <span class="life">{state.G.hordeLife}</span>
             <div class="change-life">
                 <ButtonGroup>
-                    <Button on:click={() => client.moves.hordeLosesLife(5)} color="danger">-5</Button>
-                    <Button on:click={() => client.moves.hordeLosesLife(1)} color="danger">-1</Button>
+                    <Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(5)} color="danger">-5</Button>
+                    <Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(1)} color="danger">-1</Button>
                 </ButtonGroup>
             </div>
         </div>
