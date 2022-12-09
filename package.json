@@ -16,7 +16,7 @@
     "@sveltejs/vite-plugin-svelte": "^1.4.0",
     "boardgame.io": "^0.45.0",
     "scryfall-sdk": "^2.1.1",
-    "svelte": "^3.44.3",
+    "svelte": "^3.54.0",
     "sveltestrap": "^5.6.3"
   }
 }

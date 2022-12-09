@@ -55,18 +55,22 @@
 
 <div id="game">
     <div id="bottom-left">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div id="info" on:click={() => gameInfoRef.toggle()}>
             <Icon name="info-square-fill"/>
         </div>
     
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div id="settings" on:click={() => settingsModalRef.toggle()}>
             <Icon name="gear-fill"/>
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div id="save" on:click={onSave}>
             <Icon name="save-fill"/>
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div id="restore" on:click={onRestore}>
             <Icon name="file-arrow-up-fill"/>
         </div>
@@ -79,6 +83,7 @@
             </div>
             {#if state.G.hordeGraveyard.length > 0}
                 <div id="graveyard">
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <img src="/assets/card-back.jpg" alt="graveyard zone" on:click={() => graveyardModalRef.toggle()}>
                 </div>
             {/if}
