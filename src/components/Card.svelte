@@ -19,6 +19,7 @@
     export let canChangeMarker = false;
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <img src="/assets/card-back.jpg" alt="a card" 
     class:tapped={card.tapped}
     class:sorcery={isSorceryCard(card)}
