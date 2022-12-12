@@ -58,8 +58,8 @@ export const MTGHorde = {
       },
     },
     fightTheHorde: {
-      onBegin: (G, ctx) => {
-        ctx.events.setActivePlayers({ currentPlayer: 'draw' });
+      onBegin: (G) => {
+        G.isPhaseBeginning = true;
       },
 
       moves: {
@@ -79,7 +79,6 @@ export const MTGHorde = {
         },
         stageHordeAttackEnd: (G, ctx) => {
           ctx.events.endTurn();
-          ctx.events.setActivePlayers({ currentPlayer: 'survivorsTurn' });
         },
         stageSurvivorsEndTurn: (G, ctx) => {
           ctx.events.endTurn();
@@ -92,12 +91,18 @@ export const MTGHorde = {
       },
 
       turn: {
+        activePlayers: { currentPlayer: 'untap' },
+        onBegin: (G, ctx) => {
+          if (G.isPhaseBeginning) {
+            ctx.events.setActivePlayers({ currentPlayer: 'draw'});
+            G.isPhaseBeginning = false;
+          }
+        },
         stages: {
           untap: {},
           draw: {},
           upkeek: {},
-          attack: {},
-          survivorsTurn: {}
+          attack: {}
         }
       },
     }

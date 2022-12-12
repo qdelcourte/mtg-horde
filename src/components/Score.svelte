@@ -59,10 +59,8 @@
             </div>
         </div>
         <div id="survivors-actions" class="actions">
-            {#if state.ctx.phase === 'fightTheHorde' && state.ctx.activePlayers}
-                {#if state.ctx.activePlayers[state.ctx.currentPlayer] === 'survivorsTurn'}
-                    <Button on:click={() => client.moves.stageSurvivorsEndTurn()} color="primary" size="sm">End turn</Button>
-                {/if}
+            {#if state.ctx.phase === 'fightTheHorde' && state.ctx.currentPlayer == 1}
+                <Button on:click={() => client.moves.stageSurvivorsEndTurn()} color="primary" size="sm">End turn</Button>
             {/if}
         </div>
     </div>
