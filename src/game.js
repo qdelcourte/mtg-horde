@@ -95,7 +95,7 @@ export const MTGHorde = {
 			},
 
 			turn: {
-				activePlayers: { currentPlayer: 'untap' },
+				activePlayers: { currentPlayer: STAGES.untap },
 				onBegin: ({ G, events }) => {
 					if (G.isPhaseBeginning) {
 						events.setActivePlayers({ currentPlayer: STAGES.draw });
@@ -113,7 +113,7 @@ export const MTGHorde = {
 	},
 
 	endIf: ({ G, ctx }) => {
-		if (ctx.phase === 'fightTheHorde') {
+		if (ctx.phase === PHASES.fightTheHorde) {
 			if (G.hordeLife <= 0) {
 				return { winner: 'Survivors win !' };
 			} else if (G.survivorsLife <= 0) {

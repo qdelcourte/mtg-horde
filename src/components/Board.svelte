@@ -29,7 +29,7 @@
 
 	onMount(async () => {
 		await tick();
-		settingsModalRef.toggle();
+		if (settingsModalRef) settingsModalRef.toggle();
 	});
 
 	function onSave() {
