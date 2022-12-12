@@ -9,7 +9,7 @@ import moves, {
 export const MTGHorde = {
   name: 'mtg-horde',
 
-  setup: (ctx) => {
+  setup: () => {
     let defaultDeckName = Object.keys(decks)[0];
 
     return {
@@ -27,7 +27,7 @@ export const MTGHorde = {
   },
 
   moves: {
-    startGame: (G, ctx, { nbSurvivors, deckName, nbInitialSurvivorsTurn, tokenProportion }) => {
+    startGame: ({G, events}, { nbSurvivors, deckName, nbInitialSurvivorsTurn, tokenProportion }) => {
       G.nbSurvivors = nbSurvivors;
       G.nbInitialSurvivorsTurn = nbInitialSurvivorsTurn;
       G.survivorsLife = computeDefaultSurvivorsLife(G.nbSurvivors);
@@ -39,7 +39,7 @@ export const MTGHorde = {
       G.hordeGraveyard = [];
       G.hordeLife = computeHordeLife(G);
 
-      ctx.events.setPhase('initialSurvivorsTurns');
+      events.setPhase('initialSurvivorsTurns');
     }
   },
 
@@ -48,53 +48,53 @@ export const MTGHorde = {
       next: 'fightTheHorde',
 
       moves: {
-        nextInitialTurn: (G, ctx) => {
+        nextInitialTurn: ({G}) => {
           G.currentInitialSurvivorTurn++;
         }
       },
 
-      endIf: (G, ctx) => {
+      endIf: ({G}) => {
         return G.currentInitialSurvivorTurn >= G.nbInitialSurvivorsTurn;
       },
     },
     fightTheHorde: {
-      onBegin: (G) => {
+      onBegin: ({G}) => {
         G.isPhaseBeginning = true;
       },
 
       moves: {
         ...moves,
         // Stages moves
-        stageHordeUntap: (G, ctx) => {
-          moves.hordeUntapAllCards(G, ctx);
-          ctx.events.setActivePlayers({ currentPlayer: 'draw' });
+        stageHordeUntap: ({G, events}) => {
+          moves.hordeUntapAllCards({G});
+          events.setActivePlayers({ currentPlayer: 'draw' });
         },
-        stageHordeDraw: (G, ctx) => {
-          moves.hordeDrawCards(G, ctx);
-          ctx.events.setActivePlayers({ currentPlayer: 'upkeek' });
+        stageHordeDraw: ({G, events}) => {
+          moves.hordeDrawCards({G});
+          events.setActivePlayers({ currentPlayer: 'upkeek' });
         },
-        stageHordeDeclareAttack: (G, ctx) => {
-          moves.hordeTapAllCards(G, ctx);
-          ctx.events.setActivePlayers({ currentPlayer: 'attack' });
+        stageHordeDeclareAttack: ({G, events}) => {
+          moves.hordeTapAllCards({G});
+          events.setActivePlayers({ currentPlayer: 'attack' });
         },
-        stageHordeAttackEnd: (G, ctx) => {
-          ctx.events.endTurn();
+        stageHordeAttackEnd: ({events}) => {
+          events.endTurn();
         },
-        stageSurvivorsEndTurn: (G, ctx) => {
-          ctx.events.endTurn();
+        stageSurvivorsEndTurn: ({G, events}) => {
+          events.endTurn();
           if (G.hordeBattlefield.length > 0) {
-            ctx.events.setActivePlayers({ currentPlayer: 'untap' });
+            events.setActivePlayers({ currentPlayer: 'untap' });
           } else {
-            ctx.events.setActivePlayers({ currentPlayer: 'draw' });
+            events.setActivePlayers({ currentPlayer: 'draw' });
           }
         }
       },
 
       turn: {
         activePlayers: { currentPlayer: 'untap' },
-        onBegin: (G, ctx) => {
+        onBegin: ({G, events}) => {
           if (G.isPhaseBeginning) {
-            ctx.events.setActivePlayers({ currentPlayer: 'draw'});
+            events.setActivePlayers({ currentPlayer: 'draw'});
             G.isPhaseBeginning = false;
           }
         },
@@ -108,7 +108,7 @@ export const MTGHorde = {
     }
   },
 
-  endIf: (G, ctx) => {
+  endIf: ({G, ctx}) => {
     if (ctx.phase === 'fightTheHorde') {
       if (G.hordeLife <= 0) {
         return { winner: 'Survivors win !' };
