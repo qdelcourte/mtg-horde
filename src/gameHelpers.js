@@ -63,7 +63,7 @@ export function clearCardState(card) {
 
 // Game Moves
 export default {
-    hordeDrawCards: (G, ctx) => {
+    hordeDrawCards: ({G}) => {
         // Draw cards in horde deck until the first token
         let deck = JSON.parse(JSON.stringify(G.hordeDeck));
         const indexOfFirstNonToken = deck.findIndex(card => !isTokenCard(card));
@@ -76,14 +76,14 @@ export default {
         }
         G.hordeLife = computeHordeLife(G);
     },
-    hordeUntapAllCards: (G, ctx) => {
+    hordeUntapAllCards: ({G}) => {
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
         G.hordeBattlefield = battlefield.map(card => {
             card.tapped = false;
             return card;
         });
     },
-    hordeTapAllCards: (G, ctx) => {
+    hordeTapAllCards: ({G}) => {
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
         G.hordeBattlefield = battlefield.map(card => {
             if (isInstantCard(card) || isSorceryCard(card) || isEnchantmentCard(card)) {
@@ -93,7 +93,7 @@ export default {
             return card;
         });
     },
-    addTokenInHordeBattlefield: (G, ctx, card, power, toughness) => {
+    addTokenInHordeBattlefield: ({G}, card, power, toughness) => {
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
 
         card = Object.assign({}, card);
@@ -105,7 +105,7 @@ export default {
         G.hordeBattlefield = battlefield;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardsInHordeGraveyardFromDeck: (G, ctx, n) => {
+    putCardsInHordeGraveyardFromDeck: ({G}, n) => {
         if (n <= 0) return INVALID_MOVE;
 
         // Put first N cards in the graveyard from the top of the library
@@ -114,7 +114,7 @@ export default {
         G.hordeGraveyard = JSON.parse(JSON.stringify(G.hordeGraveyard)).concat(deck.slice(0, n).filter(card => !isTokenCard(card)).map(card => clearCardState(card)));
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeGraveyardFromBattlefield: (G, ctx, index) => {
+    putCardInHordeGraveyardFromBattlefield: ({G}, index) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -123,7 +123,7 @@ export default {
         G.hordeBattlefield = battlefield;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeDeckFromBattlefield: (G, ctx, index) => {
+    putCardInHordeDeckFromBattlefield: ({G}, index) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -132,7 +132,7 @@ export default {
         G.hordeBattlefield = battlefield;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeExileFromBattlefield: (G, ctx, index) => {
+    putCardInHordeExileFromBattlefield: ({G}, index) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -141,7 +141,7 @@ export default {
         G.hordeBattlefield = battlefield;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeDeckFromGraveyard: (G, ctx, index, top = true) => {
+    putCardInHordeDeckFromGraveyard: ({G}, index, top = true) => {
         if (index < 0) return INVALID_MOVE;
 
         let graveyard = JSON.parse(JSON.stringify(G.hordeGraveyard));
@@ -156,7 +156,7 @@ export default {
         G.hordeGraveyard = graveyard;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeBattefieldFromGraveyard: (G, ctx, index, tapped = false) => {
+    putCardInHordeBattefieldFromGraveyard: ({G}, index, tapped = false) => {
         if (index < 0) return INVALID_MOVE;
 
         let graveyard = JSON.parse(JSON.stringify(G.hordeGraveyard));
@@ -170,7 +170,7 @@ export default {
         G.hordeGraveyard = graveyard;
         G.hordeLife = computeHordeLife(G);
     },
-    putCardInHordeExileFromGraveyard: (G, ctx, index) => {
+    putCardInHordeExileFromGraveyard: ({G}, index) => {
         if (index < 0) return INVALID_MOVE;
 
         let graveyard = JSON.parse(JSON.stringify(G.hordeGraveyard));
@@ -178,7 +178,7 @@ export default {
         G.hordeGraveyard = graveyard;
         G.hordeLife = computeHordeLife(G);
     },
-    hordeToggleTapCard: (G, ctx, index) => {
+    hordeToggleTapCard: ({G}, index) => {
         if (index < 0) return INVALID_MOVE;
 
         // Tap or untap card from the battlefield
@@ -186,7 +186,7 @@ export default {
         battlefield[index].tapped = battlefield[index].hasOwnProperty('tapped') ? !battlefield[index].tapped : true;
         G.hordeBattlefield = battlefield;
     },
-    changeCardPowerCounter: (G, ctx, index, nbPower) => {
+    changeCardPowerCounter: ({G}, index, nbPower) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -196,7 +196,7 @@ export default {
         battlefield[index].powerMarker += nbPower;
         G.hordeBattlefield = battlefield;
     },
-    changeCardToughnessCounter: (G, ctx, index, nbToughness) => {
+    changeCardToughnessCounter: ({G}, index, nbToughness) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -206,7 +206,7 @@ export default {
         battlefield[index].toughnessMarker += nbToughness;
         G.hordeBattlefield = battlefield;
     },
-    changeCardMarkerCounter: (G, ctx, index, nbMarker) => {
+    changeCardMarkerCounter: ({G}, index, nbMarker) => {
         if (index < 0) return INVALID_MOVE;
 
         let battlefield = JSON.parse(JSON.stringify(G.hordeBattlefield));
@@ -220,12 +220,12 @@ export default {
         battlefield[index].toughnessMarker += nbMarker;
         G.hordeBattlefield = battlefield;
     },
-    survivorsLoseLife: (G, ctx, n) => {
+    survivorsLoseLife: ({G}, n) => {
         if (n <= 0) return INVALID_MOVE;
 
         G.survivorsLife -= n;
     },
-    survivorsGainLife: (G, ctx, n) => {
+    survivorsGainLife: ({G}, n) => {
         if (n <= 0) return INVALID_MOVE;
 
         G.survivorsLife += n;
