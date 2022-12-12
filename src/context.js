@@ -1,2 +1,2 @@
-const key = "client";
+const key = 'client';
 export { key };
