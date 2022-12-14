@@ -70,7 +70,7 @@ export const MTGHorde = {
 				...moves,
 				// Stages moves
 				stageHordeUntap: ({ G, events }) => {
-					moves.hordeUntapAllCards({ G });
+					moves.hordeToggleTapAllCards({ G }, false);
 					events.setActivePlayers({ currentPlayer: STAGES.draw });
 				},
 				stageHordeDraw: ({ G, events }) => {
@@ -78,7 +78,7 @@ export const MTGHorde = {
 					events.setActivePlayers({ currentPlayer: STAGES.upkeek });
 				},
 				stageHordeDeclareAttack: ({ G, events }) => {
-					moves.hordeTapAllCards({ G });
+					moves.hordeToggleTapAllCards({ G }, true);
 					events.setActivePlayers({ currentPlayer: STAGES.attack });
 				},
 				stageHordeAttackEnd: ({ events }) => {

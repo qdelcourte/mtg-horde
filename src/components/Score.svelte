@@ -63,10 +63,10 @@
 			<span class="life">{state.G.survivorsLife}</span>
 			<div class="change-life">
 				<ButtonGroup>
-					<Button on:click={() => client.moves.survivorsLoseLife(5)} color="danger">-5</Button>
-					<Button on:click={() => client.moves.survivorsLoseLife(1)} color="danger">-1</Button>
-					<Button on:click={() => client.moves.survivorsGainLife(1)} color="success">+1</Button>
-					<Button on:click={() => client.moves.survivorsGainLife(5)} color="success">+5</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(-5)} color="danger">-5</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(-1)} color="danger">-1</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(1)} color="success">+1</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(5)} color="success">+5</Button>
 				</ButtonGroup>
 			</div>
 		</div>

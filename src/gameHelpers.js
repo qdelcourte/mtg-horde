@@ -92,18 +92,21 @@ export default {
 		}
 		G.hordeLife = computeHordeLife(G);
 	},
-	hordeUntapAllCards: ({ G }) => {
-		G.hordeBattlefield = current(G.hordeBattlefield).map((card) => {
-			return { ...card, tapped: false };
-		});
-	},
-	hordeTapAllCards: ({ G }) => {
+	hordeToggleTapAllCards: ({ G }, tapped = true) => {
 		G.hordeBattlefield = current(G.hordeBattlefield).map((card) => {
 			if (isInstantCard(card) || isSorceryCard(card) || isEnchantmentCard(card)) {
 				return card;
 			}
-			return { ...card, tapped: true };
+			return { ...card, tapped };
 		});
+	},
+	hordeToggleTapCard: ({ G }, index) => {
+		if (index < 0) return INVALID_MOVE;
+
+		// Tap or untap card from the battlefield
+		let battlefield = [...current(G.hordeBattlefield)];
+		battlefield[index] = { ...battlefield[index], tapped: !battlefield[index].tapped ?? true };
+		G.hordeBattlefield = battlefield;
 	},
 	addTokenInHordeBattlefield: ({ G }, card, power, toughness) => {
 		G.hordeBattlefield = [
@@ -192,14 +195,6 @@ export default {
 		G.hordeGraveyard = graveyard;
 		G.hordeLife = computeHordeLife(G);
 	},
-	hordeToggleTapCard: ({ G }, index) => {
-		if (index < 0) return INVALID_MOVE;
-
-		// Tap or untap card from the battlefield
-		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index] = { ...battlefield[index], tapped: !battlefield[index].tapped ?? true };
-		G.hordeBattlefield = battlefield;
-	},
 	changeCardMarkerCounter: ({ G }, index, powerMarker, toughnessMarker) => {
 		if (index < 0) return INVALID_MOVE;
 
@@ -211,14 +206,7 @@ export default {
 		};
 		G.hordeBattlefield = battlefield;
 	},
-	survivorsLoseLife: ({ G }, n) => {
-		if (n <= 0) return INVALID_MOVE;
-
-		G.survivorsLife -= n;
-	},
-	survivorsGainLife: ({ G }, n) => {
-		if (n <= 0) return INVALID_MOVE;
-
+	survivorsChangeLife: ({ G }, n) => {
 		G.survivorsLife += n;
 	}
 };
