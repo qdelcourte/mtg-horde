@@ -197,33 +197,18 @@ export default {
 
 		// Tap or untap card from the battlefield
 		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index].tapped = !battlefield[index].tapped ?? true;
+		battlefield[index] = { ...battlefield[index], tapped: !battlefield[index].tapped ?? true };
 		G.hordeBattlefield = battlefield;
 	},
-	changeCardPowerCounter: ({ G }, index, nbPower) => {
+	changeCardMarkerCounter: ({ G }, index, powerMarker, toughnessMarker) => {
 		if (index < 0) return INVALID_MOVE;
 
 		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index].powerMarker ?? (battlefield[index].powerMarker = 0);
-		battlefield[index].powerMarker += nbPower;
-		G.hordeBattlefield = battlefield;
-	},
-	changeCardToughnessCounter: ({ G }, index, nbToughness) => {
-		if (index < 0) return INVALID_MOVE;
-
-		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index].toughnessMarker ?? (battlefield[index].toughnessMarker = 0);
-		battlefield[index].toughnessMarker += nbToughness;
-		G.hordeBattlefield = battlefield;
-	},
-	changeCardMarkerCounter: ({ G }, index, nbMarker) => {
-		if (index < 0) return INVALID_MOVE;
-
-		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index].powerMarker ?? (battlefield[index].powerMarker = 0);
-		battlefield[index].powerMarker += nbMarker;
-		battlefield[index].toughnessMarker ?? (battlefield[index].toughnessMarker = 0);
-		battlefield[index].toughnessMarker += nbMarker;
+		battlefield[index] = {
+			...battlefield[index],
+			powerMarker: (battlefield[index]?.powerMarker || 0) + powerMarker,
+			toughnessMarker: (battlefield[index]?.toughnessMarker || 0) + toughnessMarker
+		};
 		G.hordeBattlefield = battlefield;
 	},
 	survivorsLoseLife: ({ G }, n) => {

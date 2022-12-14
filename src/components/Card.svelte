@@ -44,22 +44,22 @@
 			>
 			{#if canChangeMarker}
 				<DropdownMenu dark>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
 						>Add marker +1 / +1</DropdownItem
 					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, -1)}
 						>Add marker -1 / -1</DropdownItem
 					>
-					<DropdownItem on:click={() => client.moves.changeCardPowerCounter(index, 1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 0)}
 						>Add marker +1 / 0</DropdownItem
 					>
-					<DropdownItem on:click={() => client.moves.changeCardPowerCounter(index, -1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, 0)}
 						>Add marker -1 / 0</DropdownItem
 					>
-					<DropdownItem on:click={() => client.moves.changeCardToughnessCounter(index, 1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, 1)}
 						>Add marker 0 / +1</DropdownItem
 					>
-					<DropdownItem on:click={() => client.moves.changeCardToughnessCounter(index, -1)}
+					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, -1)}
 						>Add marker 0 / -1</DropdownItem
 					>
 				</DropdownMenu>
