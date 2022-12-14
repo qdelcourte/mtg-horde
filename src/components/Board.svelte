@@ -1,10 +1,10 @@
 <script>
-	import { Button, DropdownItem, Icon } from 'sveltestrap';
+	import { Button, Icon } from 'sveltestrap';
 	import { getContext, onMount, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { key } from '../context';
 
-	import Card from './Card.svelte';
+	import Battlefield from './Battlefield.svelte';
 	import Score from './Score.svelte';
 	import GameInfo from './GameInfo.svelte';
 	import OffCardDetails from './OffCardDetails.svelte';
@@ -29,7 +29,7 @@
 
 	onMount(async () => {
 		await tick();
-		if (settingsModalRef) settingsModalRef.toggle();
+		if (settingsModalRef && !state.ctx.phase) settingsModalRef.toggle();
 	});
 
 	function onSave() {
@@ -73,6 +73,16 @@
 		</div>
 	</div>
 
+	<div id="top">
+		{#if state.ctx.phase === PHASES.fightTheHorde}
+			<div id="actions">
+				<Button on:click={() => addTokenModalRef.toggle()}
+					><Icon name="plus-circle" /> Token</Button
+				>
+			</div>
+		{/if}
+	</div>
+
 	<div id="board">
 		<div id="stacks">
 			<div id="deck">
@@ -88,42 +98,9 @@
 					/>
 				</div>
 			{/if}
-			{#if state.ctx.phase === PHASES.fightTheHorde}
-				<div id="stacks-actions">
-					<Button on:click={() => addTokenModalRef.toggle()}
-						><Icon name="plus-circle" /> Token</Button
-					>
-				</div>
-			{/if}
 		</div>
 		<div id="battlefield">
-			{#each state.G.hordeBattlefield as card, index}
-				<div class="battlefield-card" in:fly={{ y: 100, duration: 500 }} out:fly>
-					<Card {card} {index} canChangeMarker={true} on:click={() => cardDetailsRef.show(card)}>
-						<div slot="actions">
-							{#if card.tapped}
-								<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
-									><Icon name="arrow-counterclockwise" /> Untap</DropdownItem
-								>
-							{:else}
-								<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
-									><Icon name="arrow-clockwise" /> Tap</DropdownItem
-								>
-							{/if}
-							<DropdownItem on:click={() => client.moves.putCardInHordeDeckFromBattlefield(index)}
-								><Icon name="x" /> To the top library</DropdownItem
-							>
-							<DropdownItem
-								on:click={() => client.moves.putCardInHordeGraveyardFromBattlefield(index)}
-								><Icon name="x" /> To the graveyard</DropdownItem
-							>
-							<DropdownItem on:click={() => client.moves.putCardInHordeExileFromBattlefield(index)}
-								><Icon name="x" /> To the exile</DropdownItem
-							>
-						</div>
-					</Card>
-				</div>
-			{/each}
+			<Battlefield on:show_card={(event) => cardDetailsRef.show(event.detail.card)}/>
 		</div>
 	</div>
 
@@ -138,9 +115,11 @@
 		</div>
 	{/if}
 
-	<div id="footer">
-		<Score />
-	</div>
+	{#if state.ctx.phase === PHASES.fightTheHorde}
+		<div id="footer" transition:fly={{ y: 50, duration: 1000 }}>
+			<Score />
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -164,7 +143,7 @@
 		margin-bottom: 160px;
 	}
 
-	#board #stacks-actions {
+	#top #actions {
 		margin: 15px;
 	}
 
@@ -182,11 +161,6 @@
 	#graveyard img:hover {
 		cursor: pointer;
 		box-shadow: 0 0 0 4px #eee, 0 0 0 5px #aaa;
-	}
-
-	.battlefield-card {
-		position: relative;
-		height: min-content;
 	}
 
 	#survivors-turns {

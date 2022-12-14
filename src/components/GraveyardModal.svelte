@@ -20,7 +20,7 @@
 	<ModalBody>
 		<div id="graveyard-body">
 			<div id="graveyard">
-				{#each state.G.hordeGraveyard as card, index}
+				{#each state.G.hordeGraveyard as card, index (card.uid)}
 					<div class="graveyard-card">
 						<Card {card} {index} on:click={() => (currentCard = card)}>
 							<div slot="actions">
