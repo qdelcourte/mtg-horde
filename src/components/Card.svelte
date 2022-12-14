@@ -3,7 +3,7 @@
 
 	import { getContext } from 'svelte';
 	import { key } from '../context';
-	import { isSorceryCard, isInstantCard, isEnchantmentCard } from '../gameHelpers';
+	import { isSorceryCard, isInstantCard, isEnchantmentCard, isTokenCard } from '../gameHelpers';
 
 	let client = getContext(key);
 
@@ -15,7 +15,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <img
-	src="/assets/card-back.jpg"
+	src={isTokenCard(card) ? "/assets/card-back.jpg" : card.images.normal}
 	alt="a card"
 	class:tapped={card.tapped}
 	class:sorcery={isSorceryCard(card)}
