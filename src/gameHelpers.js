@@ -1,4 +1,5 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
+import { v4 as uuidv4 } from 'uuid';
 import { current } from 'immer';
 import decks from 'decks';
 
@@ -25,7 +26,11 @@ export function loadDeck(deckName, nbSurvivors, tokenProportion) {
 		.slice(0, expectedNbNonTokenCardsInDeck);
 
 	// Return deck shuffled
-	return tokenDeck.concat(nonTokenDeck).sort(() => 0.5 - Math.random());
+	return tokenDeck.concat(nonTokenDeck).sort(() => 0.5 - Math.random()).map((card) => ({...card, uid: generateCardRandomId()}));
+}
+
+export function generateCardRandomId() {
+	return uuidv4();
 }
 
 export function computeHordeLife(G) {
@@ -115,7 +120,8 @@ export default {
 				...card,
 				power: power,
 				toughness: toughness,
-				isExtraToken: true
+				isExtraToken: true,
+				uid: generateCardRandomId()
 			}
 		];
 		G.hordeLife = computeHordeLife(G);
