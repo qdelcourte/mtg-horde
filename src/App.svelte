@@ -6,7 +6,7 @@
 	import { MTGHorde } from './game';
 	import { key } from './context';
 
-	let client = Client({ game: MTGHorde, numPlayers: 2 });
+	let client = Client({ game: MTGHorde, numPlayers: 2, debug: { collapseOnLoad: true } });
 	setContext(key, client);
 
 	onMount(() => {
