@@ -1,13 +1,11 @@
 <script>
-	import { Alert } from 'sveltestrap';
+	import { Alert } from 'flowbite-svelte';
 
 	let open = false;
-	let color = 'success';
+	let color = 'green';
 	let message;
 
-	const toggle = () => (open = !open);
-
-	export function alert(_message, _color = 'success') {
+	export function alert(_message, _color = 'green') {
 		message = _message;
 		color = _color;
 		open = true;
@@ -16,7 +14,7 @@
 
 {#if open}
 	<div id="alert">
-		<Alert isOpen={open} {color} {toggle} dismissible>
+		<Alert {color} dismissable>
 			{message}
 		</Alert>
 	</div>

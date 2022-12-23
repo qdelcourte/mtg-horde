@@ -16,15 +16,18 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.4.0",
+    "autoprefixer": "^10.4.13",
     "boardgame.io": "^0.50.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^4.0.0",
+    "flowbite-svelte": "^0.29.3",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
     "scryfall-sdk": "^2.1.1",
     "svelte": "^3.54.0",
-    "sveltestrap": "^5.10.0",
+    "svelte-heros-v2": "^0.3.10",
+    "tailwindcss": "^3.2.4",
     "uuid": "^9.0.0"
   }
 }

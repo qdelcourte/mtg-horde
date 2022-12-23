@@ -1,5 +1,5 @@
 <script>
-	import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Icon } from 'sveltestrap';
+	import { Button, Dropdown, DropdownItem, Chevron } from 'flowbite-svelte';
 
 	import { getContext } from 'svelte';
 	import { key } from '../context';
@@ -15,7 +15,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <img
-	src={isTokenCard(card) ? "/assets/card-back.jpg" : card.images.normal}
+	src={'/assets/card-back.jpg'}
 	alt="a card"
 	class:tapped={card.tapped}
 	class:sorcery={isSorceryCard(card)}
@@ -26,43 +26,39 @@
 <span class="card-name">{card.name}</span>
 {#if $$slots.actions}
 	<div class="card-actions">
-		<Dropdown size="sm">
-			<DropdownToggle><Icon name="caret-down-fill" /></DropdownToggle>
-			<DropdownMenu dark>
-				<slot name="actions" />
-			</DropdownMenu>
+		<Button id="action-{card.uid}" class="!px-1" color="dark"><Chevron /></Button>
+		<Dropdown size="xs" triggeredBy=".card-actions #action-{card.uid}">
+			<slot name="actions" />
 		</Dropdown>
 	</div>
 {/if}
 {#if card.power || card.powerMarker || card.toughness || card.toughnessMarker}
 	<div class="card-power">
-		<Dropdown size="sm">
-			<DropdownToggle
-				>{(parseInt(card.power) || 0) + (parseInt(card.powerMarker) || 0)} / {(parseInt(
-					card.toughness
-				) || 0) + (parseInt(card.toughnessMarker) || 0)}</DropdownToggle
-			>
+		<Button id="power-{card.uid}" class="!px-1" color="dark"
+			>{(parseInt(card.power) || 0) + (parseInt(card.powerMarker) || 0)} / {(parseInt(
+				card.toughness
+			) || 0) + (parseInt(card.toughnessMarker) || 0)}</Button
+		>
+		<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}">
 			{#if canChangeMarker}
-				<DropdownMenu dark>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
-						>Add marker +1 / +1</DropdownItem
-					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, -1)}
-						>Add marker -1 / -1</DropdownItem
-					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 0)}
-						>Add marker +1 / 0</DropdownItem
-					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, 0)}
-						>Add marker -1 / 0</DropdownItem
-					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, 1)}
-						>Add marker 0 / +1</DropdownItem
-					>
-					<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, -1)}
-						>Add marker 0 / -1</DropdownItem
-					>
-				</DropdownMenu>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
+					>Add marker +1 / +1</DropdownItem
+				>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, -1)}
+					>Add marker -1 / -1</DropdownItem
+				>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 0)}
+					>Add marker +1 / 0</DropdownItem
+				>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, 0)}
+					>Add marker -1 / 0</DropdownItem
+				>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, 1)}
+					>Add marker 0 / +1</DropdownItem
+				>
+				<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, -1)}
+					>Add marker 0 / -1</DropdownItem
+				>
 			{/if}
 		</Dropdown>
 	</div>

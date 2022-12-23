@@ -1,5 +1,6 @@
 <script>
-	import { Button, ButtonGroup, Icon, Tooltip } from 'sveltestrap';
+	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
+	import { ArrowUturnLeft, ArrowUturnRight } from 'svelte-heros-v2';
 	import { getContext } from 'svelte';
 	import { key } from '../context';
 	import { PHASES, STAGES } from '../gameHelpers';
@@ -11,10 +12,10 @@
 
 <div id="score">
 	<div id="undo">
-		<Tooltip target="btn-undo">Undo</Tooltip>
 		<Button id="btn-undo" on:click={() => client.undo()} color="dark" aria-label="undo"
-			><Icon name="arrow-counterclockwise" /></Button
+			><ArrowUturnLeft /></Button
 		>
+		<Tooltip triggeredBy="#btn-undo" placement="top">Undo</Tooltip>
 	</div>
 	<div id="horde" class:player-turn={state.ctx.currentPlayer === '0'}>
 		<div id="horde-life">
@@ -22,10 +23,10 @@
 			<span class="life">{state.G.hordeLife}</span>
 			<div class="change-life">
 				<ButtonGroup>
-					<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(5)} color="danger"
+					<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(5)} color="red"
 						>-5</Button
 					>
-					<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(1)} color="danger"
+					<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(1)} color="red"
 						>-1</Button
 					>
 				</ButtonGroup>
@@ -35,22 +36,15 @@
 			<ButtonGroup>
 				{#if state.ctx.phase === PHASES.fightTheHorde && state.ctx.activePlayers}
 					{#if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.untap}
-						<Button on:click={() => client.moves.stageHordeUntap()} color="primary" size="sm"
-							>Untap all</Button
-						>
+						<Button on:click={() => client.moves.stageHordeUntap()} size="sm">Untap all</Button>
 					{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.draw}
-						<Button on:click={() => client.moves.stageHordeDraw()} color="primary" size="sm"
-							>Draw</Button
-						>
+						<Button on:click={() => client.moves.stageHordeDraw()} size="sm">Draw</Button>
 					{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.upkeek}
-						<Button
-							on:click={() => client.moves.stageHordeDeclareAttack()}
-							color="primary"
-							size="sm">Declare attack</Button
+						<Button on:click={() => client.moves.stageHordeDeclareAttack()} size="sm"
+							>Declare attack</Button
 						>
 					{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.attack}
-						<Button on:click={() => client.moves.stageHordeAttackEnd()} color="primary" size="sm"
-							>Attack End</Button
+						<Button on:click={() => client.moves.stageHordeAttackEnd()} size="sm">Attack End</Button
 						>
 					{/if}
 				{/if}
@@ -63,26 +57,24 @@
 			<span class="life">{state.G.survivorsLife}</span>
 			<div class="change-life">
 				<ButtonGroup>
-					<Button on:click={() => client.moves.survivorsChangeLife(-5)} color="danger">-5</Button>
-					<Button on:click={() => client.moves.survivorsChangeLife(-1)} color="danger">-1</Button>
-					<Button on:click={() => client.moves.survivorsChangeLife(1)} color="success">+1</Button>
-					<Button on:click={() => client.moves.survivorsChangeLife(5)} color="success">+5</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(-5)} color="red">-5</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(-1)} color="red">-1</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(1)} color="green">+1</Button>
+					<Button on:click={() => client.moves.survivorsChangeLife(5)} color="green">+5</Button>
 				</ButtonGroup>
 			</div>
 		</div>
 		<div id="survivors-actions" class="actions">
 			{#if state.ctx.phase === PHASES.fightTheHorde && state.ctx.currentPlayer == 1}
-				<Button on:click={() => client.moves.stageSurvivorsEndTurn()} color="primary" size="sm"
-					>End turn</Button
-				>
+				<Button on:click={() => client.moves.stageSurvivorsEndTurn()} size="sm">End turn</Button>
 			{/if}
 		</div>
 	</div>
 	<div id="redo">
-		<Tooltip target="btn-redo">Redo</Tooltip>
 		<Button id="btn-redo" on:click={() => client.redo()} color="dark" aria-label="redo"
-			><Icon name="arrow-clockwise" /></Button
+			><ArrowUturnRight /></Button
 		>
+		<Tooltip triggeredBy="#btn-redo">Redo</Tooltip>
 	</div>
 </div>
 

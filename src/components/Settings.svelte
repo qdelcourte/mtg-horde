@@ -1,5 +1,5 @@
 <script>
-	import { Form, FormGroup, Input, Label, Button, Spinner } from 'sveltestrap';
+	import { Button, Input, Select, Label, Spinner } from 'flowbite-svelte';
 	import { getContext, createEventDispatcher } from 'svelte';
 	import { key } from '../context';
 
@@ -32,55 +32,56 @@
 	}
 </script>
 
-<Form>
-	<FormGroup>
-		<Label for="deckName">Choose the horde</Label>
+<div class="mb-6">
+	<Label for="deckName"
+		>Choose the horde
 		{#await loadDeckList()}
-			<Spinner size="sm" />
+			<Spinner size="6" />
 		{:then decks}
-			<Input type="select" name="deckName" id="deckName" bind:value={inputDeckValue}>
-				{#each decks as deckName}
-					<option value={deckName}>{deckName}</option>
-				{/each}
-			</Input>
+			<Select
+				name="deckName"
+				id="deckName"
+				items={decks.map((d) => ({ value: d, name: d }))}
+				bind:value={inputDeckValue}
+			/>
 		{/await}
-	</FormGroup>
+	</Label>
+</div>
 
-	<FormGroup>
-		<Label for="nbSurvivors">Number of survivors</Label>
-		<Input
-			bind:value={inputNbSurvivorsValue}
-			type="number"
-			name="nbSurvivors"
-			id="nbSurvivors"
-			placeholder="number of survivors"
-		/>
-	</FormGroup>
+<div class="mb-6">
+	<Label for="nbSurvivors">Number of survivors</Label>
+	<Input
+		bind:value={inputNbSurvivorsValue}
+		type="number"
+		name="nbSurvivors"
+		id="nbSurvivors"
+		placeholder="number of survivors"
+	/>
+</div>
 
-	<FormGroup>
-		<Label for="numInitialSurvivorsTurn">Number of initial survivors turn</Label>
-		<Input
-			bind:value={inputNbInitialSurvivorsTurnValue}
-			type="number"
-			name="numInitialSurvivorsTurn"
-			id="numInitialSurvivorsTurn"
-			placeholder="number of initial survivors turn"
-		/>
-	</FormGroup>
+<div class="mb-6">
+	<Label for="numInitialSurvivorsTurn">Number of initial survivors turn</Label>
+	<Input
+		bind:value={inputNbInitialSurvivorsTurnValue}
+		type="number"
+		name="numInitialSurvivorsTurn"
+		id="numInitialSurvivorsTurn"
+		placeholder="number of initial survivors turn"
+	/>
+</div>
 
-	<FormGroup>
-		<Label for="tokenProportion">Token proportion in deck (%)</Label>
-		<Input
-			bind:value={inputTokenProportionValue}
-			min="1"
-			max="100"
-			step="1"
-			type="number"
-			name="tokenProportion"
-			id="tokenProportion"
-			placeholder="token proportion in deck"
-		/>
-	</FormGroup>
-</Form>
+<div class="mb-6">
+	<Label for="tokenProportion">Token proportion in deck (%)</Label>
+	<Input
+		bind:value={inputTokenProportionValue}
+		min="1"
+		max="100"
+		step="1"
+		type="number"
+		name="tokenProportion"
+		id="tokenProportion"
+		placeholder="token proportion in deck"
+	/>
+</div>
 
 <Button on:click={startOrRestartGame}>Start/Restart Game</Button>

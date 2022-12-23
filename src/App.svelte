@@ -1,4 +1,5 @@
 <script>
+	import './app.postcss';
 	import { onMount, setContext } from 'svelte';
 	import { Client } from 'boardgame.io/client';
 	import Board from './components/Board.svelte';
@@ -23,6 +24,7 @@
 </script>
 
 <GithubCorner />
+
 <div id="app">
 	<Board />
 </div>
