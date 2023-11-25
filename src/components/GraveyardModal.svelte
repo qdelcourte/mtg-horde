@@ -10,12 +10,12 @@
 	client.subscribe((s) => (state = s));
 
 	let open = false;
-	export const toggle = () => (open = !open);
+	export const show = () => (open = true);
 
 	let currentCard;
 </script>
 
-<Modal {open} {toggle} size="xl">
+<Modal bind:open size="xl">
 	<svelte:fragment slot="header">
 		<Span class="mr-3">Horde graveyard</Span>
 		<Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment

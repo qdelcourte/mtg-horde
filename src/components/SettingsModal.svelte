@@ -3,9 +3,9 @@
 	import Settings from './Settings.svelte';
 
 	let open = false;
-	export const toggle = () => (open = !open);
+	export const show = () => (open = true);
 </script>
 
-<Modal {open} {toggle} size="xl" title="Settings" {...$$restProps}>
-	<Settings on:startGame={() => toggle()} />
+<Modal bind:open size="xs" title="Settings" {...$$restProps}>
+	<Settings on:startGame={() => (open = false)} />
 </Modal>

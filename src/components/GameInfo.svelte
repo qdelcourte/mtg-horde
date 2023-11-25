@@ -11,7 +11,7 @@
 	client.subscribe((s) => (state = s));
 
 	let hidden = true;
-	export const toggle = () => (hidden = !hidden);
+	export const show = () => (hidden = false);
 </script>
 
 <Drawer bind:hidden transitionType="fly" {placement} {header}>
