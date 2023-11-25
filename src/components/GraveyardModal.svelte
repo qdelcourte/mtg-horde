@@ -1,5 +1,5 @@
 <script>
-	import { Badge, DropdownItem, Modal } from 'flowbite-svelte';
+	import { Badge, DropdownItem, Modal, Span } from 'flowbite-svelte';
 	import { getContext } from 'svelte';
 	import { key } from '../context';
 	import CardDetails from './CardDetails.svelte';
@@ -10,14 +10,15 @@
 	client.subscribe((s) => (state = s));
 
 	let open = false;
-	export const toggle = () => (open = !open);
+	export const show = () => (open = true);
 
 	let currentCard;
 </script>
 
-<Modal {open} {toggle} size="xl">
-	<svelte:fragment slot="header"
-		>Horde graveyard <Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
+<Modal bind:open size="xl">
+	<svelte:fragment slot="header">
+		<Span class="mr-3">Horde graveyard</Span>
+		<Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
 	>
 	<div id="graveyard-body">
 		<div id="graveyard">

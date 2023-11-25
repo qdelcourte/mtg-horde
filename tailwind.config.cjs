@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 const config = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
@@ -5,7 +7,11 @@ const config = {
 	],
 
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				primary: colors.blue
+			}
+		}
 	},
 
 	plugins: [require('flowbite/plugin')],

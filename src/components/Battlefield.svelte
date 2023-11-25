@@ -26,7 +26,9 @@
 							><ArrowUturnRight size="16" class="inline-block" /> Tap</DropdownItem
 						>
 					{/if}
-					<DropdownItem on:click={() => client.moves.putCardInHordeDeckFromBattlefield(index)}
+					<DropdownItem
+						class="w-48"
+						on:click={() => client.moves.putCardInHordeDeckFromBattlefield(index)}
 						><XMark size="16" class="inline-block" /> To the top library</DropdownItem
 					>
 					<DropdownItem on:click={() => client.moves.putCardInHordeGraveyardFromBattlefield(index)}

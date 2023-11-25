@@ -8,7 +8,7 @@
 	export let placement = 'left';
 
 	let hidden = true;
-	export const toggle = () => (hidden = !hidden);
+	export const show = () => (hidden = false);
 
 	let client = getContext(key);
 

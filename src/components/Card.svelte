@@ -1,5 +1,6 @@
 <script>
-	import { Button, Dropdown, DropdownItem, ChevronDown } from 'flowbite-svelte';
+	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
+	import { ChevronDown } from 'svelte-heros-v2';
 	import { getContext } from 'svelte';
 	import { isSorceryCard, isInstantCard, isEnchantmentCard } from '../gameHelpers';
 	import { key } from '../context';
@@ -14,6 +15,7 @@
 
 <div class="card-container">
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 	<img
 		src={'/assets/card-back.jpg'}
 		alt="a card"
@@ -46,7 +48,9 @@
 					>
 					{#if canChangeMarker}
 						<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}" placement="right">
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
+							<DropdownItem
+								class="w-48"
+								on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
 								>Add marker +1 / +1</DropdownItem
 							>
 							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, -1)}
