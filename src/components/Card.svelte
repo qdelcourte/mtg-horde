@@ -11,6 +11,19 @@
 	export let index;
 
 	export let canChangeMarker = false;
+
+	function cardMarkerRepr(card) {
+		let power = card.power;
+		if (card.powerMarker) {
+			power = (parseInt(power) || 0) + (parseInt(card.powerMarker) || 0);
+		}
+		let toughness = card.toughness;
+		if (card.toughnessMarker) {
+			toughness = (parseInt(toughness) || 0) + (parseInt(card.toughnessMarker) || 0);
+		}
+
+		return `${power} / ${toughness}`;
+	}
 </script>
 
 <div class="card-container">
@@ -41,11 +54,7 @@
 			{/if}
 			{#if card.power || card.powerMarker || card.toughness || card.toughnessMarker}
 				<div class="card-power">
-					<Button id="power-{card.uid}" class="!px-2" color="dark"
-						>{(parseInt(card.power) || 0) + (parseInt(card.powerMarker) || 0)} / {(parseInt(
-							card.toughness
-						) || 0) + (parseInt(card.toughnessMarker) || 0)}</Button
-					>
+					<Button id="power-{card.uid}" class="!px-2" color="dark">{cardMarkerRepr(card)}</Button>
 					{#if canChangeMarker}
 						<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}" placement="right">
 							<DropdownItem
