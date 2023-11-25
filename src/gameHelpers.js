@@ -1,5 +1,4 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
-import { v4 as uuidv4 } from 'uuid';
 import { current } from 'immer';
 import decks from 'decks';
 
@@ -33,7 +32,7 @@ export function loadDeck(deckName, nbSurvivors, tokenProportion) {
 }
 
 export function generateCardRandomId() {
-	return uuidv4();
+	return crypto.randomUUID();
 }
 
 export function computeHordeLife(G) {
