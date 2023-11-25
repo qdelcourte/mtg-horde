@@ -1,5 +1,5 @@
 <script>
-	import { Badge, Button, P } from 'flowbite-svelte';
+	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
 	import {
 		AdjustmentsHorizontal,
 		DocumentArrowDown,
@@ -94,10 +94,12 @@
 						<img src="/assets/card-back.jpg" alt="card bak - horde" />
 						<Badge
 							large
+							id="horde-life-badge"
 							color="dark"
 							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
 							>{state.G.hordeDeck.length}</Badge
 						>
+						<Tooltip triggeredBy="#horde-life-badge">Horde life</Tooltip>
 					</div>
 				</div>
 			{/if}
@@ -118,10 +120,12 @@
 						/>
 						<Badge
 							large
+							id="horde-graveyard-badge"
 							color="dark"
 							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
 							>{state.G.hordeGraveyard.length}</Badge
 						>
+						<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
 					</div>
 				</div>
 			{/if}
@@ -154,31 +158,36 @@
 		<div id="add-card" on:click={() => addTokenModalRef.show()}>
 			<PlusCircle variation="solid" class="text-white" />
 		</div>
+		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
 	{/if}
-
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div id="info" on:click={() => gameInfoRef.show()}>
-		<InformationCircle variation="solid" class="text-white" />
-	</div>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="settings" on:click={() => settingsModalRef.show()}>
 		<AdjustmentsHorizontal variation="solid" class="text-white" />
 	</div>
+	<Tooltip triggeredBy="#settings">Restart game ?</Tooltip>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="save" on:click={onSave}>
 		<DocumentArrowDown variation="solid" class="text-white" />
 	</div>
+	<Tooltip triggeredBy="#save">Do savepoint</Tooltip>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="restore" on:click={onRestore}>
 		<DocumentArrowUp variation="solid" class="text-white" />
 	</div>
+	<Tooltip triggeredBy="#restore">Restore savepoint</Tooltip>
+
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div id="info" on:click={() => gameInfoRef.show()}>
+		<InformationCircle variation="solid" class="text-white" />
+	</div>
+	<Tooltip triggeredBy="#info">Open game info</Tooltip>
 </div>
 
 <style>
