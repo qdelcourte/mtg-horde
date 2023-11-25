@@ -1,5 +1,5 @@
 <script>
-	import { Button } from 'flowbite-svelte';
+	import { Badge, Button } from 'flowbite-svelte';
 	import {
 		AdjustmentsHorizontal,
 		DocumentArrowDown,
@@ -82,9 +82,21 @@
 	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
 		<div id="stacks">
 			{#if state.ctx.phase === PHASES.fightTheHorde}
-				<div id="deck" class="grid grid-cols-[max-content_1fr]" in:fly={{ x: -100, duration: 500 }}>
-					<div class="label">Deck</div>
-					<img src="/assets/card-back.jpg" alt="card back - deck" />
+				<div
+					id="horde"
+					class=" grid grid-cols-[max-content_1fr]"
+					in:fly={{ x: -100, duration: 500 }}
+				>
+					<div class="label">Horde</div>
+					<div class="relative">
+						<img src="/assets/card-back.jpg" alt="card bak - horde" />
+						<Badge
+							large
+							color="dark"
+							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+							>{state.G.hordeDeck.length}</Badge
+						>
+					</div>
 				</div>
 			{/if}
 			{#if state.G.hordeGraveyard.length > 0}
@@ -94,13 +106,21 @@
 					in:fly={{ x: -100, duration: 500 }}
 				>
 					<div class="label">Graveyard</div>
-					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-					<img
-						src="/assets/card-back.jpg"
-						alt="graveyard zone"
-						on:click={() => graveyardModalRef.show()}
-					/>
+					<div class="relative">
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+						<img
+							src="/assets/card-back.jpg"
+							alt="graveyard zone"
+							on:click={() => graveyardModalRef.show()}
+						/>
+						<Badge
+							large
+							color="dark"
+							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+							>{state.G.hordeGraveyard.length}</Badge
+						>
+					</div>
 				</div>
 			{/if}
 		</div>
