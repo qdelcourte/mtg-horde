@@ -125,8 +125,8 @@
 					</div>
 				</div>
 			{/if}
-			{#if state.G.hordeBattlefield}
-				<div class="bg-gray-400">
+			{#if state.ctx.phase === PHASES.fightTheHorde}
+				<div class="bg-gray-400" in:fly={{ x: -100, duration: 500 }}>
 					<P color="text-white">Horde Damage: {computeHordeDamage(state.G)}</P>
 				</div>
 			{/if}
