@@ -94,6 +94,7 @@
 				>
 					<div class="label">Graveyard</div>
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 					<img
 						src="/assets/card-back.jpg"
 						alt="graveyard zone"
@@ -120,6 +121,7 @@
 
 <div id="options" class="absolute bottom-0 left-2">
 	{#if state.ctx.phase === PHASES.fightTheHorde}
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div id="add-card" on:click={() => addTokenModalRef.toggle()}>
 			<PlusCircle variation="solid" class="text-white" />
@@ -127,21 +129,25 @@
 	{/if}
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="info" on:click={() => gameInfoRef.toggle()}>
 		<InformationCircle variation="solid" class="text-white" />
 	</div>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="settings" on:click={() => settingsModalRef.toggle()}>
 		<AdjustmentsHorizontal variation="solid" class="text-white" />
 	</div>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="save" on:click={onSave}>
 		<DocumentArrowDown variation="solid" class="text-white" />
 	</div>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div id="restore" on:click={onRestore}>
 		<DocumentArrowUp variation="solid" class="text-white" />
 	</div>
@@ -182,6 +188,8 @@
 
 	#graveyard img:hover {
 		cursor: pointer;
-		box-shadow: 0 0 0 4px #eee, 0 0 0 5px #aaa;
+		box-shadow:
+			0 0 0 4px #eee,
+			0 0 0 5px #aaa;
 	}
 </style>

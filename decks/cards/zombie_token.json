@@ -1,32 +1,26 @@
 {
-    "uri": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc",
-    "scryfall_uri": "https://scryfall.com/card/ddq/80/zombie?utm_source=api",
-    "lang": "en",
-    "name": "Zombie",
-    "mana_cost": "",
-    "cmc": 0,
-    "colors": [
-        "B"
-    ],
-    "color_identity": [
-        "B"
-    ],
-    "type": "Token Creature — Zombie",
-    "layout": "token",
-    "text": "",
-    "power": "2",
-    "toughness": "2",
-    "multiverse_ids": [
-        409656
-    ],
-    "images": {
-        "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-        "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-        "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-        "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.png?1593142529",
-        "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-        "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529"
-    },
-    "rulings": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc/rulings",
-    "id": "7c60e495-8fb7-43bb-b11d-52882c0246bc"
+	"uri": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc",
+	"scryfall_uri": "https://scryfall.com/card/ddq/80/zombie?utm_source=api",
+	"lang": "en",
+	"name": "Zombie",
+	"mana_cost": "",
+	"cmc": 0,
+	"colors": ["B"],
+	"color_identity": ["B"],
+	"type": "Token Creature — Zombie",
+	"layout": "token",
+	"text": "",
+	"power": "2",
+	"toughness": "2",
+	"multiverse_ids": [409656],
+	"images": {
+		"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+		"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+		"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+		"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.png?1593142529",
+		"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+		"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529"
+	},
+	"rulings": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc/rulings",
+	"id": "7c60e495-8fb7-43bb-b11d-52882c0246bc"
 }

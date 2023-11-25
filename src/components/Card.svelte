@@ -14,6 +14,7 @@
 
 <div class="card-container">
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 	<img
 		src={'/assets/card-back.jpg'}
 		alt="a card"
