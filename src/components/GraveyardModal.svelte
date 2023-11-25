@@ -17,13 +17,13 @@
 
 <Modal {open} {toggle} size="xl">
 	<svelte:fragment slot="header"
-		>Horde graveyard <Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
+		>Horde graveyard <Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
 	>
 	<div id="graveyard-body">
 		<div id="graveyard">
 			{#each state.G.hordeGraveyard as card, index (card.uid)}
 				<div class="graveyard-card">
-					<Card {card} {index} on:click={() => (currentCard = card)}>
+					<Card {card} {index} on:click={() => (currentCard = card)} canChangeMarker={false}>
 						<div slot="actions">
 							<DropdownItem
 								on:click={() => client.moves.putCardInHordeDeckFromGraveyard(index, true)}

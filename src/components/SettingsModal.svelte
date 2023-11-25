@@ -6,6 +6,6 @@
 	export const toggle = () => (open = !open);
 </script>
 
-<Modal {open} {toggle} size="xl" title="Settings" permanent>
+<Modal {open} {toggle} size="xl" title="Settings" {...$$restProps}>
 	<Settings on:startGame={() => toggle()} />
 </Modal>

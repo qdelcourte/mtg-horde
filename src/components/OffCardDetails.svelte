@@ -6,7 +6,6 @@
 
 	let card;
 	let hidden = true;
-	const toggle = () => (hidden = !hidden);
 
 	export const show = (_card) => {
 		card = _card;

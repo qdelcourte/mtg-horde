@@ -52,161 +52,136 @@
 <GameInfo bind:this={gameInfoRef} />
 <OffCardDetails bind:this={cardDetailsRef} />
 <GraveyardModal bind:this={graveyardModalRef} />
-<SettingsModal bind:this={settingsModalRef} />
+<SettingsModal bind:this={settingsModalRef} permanent={!state.ctx.phase} />
 <AlertToast bind:this={alertToastRef} />
 <AddTokenModal bind:this={addTokenModalRef} />
 
-<div id="game">
-	<div id="bottom-left">
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div id="info" on:click={() => gameInfoRef.toggle()}>
-			<InformationCircle variation="solid" class="text-white" />
+{#if state.ctx.phase === PHASES.initialSurvivorsTurns}
+	<div
+		id="survivors-turns"
+		class="absolute w-full top-1/2 -translate-y-2/4 bg-black text-white text-center text-5xl font-bold py-4"
+		transition:fly={{ y: 100, duration: 1000 }}
+	>
+		<div id="current">
+			Survivors turn {state.G.currentInitialSurvivorTurn + 1} / {state.G.nbInitialSurvivorsTurn}
 		</div>
-
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div id="settings" on:click={() => settingsModalRef.toggle()}>
-			<AdjustmentsHorizontal variation="solid" class="text-white" />
-		</div>
-
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div id="save" on:click={onSave}>
-			<DocumentArrowDown variation="solid" class="text-white" />
-		</div>
-
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div id="restore" on:click={onRestore}>
-			<DocumentArrowUp variation="solid" class="text-white" />
+		<div id="next">
+			<Button on:click={() => client.moves.nextInitialTurn()}>
+				{#if state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn}
+					Go !
+				{:else}
+					Next
+				{/if}
+			</Button>
 		</div>
 	</div>
+{/if}
 
-	<div id="top">
-		{#if state.ctx.phase === PHASES.fightTheHorde}
-			<div id="actions">
-				<Button on:click={() => addTokenModalRef.toggle()}><PlusCircle /> Token</Button>
-			</div>
-		{/if}
-	</div>
-
-	{#if state.ctx.phase === PHASES.fightTheHorde}
-		<div id="board">
-			<div id="stacks" class="bg-light">
-				<div id="deck">
-					<div id="label">Deck</div>
+<div id="game" class="overflow-hidden h-full">
+	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
+		<div id="stacks">
+			{#if state.ctx.phase === PHASES.fightTheHorde}
+				<div id="deck" class="grid grid-cols-[max-content_1fr]" in:fly={{ x: -100, duration: 500 }}>
+					<div class="label">Deck</div>
 					<img src="/assets/card-back.jpg" alt="card back - deck" />
 				</div>
-				{#if state.G.hordeGraveyard.length > 0}
-					<div id="graveyard">
-						<div id="label">Graveyard</div>
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<img
-							src="/assets/card-back.jpg"
-							alt="graveyard zone"
-							on:click={() => graveyardModalRef.toggle()}
-						/>
-					</div>
-				{/if}
-			</div>
-			<div id="battlefield">
-				<Battlefield on:show_card={(event) => cardDetailsRef.show(event.detail.card)} />
-			</div>
+			{/if}
+			{#if state.G.hordeGraveyard.length > 0}
+				<div
+					id="graveyard"
+					class="grid grid-cols-[max-content_1fr]"
+					in:fly={{ x: -100, duration: 500 }}
+				>
+					<div class="label">Graveyard</div>
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<img
+						src="/assets/card-back.jpg"
+						alt="graveyard zone"
+						on:click={() => graveyardModalRef.toggle()}
+					/>
+				</div>
+			{/if}
 		</div>
-	{/if}
-
-	{#if state.ctx.phase === PHASES.initialSurvivorsTurns}
-		<div id="survivors-turns" transition:fly={{ y: 100, duration: 1000 }}>
-			<div id="current">
-				Survivors turn {state.G.currentInitialSurvivorTurn + 1} / {state.G.nbInitialSurvivorsTurn}
-			</div>
-			<div id="next">
-				<Button on:click={() => client.moves.nextInitialTurn()}>Next</Button>
-			</div>
+		<div id="battlefield" class="overflow-auto h-full">
+			<Battlefield on:show_card={(event) => cardDetailsRef.show(event.detail.card)} />
 		</div>
-	{/if}
+	</div>
+</div>
 
+{#if state.ctx.phase === PHASES.fightTheHorde}
+	<div
+		id="footer"
+		class="fixed bottom-0 left-1/2 w-8/12 -translate-x-1/2"
+		transition:fly={{ y: 50, duration: 500 }}
+	>
+		<Score />
+	</div>
+{/if}
+
+<div id="options" class="absolute bottom-0 left-2">
 	{#if state.ctx.phase === PHASES.fightTheHorde}
-		<div id="footer" transition:fly={{ y: 50, duration: 1000 }}>
-			<Score />
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div id="add-card" on:click={() => addTokenModalRef.toggle()}>
+			<PlusCircle variation="solid" class="text-white" />
 		</div>
 	{/if}
+
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div id="info" on:click={() => gameInfoRef.toggle()}>
+		<InformationCircle variation="solid" class="text-white" />
+	</div>
+
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div id="settings" on:click={() => settingsModalRef.toggle()}>
+		<AdjustmentsHorizontal variation="solid" class="text-white" />
+	</div>
+
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div id="save" on:click={onSave}>
+		<DocumentArrowDown variation="solid" class="text-white" />
+	</div>
+
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div id="restore" on:click={onRestore}>
+		<DocumentArrowUp variation="solid" class="text-white" />
+	</div>
 </div>
 
 <style>
-	#bottom-left {
-		position: absolute;
-		bottom: 0;
-		left: 5px;
-	}
-
 	#game {
 		background-image: url('/assets/horde-bg.jpg');
 		background-size: cover;
-		height: 100%;
-		overflow: hidden;
-		overflow-y: scroll;
-	}
-
-	#board {
-		display: grid;
-		grid-template-columns: 14% 1fr;
-		margin-bottom: 160px;
 	}
 
 	#board #stacks > div {
-		display: grid;
-		grid-template-columns: 18% 1fr;
+		background-color: gray;
+		opacity: 0.9;
+		transition: border-radius 0.7s ease-in-out;
 	}
 
-	#board #stacks #label {
+	#board #stacks > div:last-child {
+		border-bottom-right-radius: 10px;
+	}
+
+	#board #stacks div.label {
 		transform: rotate(180deg);
 		writing-mode: vertical-lr;
 		text-align: center;
 		text-transform: uppercase;
-		background-color: darkgray;
+		background-color: dimgray;
 		color: white;
-		font-size: 2rem;
-	}
-
-	#top #actions {
-		margin: 15px;
-	}
-
-	#board #stacks {
-		border-bottom-right-radius: 15px;
-	}
-
-	#board #battlefield {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, 203px);
+		font-size: 1rem;
+		letter-spacing: 1px;
 	}
 
 	#board img {
 		transition-duration: 0.5s;
-		height: 15rem;
+		height: 10rem;
 		margin: 15px;
 	}
 
 	#graveyard img:hover {
 		cursor: pointer;
 		box-shadow: 0 0 0 4px #eee, 0 0 0 5px #aaa;
-	}
-
-	#survivors-turns {
-		position: absolute;
-		background-color: black;
-		color: white;
-		font-weight: bold;
-		font-size: 3rem;
-		width: 100%;
-		text-align: center;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	#footer {
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		position: fixed;
-		width: 60%;
 	}
 </style>

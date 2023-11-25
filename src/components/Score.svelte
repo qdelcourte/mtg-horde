@@ -10,7 +10,7 @@
 	client.subscribe((s) => (state = s));
 </script>
 
-<div id="score">
+<div id="score" class="h-1/6">
 	<div id="undo">
 		<Button id="btn-undo" on:click={() => client.undo()} color="dark" aria-label="undo"
 			><ArrowUturnLeft /></Button

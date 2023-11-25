@@ -12,36 +12,45 @@
 	client.subscribe((s) => (state = s));
 </script>
 
-{#each state.G.hordeBattlefield as card, index (card.uid)}
-	<div class="battlefield-card" in:fly={{ y: 100, duration: 500 }} out:fly>
-		<Card {card} {index} canChangeMarker on:click={() => dispatch('show_card', { card })}>
-			<svelte:fragment slot="actions">
-				{#if card.tapped}
-					<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
-						><ArrowUturnLeft /> Untap</DropdownItem
+<div id="battlefield-container">
+	{#each state.G.hordeBattlefield as card, index (card.uid)}
+		<div class="battlefield-card" in:fly={{ x: 100, duration: 500 }} out:fly>
+			<Card {card} {index} canChangeMarker on:click={() => dispatch('show_card', { card })}>
+				<svelte:fragment slot="actions">
+					{#if card.tapped}
+						<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
+							><ArrowUturnLeft size="16" class="inline-block" /> Untap</DropdownItem
+						>
+					{:else}
+						<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
+							><ArrowUturnRight size="16" class="inline-block" /> Tap</DropdownItem
+						>
+					{/if}
+					<DropdownItem on:click={() => client.moves.putCardInHordeDeckFromBattlefield(index)}
+						><XMark size="16" class="inline-block" /> To the top library</DropdownItem
 					>
-				{:else}
-					<DropdownItem on:click={() => client.moves.hordeToggleTapCard(index)}
-						><ArrowUturnRight /> Tap</DropdownItem
+					<DropdownItem on:click={() => client.moves.putCardInHordeGraveyardFromBattlefield(index)}
+						><XMark size="16" class="inline-block" /> To the graveyard</DropdownItem
 					>
-				{/if}
-				<DropdownItem on:click={() => client.moves.putCardInHordeDeckFromBattlefield(index)}
-					><XMark /> To the top library</DropdownItem
-				>
-				<DropdownItem on:click={() => client.moves.putCardInHordeGraveyardFromBattlefield(index)}
-					><XMark /> To the graveyard</DropdownItem
-				>
-				<DropdownItem on:click={() => client.moves.putCardInHordeExileFromBattlefield(index)}
-					><XMark /> To the exile</DropdownItem
-				>
-			</svelte:fragment>
-		</Card>
-	</div>
-{/each}
+					<DropdownItem on:click={() => client.moves.putCardInHordeExileFromBattlefield(index)}
+						><XMark size="16" class="inline-block" /> To the exile</DropdownItem
+					>
+				</svelte:fragment>
+			</Card>
+		</div>
+	{/each}
+</div>
 
 <style>
-	.battlefield-card {
-		position: relative;
-		height: min-content;
+	#battlefield-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: stretch;
+		padding: 10px;
+		box-sizing: border-box;
+		height: 100%;
+		overflow: auto;
+		overflow-x: hidden;
 	}
 </style>
