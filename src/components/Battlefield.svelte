@@ -47,7 +47,8 @@
 	#battlefield-container {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-evenly;
+		align-content: space-evenly;
 		align-items: stretch;
 		padding: 10px;
 		box-sizing: border-box;
