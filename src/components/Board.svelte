@@ -8,6 +8,7 @@
 		PlusCircle
 	} from 'svelte-heros-v2';
 	import { getContext, onMount, tick } from 'svelte';
+	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 	import { key } from '../context';
 
@@ -61,7 +62,8 @@
 	<div
 		id="survivors-turns"
 		class="absolute w-full top-1/2 -translate-y-2/4 bg-black text-white text-center text-5xl font-bold py-4"
-		transition:fly={{ y: 100, duration: 1000 }}
+		in:fly={{ y: 100, duration: 700 }}
+		out:fly={{ easing: expoOut }}
 	>
 		<div id="current">
 			Survivors turn {state.G.currentInitialSurvivorTurn + 1} / {state.G.nbInitialSurvivorsTurn}
