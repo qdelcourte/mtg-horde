@@ -74,6 +74,10 @@ export function clearCardState(card) {
 	};
 }
 
+export function haveSorceryNorInstantOnBattelfield(G) {
+	return G.hordeBattlefield.find((card) => isInstantCard(card) || isSorceryCard(card)) != undefined;
+}
+
 // Game phases
 export const PHASES = {
 	initialSurvivorsTurns: 'initialSurvivorsTurns',

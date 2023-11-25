@@ -1,7 +1,9 @@
+import { INVALID_MOVE } from 'boardgame.io/core';
 import decks from 'decks';
 import moves, {
 	computeDefaultSurvivorsLife,
 	computeHordeLife,
+	haveSorceryNorInstantOnBattelfield,
 	loadDeck,
 	PHASES,
 	STAGES
@@ -81,7 +83,11 @@ export const MTGHorde = {
 					moves.hordeToggleTapAllCards({ G }, true);
 					events.setActivePlayers({ currentPlayer: STAGES.attack });
 				},
-				stageHordeAttackEnd: ({ events }) => {
+				stageHordeAttackEnd: ({ G, events }) => {
+					if (haveSorceryNorInstantOnBattelfield(G)) {
+						alert(`Please remove sorcery and instant from the horde battlefield`);
+						return INVALID_MOVE;
+					}
 					events.endTurn();
 				},
 				stageSurvivorsEndTurn: ({ G, events }) => {
