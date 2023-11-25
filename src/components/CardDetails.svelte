@@ -1,9 +1,15 @@
 <script>
+	import { Heading, P } from 'flowbite-svelte';
+
 	export let card;
 </script>
 
-<h1>{card.name}</h1>
+<Heading tag="h2">{card.name}</Heading>
+
 {#if card.text}
-	<p>{card.text}</p>
+	<P>{card.text}</P>
 {/if}
-<div><img src={card.images.normal} alt="explain card" height="500px" /></div>
+
+<div class="flex justify-center">
+	<img class="w-72" src={card.images.normal} alt="explain card" />
+</div>

@@ -9,6 +9,7 @@ Built with [Svelte](https://github.com/sveltejs/svelte) and [boardgame.io](https
 Inspired from https://github.com/dkniffin/mtg-horde
 
 ## Features
+
 - Add/Remove marker to a card
 - Tap/Untap a card
 - See the horde graveyard
@@ -31,9 +32,10 @@ You can contribute and do some proposals by creating an issue.
 Current rules: [RULES.md](./RULES.md)
 
 Resources:
-* https://tappedout.net/mtg-decks/zombie-horde-co-op-magic
-* https://github.com/dkniffin/mtg-horde
-* https://magic-casual.fr/pour-la-horde (FR)
+
+- https://tappedout.net/mtg-decks/zombie-horde-co-op-magic
+- https://github.com/dkniffin/mtg-horde
+- https://magic-casual.fr/pour-la-horde (FR)
 
 ## Run dev
 

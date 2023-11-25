@@ -1,15 +1,11 @@
 <script>
-	import { Modal, ModalBody, ModalHeader } from 'sveltestrap';
-
+	import { Modal } from 'flowbite-svelte';
 	import Settings from './Settings.svelte';
 
 	let open = false;
-	export const toggle = () => (open = !open);
+	export const show = () => (open = true);
 </script>
 
-<Modal isOpen={open} {toggle} size="xl" backdrop={false}>
-	<ModalHeader {toggle}>Settings</ModalHeader>
-	<ModalBody>
-		<Settings on:startGame={() => toggle()} />
-	</ModalBody>
+<Modal bind:open size="xs" title="Settings" {...$$restProps}>
+	<Settings on:startGame={() => (open = false)} />
 </Modal>

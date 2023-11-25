@@ -1,1444 +1,1192 @@
 [
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/9aae1c1b-96f0-4529-995d-a53874a74c75",
-            "scryfall_uri": "https://scryfall.com/card/c18/113/army-of-the-damned?utm_source=api",
-            "lang": "en",
-            "name": "Army of the Damned",
-            "mana_cost": "{5}{B}{B}{B}",
-            "cmc": 8,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Create thirteen tapped 2/2 black Zombie creature tokens.\nFlashback {7}{B}{B}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
-            "multiverse_ids": [
-                451068
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.png?1592710706",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706"
-            },
-            "rulings": "https://api.scryfall.com/cards/9aae1c1b-96f0-4529-995d-a53874a74c75/rulings",
-            "id": "9aae1c1b-96f0-4529-995d-a53874a74c75"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2",
-            "scryfall_uri": "https://scryfall.com/card/gvl/48/bad-moon?utm_source=api",
-            "lang": "en",
-            "name": "Bad Moon",
-            "mana_cost": "{1}{B}",
-            "cmc": 2,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Enchantment",
-            "layout": "normal",
-            "text": "Black creatures get +1/+1.",
-            "multiverse_ids": [
-                393879
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.png?1562928849",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849"
-            },
-            "rulings": "https://api.scryfall.com/cards/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2/rulings",
-            "id": "8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/23986add-b33d-4bad-86f3-e2d0f99cf949",
-            "scryfall_uri": "https://scryfall.com/card/jmp/202/barter-in-blood?utm_source=api",
-            "lang": "en",
-            "name": "Barter in Blood",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Each player sacrifices two creatures.",
-            "multiverse_ids": [
-                489208
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.png?1600699425",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425"
-            },
-            "rulings": "https://api.scryfall.com/cards/23986add-b33d-4bad-86f3-e2d0f99cf949/rulings",
-            "id": "23986add-b33d-4bad-86f3-e2d0f99cf949"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/ae410ae8-1e72-4727-96df-c7c195063fb5",
-            "scryfall_uri": "https://scryfall.com/card/usg/121/cackling-fiend?utm_source=api",
-            "lang": "en",
-            "name": "Cackling Fiend",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "When Cackling Fiend enters the battlefield, each opponent discards a card.",
-            "power": "2",
-            "toughness": "1",
-            "multiverse_ids": [
-                5567
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.png?1562931843",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843"
-            },
-            "rulings": "https://api.scryfall.com/cards/ae410ae8-1e72-4727-96df-c7c195063fb5/rulings",
-            "id": "ae410ae8-1e72-4727-96df-c7c195063fb5"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/5e1324b6-dba0-4aff-a403-a45d2b405f5b",
-            "scryfall_uri": "https://scryfall.com/card/m12/85/call-to-the-grave?utm_source=api",
-            "lang": "en",
-            "name": "Call to the Grave",
-            "mana_cost": "{4}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Enchantment",
-            "layout": "normal",
-            "text": "At the beginning of each player's upkeep, that player sacrifices a non-Zombie creature.\nAt the beginning of the end step, if no creatures are on the battlefield, sacrifice Call to the Grave.",
-            "multiverse_ids": [
-                236460
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.png?1562644226",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226"
-            },
-            "rulings": "https://api.scryfall.com/cards/5e1324b6-dba0-4aff-a403-a45d2b405f5b/rulings",
-            "id": "5e1324b6-dba0-4aff-a403-a45d2b405f5b"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/56494d1e-0d7e-4c29-942c-b376ff07cdf8",
-            "scryfall_uri": "https://scryfall.com/card/m12/86/cemetery-reaper?utm_source=api",
-            "lang": "en",
-            "name": "Cemetery Reaper",
-            "mana_cost": "{1}{B}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Other Zombie creatures you control get +1/+1.\n{2}{B}, {T}: Exile target creature card from a graveyard. Create a 2/2 black Zombie creature token.",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                234070
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.png?1562643186",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186"
-            },
-            "rulings": "https://api.scryfall.com/cards/56494d1e-0d7e-4c29-942c-b376ff07cdf8/rulings",
-            "id": "56494d1e-0d7e-4c29-942c-b376ff07cdf8"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/c9699446-b6f5-4e6a-a263-059cbf6e4b7e",
-            "scryfall_uri": "https://scryfall.com/card/m19/90/death-baron?utm_source=api",
-            "lang": "en",
-            "name": "Death Baron",
-            "mana_cost": "{1}{B}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Wizard",
-            "layout": "normal",
-            "text": "Skeletons you control and other Zombies you control get +1/+1 and have deathtouch.",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                447226
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.png?1562304335",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335"
-            },
-            "rulings": "https://api.scryfall.com/cards/c9699446-b6f5-4e6a-a263-059cbf6e4b7e/rulings",
-            "id": "c9699446-b6f5-4e6a-a263-059cbf6e4b7e"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a",
-            "scryfall_uri": "https://scryfall.com/card/mm3/65/delirium-skeins?utm_source=api",
-            "lang": "en",
-            "name": "Delirium Skeins",
-            "mana_cost": "{2}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Each player discards three cards.",
-            "multiverse_ids": [
-                425890
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.png?1593813247",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247"
-            },
-            "rulings": "https://api.scryfall.com/cards/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a/rulings",
-            "id": "64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/5cf2d355-404e-4c21-9bc2-973d09a845a5",
-            "scryfall_uri": "https://scryfall.com/card/m19/92/diregraf-ghoul?utm_source=api",
-            "lang": "en",
-            "name": "Diregraf Ghoul",
-            "mana_cost": "{B}",
-            "cmc": 1,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Diregraf Ghoul enters the battlefield tapped.",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                447228
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.png?1562302248",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248"
-            },
-            "rulings": "https://api.scryfall.com/cards/5cf2d355-404e-4c21-9bc2-973d09a845a5/rulings",
-            "id": "5cf2d355-404e-4c21-9bc2-973d09a845a5"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e",
-            "scryfall_uri": "https://scryfall.com/card/avr/98/dread-slaver?utm_source=api",
-            "lang": "en",
-            "name": "Dread Slaver",
-            "mana_cost": "{3}{B}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Horror",
-            "layout": "normal",
-            "text": "Whenever a creature dealt damage by Dread Slaver this turn dies, return it to the battlefield under your control. That creature is a black Zombie in addition to its other colors and types.",
-            "power": "3",
-            "toughness": "5",
-            "multiverse_ids": [
-                240007
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.png?1592708840",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840"
-            },
-            "rulings": "https://api.scryfall.com/cards/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e/rulings",
-            "id": "3d8a3abd-a4a2-48e6-b709-1c0240a76c5e"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/5db15c5f-80b7-4f7f-985a-9bbec3199ad9",
-            "scryfall_uri": "https://scryfall.com/card/isd/99/endless-ranks-of-the-dead?utm_source=api",
-            "lang": "en",
-            "name": "Endless Ranks of the Dead",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Enchantment",
-            "layout": "normal",
-            "text": "At the beginning of your upkeep, create X 2/2 black Zombie creature tokens, where X is half the number of Zombies you control, rounded down.",
-            "multiverse_ids": [
-                234430
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.png?1562830929",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929"
-            },
-            "rulings": "https://api.scryfall.com/cards/5db15c5f-80b7-4f7f-985a-9bbec3199ad9/rulings",
-            "id": "5db15c5f-80b7-4f7f-985a-9bbec3199ad9"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/d0787e1f-0b75-44ab-a8fd-90358906a787",
-            "scryfall_uri": "https://scryfall.com/card/ths/85/erebos-god-of-the-dead?utm_source=api",
-            "lang": "en",
-            "name": "Erebos, God of the Dead",
-            "mana_cost": "{3}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Legendary Enchantment Creature — God",
-            "layout": "normal",
-            "text": "Indestructible\nAs long as your devotion to black is less than five, Erebos isn't a creature. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)\nYour opponents can't gain life.\n{1}{B}, Pay 2 life: Draw a card.",
-            "power": "5",
-            "toughness": "7",
-            "multiverse_ids": [
-                373589
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.png?1562831894",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894"
-            },
-            "rulings": "https://api.scryfall.com/cards/d0787e1f-0b75-44ab-a8fd-90358906a787/rulings",
-            "id": "d0787e1f-0b75-44ab-a8fd-90358906a787"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/4002b3a4-e00e-44ed-8989-d553e5d7d6c8",
-            "scryfall_uri": "https://scryfall.com/card/cmr/128/fleshbag-marauder?utm_source=api",
-            "lang": "en",
-            "name": "Fleshbag Marauder",
-            "mana_cost": "{2}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Warrior",
-            "layout": "normal",
-            "text": "When Fleshbag Marauder enters the battlefield, each player sacrifices a creature.",
-            "power": "3",
-            "toughness": "1",
-            "multiverse_ids": [
-                497648
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.png?1608909755",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755"
-            },
-            "rulings": "https://api.scryfall.com/cards/4002b3a4-e00e-44ed-8989-d553e5d7d6c8/rulings",
-            "id": "4002b3a4-e00e-44ed-8989-d553e5d7d6c8"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d",
-            "scryfall_uri": "https://scryfall.com/card/jmp/238/ghoulraiser?utm_source=api",
-            "lang": "en",
-            "name": "Ghoulraiser",
-            "mana_cost": "{1}{B}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "When Ghoulraiser enters the battlefield, return a Zombie card at random from your graveyard to your hand.",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                489244
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.png?1600826696",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696"
-            },
-            "rulings": "https://api.scryfall.com/cards/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d/rulings",
-            "id": "850ccdcb-2cd7-4f27-aa9b-917a62a5e94d"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/7741c976-000d-476c-9b53-34ef1ee701e1",
-            "scryfall_uri": "https://scryfall.com/card/9ed/134/gluttonous-zombie?utm_source=api",
-            "lang": "en",
-            "name": "Gluttonous Zombie",
-            "mana_cost": "{4}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)",
-            "power": "3",
-            "toughness": "3",
-            "multiverse_ids": [
-                84064
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.png?1562737240",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240"
-            },
-            "rulings": "https://api.scryfall.com/cards/7741c976-000d-476c-9b53-34ef1ee701e1/rulings",
-            "id": "7741c976-000d-476c-9b53-34ef1ee701e1"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/47b38c68-8e72-4afc-bb5e-0b40880fdda9",
-            "scryfall_uri": "https://scryfall.com/card/rtr/67/grave-betrayal?utm_source=api",
-            "lang": "en",
-            "name": "Grave Betrayal",
-            "mana_cost": "{5}{B}{B}",
-            "cmc": 7,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Enchantment",
-            "layout": "normal",
-            "text": "Whenever a creature you don't control dies, return it to the battlefield under your control with an additional +1/+1 counter on it at the beginning of the next end step. That creature is a black Zombie in addition to its other colors and types.",
-            "multiverse_ids": [
-                270960
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.png?1562785660",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660"
-            },
-            "rulings": "https://api.scryfall.com/cards/47b38c68-8e72-4afc-bb5e-0b40880fdda9/rulings",
-            "id": "47b38c68-8e72-4afc-bb5e-0b40880fdda9"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/68ce4c64-9f82-4be1-aa3b-ba885b2d4307",
-            "scryfall_uri": "https://scryfall.com/card/c14/145/grave-titan?utm_source=api",
-            "lang": "en",
-            "name": "Grave Titan",
-            "mana_cost": "{4}{B}{B}",
-            "cmc": 6,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Giant",
-            "layout": "normal",
-            "text": "Deathtouch\nWhenever Grave Titan enters the battlefield or attacks, create two 2/2 black Zombie creature tokens.",
-            "power": "6",
-            "toughness": "6",
-            "multiverse_ids": [
-                389540
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.png?1561945357",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357"
-            },
-            "rulings": "https://api.scryfall.com/cards/68ce4c64-9f82-4be1-aa3b-ba885b2d4307/rulings",
-            "id": "68ce4c64-9f82-4be1-aa3b-ba885b2d4307"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/d17aaa92-10ca-4f70-b45e-5a51e9192efb",
-            "scryfall_uri": "https://scryfall.com/card/m19/101/infectious-horror?utm_source=api",
-            "lang": "en",
-            "name": "Infectious Horror",
-            "mana_cost": "{3}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Horror",
-            "layout": "normal",
-            "text": "Whenever Infectious Horror attacks, each opponent loses 2 life.",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                447237
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.png?1562304369",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369"
-            },
-            "rulings": "https://api.scryfall.com/cards/d17aaa92-10ca-4f70-b45e-5a51e9192efb/rulings",
-            "id": "d17aaa92-10ca-4f70-b45e-5a51e9192efb"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/1b9e1724-91cf-422e-909b-ddb69a6f9f76",
-            "scryfall_uri": "https://scryfall.com/card/mmq/142/intimidation?utm_source=api",
-            "lang": "en",
-            "name": "Intimidation",
-            "mana_cost": "{2}{B}{B}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Enchantment",
-            "layout": "normal",
-            "text": "Creatures you control have fear. (They can't be blocked except by artifact creatures and/or black creatures.)",
-            "multiverse_ids": [
-                19833
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.png?1562379443",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443"
-            },
-            "rulings": "https://api.scryfall.com/cards/1b9e1724-91cf-422e-909b-ddb69a6f9f76/rulings",
-            "id": "1b9e1724-91cf-422e-909b-ddb69a6f9f76"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/fa9396f3-a93c-47ee-91da-78af864c86c3",
-            "scryfall_uri": "https://scryfall.com/card/jmp/251/lilianas-reaver?utm_source=api",
-            "lang": "en",
-            "name": "Liliana's Reaver",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Deathtouch\nWhenever Liliana's Reaver deals combat damage to a player, that player discards a card and you create a tapped 2/2 black Zombie creature token.",
-            "power": "4",
-            "toughness": "3",
-            "multiverse_ids": [
-                489257
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.png?1600714598",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598"
-            },
-            "rulings": "https://api.scryfall.com/cards/fa9396f3-a93c-47ee-91da-78af864c86c3/rulings",
-            "id": "fa9396f3-a93c-47ee-91da-78af864c86c3"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/fa715fde-8339-447b-8ac8-3126830bece8",
-            "scryfall_uri": "https://scryfall.com/card/cmr/132/maalfeld-twins?utm_source=api",
-            "lang": "en",
-            "name": "Maalfeld Twins",
-            "mana_cost": "{5}{B}",
-            "cmc": 6,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "When Maalfeld Twins dies, create two 2/2 black Zombie creature tokens.",
-            "power": "4",
-            "toughness": "4",
-            "multiverse_ids": [
-                497652
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.png?1608933885",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885"
-            },
-            "rulings": "https://api.scryfall.com/cards/fa715fde-8339-447b-8ac8-3126830bece8/rulings",
-            "id": "fa715fde-8339-447b-8ac8-3126830bece8"
-        }
-    },
-    {
-        "qty": 5,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/164a9755-f003-456d-a827-d6ef6cc29a86",
-            "scryfall_uri": "https://scryfall.com/card/6ed/145/necrosavant?utm_source=api",
-            "lang": "en",
-            "name": "Necrosavant",
-            "mana_cost": "{3}{B}{B}{B}",
-            "cmc": 6,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Giant",
-            "layout": "normal",
-            "text": "{3}{B}{B}, Sacrifice a creature: Return Necrosavant from your graveyard to the battlefield. Activate only during your upkeep.",
-            "power": "5",
-            "toughness": "5",
-            "multiverse_ids": [
-                15390
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.png?1562814959",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959"
-            },
-            "rulings": "https://api.scryfall.com/cards/164a9755-f003-456d-a827-d6ef6cc29a86/rulings",
-            "id": "164a9755-f003-456d-a827-d6ef6cc29a86"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/c035ff58-9df3-4db4-b9d0-97d58080ecfe",
-            "scryfall_uri": "https://scryfall.com/card/mbs/48/nested-ghoul?utm_source=api",
-            "lang": "en",
-            "name": "Nested Ghoul",
-            "mana_cost": "{3}{B}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Phyrexian Zombie Warrior",
-            "layout": "normal",
-            "text": "Whenever a source deals damage to Nested Ghoul, create a 2/2 black Phyrexian Zombie creature token.",
-            "power": "4",
-            "toughness": "2",
-            "multiverse_ids": [
-                213816
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.png?1562614451",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451"
-            },
-            "rulings": "https://api.scryfall.com/cards/c035ff58-9df3-4db4-b9d0-97d58080ecfe/rulings",
-            "id": "c035ff58-9df3-4db4-b9d0-97d58080ecfe"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/77419949-7e62-48fe-b952-56d943ddd39f",
-            "scryfall_uri": "https://scryfall.com/card/7ed/151/nocturnal-raid?utm_source=api",
-            "lang": "en",
-            "name": "Nocturnal Raid",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Instant",
-            "layout": "normal",
-            "text": "Black creatures get +2/+0 until end of turn.",
-            "multiverse_ids": [
-                25633
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.png?1562240973",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973"
-            },
-            "rulings": "https://api.scryfall.com/cards/77419949-7e62-48fe-b952-56d943ddd39f/rulings",
-            "id": "77419949-7e62-48fe-b952-56d943ddd39f"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/7d67511b-c130-44d5-8536-4278a695627c",
-            "scryfall_uri": "https://scryfall.com/card/hop/35/noxious-ghoul?utm_source=api",
-            "lang": "en",
-            "name": "Noxious Ghoul",
-            "mana_cost": "{3}{B}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Whenever Noxious Ghoul or another Zombie enters the battlefield, all non-Zombie creatures get -1/-1 until end of turn.",
-            "power": "3",
-            "toughness": "3",
-            "multiverse_ids": [
-                205420
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.png?1562842618",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618"
-            },
-            "rulings": "https://api.scryfall.com/cards/7d67511b-c130-44d5-8536-4278a695627c/rulings",
-            "id": "7d67511b-c130-44d5-8536-4278a695627c"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/72d21d0d-7de7-4f03-8663-002c9290512f",
-            "scryfall_uri": "https://scryfall.com/card/a25/102/plague-wind?utm_source=api",
-            "lang": "en",
-            "name": "Plague Wind",
-            "mana_cost": "{7}{B}{B}",
-            "cmc": 9,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Destroy all creatures you don't control. They can't be regenerated.",
-            "multiverse_ids": [
-                442091
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.png?1562436663",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663"
-            },
-            "rulings": "https://api.scryfall.com/cards/72d21d0d-7de7-4f03-8663-002c9290512f/rulings",
-            "id": "72d21d0d-7de7-4f03-8663-002c9290512f"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/5d24d153-a014-4524-a496-9fe1c41cbc2b",
-            "scryfall_uri": "https://scryfall.com/card/c14/29/raving-dead?utm_source=api",
-            "lang": "en",
-            "name": "Raving Dead",
-            "mana_cost": "{4}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Deathtouch\nAt the beginning of combat on your turn, choose an opponent at random. Raving Dead attacks that player this combat if able.\nWhenever Raving Dead deals combat damage to a player, that player loses half their life, rounded down.",
-            "power": "2",
-            "toughness": "6",
-            "multiverse_ids": [
-                389648
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.png?1561943479",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479"
-            },
-            "rulings": "https://api.scryfall.com/cards/5d24d153-a014-4524-a496-9fe1c41cbc2b/rulings",
-            "id": "5d24d153-a014-4524-a496-9fe1c41cbc2b"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/c21cbb10-9157-4887-a752-29b9e94fc77a",
-            "scryfall_uri": "https://scryfall.com/card/isd/113/rotting-fensnake?utm_source=api",
-            "lang": "en",
-            "name": "Rotting Fensnake",
-            "mana_cost": "{3}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Snake",
-            "layout": "normal",
-            "text": "",
-            "power": "5",
-            "toughness": "1",
-            "multiverse_ids": [
-                237011
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.png?1562836560",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560"
-            },
-            "rulings": "https://api.scryfall.com/cards/c21cbb10-9157-4887-a752-29b9e94fc77a/rulings",
-            "id": "c21cbb10-9157-4887-a752-29b9e94fc77a"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/1564a20a-0e57-4ced-9eda-7acff74274e7",
-            "scryfall_uri": "https://scryfall.com/card/ktk/87/rotting-mastodon?utm_source=api",
-            "lang": "en",
-            "name": "Rotting Mastodon",
-            "mana_cost": "{4}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Elephant",
-            "layout": "normal",
-            "text": "",
-            "power": "2",
-            "toughness": "8",
-            "multiverse_ids": [
-                386640
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.png?1562782961",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961"
-            },
-            "rulings": "https://api.scryfall.com/cards/1564a20a-0e57-4ced-9eda-7acff74274e7/rulings",
-            "id": "1564a20a-0e57-4ced-9eda-7acff74274e7"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/3835752e-11a6-406c-8bff-b7d4f2f31d85",
-            "scryfall_uri": "https://scryfall.com/card/dtk/119/sibsig-icebreakers?utm_source=api",
-            "lang": "en",
-            "name": "Sibsig Icebreakers",
-            "mana_cost": "{2}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "When Sibsig Icebreakers enters the battlefield, each player discards a card.",
-            "power": "2",
-            "toughness": "3",
-            "multiverse_ids": [
-                394694
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.png?1562784752",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752"
-            },
-            "rulings": "https://api.scryfall.com/cards/3835752e-11a6-406c-8bff-b7d4f2f31d85/rulings",
-            "id": "3835752e-11a6-406c-8bff-b7d4f2f31d85"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/c28db9a4-6696-460b-a9d3-98f4a31abe75",
-            "scryfall_uri": "https://scryfall.com/card/tsr/139/smallpox?utm_source=api",
-            "lang": "en",
-            "name": "Smallpox",
-            "mana_cost": "{B}{B}",
-            "cmc": 2,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Each player loses 1 life, discards a card, sacrifices a creature, then sacrifices a land.",
-            "multiverse_ids": [
-                509504
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.png?1619396163",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163"
-            },
-            "rulings": "https://api.scryfall.com/cards/c28db9a4-6696-460b-a9d3-98f4a31abe75/rulings",
-            "id": "c28db9a4-6696-460b-a9d3-98f4a31abe75"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/410a214b-09c4-49bd-a461-3330d0249ae5",
-            "scryfall_uri": "https://scryfall.com/card/hop/41/soulless-one?utm_source=api",
-            "lang": "en",
-            "name": "Soulless One",
-            "mana_cost": "{3}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie Avatar",
-            "layout": "normal",
-            "text": "Soulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards.",
-            "power": "*",
-            "toughness": "*",
-            "multiverse_ids": [
-                205373
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.png?1562841695",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695"
-            },
-            "rulings": "https://api.scryfall.com/cards/410a214b-09c4-49bd-a461-3330d0249ae5/rulings",
-            "id": "410a214b-09c4-49bd-a461-3330d0249ae5"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/8390d9b7-5adf-4039-8682-02bfba421ff9",
-            "scryfall_uri": "https://scryfall.com/card/m12/112/sutured-ghoul?utm_source=api",
-            "lang": "en",
-            "name": "Sutured Ghoul",
-            "mana_cost": "{4}{B}{B}{B}",
-            "cmc": 7,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Trample\nAs Sutured Ghoul enters the battlefield, exile any number of creature cards from your graveyard.\nSutured Ghoul's power is equal to the total power of the exiled cards and its toughness is equal to their total toughness.",
-            "power": "*",
-            "toughness": "*",
-            "multiverse_ids": [
-                220157
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.png?1562649493",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493"
-            },
-            "rulings": "https://api.scryfall.com/cards/8390d9b7-5adf-4039-8682-02bfba421ff9/rulings",
-            "id": "8390d9b7-5adf-4039-8682-02bfba421ff9"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/4141ea12-1ef6-4a8f-bd52-b4c69da00a31",
-            "scryfall_uri": "https://scryfall.com/card/cm2/79/syphon-flesh?utm_source=api",
-            "lang": "en",
-            "name": "Syphon Flesh",
-            "mana_cost": "{4}{B}",
-            "cmc": 5,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Each other player sacrifices a creature. You create a 2/2 black Zombie creature token for each creature sacrificed this way.",
-            "multiverse_ids": [
-                446815
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.png?1562273454",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454"
-            },
-            "rulings": "https://api.scryfall.com/cards/4141ea12-1ef6-4a8f-bd52-b4c69da00a31/rulings",
-            "id": "4141ea12-1ef6-4a8f-bd52-b4c69da00a31"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/a6e04dd2-75ad-4427-93cc-37226340c2fb",
-            "scryfall_uri": "https://scryfall.com/card/ddj/76/twilights-call?utm_source=api",
-            "lang": "en",
-            "name": "Twilight's Call",
-            "mana_cost": "{4}{B}{B}",
-            "cmc": 6,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "You may cast Twilight's Call as though it had flash if you pay {2} more to cast it. (You may cast it any time you could cast an instant.)\nEach player returns all creature cards from their graveyard to the battlefield.",
-            "multiverse_ids": [
-                338399
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.png?1592713829",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829"
-            },
-            "rulings": "https://api.scryfall.com/cards/a6e04dd2-75ad-4427-93cc-37226340c2fb/rulings",
-            "id": "a6e04dd2-75ad-4427-93cc-37226340c2fb"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/dd119aa8-8414-4942-9a28-3e68a9a52a8e",
-            "scryfall_uri": "https://scryfall.com/card/ddq/66/unbreathing-horde?utm_source=api",
-            "lang": "en",
-            "name": "Unbreathing Horde",
-            "mana_cost": "{2}{B}",
-            "cmc": 3,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Unbreathing Horde enters the battlefield with a +1/+1 counter on it for each other Zombie you control and each Zombie card in your graveyard.\nIf Unbreathing Horde would be dealt damage, prevent that damage and remove a +1/+1 counter from it.",
-            "power": "0",
-            "toughness": "0",
-            "multiverse_ids": [
-                409642
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.png?1592763342",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342"
-            },
-            "rulings": "https://api.scryfall.com/cards/dd119aa8-8414-4942-9a28-3e68a9a52a8e/rulings",
-            "id": "dd119aa8-8414-4942-9a28-3e68a9a52a8e"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/01482b0c-d05b-4356-9144-e044159f4dcb",
-            "scryfall_uri": "https://scryfall.com/card/hop/44/undead-warchief?utm_source=api",
-            "lang": "en",
-            "name": "Undead Warchief",
-            "mana_cost": "{2}{B}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Zombie spells you cast cost {1} less to cast.\nZombie creatures you control get +2/+1.",
-            "power": "1",
-            "toughness": "1",
-            "multiverse_ids": [
-                205410
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.png?1562841195",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195"
-            },
-            "rulings": "https://api.scryfall.com/cards/01482b0c-d05b-4356-9144-e044159f4dcb/rulings",
-            "id": "01482b0c-d05b-4356-9144-e044159f4dcb"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/7c11c11d-9809-4031-8cbc-21aef07d7f1f",
-            "scryfall_uri": "https://scryfall.com/card/scg/80/vengeful-dead?utm_source=api",
-            "lang": "en",
-            "name": "Vengeful Dead",
-            "mana_cost": "{3}{B}",
-            "cmc": 4,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Whenever Vengeful Dead or another Zombie dies, each opponent loses 1 life.",
-            "power": "3",
-            "toughness": "2",
-            "multiverse_ids": [
-                45862
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.png?1562531178",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178"
-            },
-            "rulings": "https://api.scryfall.com/cards/7c11c11d-9809-4031-8cbc-21aef07d7f1f/rulings",
-            "id": "7c11c11d-9809-4031-8cbc-21aef07d7f1f"
-        }
-    },
-    {
-        "qty": 55,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc",
-            "scryfall_uri": "https://scryfall.com/card/ddq/80/zombie?utm_source=api",
-            "lang": "en",
-            "name": "Zombie",
-            "mana_cost": "",
-            "cmc": 0,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Token Creature — Zombie",
-            "layout": "token",
-            "text": "",
-            "power": "2",
-            "toughness": "2",
-            "multiverse_ids": [
-                409656
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.png?1593142529",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529"
-            },
-            "rulings": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc/rulings",
-            "id": "7c60e495-8fb7-43bb-b11d-52882c0246bc"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/32aec0ec-0feb-4276-ab9c-5bb18b5005a0",
-            "scryfall_uri": "https://scryfall.com/card/jmp/287/wight-of-precinct-six?utm_source=api",
-            "lang": "en",
-            "name": "Wight of Precinct Six",
-            "mana_cost": "{1}{B}",
-            "cmc": 2,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Wight of Precinct Six gets +1/+1 for each creature card in your opponents' graveyards.",
-            "power": "1",
-            "toughness": "1",
-            "multiverse_ids": [
-                489293
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.png?1600701742",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742"
-            },
-            "rulings": "https://api.scryfall.com/cards/32aec0ec-0feb-4276-ab9c-5bb18b5005a0/rulings",
-            "id": "32aec0ec-0feb-4276-ab9c-5bb18b5005a0"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271",
-            "scryfall_uri": "https://scryfall.com/card/dka/80/zombie-apocalypse?utm_source=api",
-            "lang": "en",
-            "name": "Zombie Apocalypse",
-            "mana_cost": "{3}{B}{B}{B}",
-            "cmc": 6,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Sorcery",
-            "layout": "normal",
-            "text": "Return all Zombie creature cards from your graveyard to the battlefield tapped, then destroy all Humans.",
-            "multiverse_ids": [
-                262669
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.png?1562955251",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251"
-            },
-            "rulings": "https://api.scryfall.com/cards/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271/rulings",
-            "id": "fe662a08-a8b1-4f25-b7c0-dca1c7ad7271"
-        }
-    },
-    {
-        "qty": 1,
-        "card": {
-            "uri": "https://api.scryfall.com/cards/b37db470-3aef-4fc4-98ce-63b5fb2546f6",
-            "scryfall_uri": "https://scryfall.com/card/lgn/87/zombie-brute?utm_source=api",
-            "lang": "en",
-            "name": "Zombie Brute",
-            "mana_cost": "{6}{B}",
-            "cmc": 7,
-            "colors": [
-                "B"
-            ],
-            "color_identity": [
-                "B"
-            ],
-            "type": "Creature — Zombie",
-            "layout": "normal",
-            "text": "Amplify 1 (As this creature enters the battlefield, put a +1/+1 counter on it for each Zombie card you reveal in your hand.)\nTrample",
-            "power": "5",
-            "toughness": "4",
-            "multiverse_ids": [
-                42270
-            ],
-            "images": {
-                "small": "https://c1.scryfall.com/file/scryfall-cards/small/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
-                "normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
-                "large": "https://c1.scryfall.com/file/scryfall-cards/large/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
-                "png": "https://c1.scryfall.com/file/scryfall-cards/png/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.png?1562931118",
-                "art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
-                "border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118"
-            },
-            "rulings": "https://api.scryfall.com/cards/b37db470-3aef-4fc4-98ce-63b5fb2546f6/rulings",
-            "id": "b37db470-3aef-4fc4-98ce-63b5fb2546f6"
-        }
-    }
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/9aae1c1b-96f0-4529-995d-a53874a74c75",
+			"scryfall_uri": "https://scryfall.com/card/c18/113/army-of-the-damned?utm_source=api",
+			"lang": "en",
+			"name": "Army of the Damned",
+			"mana_cost": "{5}{B}{B}{B}",
+			"cmc": 8,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Create thirteen tapped 2/2 black Zombie creature tokens.\nFlashback {7}{B}{B}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+			"multiverse_ids": [451068],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.png?1592710706",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/9/a/9aae1c1b-96f0-4529-995d-a53874a74c75.jpg?1592710706"
+			},
+			"rulings": "https://api.scryfall.com/cards/9aae1c1b-96f0-4529-995d-a53874a74c75/rulings",
+			"id": "9aae1c1b-96f0-4529-995d-a53874a74c75"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2",
+			"scryfall_uri": "https://scryfall.com/card/gvl/48/bad-moon?utm_source=api",
+			"lang": "en",
+			"name": "Bad Moon",
+			"mana_cost": "{1}{B}",
+			"cmc": 2,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Enchantment",
+			"layout": "normal",
+			"text": "Black creatures get +1/+1.",
+			"multiverse_ids": [393879],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.png?1562928849",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/f/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2.jpg?1562928849"
+			},
+			"rulings": "https://api.scryfall.com/cards/8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2/rulings",
+			"id": "8f8a75da-ea3c-43e7-9d32-1c92f8ec0fd2"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/23986add-b33d-4bad-86f3-e2d0f99cf949",
+			"scryfall_uri": "https://scryfall.com/card/jmp/202/barter-in-blood?utm_source=api",
+			"lang": "en",
+			"name": "Barter in Blood",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Each player sacrifices two creatures.",
+			"multiverse_ids": [489208],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.png?1600699425",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/2/3/23986add-b33d-4bad-86f3-e2d0f99cf949.jpg?1600699425"
+			},
+			"rulings": "https://api.scryfall.com/cards/23986add-b33d-4bad-86f3-e2d0f99cf949/rulings",
+			"id": "23986add-b33d-4bad-86f3-e2d0f99cf949"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/ae410ae8-1e72-4727-96df-c7c195063fb5",
+			"scryfall_uri": "https://scryfall.com/card/usg/121/cackling-fiend?utm_source=api",
+			"lang": "en",
+			"name": "Cackling Fiend",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "When Cackling Fiend enters the battlefield, each opponent discards a card.",
+			"power": "2",
+			"toughness": "1",
+			"multiverse_ids": [5567],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.png?1562931843",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/a/e/ae410ae8-1e72-4727-96df-c7c195063fb5.jpg?1562931843"
+			},
+			"rulings": "https://api.scryfall.com/cards/ae410ae8-1e72-4727-96df-c7c195063fb5/rulings",
+			"id": "ae410ae8-1e72-4727-96df-c7c195063fb5"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/5e1324b6-dba0-4aff-a403-a45d2b405f5b",
+			"scryfall_uri": "https://scryfall.com/card/m12/85/call-to-the-grave?utm_source=api",
+			"lang": "en",
+			"name": "Call to the Grave",
+			"mana_cost": "{4}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Enchantment",
+			"layout": "normal",
+			"text": "At the beginning of each player's upkeep, that player sacrifices a non-Zombie creature.\nAt the beginning of the end step, if no creatures are on the battlefield, sacrifice Call to the Grave.",
+			"multiverse_ids": [236460],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.png?1562644226",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/e/5e1324b6-dba0-4aff-a403-a45d2b405f5b.jpg?1562644226"
+			},
+			"rulings": "https://api.scryfall.com/cards/5e1324b6-dba0-4aff-a403-a45d2b405f5b/rulings",
+			"id": "5e1324b6-dba0-4aff-a403-a45d2b405f5b"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/56494d1e-0d7e-4c29-942c-b376ff07cdf8",
+			"scryfall_uri": "https://scryfall.com/card/m12/86/cemetery-reaper?utm_source=api",
+			"lang": "en",
+			"name": "Cemetery Reaper",
+			"mana_cost": "{1}{B}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Other Zombie creatures you control get +1/+1.\n{2}{B}, {T}: Exile target creature card from a graveyard. Create a 2/2 black Zombie creature token.",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [234070],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.png?1562643186",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/6/56494d1e-0d7e-4c29-942c-b376ff07cdf8.jpg?1562643186"
+			},
+			"rulings": "https://api.scryfall.com/cards/56494d1e-0d7e-4c29-942c-b376ff07cdf8/rulings",
+			"id": "56494d1e-0d7e-4c29-942c-b376ff07cdf8"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/c9699446-b6f5-4e6a-a263-059cbf6e4b7e",
+			"scryfall_uri": "https://scryfall.com/card/m19/90/death-baron?utm_source=api",
+			"lang": "en",
+			"name": "Death Baron",
+			"mana_cost": "{1}{B}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Wizard",
+			"layout": "normal",
+			"text": "Skeletons you control and other Zombies you control get +1/+1 and have deathtouch.",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [447226],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.png?1562304335",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/9/c9699446-b6f5-4e6a-a263-059cbf6e4b7e.jpg?1562304335"
+			},
+			"rulings": "https://api.scryfall.com/cards/c9699446-b6f5-4e6a-a263-059cbf6e4b7e/rulings",
+			"id": "c9699446-b6f5-4e6a-a263-059cbf6e4b7e"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a",
+			"scryfall_uri": "https://scryfall.com/card/mm3/65/delirium-skeins?utm_source=api",
+			"lang": "en",
+			"name": "Delirium Skeins",
+			"mana_cost": "{2}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Each player discards three cards.",
+			"multiverse_ids": [425890],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.png?1593813247",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/4/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a.jpg?1593813247"
+			},
+			"rulings": "https://api.scryfall.com/cards/64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a/rulings",
+			"id": "64b0d9e7-4a0f-4f07-99ae-31c3c9f0037a"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/5cf2d355-404e-4c21-9bc2-973d09a845a5",
+			"scryfall_uri": "https://scryfall.com/card/m19/92/diregraf-ghoul?utm_source=api",
+			"lang": "en",
+			"name": "Diregraf Ghoul",
+			"mana_cost": "{B}",
+			"cmc": 1,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Diregraf Ghoul enters the battlefield tapped.",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [447228],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.png?1562302248",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/c/5cf2d355-404e-4c21-9bc2-973d09a845a5.jpg?1562302248"
+			},
+			"rulings": "https://api.scryfall.com/cards/5cf2d355-404e-4c21-9bc2-973d09a845a5/rulings",
+			"id": "5cf2d355-404e-4c21-9bc2-973d09a845a5"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e",
+			"scryfall_uri": "https://scryfall.com/card/avr/98/dread-slaver?utm_source=api",
+			"lang": "en",
+			"name": "Dread Slaver",
+			"mana_cost": "{3}{B}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Horror",
+			"layout": "normal",
+			"text": "Whenever a creature dealt damage by Dread Slaver this turn dies, return it to the battlefield under your control. That creature is a black Zombie in addition to its other colors and types.",
+			"power": "3",
+			"toughness": "5",
+			"multiverse_ids": [240007],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.png?1592708840",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/d/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e.jpg?1592708840"
+			},
+			"rulings": "https://api.scryfall.com/cards/3d8a3abd-a4a2-48e6-b709-1c0240a76c5e/rulings",
+			"id": "3d8a3abd-a4a2-48e6-b709-1c0240a76c5e"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/5db15c5f-80b7-4f7f-985a-9bbec3199ad9",
+			"scryfall_uri": "https://scryfall.com/card/isd/99/endless-ranks-of-the-dead?utm_source=api",
+			"lang": "en",
+			"name": "Endless Ranks of the Dead",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Enchantment",
+			"layout": "normal",
+			"text": "At the beginning of your upkeep, create X 2/2 black Zombie creature tokens, where X is half the number of Zombies you control, rounded down.",
+			"multiverse_ids": [234430],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.png?1562830929",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/d/5db15c5f-80b7-4f7f-985a-9bbec3199ad9.jpg?1562830929"
+			},
+			"rulings": "https://api.scryfall.com/cards/5db15c5f-80b7-4f7f-985a-9bbec3199ad9/rulings",
+			"id": "5db15c5f-80b7-4f7f-985a-9bbec3199ad9"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/d0787e1f-0b75-44ab-a8fd-90358906a787",
+			"scryfall_uri": "https://scryfall.com/card/ths/85/erebos-god-of-the-dead?utm_source=api",
+			"lang": "en",
+			"name": "Erebos, God of the Dead",
+			"mana_cost": "{3}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Legendary Enchantment Creature — God",
+			"layout": "normal",
+			"text": "Indestructible\nAs long as your devotion to black is less than five, Erebos isn't a creature. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)\nYour opponents can't gain life.\n{1}{B}, Pay 2 life: Draw a card.",
+			"power": "5",
+			"toughness": "7",
+			"multiverse_ids": [373589],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.png?1562831894",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894"
+			},
+			"rulings": "https://api.scryfall.com/cards/d0787e1f-0b75-44ab-a8fd-90358906a787/rulings",
+			"id": "d0787e1f-0b75-44ab-a8fd-90358906a787"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/4002b3a4-e00e-44ed-8989-d553e5d7d6c8",
+			"scryfall_uri": "https://scryfall.com/card/cmr/128/fleshbag-marauder?utm_source=api",
+			"lang": "en",
+			"name": "Fleshbag Marauder",
+			"mana_cost": "{2}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Warrior",
+			"layout": "normal",
+			"text": "When Fleshbag Marauder enters the battlefield, each player sacrifices a creature.",
+			"power": "3",
+			"toughness": "1",
+			"multiverse_ids": [497648],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.png?1608909755",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/0/4002b3a4-e00e-44ed-8989-d553e5d7d6c8.jpg?1608909755"
+			},
+			"rulings": "https://api.scryfall.com/cards/4002b3a4-e00e-44ed-8989-d553e5d7d6c8/rulings",
+			"id": "4002b3a4-e00e-44ed-8989-d553e5d7d6c8"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d",
+			"scryfall_uri": "https://scryfall.com/card/jmp/238/ghoulraiser?utm_source=api",
+			"lang": "en",
+			"name": "Ghoulraiser",
+			"mana_cost": "{1}{B}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "When Ghoulraiser enters the battlefield, return a Zombie card at random from your graveyard to your hand.",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [489244],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.png?1600826696",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/5/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d.jpg?1600826696"
+			},
+			"rulings": "https://api.scryfall.com/cards/850ccdcb-2cd7-4f27-aa9b-917a62a5e94d/rulings",
+			"id": "850ccdcb-2cd7-4f27-aa9b-917a62a5e94d"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/7741c976-000d-476c-9b53-34ef1ee701e1",
+			"scryfall_uri": "https://scryfall.com/card/9ed/134/gluttonous-zombie?utm_source=api",
+			"lang": "en",
+			"name": "Gluttonous Zombie",
+			"mana_cost": "{4}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)",
+			"power": "3",
+			"toughness": "3",
+			"multiverse_ids": [84064],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.png?1562737240",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/7/7741c976-000d-476c-9b53-34ef1ee701e1.jpg?1562737240"
+			},
+			"rulings": "https://api.scryfall.com/cards/7741c976-000d-476c-9b53-34ef1ee701e1/rulings",
+			"id": "7741c976-000d-476c-9b53-34ef1ee701e1"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/47b38c68-8e72-4afc-bb5e-0b40880fdda9",
+			"scryfall_uri": "https://scryfall.com/card/rtr/67/grave-betrayal?utm_source=api",
+			"lang": "en",
+			"name": "Grave Betrayal",
+			"mana_cost": "{5}{B}{B}",
+			"cmc": 7,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Enchantment",
+			"layout": "normal",
+			"text": "Whenever a creature you don't control dies, return it to the battlefield under your control with an additional +1/+1 counter on it at the beginning of the next end step. That creature is a black Zombie in addition to its other colors and types.",
+			"multiverse_ids": [270960],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.png?1562785660",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/7/47b38c68-8e72-4afc-bb5e-0b40880fdda9.jpg?1562785660"
+			},
+			"rulings": "https://api.scryfall.com/cards/47b38c68-8e72-4afc-bb5e-0b40880fdda9/rulings",
+			"id": "47b38c68-8e72-4afc-bb5e-0b40880fdda9"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/68ce4c64-9f82-4be1-aa3b-ba885b2d4307",
+			"scryfall_uri": "https://scryfall.com/card/c14/145/grave-titan?utm_source=api",
+			"lang": "en",
+			"name": "Grave Titan",
+			"mana_cost": "{4}{B}{B}",
+			"cmc": 6,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Giant",
+			"layout": "normal",
+			"text": "Deathtouch\nWhenever Grave Titan enters the battlefield or attacks, create two 2/2 black Zombie creature tokens.",
+			"power": "6",
+			"toughness": "6",
+			"multiverse_ids": [389540],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.png?1561945357",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/8/68ce4c64-9f82-4be1-aa3b-ba885b2d4307.jpg?1561945357"
+			},
+			"rulings": "https://api.scryfall.com/cards/68ce4c64-9f82-4be1-aa3b-ba885b2d4307/rulings",
+			"id": "68ce4c64-9f82-4be1-aa3b-ba885b2d4307"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/d17aaa92-10ca-4f70-b45e-5a51e9192efb",
+			"scryfall_uri": "https://scryfall.com/card/m19/101/infectious-horror?utm_source=api",
+			"lang": "en",
+			"name": "Infectious Horror",
+			"mana_cost": "{3}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Horror",
+			"layout": "normal",
+			"text": "Whenever Infectious Horror attacks, each opponent loses 2 life.",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [447237],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.png?1562304369",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/1/d17aaa92-10ca-4f70-b45e-5a51e9192efb.jpg?1562304369"
+			},
+			"rulings": "https://api.scryfall.com/cards/d17aaa92-10ca-4f70-b45e-5a51e9192efb/rulings",
+			"id": "d17aaa92-10ca-4f70-b45e-5a51e9192efb"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/1b9e1724-91cf-422e-909b-ddb69a6f9f76",
+			"scryfall_uri": "https://scryfall.com/card/mmq/142/intimidation?utm_source=api",
+			"lang": "en",
+			"name": "Intimidation",
+			"mana_cost": "{2}{B}{B}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Enchantment",
+			"layout": "normal",
+			"text": "Creatures you control have fear. (They can't be blocked except by artifact creatures and/or black creatures.)",
+			"multiverse_ids": [19833],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.png?1562379443",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/b/1b9e1724-91cf-422e-909b-ddb69a6f9f76.jpg?1562379443"
+			},
+			"rulings": "https://api.scryfall.com/cards/1b9e1724-91cf-422e-909b-ddb69a6f9f76/rulings",
+			"id": "1b9e1724-91cf-422e-909b-ddb69a6f9f76"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/fa9396f3-a93c-47ee-91da-78af864c86c3",
+			"scryfall_uri": "https://scryfall.com/card/jmp/251/lilianas-reaver?utm_source=api",
+			"lang": "en",
+			"name": "Liliana's Reaver",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Deathtouch\nWhenever Liliana's Reaver deals combat damage to a player, that player discards a card and you create a tapped 2/2 black Zombie creature token.",
+			"power": "4",
+			"toughness": "3",
+			"multiverse_ids": [489257],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.png?1600714598",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/a/fa9396f3-a93c-47ee-91da-78af864c86c3.jpg?1600714598"
+			},
+			"rulings": "https://api.scryfall.com/cards/fa9396f3-a93c-47ee-91da-78af864c86c3/rulings",
+			"id": "fa9396f3-a93c-47ee-91da-78af864c86c3"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/fa715fde-8339-447b-8ac8-3126830bece8",
+			"scryfall_uri": "https://scryfall.com/card/cmr/132/maalfeld-twins?utm_source=api",
+			"lang": "en",
+			"name": "Maalfeld Twins",
+			"mana_cost": "{5}{B}",
+			"cmc": 6,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "When Maalfeld Twins dies, create two 2/2 black Zombie creature tokens.",
+			"power": "4",
+			"toughness": "4",
+			"multiverse_ids": [497652],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.png?1608933885",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/a/fa715fde-8339-447b-8ac8-3126830bece8.jpg?1608933885"
+			},
+			"rulings": "https://api.scryfall.com/cards/fa715fde-8339-447b-8ac8-3126830bece8/rulings",
+			"id": "fa715fde-8339-447b-8ac8-3126830bece8"
+		}
+	},
+	{
+		"qty": 5,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/164a9755-f003-456d-a827-d6ef6cc29a86",
+			"scryfall_uri": "https://scryfall.com/card/6ed/145/necrosavant?utm_source=api",
+			"lang": "en",
+			"name": "Necrosavant",
+			"mana_cost": "{3}{B}{B}{B}",
+			"cmc": 6,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Giant",
+			"layout": "normal",
+			"text": "{3}{B}{B}, Sacrifice a creature: Return Necrosavant from your graveyard to the battlefield. Activate only during your upkeep.",
+			"power": "5",
+			"toughness": "5",
+			"multiverse_ids": [15390],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.png?1562814959",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/6/164a9755-f003-456d-a827-d6ef6cc29a86.jpg?1562814959"
+			},
+			"rulings": "https://api.scryfall.com/cards/164a9755-f003-456d-a827-d6ef6cc29a86/rulings",
+			"id": "164a9755-f003-456d-a827-d6ef6cc29a86"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/c035ff58-9df3-4db4-b9d0-97d58080ecfe",
+			"scryfall_uri": "https://scryfall.com/card/mbs/48/nested-ghoul?utm_source=api",
+			"lang": "en",
+			"name": "Nested Ghoul",
+			"mana_cost": "{3}{B}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Phyrexian Zombie Warrior",
+			"layout": "normal",
+			"text": "Whenever a source deals damage to Nested Ghoul, create a 2/2 black Phyrexian Zombie creature token.",
+			"power": "4",
+			"toughness": "2",
+			"multiverse_ids": [213816],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.png?1562614451",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/0/c035ff58-9df3-4db4-b9d0-97d58080ecfe.jpg?1562614451"
+			},
+			"rulings": "https://api.scryfall.com/cards/c035ff58-9df3-4db4-b9d0-97d58080ecfe/rulings",
+			"id": "c035ff58-9df3-4db4-b9d0-97d58080ecfe"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/77419949-7e62-48fe-b952-56d943ddd39f",
+			"scryfall_uri": "https://scryfall.com/card/7ed/151/nocturnal-raid?utm_source=api",
+			"lang": "en",
+			"name": "Nocturnal Raid",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Instant",
+			"layout": "normal",
+			"text": "Black creatures get +2/+0 until end of turn.",
+			"multiverse_ids": [25633],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.png?1562240973",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/7/77419949-7e62-48fe-b952-56d943ddd39f.jpg?1562240973"
+			},
+			"rulings": "https://api.scryfall.com/cards/77419949-7e62-48fe-b952-56d943ddd39f/rulings",
+			"id": "77419949-7e62-48fe-b952-56d943ddd39f"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/7d67511b-c130-44d5-8536-4278a695627c",
+			"scryfall_uri": "https://scryfall.com/card/hop/35/noxious-ghoul?utm_source=api",
+			"lang": "en",
+			"name": "Noxious Ghoul",
+			"mana_cost": "{3}{B}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Whenever Noxious Ghoul or another Zombie enters the battlefield, all non-Zombie creatures get -1/-1 until end of turn.",
+			"power": "3",
+			"toughness": "3",
+			"multiverse_ids": [205420],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.png?1562842618",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/d/7d67511b-c130-44d5-8536-4278a695627c.jpg?1562842618"
+			},
+			"rulings": "https://api.scryfall.com/cards/7d67511b-c130-44d5-8536-4278a695627c/rulings",
+			"id": "7d67511b-c130-44d5-8536-4278a695627c"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/72d21d0d-7de7-4f03-8663-002c9290512f",
+			"scryfall_uri": "https://scryfall.com/card/a25/102/plague-wind?utm_source=api",
+			"lang": "en",
+			"name": "Plague Wind",
+			"mana_cost": "{7}{B}{B}",
+			"cmc": 9,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Destroy all creatures you don't control. They can't be regenerated.",
+			"multiverse_ids": [442091],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.png?1562436663",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/2/72d21d0d-7de7-4f03-8663-002c9290512f.jpg?1562436663"
+			},
+			"rulings": "https://api.scryfall.com/cards/72d21d0d-7de7-4f03-8663-002c9290512f/rulings",
+			"id": "72d21d0d-7de7-4f03-8663-002c9290512f"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/5d24d153-a014-4524-a496-9fe1c41cbc2b",
+			"scryfall_uri": "https://scryfall.com/card/c14/29/raving-dead?utm_source=api",
+			"lang": "en",
+			"name": "Raving Dead",
+			"mana_cost": "{4}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Deathtouch\nAt the beginning of combat on your turn, choose an opponent at random. Raving Dead attacks that player this combat if able.\nWhenever Raving Dead deals combat damage to a player, that player loses half their life, rounded down.",
+			"power": "2",
+			"toughness": "6",
+			"multiverse_ids": [389648],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.png?1561943479",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/5/d/5d24d153-a014-4524-a496-9fe1c41cbc2b.jpg?1561943479"
+			},
+			"rulings": "https://api.scryfall.com/cards/5d24d153-a014-4524-a496-9fe1c41cbc2b/rulings",
+			"id": "5d24d153-a014-4524-a496-9fe1c41cbc2b"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/c21cbb10-9157-4887-a752-29b9e94fc77a",
+			"scryfall_uri": "https://scryfall.com/card/isd/113/rotting-fensnake?utm_source=api",
+			"lang": "en",
+			"name": "Rotting Fensnake",
+			"mana_cost": "{3}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Snake",
+			"layout": "normal",
+			"text": "",
+			"power": "5",
+			"toughness": "1",
+			"multiverse_ids": [237011],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.png?1562836560",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/2/c21cbb10-9157-4887-a752-29b9e94fc77a.jpg?1562836560"
+			},
+			"rulings": "https://api.scryfall.com/cards/c21cbb10-9157-4887-a752-29b9e94fc77a/rulings",
+			"id": "c21cbb10-9157-4887-a752-29b9e94fc77a"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/1564a20a-0e57-4ced-9eda-7acff74274e7",
+			"scryfall_uri": "https://scryfall.com/card/ktk/87/rotting-mastodon?utm_source=api",
+			"lang": "en",
+			"name": "Rotting Mastodon",
+			"mana_cost": "{4}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Elephant",
+			"layout": "normal",
+			"text": "",
+			"power": "2",
+			"toughness": "8",
+			"multiverse_ids": [386640],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.png?1562782961",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/1/5/1564a20a-0e57-4ced-9eda-7acff74274e7.jpg?1562782961"
+			},
+			"rulings": "https://api.scryfall.com/cards/1564a20a-0e57-4ced-9eda-7acff74274e7/rulings",
+			"id": "1564a20a-0e57-4ced-9eda-7acff74274e7"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/3835752e-11a6-406c-8bff-b7d4f2f31d85",
+			"scryfall_uri": "https://scryfall.com/card/dtk/119/sibsig-icebreakers?utm_source=api",
+			"lang": "en",
+			"name": "Sibsig Icebreakers",
+			"mana_cost": "{2}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "When Sibsig Icebreakers enters the battlefield, each player discards a card.",
+			"power": "2",
+			"toughness": "3",
+			"multiverse_ids": [394694],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.png?1562784752",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/8/3835752e-11a6-406c-8bff-b7d4f2f31d85.jpg?1562784752"
+			},
+			"rulings": "https://api.scryfall.com/cards/3835752e-11a6-406c-8bff-b7d4f2f31d85/rulings",
+			"id": "3835752e-11a6-406c-8bff-b7d4f2f31d85"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/c28db9a4-6696-460b-a9d3-98f4a31abe75",
+			"scryfall_uri": "https://scryfall.com/card/tsr/139/smallpox?utm_source=api",
+			"lang": "en",
+			"name": "Smallpox",
+			"mana_cost": "{B}{B}",
+			"cmc": 2,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Each player loses 1 life, discards a card, sacrifices a creature, then sacrifices a land.",
+			"multiverse_ids": [509504],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.png?1619396163",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/c/2/c28db9a4-6696-460b-a9d3-98f4a31abe75.jpg?1619396163"
+			},
+			"rulings": "https://api.scryfall.com/cards/c28db9a4-6696-460b-a9d3-98f4a31abe75/rulings",
+			"id": "c28db9a4-6696-460b-a9d3-98f4a31abe75"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/410a214b-09c4-49bd-a461-3330d0249ae5",
+			"scryfall_uri": "https://scryfall.com/card/hop/41/soulless-one?utm_source=api",
+			"lang": "en",
+			"name": "Soulless One",
+			"mana_cost": "{3}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie Avatar",
+			"layout": "normal",
+			"text": "Soulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards.",
+			"power": "*",
+			"toughness": "*",
+			"multiverse_ids": [205373],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.png?1562841695",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/1/410a214b-09c4-49bd-a461-3330d0249ae5.jpg?1562841695"
+			},
+			"rulings": "https://api.scryfall.com/cards/410a214b-09c4-49bd-a461-3330d0249ae5/rulings",
+			"id": "410a214b-09c4-49bd-a461-3330d0249ae5"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/8390d9b7-5adf-4039-8682-02bfba421ff9",
+			"scryfall_uri": "https://scryfall.com/card/m12/112/sutured-ghoul?utm_source=api",
+			"lang": "en",
+			"name": "Sutured Ghoul",
+			"mana_cost": "{4}{B}{B}{B}",
+			"cmc": 7,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Trample\nAs Sutured Ghoul enters the battlefield, exile any number of creature cards from your graveyard.\nSutured Ghoul's power is equal to the total power of the exiled cards and its toughness is equal to their total toughness.",
+			"power": "*",
+			"toughness": "*",
+			"multiverse_ids": [220157],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.png?1562649493",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/8/3/8390d9b7-5adf-4039-8682-02bfba421ff9.jpg?1562649493"
+			},
+			"rulings": "https://api.scryfall.com/cards/8390d9b7-5adf-4039-8682-02bfba421ff9/rulings",
+			"id": "8390d9b7-5adf-4039-8682-02bfba421ff9"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/4141ea12-1ef6-4a8f-bd52-b4c69da00a31",
+			"scryfall_uri": "https://scryfall.com/card/cm2/79/syphon-flesh?utm_source=api",
+			"lang": "en",
+			"name": "Syphon Flesh",
+			"mana_cost": "{4}{B}",
+			"cmc": 5,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Each other player sacrifices a creature. You create a 2/2 black Zombie creature token for each creature sacrificed this way.",
+			"multiverse_ids": [446815],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.png?1562273454",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/4/1/4141ea12-1ef6-4a8f-bd52-b4c69da00a31.jpg?1562273454"
+			},
+			"rulings": "https://api.scryfall.com/cards/4141ea12-1ef6-4a8f-bd52-b4c69da00a31/rulings",
+			"id": "4141ea12-1ef6-4a8f-bd52-b4c69da00a31"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/a6e04dd2-75ad-4427-93cc-37226340c2fb",
+			"scryfall_uri": "https://scryfall.com/card/ddj/76/twilights-call?utm_source=api",
+			"lang": "en",
+			"name": "Twilight's Call",
+			"mana_cost": "{4}{B}{B}",
+			"cmc": 6,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "You may cast Twilight's Call as though it had flash if you pay {2} more to cast it. (You may cast it any time you could cast an instant.)\nEach player returns all creature cards from their graveyard to the battlefield.",
+			"multiverse_ids": [338399],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.png?1592713829",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/a/6/a6e04dd2-75ad-4427-93cc-37226340c2fb.jpg?1592713829"
+			},
+			"rulings": "https://api.scryfall.com/cards/a6e04dd2-75ad-4427-93cc-37226340c2fb/rulings",
+			"id": "a6e04dd2-75ad-4427-93cc-37226340c2fb"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/dd119aa8-8414-4942-9a28-3e68a9a52a8e",
+			"scryfall_uri": "https://scryfall.com/card/ddq/66/unbreathing-horde?utm_source=api",
+			"lang": "en",
+			"name": "Unbreathing Horde",
+			"mana_cost": "{2}{B}",
+			"cmc": 3,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Unbreathing Horde enters the battlefield with a +1/+1 counter on it for each other Zombie you control and each Zombie card in your graveyard.\nIf Unbreathing Horde would be dealt damage, prevent that damage and remove a +1/+1 counter from it.",
+			"power": "0",
+			"toughness": "0",
+			"multiverse_ids": [409642],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.png?1592763342",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/d/d/dd119aa8-8414-4942-9a28-3e68a9a52a8e.jpg?1592763342"
+			},
+			"rulings": "https://api.scryfall.com/cards/dd119aa8-8414-4942-9a28-3e68a9a52a8e/rulings",
+			"id": "dd119aa8-8414-4942-9a28-3e68a9a52a8e"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/01482b0c-d05b-4356-9144-e044159f4dcb",
+			"scryfall_uri": "https://scryfall.com/card/hop/44/undead-warchief?utm_source=api",
+			"lang": "en",
+			"name": "Undead Warchief",
+			"mana_cost": "{2}{B}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Zombie spells you cast cost {1} less to cast.\nZombie creatures you control get +2/+1.",
+			"power": "1",
+			"toughness": "1",
+			"multiverse_ids": [205410],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.png?1562841195",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195"
+			},
+			"rulings": "https://api.scryfall.com/cards/01482b0c-d05b-4356-9144-e044159f4dcb/rulings",
+			"id": "01482b0c-d05b-4356-9144-e044159f4dcb"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/7c11c11d-9809-4031-8cbc-21aef07d7f1f",
+			"scryfall_uri": "https://scryfall.com/card/scg/80/vengeful-dead?utm_source=api",
+			"lang": "en",
+			"name": "Vengeful Dead",
+			"mana_cost": "{3}{B}",
+			"cmc": 4,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Whenever Vengeful Dead or another Zombie dies, each opponent loses 1 life.",
+			"power": "3",
+			"toughness": "2",
+			"multiverse_ids": [45862],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.png?1562531178",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c11c11d-9809-4031-8cbc-21aef07d7f1f.jpg?1562531178"
+			},
+			"rulings": "https://api.scryfall.com/cards/7c11c11d-9809-4031-8cbc-21aef07d7f1f/rulings",
+			"id": "7c11c11d-9809-4031-8cbc-21aef07d7f1f"
+		}
+	},
+	{
+		"qty": 55,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc",
+			"scryfall_uri": "https://scryfall.com/card/ddq/80/zombie?utm_source=api",
+			"lang": "en",
+			"name": "Zombie",
+			"mana_cost": "",
+			"cmc": 0,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Token Creature — Zombie",
+			"layout": "token",
+			"text": "",
+			"power": "2",
+			"toughness": "2",
+			"multiverse_ids": [409656],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.png?1593142529",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/7/c/7c60e495-8fb7-43bb-b11d-52882c0246bc.jpg?1593142529"
+			},
+			"rulings": "https://api.scryfall.com/cards/7c60e495-8fb7-43bb-b11d-52882c0246bc/rulings",
+			"id": "7c60e495-8fb7-43bb-b11d-52882c0246bc"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/32aec0ec-0feb-4276-ab9c-5bb18b5005a0",
+			"scryfall_uri": "https://scryfall.com/card/jmp/287/wight-of-precinct-six?utm_source=api",
+			"lang": "en",
+			"name": "Wight of Precinct Six",
+			"mana_cost": "{1}{B}",
+			"cmc": 2,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Wight of Precinct Six gets +1/+1 for each creature card in your opponents' graveyards.",
+			"power": "1",
+			"toughness": "1",
+			"multiverse_ids": [489293],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.png?1600701742",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/3/2/32aec0ec-0feb-4276-ab9c-5bb18b5005a0.jpg?1600701742"
+			},
+			"rulings": "https://api.scryfall.com/cards/32aec0ec-0feb-4276-ab9c-5bb18b5005a0/rulings",
+			"id": "32aec0ec-0feb-4276-ab9c-5bb18b5005a0"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271",
+			"scryfall_uri": "https://scryfall.com/card/dka/80/zombie-apocalypse?utm_source=api",
+			"lang": "en",
+			"name": "Zombie Apocalypse",
+			"mana_cost": "{3}{B}{B}{B}",
+			"cmc": 6,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Sorcery",
+			"layout": "normal",
+			"text": "Return all Zombie creature cards from your graveyard to the battlefield tapped, then destroy all Humans.",
+			"multiverse_ids": [262669],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.png?1562955251",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/f/e/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271.jpg?1562955251"
+			},
+			"rulings": "https://api.scryfall.com/cards/fe662a08-a8b1-4f25-b7c0-dca1c7ad7271/rulings",
+			"id": "fe662a08-a8b1-4f25-b7c0-dca1c7ad7271"
+		}
+	},
+	{
+		"qty": 1,
+		"card": {
+			"uri": "https://api.scryfall.com/cards/b37db470-3aef-4fc4-98ce-63b5fb2546f6",
+			"scryfall_uri": "https://scryfall.com/card/lgn/87/zombie-brute?utm_source=api",
+			"lang": "en",
+			"name": "Zombie Brute",
+			"mana_cost": "{6}{B}",
+			"cmc": 7,
+			"colors": ["B"],
+			"color_identity": ["B"],
+			"type": "Creature — Zombie",
+			"layout": "normal",
+			"text": "Amplify 1 (As this creature enters the battlefield, put a +1/+1 counter on it for each Zombie card you reveal in your hand.)\nTrample",
+			"power": "5",
+			"toughness": "4",
+			"multiverse_ids": [42270],
+			"images": {
+				"small": "https://c1.scryfall.com/file/scryfall-cards/small/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
+				"normal": "https://c1.scryfall.com/file/scryfall-cards/normal/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
+				"large": "https://c1.scryfall.com/file/scryfall-cards/large/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
+				"png": "https://c1.scryfall.com/file/scryfall-cards/png/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.png?1562931118",
+				"art_crop": "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118",
+				"border_crop": "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/b/3/b37db470-3aef-4fc4-98ce-63b5fb2546f6.jpg?1562931118"
+			},
+			"rulings": "https://api.scryfall.com/cards/b37db470-3aef-4fc4-98ce-63b5fb2546f6/rulings",
+			"id": "b37db470-3aef-4fc4-98ce-63b5fb2546f6"
+		}
+	}
 ]

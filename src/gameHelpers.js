@@ -26,7 +26,10 @@ export function loadDeck(deckName, nbSurvivors, tokenProportion) {
 		.slice(0, expectedNbNonTokenCardsInDeck);
 
 	// Return deck shuffled
-	return tokenDeck.concat(nonTokenDeck).sort(() => 0.5 - Math.random()).map((card) => ({...card, uid: generateCardRandomId()}));
+	return tokenDeck
+		.concat(nonTokenDeck)
+		.sort(() => 0.5 - Math.random())
+		.map((card) => ({ ...card, uid: generateCardRandomId() }));
 }
 
 export function generateCardRandomId() {
