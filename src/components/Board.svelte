@@ -1,5 +1,5 @@
 <script>
-	import { Badge, Button } from 'flowbite-svelte';
+	import { Badge, Button, P } from 'flowbite-svelte';
 	import {
 		AdjustmentsHorizontal,
 		DocumentArrowDown,
@@ -22,7 +22,7 @@
 	import AlertToast from './AlertToast.svelte';
 
 	import * as SavepointUtils from '../savepoint';
-	import { PHASES } from '../gameHelpers';
+	import { PHASES, computeHordeDamage } from '../gameHelpers';
 
 	let gameInfoRef;
 	let cardDetailsRef;
@@ -123,6 +123,11 @@
 							>{state.G.hordeGraveyard.length}</Badge
 						>
 					</div>
+				</div>
+			{/if}
+			{#if state.G.hordeBattlefield}
+				<div class="bg-gray-400">
+					<P color="text-white">Horde Damage: {computeHordeDamage(state.G)}</P>
 				</div>
 			{/if}
 		</div>

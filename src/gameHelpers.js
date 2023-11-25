@@ -44,6 +44,10 @@ export function computeDefaultSurvivorsLife(nbSurvivors) {
 	return nbSurvivors * 20;
 }
 
+export function computeHordeDamage(G) {
+	return G.hordeBattlefield.reduce((a, b) => a + (parseInt(b?.power) || 0), 0);
+}
+
 export function isTokenCard(card) {
 	return card.layout === 'token';
 }
