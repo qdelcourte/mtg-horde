@@ -16,7 +16,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.1.0",
 		"autoprefixer": "^10.4.13",
 		"boardgame.io": "^0.50.0",
 		"eslint": "^8.54.0",
