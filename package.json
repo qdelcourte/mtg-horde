@@ -20,7 +20,7 @@
 		"autoprefixer": "^10.4.13",
 		"boardgame.io": "^0.50.0",
 		"eslint": "^8.54.0",
-		"eslint-config-prettier": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
 		"flowbite-svelte": "^0.44.0",
 		"prettier": "^3.1.0",
