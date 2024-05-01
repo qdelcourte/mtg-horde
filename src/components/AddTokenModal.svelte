@@ -1,19 +1,15 @@
 <script>
 	import { CloseButton, Drawer, Button, Label, Input } from 'flowbite-svelte';
-	import { getContext } from 'svelte';
-	import { key } from '../context';
-
+	import { game as G } from '../game.svelte';
 	import zombieTokenCard from 'decks/cards/zombie_token.json';
 
-	export let placement = 'left';
+	const { placement = 'left' } = $props();
 
-	let hidden = true;
+	let inputPowerValue = $state(zombieTokenCard.power);
+	let inputToughness = $state(zombieTokenCard.toughness);
+
+	let hidden = $state(true);
 	export const show = () => (hidden = false);
-
-	let client = getContext(key);
-
-	let inputPowerValue = zombieTokenCard.power;
-	let inputToughness = zombieTokenCard.toughness;
 </script>
 
 <Drawer bind:hidden transitionType="fly" {placement}>
@@ -52,8 +48,8 @@
 	/>
 	<Button
 		class="mt-2"
-		on:click={() =>
-			client.moves.addTokenInHordeBattlefield(zombieTokenCard, inputPowerValue, inputToughness)}
+		onclick={() =>
+			G.client.moves.addTokenInHordeBattlefield(zombieTokenCard, inputPowerValue, inputToughness)}
 		>Add token</Button
 	>
 </Drawer>

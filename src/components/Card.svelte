@@ -1,16 +1,9 @@
 <script>
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import { ChevronDown } from 'svelte-heros-v2';
-	import { getContext } from 'svelte';
-	import { isSorceryCard, isInstantCard, isEnchantmentCard } from '../gameHelpers';
-	import { key } from '../context';
+	import { game as G } from '../game.svelte';
 
-	let client = getContext(key);
-
-	export let card;
-	export let index;
-
-	export let canChangeMarker = false;
+	const { card, index, canChangeMarker = false, actions, onclick } = $props();
 
 	function cardMarkerRepr(card) {
 		let power = card.power;
@@ -27,28 +20,28 @@
 </script>
 
 <div class="card-container">
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<img
 		src={'/assets/card-back.jpg'}
 		alt="a card"
 		class:tapped={card.tapped}
-		class:sorcery={isSorceryCard(card)}
-		class:instant={isInstantCard(card)}
-		class:enchantment={isEnchantmentCard(card)}
-		on:click
+		class:sorcery={G.helpers.isSorceryCard(card)}
+		class:instant={G.helpers.isInstantCard(card)}
+		class:enchantment={G.helpers.isEnchantmentCard(card)}
+		{onclick}
 	/>
 	<div class="card-over">
 		<div class="card-name">{card.name}</div>
 
 		<div>
-			{#if $$slots.actions}
+			{#if actions}
 				<div class="card-actions">
 					<Button id="action-{card.uid}" class="!px-1" color="dark"
 						><ChevronDown class="!mx-2" size="18" /></Button
 					>
 					<Dropdown size="xs" triggeredBy=".card-actions #action-{card.uid}" placement="right">
-						<slot name="actions" />
+						{@render actions()}
 					</Dropdown>
 				</div>
 			{/if}
@@ -59,22 +52,22 @@
 						<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}" placement="right">
 							<DropdownItem
 								class="w-48"
-								on:click={() => client.moves.changeCardMarkerCounter(index, 1, 1)}
+								on:click={() => G.client.moves.changeCardMarkerCounter(index, 1, 1)}
 								>Add marker +1 / +1</DropdownItem
 							>
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, -1)}
+							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, -1, -1)}
 								>Add marker -1 / -1</DropdownItem
 							>
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 1, 0)}
+							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 1, 0)}
 								>Add marker +1 / 0</DropdownItem
 							>
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, -1, 0)}
+							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, -1, 0)}
 								>Add marker -1 / 0</DropdownItem
 							>
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, 1)}
+							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 0, 1)}
 								>Add marker 0 / +1</DropdownItem
 							>
-							<DropdownItem on:click={() => client.moves.changeCardMarkerCounter(index, 0, -1)}
+							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 0, -1)}
 								>Add marker 0 / -1</DropdownItem
 							>
 						</Dropdown>

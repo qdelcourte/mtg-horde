@@ -1,15 +1,18 @@
+import { Client } from 'boardgame.io/client';
 import { INVALID_MOVE } from 'boardgame.io/core';
 import decks from 'decks';
-import moves, {
-	computeDefaultSurvivorsLife,
-	computeHordeLife,
-	haveSorceryNorInstantOnBattelfield,
-	loadDeck,
-	PHASES,
-	STAGES
-} from './gameHelpers';
+// import moves, {
+// 	computeDefaultSurvivorsLife,
+// 	computeHordeLife,
+// 	haveSorceryNorInstantOnBattelfield,
+// 	loadDeck,
+// 	PHASES,
+// 	STAGES
+// } from './gameHelpers';
+import moves, * as helpers from './gameHelpers';
+import { STAGES, PHASES } from './gameHelpers';
 
-export const MTGHorde = {
+const MTGHorde = {
 	name: 'mtg-horde',
 
 	setup: () => {
@@ -36,14 +39,14 @@ export const MTGHorde = {
 		) => {
 			G.nbSurvivors = nbSurvivors;
 			G.nbInitialSurvivorsTurn = nbInitialSurvivorsTurn;
-			G.survivorsLife = computeDefaultSurvivorsLife(G.nbSurvivors);
+			G.survivorsLife = helpers.computeDefaultSurvivorsLife(G.nbSurvivors);
 			G.tokenProportion = tokenProportion;
 
 			G.hordeDeckName = deckName;
-			G.hordeDeck = loadDeck(deckName, G.nbSurvivors, G.tokenProportion);
+			G.hordeDeck = helpers.loadDeck(deckName, G.nbSurvivors, G.tokenProportion);
 			G.hordeBattlefield = [];
 			G.hordeGraveyard = [];
-			G.hordeLife = computeHordeLife(G);
+			G.hordeLife = helpers.computeHordeLife(G);
 
 			events.setPhase(PHASES.initialSurvivorsTurns);
 		}
@@ -84,7 +87,7 @@ export const MTGHorde = {
 					events.setActivePlayers({ currentPlayer: STAGES.attack });
 				},
 				stageHordeAttackEnd: ({ G, events }) => {
-					if (haveSorceryNorInstantOnBattelfield(G)) {
+					if (helpers.haveSorceryNorInstantOnBattelfield(G)) {
 						alert(`Please remove sorcery and instant from the horde battlefield`);
 						return INVALID_MOVE;
 					}
@@ -128,3 +131,21 @@ export const MTGHorde = {
 		}
 	}
 };
+
+function createGame() {
+	let state = $state();
+	let client = Client({ game: MTGHorde, numPlayers: 2, debug: { collapseOnLoad: true } });
+	client.subscribe((newState) => (state = newState));
+
+	return {
+		get state() {
+			return state;
+		},
+		client,
+		helpers
+	};
+}
+
+const game = createGame();
+
+export { game };

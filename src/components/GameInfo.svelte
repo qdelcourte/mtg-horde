@@ -1,16 +1,12 @@
 <script>
 	import { Badge, Drawer, CloseButton } from 'flowbite-svelte';
-	import { getContext } from 'svelte';
-	import { key } from '../context';
+	import { game as G } from '../game.svelte';
 
-	export let placement = 'left';
-	export let header = 'Info';
+	const { placement = 'left', header = 'Info' } = $props();
 
-	let state;
-	let client = getContext(key);
-	client.subscribe((s) => (state = s));
+	let state = $derived(G.state);
 
-	let hidden = true;
+	let hidden = $state(true);
 	export const show = () => (hidden = false);
 </script>
 

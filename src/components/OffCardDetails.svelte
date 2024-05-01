@@ -2,10 +2,10 @@
 	import { Drawer, CloseButton } from 'flowbite-svelte';
 	import CardDetails from './CardDetails.svelte';
 
-	export let placement = 'right';
+	const { placement = 'right' } = $props();
 
-	let card;
-	let hidden = true;
+	let card = $state();
+	let hidden = $state(true);
 
 	export const show = (_card) => {
 		card = _card;

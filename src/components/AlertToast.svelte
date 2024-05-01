@@ -1,9 +1,9 @@
 <script>
 	import { Alert } from 'flowbite-svelte';
 
-	let open = false;
-	let color = 'green';
-	let message;
+	let open = $state(false);
+	let color = $state('green');
+	let message = $state('');
 
 	export function alert(_message, _color = 'green') {
 		message = _message;

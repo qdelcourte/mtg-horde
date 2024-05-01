@@ -1,19 +1,15 @@
 <script>
 	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
 	import { ArrowUturnLeft, ArrowUturnRight } from 'svelte-heros-v2';
-	import { getContext } from 'svelte';
-	import { key } from '../context';
-	import { PHASES, STAGES } from '../gameHelpers';
+	import { game as G } from '../game.svelte';
 
-	let state;
-	let client = getContext(key);
-	client.subscribe((s) => (state = s));
+	let state = $derived(G.state);
 </script>
 
 <div id="score-shadow">
 	<div id="score" class="h-1/6">
 		<div id="undo">
-			<Button id="btn-undo" on:click={() => client.undo()} color="dark" aria-label="undo"
+			<Button id="btn-undo" onclick={() => G.client.undo()} color="dark" aria-label="undo"
 				><ArrowUturnLeft /></Button
 			>
 			<Tooltip triggeredBy="#btn-undo" placement="top">Undo</Tooltip>
@@ -24,10 +20,10 @@
 				<span class="life">{state.G.hordeLife}</span>
 				<div class="change-life">
 					<ButtonGroup>
-						<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(5)} color="red"
+						<Button onclick={() => G.client.moves.putCardsInHordeGraveyardFromDeck(5)} color="red"
 							>-5</Button
 						>
-						<Button on:click={() => client.moves.putCardsInHordeGraveyardFromDeck(1)} color="red"
+						<Button onclick={() => G.client.moves.putCardsInHordeGraveyardFromDeck(1)} color="red"
 							>-1</Button
 						>
 					</ButtonGroup>
@@ -35,17 +31,17 @@
 			</div>
 			<div id="horde-actions" class="actions">
 				<ButtonGroup>
-					{#if state.ctx.phase === PHASES.fightTheHorde && state.ctx.activePlayers}
-						{#if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.untap}
-							<Button on:click={() => client.moves.stageHordeUntap()} size="sm">Untap all</Button>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.draw}
-							<Button on:click={() => client.moves.stageHordeDraw()} size="sm">Draw</Button>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.upkeek}
-							<Button on:click={() => client.moves.stageHordeDeclareAttack()} size="sm"
+					{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.activePlayers}
+						{#if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.untap}
+							<Button onclick={() => G.client.moves.stageHordeUntap()} size="sm">Untap all</Button>
+						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.draw}
+							<Button onclick={() => G.client.moves.stageHordeDraw()} size="sm">Draw</Button>
+						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.upkeek}
+							<Button onclick={() => G.client.moves.stageHordeDeclareAttack()} size="sm"
 								>Declare attack</Button
 							>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === STAGES.attack}
-							<Button on:click={() => client.moves.stageHordeAttackEnd()} size="sm"
+						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.attack}
+							<Button onclick={() => G.client.moves.stageHordeAttackEnd()} size="sm"
 								>Attack End</Button
 							>
 						{/if}
@@ -59,21 +55,21 @@
 				<span class="life">{state.G.survivorsLife}</span>
 				<div class="change-life">
 					<ButtonGroup>
-						<Button on:click={() => client.moves.survivorsChangeLife(-5)} color="red">-5</Button>
-						<Button on:click={() => client.moves.survivorsChangeLife(-1)} color="red">-1</Button>
-						<Button on:click={() => client.moves.survivorsChangeLife(1)} color="green">+1</Button>
-						<Button on:click={() => client.moves.survivorsChangeLife(5)} color="green">+5</Button>
+						<Button onclick={() => G.client.moves.survivorsChangeLife(-5)} color="red">-5</Button>
+						<Button onclick={() => G.client.moves.survivorsChangeLife(-1)} color="red">-1</Button>
+						<Button onclick={() => G.client.moves.survivorsChangeLife(1)} color="green">+1</Button>
+						<Button onclick={() => G.client.moves.survivorsChangeLife(5)} color="green">+5</Button>
 					</ButtonGroup>
 				</div>
 			</div>
 			<div id="survivors-actions" class="actions">
-				{#if state.ctx.phase === PHASES.fightTheHorde && state.ctx.currentPlayer == 1}
-					<Button on:click={() => client.moves.stageSurvivorsEndTurn()} size="sm">End turn</Button>
+				{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.currentPlayer == 1}
+					<Button onclick={() => G.client.moves.stageSurvivorsEndTurn()} size="sm">End turn</Button>
 				{/if}
 			</div>
 		</div>
 		<div id="redo">
-			<Button id="btn-redo" on:click={() => client.redo()} color="dark" aria-label="redo"
+			<Button id="btn-redo" onclick={() => G.client.redo()} color="dark" aria-label="redo"
 				><ArrowUturnRight /></Button
 			>
 			<Tooltip triggeredBy="#btn-redo">Redo</Tooltip>
