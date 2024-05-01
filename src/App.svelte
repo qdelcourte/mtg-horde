@@ -11,12 +11,6 @@
 
 <GithubCorner />
 
-<div id="app">
+<div id="app" class="h-full">
 	<Board />
 </div>
-
-<style>
-	#app {
-		height: 100%;
-	}
-</style>

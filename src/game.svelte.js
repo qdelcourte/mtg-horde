@@ -1,16 +1,9 @@
 import { Client } from 'boardgame.io/client';
 import { INVALID_MOVE } from 'boardgame.io/core';
-import decks from 'decks';
-// import moves, {
-// 	computeDefaultSurvivorsLife,
-// 	computeHordeLife,
-// 	haveSorceryNorInstantOnBattelfield,
-// 	loadDeck,
-// 	PHASES,
-// 	STAGES
-// } from './gameHelpers';
 import moves, * as helpers from './gameHelpers';
-import { STAGES, PHASES } from './gameHelpers';
+import decks from 'decks';
+
+const [ STAGES, PHASES ] = [ helpers.STAGES, helpers.PHASES ];
 
 const MTGHorde = {
 	name: 'mtg-horde',
@@ -132,9 +125,9 @@ const MTGHorde = {
 	}
 };
 
-function createGame() {
+function createGame(options) {
 	let state = $state();
-	let client = Client({ game: MTGHorde, numPlayers: 2, debug: { collapseOnLoad: true } });
+	let client = Client(options);
 	client.subscribe((newState) => (state = newState));
 
 	return {
@@ -146,6 +139,6 @@ function createGame() {
 	};
 }
 
-const game = createGame();
+const game = createGame({ game: MTGHorde, numPlayers: 2, debug: { collapseOnLoad: true } });
 
 export { game };
