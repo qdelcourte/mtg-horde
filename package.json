@@ -26,7 +26,7 @@
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.3",
 		"scryfall-sdk": "^4.2.2",
-		"svelte": "^4.2.7",
+		"svelte": "^4.2.18",
 		"svelte-heros-v2": "^1.2.2",
 		"tailwindcss": "^3.2.4",
 		"vite": "^5.0.0"
