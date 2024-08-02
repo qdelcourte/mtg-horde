@@ -52,22 +52,22 @@
 						<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}" placement="right">
 							<DropdownItem
 								class="w-48"
-								on:click={() => G.client.moves.changeCardMarkerCounter(index, 1, 1)}
+								onclick={() => G.client.moves.changeCardMarkerCounter(index, 1, 1)}
 								>Add marker +1 / +1</DropdownItem
 							>
-							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, -1, -1)}
+							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, -1, -1)}
 								>Add marker -1 / -1</DropdownItem
 							>
-							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 1, 0)}
+							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 1, 0)}
 								>Add marker +1 / 0</DropdownItem
 							>
-							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, -1, 0)}
+							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, -1, 0)}
 								>Add marker -1 / 0</DropdownItem
 							>
-							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 0, 1)}
+							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 0, 1)}
 								>Add marker 0 / +1</DropdownItem
 							>
-							<DropdownItem on:click={() => G.client.moves.changeCardMarkerCounter(index, 0, -1)}
+							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 0, -1)}
 								>Add marker 0 / -1</DropdownItem
 							>
 						</Dropdown>

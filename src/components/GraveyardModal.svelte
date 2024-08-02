@@ -25,24 +25,24 @@
 						{#snippet actions()}
 							<div>
 								<DropdownItem
-									on:click={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, true)}
+									onclick={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, true)}
 									>To the top library</DropdownItem
 								>
 								<DropdownItem
-									on:click={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, false)}
+									onclick={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, false)}
 									>To the bottom library</DropdownItem
 								>
 								<DropdownItem
-									on:click={() =>
+									onclick={() =>
 										G.client.moves.putCardInHordeBattefieldFromGraveyard(index, false)}
 									>To the battlefield</DropdownItem
 								>
 								<DropdownItem
-									on:click={() => G.client.moves.putCardInHordeBattefieldFromGraveyard(index, true)}
+									onclick={() => G.client.moves.putCardInHordeBattefieldFromGraveyard(index, true)}
 									>To the battlefield (tapped)</DropdownItem
 								>
 								<DropdownItem
-									on:click={() => G.client.moves.putCardInHordeExileFromGraveyard(index)}
+									onclick={() => G.client.moves.putCardInHordeExileFromGraveyard(index)}
 									>To the exile</DropdownItem
 								>
 							</div>

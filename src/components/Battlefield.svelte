@@ -13,27 +13,27 @@
 <div id="battlefield-container">
 	{#each state.G.hordeBattlefield as card, index (card.uid)}
 		<div class="battlefield-card" in:fly={{ x: 100, duration: 500 }} out:fly>
-			<Card {card} {index} canChangeMarker onclick={onCardClick(card)}>
+			<Card {card} {index} canChangeMarker onclick={() => onCardClick(card)}>
 				{#snippet actions()}
 					{#if card.tapped}
-						<DropdownItem on:click={() => G.client.moves.hordeToggleTapCard(index)}
+						<DropdownItem onclick={() => G.client.moves.hordeToggleTapCard(index)}
 							><Icon icon="mdi:arrow-u-left-top" class="inline-block" width="16" /> Untap</DropdownItem
 						>
 					{:else}
-						<DropdownItem on:click={() => G.client.moves.hordeToggleTapCard(index)}
+						<DropdownItem onclick={() => G.client.moves.hordeToggleTapCard(index)}
 							><Icon icon="mdi:arrow-u-right-top" class="inline-block" width="16" /> Tap</DropdownItem
 						>
 					{/if}
 					<DropdownItem
 						class="w-48"
-						on:click={() => G.client.moves.putCardInHordeDeckFromBattlefield(index)}
+						onclick={() => G.client.moves.putCardInHordeDeckFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the top library</DropdownItem
 					>
 					<DropdownItem
-						on:click={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
+						onclick={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the graveyard</DropdownItem
 					>
-					<DropdownItem on:click={() => G.client.moves.putCardInHordeExileFromBattlefield(index)}
+					<DropdownItem onclick={() => G.client.moves.putCardInHordeExileFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the exile</DropdownItem
 					>
 				{/snippet}

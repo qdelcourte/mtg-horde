@@ -165,7 +165,7 @@
 	<Icon
 		id="info"
 		onclick={() => gameInfoRef.show()}
-		icon="mdi:about-circle"
+		icon="mdi:information-slab-circle"
 		color="white"
 		width="32"
 	/>
