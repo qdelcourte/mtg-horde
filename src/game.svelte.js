@@ -3,7 +3,7 @@ import { INVALID_MOVE } from 'boardgame.io/core';
 import moves, * as helpers from './gameHelpers';
 import decks from 'decks';
 
-const [ STAGES, PHASES ] = [ helpers.STAGES, helpers.PHASES ];
+const [STAGES, PHASES] = [helpers.STAGES, helpers.PHASES];
 
 const MTGHorde = {
 	name: 'mtg-horde',

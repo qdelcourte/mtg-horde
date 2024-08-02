@@ -64,7 +64,9 @@
 		</div>
 		<div id="next">
 			<Button onclick={() => G.client.moves.nextInitialTurn()}>
-				{state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn ? 'Go !' : 'Next'}
+				{state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn
+					? 'Go !'
+					: 'Next'}
 			</Button>
 		</div>
 	</div>
@@ -93,30 +95,30 @@
 					</div>
 				</div>
 				{#if state.G.hordeGraveyard.length > 0}
-				<div
-					id="graveyard"
-					class="grid grid-cols-[max-content_1fr]"
-					in:fly={{ x: -100, duration: 500 }}
-				>
-					<div class="label">Graveyard</div>
-					<div class="relative">
-						<!-- svelte-ignore a11y_click_events_have_key_events -->
-						<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-						<img
-							src="/assets/card-back.jpg"
-							alt="graveyard zone"
-							onclick={() => graveyardModalRef.show()}
-						/>
-						<Badge
-							large
-							id="horde-graveyard-badge"
-							color="dark"
-							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
-							>{state.G.hordeGraveyard.length}</Badge
-						>
-						<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+					<div
+						id="graveyard"
+						class="grid grid-cols-[max-content_1fr]"
+						in:fly={{ x: -100, duration: 500 }}
+					>
+						<div class="label">Graveyard</div>
+						<div class="relative">
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+							<img
+								src="/assets/card-back.jpg"
+								alt="graveyard zone"
+								onclick={() => graveyardModalRef.show()}
+							/>
+							<Badge
+								large
+								id="horde-graveyard-badge"
+								color="dark"
+								class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+								>{state.G.hordeGraveyard.length}</Badge
+							>
+							<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+						</div>
 					</div>
-				</div>
 				{/if}
 				<div class="bg-gray-400" in:fly={{ x: -100, duration: 500 }}>
 					<P color="text-white">Horde Damage: {G.helpers.computeHordeDamage(state.G)}</P>
