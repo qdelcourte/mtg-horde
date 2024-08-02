@@ -35,9 +35,6 @@
 		"flowbite-svelte": {
 			"svelte": "$svelte"
 		},
-		"svelte-heros-v2": {
-			"svelte": "$svelte"
-		},
 		"@iconify/svelte": {
 			"svelte": "$svelte"
 		}
