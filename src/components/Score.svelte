@@ -1,6 +1,6 @@
 <script>
 	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
-	import { ArrowUturnLeft, ArrowUturnRight } from 'svelte-heros-v2';
+	import Icon from '@iconify/svelte';
 	import { game as G } from '../game.svelte';
 
 	let state = $derived(G.state);
@@ -10,7 +10,7 @@
 	<div id="score" class="h-1/6">
 		<div id="undo">
 			<Button id="btn-undo" onclick={() => G.client.undo()} color="dark" aria-label="undo"
-				><ArrowUturnLeft /></Button
+				><Icon icon="mdi:arrow-u-left-top" width="24" /></Button
 			>
 			<Tooltip triggeredBy="#btn-undo" placement="top">Undo</Tooltip>
 		</div>
@@ -70,7 +70,7 @@
 		</div>
 		<div id="redo">
 			<Button id="btn-redo" onclick={() => G.client.redo()} color="dark" aria-label="redo"
-				><ArrowUturnRight /></Button
+				><Icon icon="mdi:arrow-u-right-top" width="24" /></Button
 			>
 			<Tooltip triggeredBy="#btn-redo">Redo</Tooltip>
 		</div>

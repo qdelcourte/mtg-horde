@@ -1,14 +1,8 @@
 <script>
-	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
-	import {
-		AdjustmentsHorizontal,
-		DocumentArrowDown,
-		DocumentArrowUp,
-		InformationCircle,
-		PlusCircle
-	} from 'svelte-heros-v2';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
+	import Icon from '@iconify/svelte';
 	import * as SavepointUtils from '../savepoint';
 	import { game as G } from '../game.svelte';
 
@@ -143,40 +137,38 @@
 
 <div id="options" class="absolute bottom-0 left-2">
 	{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
-		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div id="add-card" onclick={() => addTokenModalRef.show()}>
-			<PlusCircle variation="solid" class="text-white" />
-		</div>
+		<Icon
+			id="add-card"
+			onclick={() => addTokenModalRef.show()}
+			icon="mdi:plus-circle"
+			color="white"
+			width="32"
+		/>
 		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
 	{/if}
 
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div id="settings" onclick={() => settingsModalRef.show()}>
-		<AdjustmentsHorizontal variation="solid" class="text-white" />
-	</div>
+	<Icon
+		id="settings"
+		onclick={() => settingsModalRef.show()}
+		icon="mdi:mixer-settings"
+		color="white"
+		width="32"
+	/>
 	<Tooltip triggeredBy="#settings">Restart game ?</Tooltip>
 
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div id="save" onclick={onSave}>
-		<DocumentArrowDown variation="solid" class="text-white" />
-	</div>
+	<Icon id="save" onclick={onSave} icon="mdi:content-save" color="white" width="32" />
 	<Tooltip triggeredBy="#save">Do savepoint</Tooltip>
 
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div id="restore" onclick={onRestore}>
-		<DocumentArrowUp variation="solid" class="text-white" />
-	</div>
+	<Icon id="restore" onclick={onRestore} icon="mdi:file-restore" color="white" width="32" />
 	<Tooltip triggeredBy="#restore">Restore savepoint</Tooltip>
 
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div id="info" onclick={() => gameInfoRef.show()}>
-		<InformationCircle variation="solid" class="text-white" />
-	</div>
+	<Icon
+		id="info"
+		onclick={() => gameInfoRef.show()}
+		icon="mdi:about-circle"
+		color="white"
+		width="32"
+	/>
 	<Tooltip triggeredBy="#info">Open game info</Tooltip>
 </div>
 

@@ -1,6 +1,6 @@
 <script>
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
-	import { ChevronDown } from 'svelte-heros-v2';
+	import Icon from '@iconify/svelte';
 	import { game as G } from '../game.svelte';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();
@@ -38,7 +38,7 @@
 			{#if actions}
 				<div class="card-actions">
 					<Button id="action-{card.uid}" class="!px-1" color="dark"
-						><ChevronDown class="!mx-2" size="18" /></Button
+						><Icon icon="mdi:chevron-down" class="!mx-2" width="18" /></Button
 					>
 					<Dropdown size="xs" triggeredBy=".card-actions #action-{card.uid}" placement="right">
 						{@render actions()}

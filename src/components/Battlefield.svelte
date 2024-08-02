@@ -1,7 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
-	import { ArrowUturnLeft, ArrowUturnRight, XMark } from 'svelte-heros-v2';
 	import { DropdownItem } from 'flowbite-svelte';
+	import Icon from '@iconify/svelte';
 	import Card from './Card.svelte';
 	import { game as G } from '../game.svelte';
 
@@ -17,24 +17,24 @@
 				{#snippet actions()}
 					{#if card.tapped}
 						<DropdownItem on:click={() => G.client.moves.hordeToggleTapCard(index)}
-							><ArrowUturnLeft size="16" class="inline-block" /> Untap</DropdownItem
+							><Icon icon="mdi:arrow-u-left-top" class="inline-block" width="16" /> Untap</DropdownItem
 						>
 					{:else}
 						<DropdownItem on:click={() => G.client.moves.hordeToggleTapCard(index)}
-							><ArrowUturnRight size="16" class="inline-block" /> Tap</DropdownItem
+							><Icon icon="mdi:arrow-u-right-top" class="inline-block" width="16" /> Tap</DropdownItem
 						>
 					{/if}
 					<DropdownItem
 						class="w-48"
 						on:click={() => G.client.moves.putCardInHordeDeckFromBattlefield(index)}
-						><XMark size="16" class="inline-block" /> To the top library</DropdownItem
+						><Icon icon="mdi:close" width="16" class="inline-block" /> To the top library</DropdownItem
 					>
 					<DropdownItem
 						on:click={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
-						><XMark size="16" class="inline-block" /> To the graveyard</DropdownItem
+						><Icon icon="mdi:close" width="16" class="inline-block" /> To the graveyard</DropdownItem
 					>
 					<DropdownItem on:click={() => G.client.moves.putCardInHordeExileFromBattlefield(index)}
-						><XMark size="16" class="inline-block" /> To the exile</DropdownItem
+						><Icon icon="mdi:close" width="16" class="inline-block" /> To the exile</DropdownItem
 					>
 				{/snippet}
 			</Card>
