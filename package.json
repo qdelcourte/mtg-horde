@@ -1,7 +1,7 @@
 {
 	"name": "mtg-horde",
-	"version": "1.0.0",
-	"description": "Play Magic The Gathering(MTG) Horde format with this app",
+	"version": "1.1.0",
+	"description": "Play Magic The Gathering(MTG) Horde format",
 	"author": {
 		"name": "Quentin DELCOURTE"
 	},
@@ -17,16 +17,16 @@
 	},
 	"devDependencies": {
 		"@iconify/svelte": "^4.0.2",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.0",
-		"autoprefixer": "^10.4.13",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.0",	
+		"autoprefixer": "^10.4.19",
 		"boardgame.io": "^0.50.0",
 		"eslint": "^8.54.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0-next.13",
 		"flowbite-svelte": "^0.46.15",
 		"prettier": "^3.1.0",
-		"prettier-plugin-svelte": "^3.2.0",
-		"scryfall-sdk": "^4.2.0",
+		"prettier-plugin-svelte": "^3.2.3",
+		"scryfall-sdk": "^4.2.2",
 		"svelte": "^5.0.0-next.199",
 		"tailwindcss": "^3.2.4",
 		"vite": "^5.0.0"

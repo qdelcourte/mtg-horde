@@ -2,9 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c6818713-2f34-43d2-8261-c57a9268cea5/deploy-status)](https://app.netlify.com/sites/mtg-horde/deploys)
 
-[Demo](https://mtg-horde.netlify.app/)
+[Play!](https://mtg-horde.netlify.app/)
 
-Built with [Svelte](https://github.com/sveltejs/svelte) and [boardgame.io](https://github.com/boardgameio/boardgame.io)
+Built with [Svelte](https://github.com/sveltejs/svelte) ([v5 RC](https://svelte-5-preview.vercel.app/docs/introduction)) and [boardgame.io](https://github.com/boardgameio/boardgame.io)
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
