@@ -16,7 +16,12 @@
 
 		<link rel="icon" type="image/png" href="/favicon.png" />
 
-		<script defer type="module" src="/src/main.js"></script>
+		<script defer type="module">
+			import { mount } from 'svelte';
+			import App from './src/App.svelte';
+
+			const app = new mount(App, { target: document.body });
+		</script>
 	</head>
 
 	<body></body>

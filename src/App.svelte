@@ -1,36 +1,16 @@
 <script>
 	import './app.postcss';
-	import { onMount, setContext } from 'svelte';
-	import { Client } from 'boardgame.io/client';
 	import Board from './components/Board.svelte';
 	import GithubCorner from './components/GithubCorner.svelte';
-	import { MTGHorde } from './game';
-	import { key } from './context';
+	import { game as G } from './game.svelte';
 
-	let client = Client({ game: MTGHorde, numPlayers: 2, debug: { collapseOnLoad: true } });
-	setContext(key, client);
-
-	onMount(() => {
-		client.start();
-		client.subscribe((state) => update(state));
+	$effect(() => {
+		if (G.state.ctx.gameover) alert(G.state.ctx.gameover.winner);
 	});
-
-	function update(state) {
-		// Update the element to show a winner if any.
-		if (state.ctx.gameover) {
-			alert(state.ctx.gameover.winner);
-		}
-	}
 </script>
 
 <GithubCorner />
 
-<div id="app">
+<div id="app" class="h-full">
 	<Board />
 </div>
-
-<style>
-	#app {
-		height: 100%;
-	}
-</style>

@@ -1,16 +1,10 @@
 <script>
-	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
-	import {
-		AdjustmentsHorizontal,
-		DocumentArrowDown,
-		DocumentArrowUp,
-		InformationCircle,
-		PlusCircle
-	} from 'svelte-heros-v2';
-	import { getContext, onMount, tick } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-	import { key } from '../context';
+	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
+	import Icon from '@iconify/svelte';
+	import * as SavepointUtils from '../savepoint';
+	import { game as G } from '../game.svelte';
 
 	import Battlefield from './Battlefield.svelte';
 	import Score from './Score.svelte';
@@ -21,9 +15,6 @@
 	import SettingsModal from './SettingsModal.svelte';
 	import AlertToast from './AlertToast.svelte';
 
-	import * as SavepointUtils from '../savepoint';
-	import { PHASES, computeHordeDamage } from '../gameHelpers';
-
 	let gameInfoRef;
 	let cardDetailsRef;
 	let graveyardModalRef;
@@ -31,22 +22,19 @@
 	let addTokenModalRef;
 	let alertToastRef;
 
-	let state;
-	let client = getContext(key);
-	client.subscribe((s) => (state = s));
+	let state = $derived(G.state);
 
-	onMount(async () => {
-		await tick();
+	$effect(() => {
 		if (settingsModalRef && !state.ctx.phase) settingsModalRef.show();
 	});
 
 	function onSave() {
-		SavepointUtils.savepointInLocalStorage(client);
+		SavepointUtils.savepointInLocalStorage(G.client);
 		alertToastRef.alert('Savepoint !');
 	}
 
 	function onRestore() {
-		SavepointUtils.restoreSavepointFromLocalStorage(client);
+		SavepointUtils.restoreSavepointFromLocalStorage(G.client);
 		alertToastRef.alert('Savepoint restored !');
 	}
 </script>
@@ -58,7 +46,7 @@
 <AlertToast bind:this={alertToastRef} />
 <AddTokenModal bind:this={addTokenModalRef} />
 
-{#if state.ctx.phase === PHASES.initialSurvivorsTurns}
+{#if state.ctx.phase === G.helpers.PHASES.initialSurvivorsTurns}
 	<div
 		id="survivors-turns"
 		class="absolute w-full top-1/2 -translate-y-2/4 bg-black text-white text-center text-5xl font-bold py-4"
@@ -69,12 +57,10 @@
 			Survivors turn {state.G.currentInitialSurvivorTurn + 1} / {state.G.nbInitialSurvivorsTurn}
 		</div>
 		<div id="next">
-			<Button on:click={() => client.moves.nextInitialTurn()}>
-				{#if state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn}
-					Go !
-				{:else}
-					Next
-				{/if}
+			<Button onclick={() => G.client.moves.nextInitialTurn()}>
+				{state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn
+					? 'Go !'
+					: 'Next'}
 			</Button>
 		</div>
 	</div>
@@ -83,7 +69,7 @@
 <div id="game" class="overflow-hidden h-full">
 	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
 		<div id="stacks">
-			{#if state.ctx.phase === PHASES.fightTheHorde}
+			{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
 				<div
 					id="horde"
 					class=" grid grid-cols-[max-content_1fr]"
@@ -102,46 +88,44 @@
 						<Tooltip triggeredBy="#horde-life-badge">Horde life</Tooltip>
 					</div>
 				</div>
-			{/if}
-			{#if state.G.hordeGraveyard.length > 0}
-				<div
-					id="graveyard"
-					class="grid grid-cols-[max-content_1fr]"
-					in:fly={{ x: -100, duration: 500 }}
-				>
-					<div class="label">Graveyard</div>
-					<div class="relative">
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-						<img
-							src="/assets/card-back.jpg"
-							alt="graveyard zone"
-							on:click={() => graveyardModalRef.show()}
-						/>
-						<Badge
-							large
-							id="horde-graveyard-badge"
-							color="dark"
-							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
-							>{state.G.hordeGraveyard.length}</Badge
-						>
-						<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+				{#if state.G.hordeGraveyard.length > 0}
+					<div
+						id="graveyard"
+						class="grid grid-cols-[max-content_1fr]"
+						in:fly={{ x: -100, duration: 500 }}
+					>
+						<div class="label">Graveyard</div>
+						<div class="relative">
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+							<img
+								src="/assets/card-back.jpg"
+								alt="graveyard zone"
+								onclick={() => graveyardModalRef.show()}
+							/>
+							<Badge
+								large
+								id="horde-graveyard-badge"
+								color="dark"
+								class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+								>{state.G.hordeGraveyard.length}</Badge
+							>
+							<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+						</div>
 					</div>
-				</div>
-			{/if}
-			{#if state.ctx.phase === PHASES.fightTheHorde}
+				{/if}
 				<div class="bg-gray-400" in:fly={{ x: -100, duration: 500 }}>
-					<P color="text-white">Horde Damage: {computeHordeDamage(state.G)}</P>
+					<P color="text-white">Horde Damage: {G.helpers.computeHordeDamage(state.G)}</P>
 				</div>
 			{/if}
 		</div>
 		<div id="battlefield" class="overflow-auto h-full">
-			<Battlefield on:show_card={(event) => cardDetailsRef.show(event.detail.card)} />
+			<Battlefield onCardClick={(card) => cardDetailsRef.show(card)} />
 		</div>
 	</div>
 </div>
 
-{#if state.ctx.phase === PHASES.fightTheHorde}
+{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
 	<div
 		id="footer"
 		class="fixed bottom-0 left-1/2 w-8/12 -translate-x-1/2"
@@ -152,41 +136,39 @@
 {/if}
 
 <div id="options" class="absolute bottom-0 left-2">
-	{#if state.ctx.phase === PHASES.fightTheHorde}
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div id="add-card" on:click={() => addTokenModalRef.show()}>
-			<PlusCircle variation="solid" class="text-white" />
-		</div>
+	{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
+		<Icon
+			id="add-card"
+			onclick={() => addTokenModalRef.show()}
+			icon="mdi:plus-circle"
+			color="white"
+			width="32"
+		/>
 		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
 	{/if}
 
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div id="settings" on:click={() => settingsModalRef.show()}>
-		<AdjustmentsHorizontal variation="solid" class="text-white" />
-	</div>
+	<Icon
+		id="settings"
+		onclick={() => settingsModalRef.show()}
+		icon="mdi:mixer-settings"
+		color="white"
+		width="32"
+	/>
 	<Tooltip triggeredBy="#settings">Restart game ?</Tooltip>
 
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div id="save" on:click={onSave}>
-		<DocumentArrowDown variation="solid" class="text-white" />
-	</div>
+	<Icon id="save" onclick={onSave} icon="mdi:content-save" color="white" width="32" />
 	<Tooltip triggeredBy="#save">Do savepoint</Tooltip>
 
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div id="restore" on:click={onRestore}>
-		<DocumentArrowUp variation="solid" class="text-white" />
-	</div>
+	<Icon id="restore" onclick={onRestore} icon="mdi:file-restore" color="white" width="32" />
 	<Tooltip triggeredBy="#restore">Restore savepoint</Tooltip>
 
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div id="info" on:click={() => gameInfoRef.show()}>
-		<InformationCircle variation="solid" class="text-white" />
-	</div>
+	<Icon
+		id="info"
+		onclick={() => gameInfoRef.show()}
+		icon="mdi:information-slab-circle"
+		color="white"
+		width="32"
+	/>
 	<Tooltip triggeredBy="#info">Open game info</Tooltip>
 </div>
 

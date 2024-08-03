@@ -7,5 +7,5 @@
 </script>
 
 <Modal bind:open size="xs" title="Settings" {...$$restProps}>
-	<Settings on:startGame={() => (open = false)} />
+	<Settings onGameStart={() => (open = false)} />
 </Modal>

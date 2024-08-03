@@ -1,18 +1,15 @@
 <script>
 	import { Button, Input, Select, Label, Spinner } from 'flowbite-svelte';
-	import { getContext, createEventDispatcher } from 'svelte';
-	import { key } from '../context';
+	import { game as G } from '../game.svelte';
 
 	import decks from 'decks';
 
-	let dispatch = createEventDispatcher();
+	let { onGameStart } = $props();
 
-	let client = getContext(key);
-
-	let inputDeckValue;
-	let inputNbSurvivorsValue = 1;
-	let inputNbInitialSurvivorsTurnValue = 3;
-	let inputTokenProportionValue = 30;
+	let inputDeckValue = $state();
+	let inputNbSurvivorsValue = $state(1);
+	let inputNbInitialSurvivorsTurnValue = $state(3);
+	let inputTokenProportionValue = $state(30);
 
 	async function loadDeckList() {
 		const deckList = Object.keys(decks);
@@ -21,14 +18,14 @@
 	}
 
 	function startOrRestartGame() {
-		client.reset();
-		client.moves.startGame({
+		G.client.reset();
+		G.client.moves.startGame({
 			nbSurvivors: inputNbSurvivorsValue,
 			deckName: inputDeckValue,
 			nbInitialSurvivorsTurn: inputNbInitialSurvivorsTurnValue,
 			tokenProportion: inputTokenProportionValue / 100
 		});
-		dispatch('startGame');
+		onGameStart();
 	}
 </script>
 
@@ -84,4 +81,4 @@
 	/>
 </div>
 
-<Button on:click={startOrRestartGame}>Start/Restart Game</Button>
+<Button onclick={startOrRestartGame}>Start/Restart Game</Button>

@@ -1,7 +1,7 @@
 <script>
 	import { Heading, P } from 'flowbite-svelte';
 
-	export let card;
+	const { card } = $props();
 </script>
 
 <Heading tag="h2">{card.name}</Heading>
