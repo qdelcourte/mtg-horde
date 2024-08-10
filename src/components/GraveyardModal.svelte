@@ -1,18 +1,15 @@
 <script>
 	import { Badge, DropdownItem, Modal, Span } from 'flowbite-svelte';
-	import { getContext } from 'svelte';
-	import { key } from '../context';
+	import { game as G } from '../game.svelte';
 	import CardDetails from './CardDetails.svelte';
 	import Card from './Card.svelte';
 
-	let state;
-	let client = getContext(key);
-	client.subscribe((s) => (state = s));
+	let state = $derived(G.state);
 
-	let open = false;
+	let open = $state(false);
 	export const show = () => (open = true);
 
-	let currentCard;
+	let currentCard = $state();
 </script>
 
 <Modal bind:open size="xl">
@@ -24,28 +21,32 @@
 		<div id="graveyard">
 			{#each state.G.hordeGraveyard as card, index (card.uid)}
 				<div class="graveyard-card">
-					<Card {card} {index} on:click={() => (currentCard = card)} canChangeMarker={false}>
-						<div slot="actions">
-							<DropdownItem
-								on:click={() => client.moves.putCardInHordeDeckFromGraveyard(index, true)}
-								>To the top library</DropdownItem
-							>
-							<DropdownItem
-								on:click={() => client.moves.putCardInHordeDeckFromGraveyard(index, false)}
-								>To the bottom library</DropdownItem
-							>
-							<DropdownItem
-								on:click={() => client.moves.putCardInHordeBattefieldFromGraveyard(index, false)}
-								>To the battlefield</DropdownItem
-							>
-							<DropdownItem
-								on:click={() => client.moves.putCardInHordeBattefieldFromGraveyard(index, true)}
-								>To the battlefield (tapped)</DropdownItem
-							>
-							<DropdownItem on:click={() => client.moves.putCardInHordeExileFromGraveyard(index)}
-								>To the exile</DropdownItem
-							>
-						</div>
+					<Card {card} {index} onclick={() => (currentCard = card)} canChangeMarker={false}>
+						{#snippet actions()}
+							<div>
+								<DropdownItem
+									onclick={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, true)}
+									>To the top library</DropdownItem
+								>
+								<DropdownItem
+									onclick={() => G.client.moves.putCardInHordeDeckFromGraveyard(index, false)}
+									>To the bottom library</DropdownItem
+								>
+								<DropdownItem
+									onclick={() =>
+										G.client.moves.putCardInHordeBattefieldFromGraveyard(index, false)}
+									>To the battlefield</DropdownItem
+								>
+								<DropdownItem
+									onclick={() => G.client.moves.putCardInHordeBattefieldFromGraveyard(index, true)}
+									>To the battlefield (tapped)</DropdownItem
+								>
+								<DropdownItem
+									onclick={() => G.client.moves.putCardInHordeExileFromGraveyard(index)}
+									>To the exile</DropdownItem
+								>
+							</div>
+						{/snippet}
 					</Card>
 				</div>
 			{/each}
