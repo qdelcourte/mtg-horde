@@ -2,8 +2,123 @@ import { INVALID_MOVE } from 'boardgame.io/core';
 import { current } from 'immer';
 import decks from 'decks';
 
-export function loadDeck(deckName, nbSurvivors, tokenProportion) {
-	const expectedNbCardsInDeck = [NaN, 45, 60, 75, 100][nbSurvivors] || Infinity;
+/**
+ * Load and generate Horde's deck
+ *
+ * @param {string} deckName
+ * @param {number} nbSurvivors
+ * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
+ * @param {'geometric'|'random'} distributionMode - Specify the token distribution method in deck
+ * @returns {Array}
+ */
+export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMode = 'geometric') {
+	switch (distributionMode) {
+		case 'geometric':
+			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
+		case 'random':
+			return randomDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
+		default:
+			throw Error(`Distribution mode '${distributionMode}' is not supported`);
+	}
+}
+
+/**
+ * Load and generate Horde's deck
+ *
+ * Try to distribute evenly tokens in deck following the target proportion.
+ * Apply an opinioned geometric distribution
+ *
+ * @param {string} deckName
+ * @param {number} nbSurvivors
+ * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
+ * @returns {Array}
+ */
+function geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage) {
+	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
+	const numberOfTokens = Math.round(totalCards * tokenPercentage);
+
+	// Create the list of tokens - keep then token's proportion
+	const tokenCards = decks[deckName].filter((card) => isTokenCard(card.card));
+	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
+	const tokens = tokenCards.reduce(
+		(acc, card) =>
+			acc.concat(Array(Math.floor((card.qty / totalTokens) * numberOfTokens)).fill(card.card)),
+		[]
+	);
+
+	// Create the list of non-tokens
+	const nonTokens = decks[deckName]
+		.filter((card) => !isTokenCard(card.card))
+		.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), []);
+
+	// Shuffle token and non-token lists
+	const shuffledTokens = shuffle(tokens);
+	const shuffledNonTokens = shuffle(nonTokens);
+
+	// Apply geometric distribution to assign tokens progressively
+	//   - Consider being able to draw a token from the first draw
+	//   - Consider that the maximum number of successive draws of a token increases according to the distribution
+	const reducedDeck = [];
+	let tokenIndex = 0;
+	let nonTokenIndex = 0;
+
+	let MAX_TOKEN_IN_A_ROW = 2;
+	let nbTokenInARow = 0;
+
+	for (let i = 0; i < totalCards; i++) {
+		// Adjust the parameter (0.2) to control the steepness
+		// Consider being able to draw a token from the first draw => i+1
+		const probability = 1 - Math.exp(-0.2 * i + 1);
+
+		// Follow the distribution
+		const shouldAddToken = Math.random() < probability;
+
+		if (
+			shouldAddToken &&
+			tokenIndex < shuffledTokens.length &&
+			nbTokenInARow + 1 <= MAX_TOKEN_IN_A_ROW
+		) {
+			reducedDeck.push({ ...shuffledTokens[tokenIndex], uid: generateCardRandomId() });
+			tokenIndex++;
+			nbTokenInARow++;
+		} else if (nonTokenIndex < shuffledNonTokens.length) {
+			reducedDeck.push({ ...shuffledNonTokens[nonTokenIndex], uid: generateCardRandomId() });
+			nonTokenIndex++;
+			nbTokenInARow = 0;
+		}
+
+		// Adjust the maximum number of successive token draws according to the distribution of non-tokens
+		// And add 10% of probability to increase the limit
+		if (!shouldAddToken && Math.random() < 0.1) {
+			MAX_TOKEN_IN_A_ROW += 1;
+		}
+	}
+
+	// Fill any remaining spots in case tokens or non-tokens are exhausted
+	while (tokenIndex < shuffledTokens.length && reducedDeck.length < totalCards) {
+		reducedDeck.push({ ...shuffledTokens[tokenIndex], uid: generateCardRandomId() });
+		tokenIndex++;
+	}
+	while (nonTokenIndex < shuffledNonTokens.length && reducedDeck.length < totalCards) {
+		reducedDeck.push({ ...shuffledNonTokens[nonTokenIndex], uid: generateCardRandomId() });
+		nonTokenIndex++;
+	}
+
+	return reducedDeck;
+}
+
+/**
+ * Load and generate Horde's deck (in the basic way)
+ *
+ * Distribute randomly tokens in deck following the target proportion.
+ *
+ * @param {string} deckName
+ * @param {number} nbSurvivors
+ * @param {number} tokenProportion
+ * @returns {Array}
+ */
+function randomDistributionHordeDeck(deckName, nbSurvivors, tokenProportion) {
+	const expectedNbCardsInDeck = getNbCardsFromNbSurvivors(nbSurvivors);
 	const expectedNbTokenCardsInDeck = Math.floor(expectedNbCardsInDeck * tokenProportion);
 	const expectedNbNonTokenCardsInDeck = expectedNbCardsInDeck - expectedNbTokenCardsInDeck;
 
@@ -11,24 +126,43 @@ export function loadDeck(deckName, nbSurvivors, tokenProportion) {
 	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
 
 	// Prepare tokens
-	const tokenDeck = tokenCards.reduce((acc, card) => {
-		const proportion = totalTokens / card.qty;
-		card.qty = Math.floor(proportion * expectedNbTokenCardsInDeck);
-		return acc.concat(Array(card.qty).fill(card.card));
-	}, []);
+	const tokenDeck = tokenCards.reduce(
+		(acc, card) =>
+			acc.concat(
+				Array(Math.floor((card.qty / totalTokens) * expectedNbTokenCardsInDeck)).fill(card.card)
+			),
+		[]
+	);
 
 	// Prepare non tokens
-	const nonTokenDeck = decks[deckName]
-		.filter((card) => !isTokenCard(card.card))
-		.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), [])
-		.sort(() => 0.5 - Math.random())
-		.slice(0, expectedNbNonTokenCardsInDeck);
+	const nonTokenDeck = shuffle(
+		decks[deckName]
+			.filter((card) => !isTokenCard(card.card))
+			.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), [])
+	);
+	let restNonTokens = nonTokenDeck.splice(expectedNbNonTokenCardsInDeck);
 
 	// Return deck shuffled
-	return tokenDeck
-		.concat(nonTokenDeck)
-		.sort(() => 0.5 - Math.random())
-		.map((card) => ({ ...card, uid: generateCardRandomId() }));
+	let reducedDeck = shuffle(tokenDeck.concat(nonTokenDeck)).map((card) => ({
+		...card,
+		uid: generateCardRandomId()
+	}));
+
+	// Fill any remaining spots in case tokens or non-tokens are exhausted
+	while (reducedDeck.length < expectedNbCardsInDeck) {
+		const card = restNonTokens.splice(Math.floor(Math.random() * restNonTokens.length), 1)[0];
+		reducedDeck.push({ ...card, uid: generateCardRandomId() });
+	}
+
+	return reducedDeck;
+}
+
+function getNbCardsFromNbSurvivors(nbSurvivors) {
+	return [NaN, 45, 60, 75, 100][nbSurvivors] || 100;
+}
+
+function shuffle(array) {
+	return array.sort(() => 0.5 - Math.random());
 }
 
 export function generateCardRandomId() {
@@ -48,7 +182,7 @@ export function computeHordeDamage(G) {
 }
 
 export function isTokenCard(card) {
-	return card.layout === 'token';
+	return card.layout.includes('token');
 }
 
 export function isSorceryCard(card) {
