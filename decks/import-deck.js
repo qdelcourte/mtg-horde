@@ -1,23 +1,26 @@
-const scryfall = require('scryfall-sdk');
-const fs = require('fs');
+import scryfall from 'scryfall-sdk';
+import fs from 'fs';
 
-let deckJSON = [];
+const regex = /^(\d+)\s+([A-Za-z'\s]+)(\s+\(.*?\))?$/;
 
-new Promise((resolve) => {
+new Promise(async (resolve) => {
+	let deckJSON = [];
 	const lines = fs.readFileSync(process.argv[2], 'utf8').split(/\n/);
-	for (const line in lines) {
-		const cardLine = lines[line].split(/ (.+)/);
-		const nbCards = parseInt(cardLine[0]);
-		const cardName = cardLine[1];
+	for (const idx in lines) {
+		const match = regex.exec(lines[idx]);
+		if (!match) continue;
+
+		const nbCards = parseInt(match[1]);
+		const cardName = match[2];
 
 		let card;
 		if (cardName.match(/^id:.+/)) {
-			card = Promise.resolve(scryfall.Cards.byMultiverseId(cardName.split(':')[1]));
+			card = await scryfall.Cards.byMultiverseId(cardName.split(':')[1]);
 		} else {
-			card = Promise.resolve(scryfall.Cards.byName(cardName));
+			card = await scryfall.Cards.byName(cardName);
 		}
 
-		if (card.not_found) {
+		if (!card || card.not_found) {
 			console.error(`${cardName} not found`);
 			continue;
 		}
@@ -25,30 +28,30 @@ new Promise((resolve) => {
 		deckJSON.push({
 			qty: nbCards,
 			card: {
+				id: card.id,
+				multiverse_ids: card.multiverse_ids,
+				name: card.name,
+				lang: card.lang,
 				uri: card.uri,
 				scryfall_uri: card.scryfall_uri,
-				lang: card.lang,
-				name: card.name,
+				layout: card.layout,
+				images: card.image_uris,
 				mana_cost: card.mana_cost,
 				cmc: card.cmc,
-				colors: card.colors,
-				color_identity: card.color_identity,
 				type: card.type_line,
-				layout: card.layout,
 				text: card.oracle_text,
+				color_identity: card.color_identity,
+				colors: card.colors,
 				power: card.power,
 				toughness: card.toughness,
-				multiverse_ids: card.multiverse_ids,
-				images: card.image_uris,
-				rulings: card.rulings_uri,
-				id: card.id
+				rulings: card.rulings_uri
 			}
 		});
 
 		console.log(card.name, nbCards);
 	}
-	resolve();
-}).then(() => {
+	resolve(deckJSON);
+}).then((deckJSON) => {
 	fs.writeFile(process.argv[3], JSON.stringify(deckJSON), 'utf8', function (err) {
 		if (err) {
 			console.log('An error occured while writing JSON Object to File.');
@@ -56,5 +59,6 @@ new Promise((resolve) => {
 		}
 
 		console.log('JSON file has been saved.');
+		process.exit();
 	});
 });
