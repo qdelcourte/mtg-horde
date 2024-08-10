@@ -20,7 +20,7 @@
 			id="drawer-label"
 			class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
 		>
-			<Icon icon="mdi:information-slab-circle" width="24" class="mr-2"/> Card Details
+			<Icon icon="mdi:information-slab-circle" width="24" class="mr-2" /> Card Details
 		</h5>
 		<CloseButton onclick={() => (hidden = true)} class="mb-4 dark:text-white" />
 	</div>
