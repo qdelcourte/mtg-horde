@@ -21,7 +21,7 @@ const MTGHorde = {
 			currentInitialSurvivorTurn: 0,
 			nbSurvivors: 1,
 			survivorsLife: 0,
-			tokenProportion: 0.5
+			tokenProportion: 0.6
 		};
 	},
 
