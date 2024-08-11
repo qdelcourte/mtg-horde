@@ -36,7 +36,7 @@
 1 Unbreathing Horde
 1 Undead Warchief
 1 Vengeful Dead
-55 id:409656
+55 Zombie (DDQ)
 1 Wight of Precinct Six
 1 Zombie Apocalypse
 1 Zombie Brute

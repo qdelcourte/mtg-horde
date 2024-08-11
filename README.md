@@ -42,6 +42,13 @@ Resources:
     npm install
     npm run dev
 
+## Import new horde in local
+
+    cd decks/
+    node import-deck.js filename.txt
+
+Then in `decks/index.js`, export the generated json file.
+
 ## Run prod
 
     npm install

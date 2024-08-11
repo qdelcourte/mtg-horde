@@ -12,7 +12,7 @@ new Promise(async (resolve) => {
 
 		const nbCards = parseInt(match[1]);
 		const cardName = match[2].trim();
-		const setTag = match[3] ? match[3].replaceAll(/[\(\)\s]/g, '').trim() : null;
+		const setTag = match[3] ? match[3].replaceAll(/[\(\)\s]/g, '').trim() : '';
 		const customTags = match[4] ? match[4].trim().split(/\s+/) : [];
 
 		let card;
@@ -56,13 +56,18 @@ new Promise(async (resolve) => {
 	}
 	resolve(deckJSON);
 }).then((deckJSON) => {
-	fs.writeFile(process.argv[3], JSON.stringify(deckJSON), 'utf8', function (err) {
-		if (err) {
-			console.log('An error occured while writing JSON Object to File.');
-			return console.log(err);
-		}
+	fs.writeFile(
+		process.argv[2].replace('.txt', '.json'),
+		JSON.stringify(deckJSON),
+		'utf8',
+		function (err) {
+			if (err) {
+				console.log('An error occured while writing JSON Object to File.');
+				return console.log(err);
+			}
 
-		console.log('JSON file has been saved.');
-		process.exit();
-	});
+			console.log('JSON file has been saved.');
+			process.exit();
+		}
+	);
 });
