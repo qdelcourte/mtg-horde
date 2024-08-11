@@ -270,9 +270,7 @@ export const PHASES = {
 
 // Game stages
 export const STAGES = {
-	untap: 'untap',
 	draw: 'draw',
-	upkeek: 'upkeek',
 	attack: 'attack'
 };
 

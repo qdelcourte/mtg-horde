@@ -43,6 +43,7 @@ const MTGHorde = {
 			G.hordeBattlefield = [];
 			G.hordeGraveyard = [];
 			G.hordeLife = helpers.computeHordeLife(G);
+			G.currentTurn = 0;
 
 			events.setPhase(PHASES.initialSurvivorsTurns);
 		}
@@ -63,23 +64,12 @@ const MTGHorde = {
 			}
 		},
 		[PHASES.fightTheHorde]: {
-			onBegin: ({ G }) => {
-				G.isPhaseBeginning = true;
-			},
-
 			moves: {
 				...moves,
 				// Stages moves
-				stageHordeUntap: ({ G, events }) => {
-					moves.hordeToggleTapAllCards({ G }, false);
-					events.setActivePlayers({ currentPlayer: STAGES.draw });
-				},
 				stageHordeDraw: ({ G, events }) => {
+					G.currentTurn++;
 					moves.hordeDrawCards({ G });
-					events.setActivePlayers({ currentPlayer: STAGES.upkeek });
-				},
-				stageHordeDeclareAttack: ({ G, events }) => {
-					moves.hordeToggleTapAllCards({ G }, true);
 					events.setActivePlayers({ currentPlayer: STAGES.attack });
 				},
 				stageHordeAttackEnd: ({ G, events }) => {
@@ -91,26 +81,14 @@ const MTGHorde = {
 				},
 				stageSurvivorsEndTurn: ({ G, events }) => {
 					events.endTurn();
-					if (G.hordeBattlefield.length > 0) {
-						events.setActivePlayers({ currentPlayer: STAGES.untap });
-					} else {
-						events.setActivePlayers({ currentPlayer: STAGES.draw });
-					}
+					events.setActivePlayers({ currentPlayer: STAGES.draw });
 				}
 			},
 
 			turn: {
-				activePlayers: { currentPlayer: STAGES.untap },
-				onBegin: ({ G, events }) => {
-					if (G.isPhaseBeginning) {
-						events.setActivePlayers({ currentPlayer: STAGES.draw });
-						G.isPhaseBeginning = false;
-					}
-				},
+				activePlayers: { currentPlayer: STAGES.draw },
 				stages: {
-					[STAGES.untap]: {},
 					[STAGES.draw]: {},
-					[STAGES.upkeek]: {},
 					[STAGES.attack]: {}
 				}
 			}

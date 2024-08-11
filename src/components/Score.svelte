@@ -29,25 +29,27 @@
 					</ButtonGroup>
 				</div>
 			</div>
-			<div id="horde-actions" class="actions">
-				<ButtonGroup>
-					{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.activePlayers}
-						{#if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.untap}
-							<Button onclick={() => G.client.moves.stageHordeUntap()} size="sm">Untap all</Button>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.draw}
-							<Button onclick={() => G.client.moves.stageHordeDraw()} size="sm">Draw</Button>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.upkeek}
-							<Button onclick={() => G.client.moves.stageHordeDeclareAttack()} size="sm"
-								>Declare attack</Button
-							>
-						{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.attack}
-							<Button onclick={() => G.client.moves.stageHordeAttackEnd()} size="sm"
-								>Attack End</Button
-							>
-						{/if}
+		</div>
+		<div class="w-36 text-center">
+			<div class="actions" class:player-turn={state.ctx.currentPlayer === '0'}>
+				{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.activePlayers}
+					{#if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.draw}
+						<Button onclick={() => G.client.moves.stageHordeDraw()} size="sm">Draw</Button>
+					{:else if state.ctx.activePlayers[state.ctx.currentPlayer] === G.helpers.STAGES.attack}
+						<Button onclick={() => G.client.moves.stageHordeAttackEnd()} size="sm"
+							>Attack End</Button
+						>
 					{/if}
-				</ButtonGroup>
+				{/if}
 			</div>
+
+			<div class="actions" class:player-turn={state.ctx.currentPlayer === '1'}>
+				{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.currentPlayer == 1}
+					<Button onclick={() => G.client.moves.stageSurvivorsEndTurn()} size="sm">End turn</Button>
+				{/if}
+			</div>
+
+			<div class="mt-2">Turn {state.G.currentTurn}</div>
 		</div>
 		<div id="survivors" class:player-turn={state.ctx.currentPlayer === '1'}>
 			<div id="survivors-life">
@@ -61,11 +63,6 @@
 						<Button onclick={() => G.client.moves.survivorsChangeLife(5)} color="green">+5</Button>
 					</ButtonGroup>
 				</div>
-			</div>
-			<div id="survivors-actions" class="actions">
-				{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde && state.ctx.currentPlayer == 1}
-					<Button onclick={() => G.client.moves.stageSurvivorsEndTurn()} size="sm">End turn</Button>
-				{/if}
 			</div>
 		</div>
 		<div id="redo">
@@ -101,6 +98,10 @@
 		align-items: center;
 		width: 100px;
 		padding: 12px;
+
+		&:hover .change-life {
+			bottom: 50px;
+		}
 	}
 
 	#score .life {
@@ -114,21 +115,17 @@
 
 	#score .actions {
 		display: none;
-		position: absolute;
-		top: -50px;
+
+		&.player-turn {
+			display: block;
+		}
 	}
 
-	#score #horde-life:hover .change-life,
-	#score #survivors-life:hover .change-life {
-		bottom: 50px;
-	}
-
-	#score .player-turn {
-		border: 1px solid cornflowerblue;
-		transition: border 0.1s ease-in-out;
-	}
-
-	#score .player-turn .actions {
-		display: block;
+	#horde,
+	#survivors {
+		&.player-turn {
+			border: 1px solid cornflowerblue;
+			transition: border 0.3s ease-in-out;
+		}
 	}
 </style>

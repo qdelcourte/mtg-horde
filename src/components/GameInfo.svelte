@@ -26,4 +26,6 @@
 	<div>Nb cards on battlefield: <Badge>{state.G.hordeBattlefield.length}</Badge></div>
 	<div>Nb cards in graveyard: <Badge>{state.G.hordeGraveyard.length}</Badge></div>
 	<div>Phase: {state.ctx.phase}</div>
+	<div>Turn (ctx): {state.ctx.turn}</div>
+	<div>Turn (curr): {state.G.currentTurn}</div>
 </Drawer>
