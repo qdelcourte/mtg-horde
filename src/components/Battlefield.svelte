@@ -29,8 +29,7 @@
 						onclick={() => G.client.moves.putCardInHordeDeckFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the top library</DropdownItem
 					>
-					<DropdownItem
-						onclick={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
+					<DropdownItem onclick={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the graveyard</DropdownItem
 					>
 					<DropdownItem onclick={() => G.client.moves.putCardInHordeExileFromBattlefield(index)}
