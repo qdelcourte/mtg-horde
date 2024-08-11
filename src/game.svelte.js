@@ -36,7 +36,10 @@ const MTGHorde = {
 			G.tokenProportion = tokenProportion;
 
 			G.hordeDeckName = deckName;
-			G.hordeDeck = helpers.loadDeck(decks[deckName], G.nbSurvivors, G.tokenProportion);
+			G.hordeDeck = helpers.loadDeck(decks[deckName], {
+				nbSurvivors: G.nbSurvivors,
+				tokenPercentage: G.tokenProportion
+			});
 			G.hordeBattlefield = [];
 			G.hordeGraveyard = [];
 			G.hordeLife = helpers.computeHordeLife(G);

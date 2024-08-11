@@ -4,25 +4,18 @@ import { current } from 'immer';
 /**
  * Load and generate Horde's deck
  *
- * @param {string} deckName
- * @param {number} nbSurvivors
- * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
+ * @param {Array} deck
  * @param {'geometric'|'geometric_boosted'|'random'} distributionMode - Specify the token distribution method in deck
  * @returns {Array}
  */
-export function loadDeck(
-	deckName,
-	nbSurvivors,
-	tokenPercentage,
-	distributionMode = 'geometric_boosted'
-) {
-	switch (distributionMode) {
+export function loadDeck(deck, options) {
+	switch (options.distributionMode ?? 'geometric_boosted') {
 		case 'geometric':
-			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
+			return geometricDistributionHordeDeck(deck, options);
 		case 'geometric_boosted':
-			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage, true);
+			return geometricDistributionHordeDeck(deck, { ...options, limitSuccessiveTokenDraw: true });
 		case 'random':
-			return randomDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
+			return randomDistributionHordeDeck(deck, options);
 		default:
 			throw Error(`Distribution mode '${distributionMode}' is not supported`);
 	}
@@ -35,17 +28,17 @@ export function loadDeck(
  * Apply an opinioned geometric distribution
  *
  * @param {Array} deck
- * @param {number} nbSurvivors
- * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
- * @param {boolean} limitSuccessiveTokenDraw - limit successive token draw, can grow during distribution (default: no limit)
  * @returns {Array}
  */
-function geometricDistributionHordeDeck(
-	deck,
-	nbSurvivors,
-	tokenPercentage,
-	limitSuccessiveTokenDraw = false
-) {
+function geometricDistributionHordeDeck(deck, options) {
+	// Limit successive token draw, can grow during distribution (default: no limit)
+	const {
+		nbSurvivors,
+		tokenPercentage,
+		limitSuccessiveTokenDraw = false,
+		shuffleBiasFactor = null
+	} = options;
+
 	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
 	const numberOfTokens = Math.round(totalCards * tokenPercentage);
 
@@ -64,8 +57,9 @@ function geometricDistributionHordeDeck(
 	);
 
 	// Shuffle token and non-token lists
-	const shuffledTokens = shuffle(tokens);
-	const shuffledNonTokens = shuffle(nonTokens);
+	const shuffleFn = shuffleBiasFactor ? biaisedShuffle : shuffle;
+	const shuffledTokens = shuffleFn(tokens, shuffleBiasFactor);
+	const shuffledNonTokens = shuffleFn(nonTokens, shuffleBiasFactor);
 
 	// Apply geometric distribution to assign tokens progressively
 	//   - Consider being able to draw a token from the first draw
@@ -117,13 +111,13 @@ function geometricDistributionHordeDeck(
  * Distribute randomly tokens in deck following the target proportion.
  *
  * @param {Array} deck
- * @param {number} nbSurvivors
- * @param {number} tokenProportion
  * @returns {Array}
  */
-function randomDistributionHordeDeck(deck, nbSurvivors, tokenProportion) {
+function randomDistributionHordeDeck(deck, options) {
+	const { nbSurvivors, tokenPercentage, shuffleBiasFactor = null } = options;
+
 	const expectedNbCardsInDeck = getNbCardsFromNbSurvivors(nbSurvivors);
-	const expectedNbTokenCardsInDeck = Math.floor(expectedNbCardsInDeck * tokenProportion);
+	const expectedNbTokenCardsInDeck = Math.floor(expectedNbCardsInDeck * tokenPercentage);
 	const expectedNbNonTokenCardsInDeck = expectedNbCardsInDeck - expectedNbTokenCardsInDeck;
 
 	const tokenCards = deck.filter((card) => isTokenCard(card.card));
@@ -144,25 +138,60 @@ function randomDistributionHordeDeck(deck, nbSurvivors, tokenProportion) {
 	);
 	const restNonTokens = nonTokenDeck.splice(expectedNbNonTokenCardsInDeck);
 
-	// Return deck shuffled
-	let reducedDeck = shuffle([...tokenDeck, ...nonTokenDeck]);
-
 	// Fill any remaining spots in case tokens or non-tokens are exhausted
+	let reducedDeck = shuffle([...tokenDeck, ...nonTokenDeck]);
 	while (reducedDeck.length < expectedNbCardsInDeck) {
-		reducedDeck.push(restNonTokens.splice(Math.floor(Math.random() * restNonTokens.length), 1)[0]);
+		const card = restNonTokens.splice(Math.floor(Math.random() * restNonTokens.length), 1)[0];
+		if (!card) break;
+		reducedDeck.push(card);
 	}
 
-	return reducedDeck;
+	// Return deck shuffled
+	const shuffleFn = shuffleBiasFactor ? biaisedShuffle : shuffle;
+	return shuffleFn(reducedDeck, shuffleBiasFactor);
 }
 
 function getNbCardsFromNbSurvivors(nbSurvivors) {
 	return [NaN, 45, 60, 75, 100][nbSurvivors] || 100;
 }
 
+/**
+ * Basic shuffle
+ *
+ * @param {Array} array
+ * @returns
+ */
 function shuffle(array) {
 	return array.sort(() => 0.5 - Math.random());
 }
 
+/**
+ * Shuffle the array with a Fisher-Yates Shuffle
+ *
+ * @param {Array} array
+ * @param {number} biasFactor - Applying a bias factor, 80% chance of pushing the element to the end of the array
+ * @returns {Array}
+ */
+function biaisedShuffle(array, biasFactor = 0.8) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const randomIndex =
+			isLategameCard(array[i]) && Math.random() < biasFactor
+				? Math.floor(Math.random() * (array.length - i) + i) // Biaised selection
+				: Math.floor(Math.random() * (i + 1)); // Normal
+
+		// Exchanging elements
+		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+	}
+
+	return array;
+}
+
+/**
+ * If double faced card then choose a face with 50% chance
+ *
+ * @param {object} card
+ * @returns
+ */
 function getCardFace(card) {
 	const cardFace = isDoubleFacedCard(card)
 		? card.card_faces[Math.floor(Math.random() * card.card_faces.length)]
@@ -193,6 +222,10 @@ export function computeHordeDamage(G) {
 
 export function isDoubleFacedCard(card) {
 	return card.layout.includes('double_faced');
+}
+
+export function isLategameCard(card) {
+	return card?.custom_tags.includes('#lategame');
 }
 
 export function isTokenCard(card) {
