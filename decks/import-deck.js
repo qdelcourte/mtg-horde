@@ -1,7 +1,7 @@
 import scryfall from 'scryfall-sdk';
 import fs from 'fs';
 
-const regex = /^(\d+)\s+([A-Za-z'\s]+)(\s+\(.*?\))?$/;
+const regex = /^(\d+)\s+([A-Za-z'\s]+)(\s+\(.*?\))?((\s+#\w+)+)?$/;
 
 new Promise(async (resolve) => {
 	let deckJSON = [];
@@ -11,13 +11,15 @@ new Promise(async (resolve) => {
 		if (!match) continue;
 
 		const nbCards = parseInt(match[1]);
-		const cardName = match[2];
+		const cardName = match[2].trim();
+		const setTag = match[3] ? match[3].replaceAll(/[\(\)\s]/g, '').trim() : null;
+		const customTags = match[4] ? match[4].trim().split(/\s+/) : [];
 
 		let card;
 		if (cardName.match(/^id:.+/)) {
 			card = await scryfall.Cards.byMultiverseId(cardName.split(':')[1]);
 		} else {
-			card = await scryfall.Cards.byName(cardName);
+			card = await scryfall.Cards.byName(cardName, setTag);
 		}
 
 		if (!card || card.not_found) {
@@ -45,7 +47,8 @@ new Promise(async (resolve) => {
 				colors: card.colors,
 				power: card.power,
 				toughness: card.toughness,
-				rulings: card.rulings_uri
+				rulings: card.rulings_uri,
+				custom_tags: customTags
 			}
 		});
 

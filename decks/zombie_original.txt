@@ -5,7 +5,7 @@
 1 Carrion Wurm (TOR)
 1 Death Baron (MIC)
 1 Fleshbag Marauder (MIC)
-1 Grave Titan (SLD)
+1 Grave Titan (SLD) #lategame
 2 Infectious Horror (M19)
 3 Maggot Carrier (PLS)
 2 Nested Ghoul (MBS)
@@ -24,10 +24,10 @@
 1 Endless Ranks of the Dead (ISD)
 1 Forsaken Wastes (MIR)
 
-1 Army of the Damned (ISD)
-1 Damnation (2X2)
+1 Army of the Damned (ISD) #lategame
+1 Damnation (2X2) #lategame
 2 Delirium Skeins (MM3)
-1 Plague Wind (A25)
+1 Plague Wind (A25) #lategame
 1 Twilight's Call (DDJ)
 
 5 Zombie Giant (TBBD)
