@@ -1,6 +1,5 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
 import { current } from 'immer';
-import decks from 'decks';
 
 /**
  * Load and generate Horde's deck
@@ -8,13 +7,15 @@ import decks from 'decks';
  * @param {string} deckName
  * @param {number} nbSurvivors
  * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
- * @param {'geometric'|'random'} distributionMode - Specify the token distribution method in deck
+ * @param {'geometric'|'geometric_boosted'|'random'} distributionMode - Specify the token distribution method in deck
  * @returns {Array}
  */
-export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMode = 'geometric') {
+export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMode = 'geometric_boosted') {
 	switch (distributionMode) {
 		case 'geometric':
 			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
+		case 'geometric_boosted':
+			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage, 2);
 		case 'random':
 			return randomDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
 		default:
@@ -28,17 +29,18 @@ export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMod
  * Try to distribute evenly tokens in deck following the target proportion.
  * Apply an opinioned geometric distribution
  *
- * @param {string} deckName
+ * @param {Array} deck
  * @param {number} nbSurvivors
  * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
+ * @param {number} baseMaxTokenInARow - limit successive token draw, can grow during distribution (default: no limit)
  * @returns {Array}
  */
-function geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage) {
+function geometricDistributionHordeDeck(deck, nbSurvivors, tokenPercentage, baseMaxTokenInARow=Infinity) {
 	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
 	const numberOfTokens = Math.round(totalCards * tokenPercentage);
 
-	// Create the list of tokens - keep then token's proportion
-	const tokenCards = decks[deckName].filter((card) => isTokenCard(card.card));
+	// Create the list of tokens - keep the token's proportion
+	const tokenCards = deck.filter((card) => isTokenCard(card.card));
 	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
 	const tokens = tokenCards.reduce(
 		(acc, card) =>
@@ -47,7 +49,7 @@ function geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage) 
 	);
 
 	// Create the list of non-tokens
-	const nonTokens = decks[deckName]
+	const nonTokens = deck
 		.filter((card) => !isTokenCard(card.card))
 		.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), []);
 
@@ -62,13 +64,13 @@ function geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage) 
 	let tokenIndex = 0;
 	let nonTokenIndex = 0;
 
-	let MAX_TOKEN_IN_A_ROW = 2;
+	let MAX_TOKEN_IN_A_ROW = baseMaxTokenInARow;
 	let nbTokenInARow = 0;
 
 	for (let i = 0; i < totalCards; i++) {
 		// Adjust the parameter (0.2) to control the steepness
 		// Consider being able to draw a token from the first draw => i+1
-		const probability = 1 - Math.exp(-0.2 * i + 1);
+		const probability = 1 - Math.exp(-0.2 * (i + 1));
 
 		// Follow the distribution
 		const shouldAddToken = Math.random() < probability;
@@ -112,17 +114,17 @@ function geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage) 
  *
  * Distribute randomly tokens in deck following the target proportion.
  *
- * @param {string} deckName
+ * @param {Array} deck
  * @param {number} nbSurvivors
  * @param {number} tokenProportion
  * @returns {Array}
  */
-function randomDistributionHordeDeck(deckName, nbSurvivors, tokenProportion) {
+function randomDistributionHordeDeck(deck, nbSurvivors, tokenProportion) {
 	const expectedNbCardsInDeck = getNbCardsFromNbSurvivors(nbSurvivors);
 	const expectedNbTokenCardsInDeck = Math.floor(expectedNbCardsInDeck * tokenProportion);
 	const expectedNbNonTokenCardsInDeck = expectedNbCardsInDeck - expectedNbTokenCardsInDeck;
 
-	const tokenCards = decks[deckName].filter((card) => isTokenCard(card.card));
+	const tokenCards = deck.filter((card) => isTokenCard(card.card));
 	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
 
 	// Prepare tokens
@@ -136,7 +138,7 @@ function randomDistributionHordeDeck(deckName, nbSurvivors, tokenProportion) {
 
 	// Prepare non tokens
 	const nonTokenDeck = shuffle(
-		decks[deckName]
+		deck
 			.filter((card) => !isTokenCard(card.card))
 			.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), [])
 	);
