@@ -12,12 +12,12 @@
 	let page = $state(document.location.hash);
 </script>
 
-<svelte:window on:hashchange={() => page = document.location.hash}/>
-	
+<svelte:window on:hashchange={() => (page = document.location.hash)} />
+
 <GithubCorner />
 
 {#if page === '#distribution'}
-	<CompareDistribution/>
+	<CompareDistribution />
 {:else}
 	<div id="app" class="h-full">
 		<Board />

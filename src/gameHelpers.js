@@ -10,7 +10,12 @@ import { current } from 'immer';
  * @param {'geometric'|'geometric_boosted'|'random'} distributionMode - Specify the token distribution method in deck
  * @returns {Array}
  */
-export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMode = 'geometric_boosted') {
+export function loadDeck(
+	deckName,
+	nbSurvivors,
+	tokenPercentage,
+	distributionMode = 'geometric_boosted'
+) {
 	switch (distributionMode) {
 		case 'geometric':
 			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
@@ -35,7 +40,12 @@ export function loadDeck(deckName, nbSurvivors, tokenPercentage, distributionMod
  * @param {number} baseMaxTokenInARow - limit successive token draw, can grow during distribution (default: no limit)
  * @returns {Array}
  */
-function geometricDistributionHordeDeck(deck, nbSurvivors, tokenPercentage, baseMaxTokenInARow=Infinity) {
+function geometricDistributionHordeDeck(
+	deck,
+	nbSurvivors,
+	tokenPercentage,
+	baseMaxTokenInARow = Infinity
+) {
 	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
 	const numberOfTokens = Math.round(totalCards * tokenPercentage);
 
