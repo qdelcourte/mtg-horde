@@ -19,7 +19,7 @@
 1 Intimidation
 1 Liliana's Reaver
 1 Maalfeld Twins
-5 Necrosavant
+6 Necrosavant
 1 Nested Ghoul
 1 Nocturnal Raid
 1 Noxious Ghoul
