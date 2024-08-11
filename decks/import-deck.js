@@ -48,6 +48,7 @@ new Promise(async (resolve) => {
 				power: card.power,
 				toughness: card.toughness,
 				rulings: card.rulings_uri,
+				rarity: card.rarity,
 				custom_tags: customTags
 			}
 		});
