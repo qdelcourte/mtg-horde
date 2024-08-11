@@ -15,6 +15,8 @@
 	let generations = $state({});
 	let now = $state(Date.now());
 
+	let showGeneration = $state();
+
 	$effect(() => {
 		if (now) {
 			distributionModes.forEach((m) => {
@@ -92,7 +94,11 @@
 			<div class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
 				<h2 class="m-1">{@render chip(mode)}</h2>
 				{#each generations[mode] as cards, n}
-					<h3 class="underline">Generation {n + 1}</h3>
+					<!-- svelte-ignore a11y_click_events_have_key_events -->
+					<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+					<h3 class="underline cursor-pointer" onclick={() => (showGeneration = { mode, n })}>
+						Generation {n + 1}
+					</h3>
 					<div class="flex">
 						{#each cards as card}
 							<div
@@ -106,6 +112,26 @@
 			</div>
 		{/each}
 	</div>
+
+	{#if showGeneration}
+		{@const cards = generations[showGeneration.mode][showGeneration.n]}
+		<div id="generation-detail" class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
+			<h2 class="m-1">{@render chip(showGeneration.mode)}</h2>
+			<h3 class="underline">Generation {showGeneration.n + 1}</h3>
+			<div>
+				{#each cards as card}
+					<div class="flex gap-2" class:token={isTokenCard(card)}>
+						<div
+							class="card"
+							class:token={isTokenCard(card)}
+							class:lategame={isLategameCard(card)}
+						></div>
+						<span>{card.name}</span>
+					</div>
+				{/each}
+			</div>
+		</div>
+	{/if}
 </div>
 
 {#snippet chip(text)}
@@ -125,15 +151,21 @@
 		width: 1rem;
 		height: 1.5rem;
 		@apply bg-green-600 m-[1px];
+
+		&.token {
+			width: 0.5rem;
+			@apply bg-red-600;
+		}
+
+		&.lategame::after {
+			content: '💀';
+			font-size: 0.85rem;
+		}
 	}
 
-	.card.token {
-		width: 0.5rem;
-		@apply bg-red-600;
-	}
-
-	.card.lategame::after {
-		content: '💀';
-		font-size: 0.9rem;
+	#generation-detail {
+		.token:not(:has(+ .token)) {
+			border-bottom: 2px solid black;
+		}
 	}
 </style>
