@@ -18,7 +18,7 @@ export function loadDeck(deck, options) {
 		case 'random':
 			return randomDistributionHordeDeck(deck, options);
 		default:
-			throw Error(`Distribution mode '${distributionMode}' is not supported`);
+			throw Error(`Distribution mode is not supported`);
 	}
 }
 

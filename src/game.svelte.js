@@ -79,7 +79,7 @@ const MTGHorde = {
 					}
 					events.endTurn();
 				},
-				stageSurvivorsEndTurn: ({ G, events }) => {
+				stageSurvivorsEndTurn: ({ events }) => {
 					events.endTurn();
 					events.setActivePlayers({ currentPlayer: STAGES.draw });
 				}
