@@ -9,7 +9,7 @@
 	let inputDeckValue = $state();
 	let inputNbSurvivorsValue = $state(1);
 	let inputNbInitialSurvivorsTurnValue = $state(3);
-	let inputTokenProportionValue = $state(30);
+	let inputTokenProportionValue = $state(60);
 
 	async function loadDeckList() {
 		const deckList = Object.keys(decks);

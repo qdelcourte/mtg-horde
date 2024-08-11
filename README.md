@@ -8,6 +8,8 @@ Built with [Svelte](https://github.com/sveltejs/svelte) ([v5 RC](https://svelte-
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
+You can explore distribution/shuffle methods [here](https://mtg-horde.netlify.app/#distribution).
+
 ## Features
 
 - Add/Remove marker to a card
@@ -41,6 +43,13 @@ Resources:
 
     npm install
     npm run dev
+
+## Import new horde in local
+
+    cd decks/
+    node import-deck.js filename.txt
+
+Then in `decks/index.js`, export the generated json file.
 
 ## Run prod
 
