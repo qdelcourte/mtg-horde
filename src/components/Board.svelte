@@ -14,6 +14,7 @@
 	import AddTokenModal from './AddTokenModal.svelte';
 	import SettingsModal from './SettingsModal.svelte';
 	import AlertToast from './AlertToast.svelte';
+	import FullscreenToggle from './FullscreenToggle.svelte';
 
 	let gameInfoRef;
 	let cardDetailsRef;
@@ -146,6 +147,8 @@
 		/>
 		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
 	{/if}
+
+	<FullscreenToggle />
 
 	<Icon
 		id="settings"
