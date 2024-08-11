@@ -20,7 +20,7 @@ export function loadDeck(
 		case 'geometric':
 			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
 		case 'geometric_boosted':
-			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage, 2);
+			return geometricDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage, true);
 		case 'random':
 			return randomDistributionHordeDeck(deckName, nbSurvivors, tokenPercentage);
 		default:
@@ -37,14 +37,14 @@ export function loadDeck(
  * @param {Array} deck
  * @param {number} nbSurvivors
  * @param {number} tokenPercentage - target token proportion in final deck (i.e: 0.6)
- * @param {number} baseMaxTokenInARow - limit successive token draw, can grow during distribution (default: no limit)
+ * @param {boolean} limitSuccessiveTokenDraw - limit successive token draw, can grow during distribution (default: no limit)
  * @returns {Array}
  */
 function geometricDistributionHordeDeck(
 	deck,
 	nbSurvivors,
 	tokenPercentage,
-	baseMaxTokenInARow = Infinity
+	limitSuccessiveTokenDraw = false
 ) {
 	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
 	const numberOfTokens = Math.round(totalCards * tokenPercentage);
@@ -52,16 +52,16 @@ function geometricDistributionHordeDeck(
 	// Create the list of tokens - keep the token's proportion
 	const tokenCards = deck.filter((card) => isTokenCard(card.card));
 	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
-	const tokens = tokenCards.reduce(
-		(acc, card) =>
-			acc.concat(Array(Math.floor((card.qty / totalTokens) * numberOfTokens)).fill(card.card)),
-		[]
+	const tokens = tokenCards.flatMap((card) =>
+		Array.from({ length: Math.floor((card.qty / totalTokens) * numberOfTokens) }, () =>
+			getCardFace(card.card)
+		)
 	);
 
 	// Create the list of non-tokens
-	const nonTokens = deck
-		.filter((card) => !isTokenCard(card.card))
-		.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), []);
+	const nonTokens = deck.flatMap((card) =>
+		!isTokenCard(card.card) ? Array.from({ length: card.qty }, () => getCardFace(card.card)) : []
+	);
 
 	// Shuffle token and non-token lists
 	const shuffledTokens = shuffle(tokens);
@@ -74,7 +74,7 @@ function geometricDistributionHordeDeck(
 	let tokenIndex = 0;
 	let nonTokenIndex = 0;
 
-	let MAX_TOKEN_IN_A_ROW = baseMaxTokenInARow;
+	let MAX_TOKEN_IN_A_ROW = limitSuccessiveTokenDraw ? 1 : Infinity;
 	let nbTokenInARow = 0;
 
 	for (let i = 0; i < totalCards; i++) {
@@ -90,12 +90,10 @@ function geometricDistributionHordeDeck(
 			tokenIndex < shuffledTokens.length &&
 			nbTokenInARow + 1 <= MAX_TOKEN_IN_A_ROW
 		) {
-			reducedDeck.push({ ...shuffledTokens[tokenIndex], uid: generateCardRandomId() });
-			tokenIndex++;
+			reducedDeck.push(shuffledTokens[tokenIndex++]);
 			nbTokenInARow++;
 		} else if (nonTokenIndex < shuffledNonTokens.length) {
-			reducedDeck.push({ ...shuffledNonTokens[nonTokenIndex], uid: generateCardRandomId() });
-			nonTokenIndex++;
+			reducedDeck.push(shuffledNonTokens[nonTokenIndex++]);
 			nbTokenInARow = 0;
 		}
 
@@ -107,14 +105,8 @@ function geometricDistributionHordeDeck(
 	}
 
 	// Fill any remaining spots in case tokens or non-tokens are exhausted
-	while (tokenIndex < shuffledTokens.length && reducedDeck.length < totalCards) {
-		reducedDeck.push({ ...shuffledTokens[tokenIndex], uid: generateCardRandomId() });
-		tokenIndex++;
-	}
-	while (nonTokenIndex < shuffledNonTokens.length && reducedDeck.length < totalCards) {
-		reducedDeck.push({ ...shuffledNonTokens[nonTokenIndex], uid: generateCardRandomId() });
-		nonTokenIndex++;
-	}
+	reducedDeck.push(...shuffledTokens.slice(tokenIndex, totalCards - reducedDeck.length));
+	reducedDeck.push(...shuffledNonTokens.slice(nonTokenIndex, totalCards - reducedDeck.length));
 
 	return reducedDeck;
 }
@@ -138,32 +130,26 @@ function randomDistributionHordeDeck(deck, nbSurvivors, tokenProportion) {
 	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
 
 	// Prepare tokens
-	const tokenDeck = tokenCards.reduce(
-		(acc, card) =>
-			acc.concat(
-				Array(Math.floor((card.qty / totalTokens) * expectedNbTokenCardsInDeck)).fill(card.card)
-			),
-		[]
+	const tokenDeck = tokenCards.flatMap((card) =>
+		Array.from({ length: Math.floor((card.qty / totalTokens) * expectedNbTokenCardsInDeck) }, () =>
+			getCardFace(card.card)
+		)
 	);
 
 	// Prepare non tokens
 	const nonTokenDeck = shuffle(
-		deck
-			.filter((card) => !isTokenCard(card.card))
-			.reduce((acc, card) => acc.concat(Array(card.qty).fill(card.card)), [])
+		deck.flatMap((card) =>
+			!isTokenCard(card.card) ? Array.from({ length: card.qty }, () => getCardFace(card.card)) : []
+		)
 	);
-	let restNonTokens = nonTokenDeck.splice(expectedNbNonTokenCardsInDeck);
+	const restNonTokens = nonTokenDeck.splice(expectedNbNonTokenCardsInDeck);
 
 	// Return deck shuffled
-	let reducedDeck = shuffle(tokenDeck.concat(nonTokenDeck)).map((card) => ({
-		...card,
-		uid: generateCardRandomId()
-	}));
+	let reducedDeck = shuffle([...tokenDeck, ...nonTokenDeck]);
 
 	// Fill any remaining spots in case tokens or non-tokens are exhausted
 	while (reducedDeck.length < expectedNbCardsInDeck) {
-		const card = restNonTokens.splice(Math.floor(Math.random() * restNonTokens.length), 1)[0];
-		reducedDeck.push({ ...card, uid: generateCardRandomId() });
+		reducedDeck.push(restNonTokens.splice(Math.floor(Math.random() * restNonTokens.length), 1)[0]);
 	}
 
 	return reducedDeck;
@@ -175,6 +161,18 @@ function getNbCardsFromNbSurvivors(nbSurvivors) {
 
 function shuffle(array) {
 	return array.sort(() => 0.5 - Math.random());
+}
+
+function getCardFace(card) {
+	const cardFace = isDoubleFacedCard(card)
+		? card.card_faces[Math.floor(Math.random() * card.card_faces.length)]
+		: {};
+
+	return {
+		...card,
+		...cardFace,
+		uid: generateCardRandomId()
+	};
 }
 
 export function generateCardRandomId() {
@@ -191,6 +189,10 @@ export function computeDefaultSurvivorsLife(nbSurvivors) {
 
 export function computeHordeDamage(G) {
 	return G.hordeBattlefield.reduce((a, b) => a + (parseInt(b?.power) || 0), 0);
+}
+
+export function isDoubleFacedCard(card) {
+	return card.layout.includes('double_faced');
 }
 
 export function isTokenCard(card) {

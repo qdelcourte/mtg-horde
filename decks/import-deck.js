@@ -41,6 +41,7 @@ new Promise(async (resolve) => {
 				type: card.type_line,
 				text: card.oracle_text,
 				color_identity: card.color_identity,
+				card_faces: card.card_faces,
 				colors: card.colors,
 				power: card.power,
 				toughness: card.toughness,

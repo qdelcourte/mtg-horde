@@ -24,6 +24,7 @@
 
 <div class="p-4">
 	<h1 class="text-center text-2xl font-bold">Compare distribution modes</h1>
+	<a href="/">Home</a>
 
 	<div class="mb-2 flex items-center justify-between">
 		<div>
@@ -58,11 +59,11 @@
 			<ul>
 				<li class="flex items-center gap-2">
 					<div class="card token"></div>
-					 Token card
+					Token card
 				</li>
 				<li class="flex items-center gap-2">
 					<div class="card"></div>
-					 Non token card
+					Non token card
 				</li>
 			</ul>
 		</div>
@@ -72,11 +73,11 @@
 		{#each distributionModes as mode}
 			<div class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
 				<h2 class="m-1">{@render chip(mode)}</h2>
-				{#each generations[mode] as cards, i}
-					<h3 class="underline">Generation {i + 1}</h3>
+				{#each generations[mode] as cards, n}
+					<h3 class="underline">Generation {n + 1}</h3>
 					<div class="flex">
-						{#each cards as card}
-							<div class="card" class:token={isTokenCard(card)}></div>
+						{#each cards as card, i}
+							<div class="card" id="{mode}-{n}-{card.id}-{i}" class:token={isTokenCard(card)}></div>
 						{/each}
 					</div>
 				{/each}
