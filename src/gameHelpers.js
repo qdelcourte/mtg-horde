@@ -176,7 +176,7 @@ function shuffle(array, biasFactor = 0) {
 function biaisedShuffle(array, biasFactor = 0.8) {
 	for (let i = array.length - 1; i > 0; i--) {
 		// Apply a malus according to rarity + cmc => (rarity sort index * 1%) + 0.5% per mana_cost
-		const biasMalus = Rarity[array[i].rarity] * 0.01 + (array[i].cmc * 0.5) / 100 || 0;
+		const biasMalus = Rarity[array[i].rarity] * 0.02 + (array[i].cmc * 0.5) / 100 || 0;
 
 		const randomIndex =
 			isLategameCard(array[i]) && Math.random() < biasFactor + biasMalus
