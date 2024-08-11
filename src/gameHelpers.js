@@ -57,9 +57,8 @@ function geometricDistributionHordeDeck(deck, options) {
 	);
 
 	// Shuffle token and non-token lists
-	const shuffleFn = shuffleBiasFactor ? biaisedShuffle : shuffle;
-	const shuffledTokens = shuffleFn(tokens, shuffleBiasFactor);
-	const shuffledNonTokens = shuffleFn(nonTokens, shuffleBiasFactor);
+	const shuffledTokens = shuffle(tokens, shuffleBiasFactor);
+	const shuffledNonTokens = shuffle(nonTokens, shuffleBiasFactor);
 
 	// Apply geometric distribution to assign tokens progressively
 	//   - Consider being able to draw a token from the first draw
@@ -147,8 +146,7 @@ function randomDistributionHordeDeck(deck, options) {
 	}
 
 	// Return deck shuffled
-	const shuffleFn = shuffleBiasFactor ? biaisedShuffle : shuffle;
-	return shuffleFn(reducedDeck, shuffleBiasFactor);
+	return shuffle(reducedDeck, shuffleBiasFactor);
 }
 
 function getNbCardsFromNbSurvivors(nbSurvivors) {
@@ -159,9 +157,11 @@ function getNbCardsFromNbSurvivors(nbSurvivors) {
  * Basic shuffle
  *
  * @param {Array} array
+ * @param {number} biasFactor - Applying a bias shuffle if non null
  * @returns
  */
-function shuffle(array) {
+function shuffle(array, biasFactor = 0) {
+	if (biasFactor) return biaisedShuffle(array, biasFactor);
 	return array.sort(() => 0.5 - Math.random());
 }
 
@@ -187,7 +187,7 @@ function biaisedShuffle(array, biasFactor = 0.8) {
 }
 
 /**
- * If double faced card then choose a face with 50% chance
+ * If double faced card then choose a face at random
  *
  * @param {object} card
  * @returns

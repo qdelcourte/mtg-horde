@@ -8,6 +8,8 @@ Built with [Svelte](https://github.com/sveltejs/svelte) ([v5 RC](https://svelte-
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
+You can explore distribution/shuffle methods [here](https://mtg-horde.netlify.app/#distribution).
+
 ## Features
 
 - Add/Remove marker to a card
