@@ -152,7 +152,7 @@
 	.card {
 		width: 1rem;
 		height: 1.5rem;
-		@apply bg-green-600 m-[1px];
+		@apply bg-green-600 m-px;
 
 		&.token {
 			width: 0.5rem;
