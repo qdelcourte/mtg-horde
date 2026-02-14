@@ -2,10 +2,11 @@
 	import { Modal } from 'flowbite-svelte';
 	import Settings from './Settings.svelte';
 
-	let open = false;
+	let { permanent = false } = $props();
+	let open = $state(false);
 	export const show = () => (open = true);
 </script>
 
-<Modal bind:open size="xs" title="Settings" {...$$restProps}>
+<Modal bind:open size="xs" title="Settings" {permanent}>
 	<Settings onGameStart={() => (open = false)} />
 </Modal>

@@ -82,11 +82,10 @@
 						<Badge
 							large
 							id="horde-life-badge"
-							color="dark"
 							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
 							>{state.G.hordeDeck.length}</Badge
 						>
-						<Tooltip triggeredBy="#horde-life-badge">Horde life</Tooltip>
+						<Tooltip>Horde life</Tooltip>
 					</div>
 				</div>
 				{#if state.G.hordeGraveyard.length > 0}
@@ -107,11 +106,10 @@
 							<Badge
 								large
 								id="horde-graveyard-badge"
-								color="dark"
 								class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
 								>{state.G.hordeGraveyard.length}</Badge
 							>
-							<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+							<Tooltip>Horde graveyard</Tooltip>
 						</div>
 					</div>
 				{/if}
@@ -145,7 +143,7 @@
 			color="white"
 			width="32"
 		/>
-		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
+		<Tooltip>Add token</Tooltip>
 	{/if}
 
 	<FullscreenToggle />
@@ -157,13 +155,13 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#settings">Restart game ?</Tooltip>
+	<Tooltip>Restart game ?</Tooltip>
 
 	<Icon id="save" onclick={onSave} icon="mdi:content-save" color="white" width="32" />
-	<Tooltip triggeredBy="#save">Do savepoint</Tooltip>
+	<Tooltip>Do savepoint</Tooltip>
 
 	<Icon id="restore" onclick={onRestore} icon="mdi:file-restore" color="white" width="32" />
-	<Tooltip triggeredBy="#restore">Restore savepoint</Tooltip>
+	<Tooltip>Restore savepoint</Tooltip>
 
 	<Icon
 		id="info"
@@ -172,7 +170,7 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#info">Open game info</Tooltip>
+	<Tooltip>Open game info</Tooltip>
 </div>
 
 <style>

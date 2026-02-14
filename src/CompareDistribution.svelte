@@ -62,7 +62,7 @@
 
 			<button
 				onclick={() => (now = Date.now())}
-				class="ml-2 relative align-middle transition-all disabled:opacity-50 w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs border border-gray-900 text-gray-900 hover:opacity-50 focus:ring focus:ring-gray-300 active:opacity-[0.85]"
+				class="ml-2 relative align-middle transition-all disabled:opacity-50 w-10 max-w-10 h-10 max-h-10 rounded-lg text-xs border border-gray-900 text-gray-900 hover:opacity-50 focus:ring-3 focus:ring-gray-300 active:opacity-[0.85]"
 				type="button"
 			>
 				<span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
@@ -143,6 +143,8 @@
 {/snippet}
 
 <style lang="postcss">
+	@reference "./app.css";
+
 	:global(body) {
 		@apply bg-slate-100;
 	}

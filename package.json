@@ -21,19 +21,20 @@
 		"@eslint/js": "^9.39.2",
 		"@iconify/svelte": "^4.0.2",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
-		"autoprefixer": "^10.4.19",
+		"@tailwindcss/vite": "^4.1.18",
 		"boardgame.io": "^0.50.0",
 		"eslint": "^9.14.0",
 		"eslint-config-prettier": "^9.1.2",
 		"eslint-plugin-svelte": "^2.46.0",
-		"flowbite-svelte": "^0.47.3",
+		"flowbite": "^3.1.2",
+		"flowbite-svelte": "^1.31.0",
 		"globals": "^17.3.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.3",
 		"scryfall-sdk": "^4.2.2",
 		"svelte": "^5.1.0",
 		"svelte-check": "^4.3.6",
-		"tailwindcss": "^3.4.9",
+		"tailwindcss": "^4.1.18",
 		"vite": "^5.4.0"
 	}
 }

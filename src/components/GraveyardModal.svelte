@@ -13,10 +13,12 @@
 </script>
 
 <Modal bind:open size="xl">
-	<svelte:fragment slot="header">
-		<Span class="mr-3">Horde graveyard</Span>
-		<Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
-	>
+	{#snippet header()}
+		<div>
+			<Span class="mr-3">Horde graveyard</Span>
+			<Badge>{state.G.hordeGraveyard.length}</Badge>
+		</div>
+	{/snippet}
 	<div id="graveyard-body">
 		<div id="graveyard">
 			{#each state.G.hordeGraveyard as card, index (card.uid)}

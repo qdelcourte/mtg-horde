@@ -1,5 +1,5 @@
 <script>
-	import './app.postcss';
+	import './app.css';
 	import Board from './components/Board.svelte';
 	import GithubCorner from './components/GithubCorner.svelte';
 	import CompareDistribution from './CompareDistribution.svelte';
