@@ -1,7 +1,7 @@
 <script>
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
-	import cardBack from '$lib/assets/card-back.jpg';
+	import cardBack from '$assets/card-back.jpg';
 	import { game as G } from '../game.svelte';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();

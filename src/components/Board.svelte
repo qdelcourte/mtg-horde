@@ -4,8 +4,8 @@
 	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
 	import * as SavepointUtils from '../savepoint';
-	import cardBack from '$lib/assets/card-back.jpg';
-	import hordeBg from '$lib/assets/horde-bg.jpg';
+	import cardBack from '$assets/card-back.jpg';
+	import hordeBg from '$assets/horde-bg.jpg';
 	import { game as G } from '../game.svelte';
 
 	import Battlefield from './Battlefield.svelte';
