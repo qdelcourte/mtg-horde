@@ -90,17 +90,17 @@
 	</div>
 
 	<div class="grid grid-cols-3 gap-2">
-		{#each distributionModes as mode}
+		{#each distributionModes as mode (mode)}
 			<div class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
 				<h2 class="m-1">{@render chip(mode)}</h2>
-				{#each generations[mode] as cards, n}
+				{#each generations[mode] as cards, n (n)}
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
 					<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 					<h3 class="underline cursor-pointer" onclick={() => (showGeneration = { mode, n })}>
 						Generation {n + 1}
 					</h3>
 					<div class="flex">
-						{#each cards as card}
+						{#each cards as card (card.id)}
 							<div
 								class="card"
 								class:token={isTokenCard(card)}
@@ -119,7 +119,7 @@
 			<h2 class="m-1">{@render chip(showGeneration.mode)}</h2>
 			<h3 class="underline">Generation {showGeneration.n + 1}</h3>
 			<div>
-				{#each cards as card}
+				{#each cards as card (card.id)}
 					<div class="flex gap-2" class:token={isTokenCard(card)}>
 						<div
 							class="card"
