@@ -1,6 +1,7 @@
 <script>
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import cardBack from '$lib/assets/card-back.jpg';
 	import { game as G } from '../game.svelte';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();
@@ -23,7 +24,7 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<img
-		src="/assets/card-back.jpg"
+		src={cardBack}
 		alt="a card"
 		class:tapped={card.tapped}
 		class:sorcery={G.helpers.isSorceryCard(card)}

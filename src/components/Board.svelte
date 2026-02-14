@@ -4,6 +4,8 @@
 	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
 	import * as SavepointUtils from '../savepoint';
+	import cardBack from '$lib/assets/card-back.jpg';
+	import hordeBg from '$lib/assets/horde-bg.jpg';
 	import { game as G } from '../game.svelte';
 
 	import Battlefield from './Battlefield.svelte';
@@ -67,7 +69,7 @@
 	</div>
 {/if}
 
-<div id="game" class="overflow-hidden h-full">
+<div id="game" class="overflow-hidden h-full" style:background-image="url({hordeBg})">
 	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
 		<div id="stacks">
 			{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
@@ -78,7 +80,7 @@
 				>
 					<div class="label">Horde</div>
 					<div class="relative">
-						<img src="/assets/card-back.jpg" alt="card bak - horde" />
+						<img src={cardBack} alt="card bak - horde" />
 						<Badge
 							large
 							id="horde-life-badge"
@@ -98,11 +100,7 @@
 						<div class="relative">
 							<!-- svelte-ignore a11y_click_events_have_key_events -->
 							<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-							<img
-								src="/assets/card-back.jpg"
-								alt="graveyard zone"
-								onclick={() => graveyardModalRef.show()}
-							/>
+							<img src={cardBack} alt="graveyard zone" onclick={() => graveyardModalRef.show()} />
 							<Badge
 								large
 								id="horde-graveyard-badge"
@@ -175,7 +173,6 @@
 
 <style>
 	#game {
-		background-image: url('/assets/horde-bg.jpg');
 		background-size: cover;
 	}
 
