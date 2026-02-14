@@ -19,7 +19,7 @@
 			<Badge>{state.G.hordeGraveyard.length}</Badge>
 		</div>
 	{/snippet}
-	<div id="graveyard-body">
+	<div id="graveyard-body" data-autofocus tabindex="-1">
 		<div id="graveyard">
 			{#each state.G.hordeGraveyard as card, index (card.uid)}
 				<div class="graveyard-card">
