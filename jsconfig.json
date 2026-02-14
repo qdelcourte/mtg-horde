@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "bundler",
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["ESNext", "DOM"],
+		"checkJs": false,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"paths": {
+			"decks": ["./decks"],
+			"decks/*": ["./decks/*"]
+		}
+	},
+	"include": ["src/**/*.js", "src/**/*.svelte"],
+	"exclude": ["node_modules", "dist"]
+}

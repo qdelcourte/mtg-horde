@@ -12,22 +12,27 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
+		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@eslint/compat": "^2.0.2",
+		"@eslint/js": "^9.39.2",
 		"@iconify/svelte": "^4.0.2",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"autoprefixer": "^10.4.19",
 		"boardgame.io": "^0.50.0",
 		"eslint": "^9.14.0",
-		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-prettier": "^9.1.2",
 		"eslint-plugin-svelte": "^2.46.0",
 		"flowbite-svelte": "^0.47.3",
+		"globals": "^17.3.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.3",
 		"scryfall-sdk": "^4.2.2",
 		"svelte": "^5.1.0",
+		"svelte-check": "^4.3.6",
 		"tailwindcss": "^3.4.9",
 		"vite": "^5.4.0"
 	}

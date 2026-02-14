@@ -6,7 +6,8 @@ import { current } from 'immer';
  * Load and generate Horde's deck
  *
  * @param {Array} deck
- * @param {'geometric'|'geometric_boosted'|'random'} distributionMode - Specify the token distribution method in deck
+ * @param {Object} options - Configuration options
+ * @param {'geometric'|'geometric_boosted'|'random'} options.distributionMode - Specify the token distribution method in deck
  * @returns {Array}
  */
 export function loadDeck(deck, options) {
@@ -176,7 +177,9 @@ function shuffle(array, biasFactor = 0) {
 function biaisedShuffle(array, biasFactor = 0.8) {
 	for (let i = array.length - 1; i > 0; i--) {
 		// Apply a malus according to rarity + cmc => (rarity sort index * 1%) + 0.5% per mana_cost
-		const biasMalus = Rarity[array[i].rarity] * 0.02 + (array[i].cmc * 0.5) / 100 || 0;
+		const rarityValue = Rarity[array[i].rarity] ?? 0;
+		const cmcValue = array[i].cmc ?? 0;
+		const biasMalus = rarityValue * 0.02 + (cmcValue * 0.5) / 100;
 
 		const randomIndex =
 			isLategameCard(array[i]) && Math.random() < biasFactor + biasMalus
@@ -303,7 +306,7 @@ export default {
 
 		// Tap or untap card from the battlefield
 		let battlefield = [...current(G.hordeBattlefield)];
-		battlefield[index] = { ...battlefield[index], tapped: !battlefield[index].tapped ?? true };
+		battlefield[index] = { ...battlefield[index], tapped: !(battlefield[index].tapped ?? false) };
 		G.hordeBattlefield = battlefield;
 	},
 	addTokenInHordeBattlefield: ({ G }, card, power, toughness) => {
