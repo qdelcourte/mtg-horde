@@ -1,6 +1,6 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
-import { Rarity } from 'scryfall-sdk';
 import { current } from 'immer';
+import { Rarity } from 'scryfall-sdk';
 
 /**
  * Load and generate Horde's deck

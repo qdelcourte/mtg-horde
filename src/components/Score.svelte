@@ -1,6 +1,7 @@
 <script>
-	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
 
 	let state = $derived(G.state);

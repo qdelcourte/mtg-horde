@@ -1,5 +1,6 @@
 <script>
 	import { Modal } from 'flowbite-svelte';
+
 	import Settings from './Settings.svelte';
 
 	let { permanent = false } = $props();

@@ -1,5 +1,5 @@
-import scryfall from 'scryfall-sdk';
 import fs from 'fs';
+import scryfall from 'scryfall-sdk';
 
 const regex = /^(\d+)\s+([A-Za-z'\s]+)(\s+\(.*?\))?((\s+#\w+)+)?$/;
 

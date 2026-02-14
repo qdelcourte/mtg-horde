@@ -1,7 +1,8 @@
 import { Client } from 'boardgame.io/client';
 import { INVALID_MOVE } from 'boardgame.io/core';
-import moves, * as helpers from './gameHelpers';
 import decks from 'decks';
+
+import moves, * as helpers from './gameHelpers';
 
 const [STAGES, PHASES] = [helpers.STAGES, helpers.PHASES];
 

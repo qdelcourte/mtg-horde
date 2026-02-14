@@ -1,6 +1,7 @@
 <script>
-	import { Badge, Drawer } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import { Badge, Drawer } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
 
 	const { placement = 'left' } = $props();

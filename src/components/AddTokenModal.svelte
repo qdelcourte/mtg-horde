@@ -1,8 +1,9 @@
 <script>
-	import { Drawer, Button, Label, Input } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
-	import { game as G } from '../game.svelte';
 	import zombieTokenCard from 'decks/cards/zombie_token.json';
+	import { Button, Drawer, Input, Label } from 'flowbite-svelte';
+
+	import { game as G } from '../game.svelte';
 
 	const { placement = 'left' } = $props();
 

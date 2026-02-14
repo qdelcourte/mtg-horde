@@ -1,22 +1,22 @@
 <script>
-	import { expoOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
-	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
-	import * as SavepointUtils from '../savepoint';
 	import cardBack from '$assets/card-back.jpg';
 	import hordeBg from '$assets/horde-bg.jpg';
-	import { game as G } from '../game.svelte';
+	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
+	import { expoOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
 
-	import Battlefield from './Battlefield.svelte';
-	import Score from './Score.svelte';
-	import GameInfo from './GameInfo.svelte';
-	import OffCardDetails from './OffCardDetails.svelte';
-	import GraveyardModal from './GraveyardModal.svelte';
+	import { game as G } from '../game.svelte';
+	import * as SavepointUtils from '../savepoint';
 	import AddTokenModal from './AddTokenModal.svelte';
-	import SettingsModal from './SettingsModal.svelte';
 	import AlertToast from './AlertToast.svelte';
+	import Battlefield from './Battlefield.svelte';
 	import FullscreenToggle from './FullscreenToggle.svelte';
+	import GameInfo from './GameInfo.svelte';
+	import GraveyardModal from './GraveyardModal.svelte';
+	import OffCardDetails from './OffCardDetails.svelte';
+	import Score from './Score.svelte';
+	import SettingsModal from './SettingsModal.svelte';
 
 	let gameInfoRef;
 	let cardDetailsRef;

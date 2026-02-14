@@ -1,9 +1,10 @@
 <script>
-	import { fly } from 'svelte/transition';
-	import { DropdownItem } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
-	import Card from './Card.svelte';
+	import { DropdownItem } from 'flowbite-svelte';
+	import { fly } from 'svelte/transition';
+
 	import { game as G } from '../game.svelte';
+	import Card from './Card.svelte';
 
 	const { onCardClick } = $props();
 

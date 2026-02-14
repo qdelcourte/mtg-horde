@@ -1,8 +1,9 @@
 <script>
 	import { Badge, DropdownItem, Modal, Span } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
-	import CardDetails from './CardDetails.svelte';
 	import Card from './Card.svelte';
+	import CardDetails from './CardDetails.svelte';
 
 	let state = $derived(G.state);
 

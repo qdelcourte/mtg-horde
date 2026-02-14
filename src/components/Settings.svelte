@@ -1,8 +1,8 @@
 <script>
-	import { Button, Input, Select, Label } from 'flowbite-svelte';
-	import { game as G } from '../game.svelte';
-
 	import decks from 'decks';
+	import { Button, Input, Label, Select } from 'flowbite-svelte';
+
+	import { game as G } from '../game.svelte';
 
 	let { onGameStart } = $props();
 

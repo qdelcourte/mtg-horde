@@ -14,7 +14,7 @@
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write . && eslint --fix ."
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.2",
@@ -25,6 +25,7 @@
 		"boardgame.io": "^0.50.0",
 		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-perfectionist": "^5.5.0",
 		"eslint-plugin-svelte": "^3.15.0",
 		"flowbite": "^3.1.2",
 		"flowbite-svelte": "^1.31.0",

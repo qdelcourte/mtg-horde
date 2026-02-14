@@ -1,6 +1,7 @@
 <script>
-	import { Drawer } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import { Drawer } from 'flowbite-svelte';
+
 	import CardDetails from './CardDetails.svelte';
 
 	const { placement = 'right' } = $props();
