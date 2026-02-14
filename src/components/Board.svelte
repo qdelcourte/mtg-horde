@@ -52,7 +52,7 @@
 {#if state.ctx.phase === G.helpers.PHASES.initialSurvivorsTurns}
 	<div
 		id="survivors-turns"
-		class="absolute w-full top-1/2 -translate-y-2/4 bg-black text-white text-center text-5xl font-bold py-4"
+		class="absolute top-1/2 w-full -translate-y-2/4 bg-black py-4 text-center text-5xl font-bold text-white"
 		in:fly={{ y: 100, duration: 700 }}
 		out:fly={{ easing: expoOut }}
 	>
@@ -69,8 +69,8 @@
 	</div>
 {/if}
 
-<div id="game" class="overflow-hidden h-full" style:background-image="url({hordeBg})">
-	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
+<div id="game" class="h-full overflow-hidden" style:background-image="url({hordeBg})">
+	<div id="board" class="grid h-5/6 grid-cols-[max-content_1fr]">
 		<div id="stacks">
 			{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
 				<div
@@ -84,7 +84,7 @@
 						<Badge
 							large
 							id="horde-life-badge"
-							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 							>{state.G.hordeDeck.length}</Badge
 						>
 						<Tooltip>Horde life</Tooltip>
@@ -104,7 +104,7 @@
 							<Badge
 								large
 								id="horde-graveyard-badge"
-								class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 								>{state.G.hordeGraveyard.length}</Badge
 							>
 							<Tooltip>Horde graveyard</Tooltip>
@@ -116,7 +116,7 @@
 				</div>
 			{/if}
 		</div>
-		<div id="battlefield" class="overflow-auto h-full">
+		<div id="battlefield" class="h-full overflow-auto">
 			<Battlefield onCardClick={(card) => cardDetailsRef.show(card)} />
 		</div>
 	</div>

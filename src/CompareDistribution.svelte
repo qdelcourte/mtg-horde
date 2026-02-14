@@ -63,10 +63,10 @@
 
 			<button
 				onclick={() => (now = Date.now())}
-				class="ml-2 relative align-middle transition-all disabled:opacity-50 w-10 max-w-10 h-10 max-h-10 rounded-lg text-xs border border-gray-900 text-gray-900 hover:opacity-50 focus:ring-3 focus:ring-gray-300 active:opacity-[0.85]"
+				class="relative ml-2 h-10 max-h-10 w-10 max-w-10 rounded-lg border border-gray-900 align-middle text-xs text-gray-900 transition-all hover:opacity-50 focus:ring-3 focus:ring-gray-300 active:opacity-[0.85] disabled:opacity-50"
 				type="button"
 			>
-				<span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+				<span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform"
 					><Icon icon="mdi:refresh" width="20" /></span
 				>
 			</button>
@@ -92,12 +92,12 @@
 
 	<div class="grid grid-cols-3 gap-2">
 		{#each distributionModes as mode (mode)}
-			<div class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
+			<div class="rounded-xl bg-white bg-clip-border p-4 shadow-md">
 				<h2 class="m-1">{@render chip(mode)}</h2>
 				{#each generations[mode] as cards, n (n)}
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
 					<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-					<h3 class="underline cursor-pointer" onclick={() => (showGeneration = { mode, n })}>
+					<h3 class="cursor-pointer underline" onclick={() => (showGeneration = { mode, n })}>
 						Generation {n + 1}
 					</h3>
 					<div class="flex">
@@ -116,7 +116,7 @@
 
 	{#if showGeneration}
 		{@const cards = generations[showGeneration.mode][showGeneration.n]}
-		<div id="generation-detail" class="p-4 bg-white shadow-md bg-clip-border rounded-xl">
+		<div id="generation-detail" class="rounded-xl bg-white bg-clip-border p-4 shadow-md">
 			<h2 class="m-1">{@render chip(showGeneration.mode)}</h2>
 			<h3 class="underline">Generation {showGeneration.n + 1}</h3>
 			<div>
@@ -137,7 +137,7 @@
 
 {#snippet chip(text)}
 	<div
-		class="relative grid select-none items-center whitespace-nowrap rounded-lg bg-gray-500 py-2 px-2 font-sans text-sm font-bold uppercase text-white"
+		class="relative grid items-center rounded-lg bg-gray-500 px-2 py-2 font-sans text-sm font-bold whitespace-nowrap text-white uppercase select-none"
 	>
 		<span class="">{text}</span>
 	</div>
@@ -153,7 +153,7 @@
 	.card {
 		width: 1rem;
 		height: 1.5rem;
-		@apply bg-green-600 m-px;
+		@apply m-px bg-green-600;
 
 		&.token {
 			width: 0.5rem;
