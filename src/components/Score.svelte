@@ -1,6 +1,7 @@
 <script>
-	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import { Button, ButtonGroup, Tooltip } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
 
 	let state = $derived(G.state);
@@ -12,7 +13,7 @@
 			<Button id="btn-undo" onclick={() => G.client.undo()} color="dark" aria-label="undo"
 				><Icon icon="mdi:arrow-u-left-top" width="24" /></Button
 			>
-			<Tooltip triggeredBy="#btn-undo" placement="top">Undo</Tooltip>
+			<Tooltip placement="top">Undo</Tooltip>
 		</div>
 		<div id="horde" class:player-turn={state.ctx.currentPlayer === '0'}>
 			<div id="horde-life">
@@ -69,7 +70,7 @@
 			<Button id="btn-redo" onclick={() => G.client.redo()} color="dark" aria-label="redo"
 				><Icon icon="mdi:arrow-u-right-top" width="24" /></Button
 			>
-			<Tooltip triggeredBy="#btn-redo">Redo</Tooltip>
+			<Tooltip>Redo</Tooltip>
 		</div>
 	</div>
 </div>

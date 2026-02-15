@@ -1,9 +1,9 @@
-import scryfall from 'scryfall-sdk';
 import fs from 'fs';
+import scryfall from 'scryfall-sdk';
 
 const regex = /^(\d+)\s+([A-Za-z'\s]+)(\s+\(.*?\))?((\s+#\w+)+)?$/;
 
-new Promise(async (resolve) => {
+(async () => {
 	let deckJSON = [];
 	const lines = fs.readFileSync(process.argv[2], 'utf8').split(/\n/);
 	for (const idx in lines) {
@@ -12,7 +12,7 @@ new Promise(async (resolve) => {
 
 		const nbCards = parseInt(match[1]);
 		const cardName = match[2].trim();
-		const setTag = match[3] ? match[3].replaceAll(/[\(\)\s]/g, '').trim() : '';
+		const setTag = match[3] ? match[3].replaceAll(/[()\\s]/g, '').trim() : '';
 		const customTags = match[4] ? match[4].trim().split(/\s+/) : [];
 
 		let card;
@@ -55,8 +55,8 @@ new Promise(async (resolve) => {
 
 		console.log(card.name, nbCards);
 	}
-	resolve(deckJSON);
-}).then((deckJSON) => {
+	return deckJSON;
+})().then((deckJSON) => {
 	fs.writeFile(
 		process.argv[2].replace('.txt', '.json'),
 		JSON.stringify(deckJSON),

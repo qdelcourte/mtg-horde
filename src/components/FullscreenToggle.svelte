@@ -15,7 +15,7 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#exit-fullscreen">Exit fullscreen</Tooltip>
+	<Tooltip>Exit fullscreen</Tooltip>
 {:else}
 	<Icon
 		id="enter-fullscreen"
@@ -24,5 +24,5 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#enter-fullscreen">Enter fullscreen</Tooltip>
+	<Tooltip>Enter fullscreen</Tooltip>
 {/if}

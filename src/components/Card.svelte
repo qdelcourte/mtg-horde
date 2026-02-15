@@ -1,6 +1,8 @@
 <script>
-	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 	import Icon from '@iconify/svelte';
+	import cardBack from '$assets/card-back.jpg';
+	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();
@@ -23,7 +25,7 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<img
-		src={'/assets/card-back.jpg'}
+		src={cardBack}
 		alt="a card"
 		class:tapped={card.tapped}
 		class:sorcery={G.helpers.isSorceryCard(card)}
@@ -37,19 +39,29 @@
 		<div>
 			{#if actions}
 				<div class="card-actions">
-					<Button id="action-{card.uid}" class="!px-1" color="dark"
-						><Icon icon="mdi:chevron-down" class="!mx-2" width="18" /></Button
+					<Button id="action-{card.uid}" class="px-1!" color="dark"
+						><Icon icon="mdi:chevron-down" class="mx-2!" width="18" /></Button
 					>
-					<Dropdown size="xs" triggeredBy=".card-actions #action-{card.uid}" placement="right">
+					<Dropdown
+						simple
+						size="xs"
+						triggeredBy=".card-actions #action-{card.uid}"
+						placement="right"
+					>
 						{@render actions()}
 					</Dropdown>
 				</div>
 			{/if}
 			{#if card.power || card.powerMarker || card.toughness || card.toughnessMarker}
 				<div class="card-power">
-					<Button id="power-{card.uid}" class="!px-2" color="dark">{cardMarkerRepr(card)}</Button>
+					<Button id="power-{card.uid}" class="px-2!" color="dark">{cardMarkerRepr(card)}</Button>
 					{#if canChangeMarker}
-						<Dropdown size="xs" triggeredBy=".card-power #power-{card.uid}" placement="right">
+						<Dropdown
+							simple
+							size="xs"
+							triggeredBy=".card-power #power-{card.uid}"
+							placement="right"
+						>
 							<DropdownItem
 								class="w-48"
 								onclick={() => G.client.moves.changeCardMarkerCounter(index, 1, 1)}

@@ -1,8 +1,9 @@
 <script>
 	import { Badge, DropdownItem, Modal, Span } from 'flowbite-svelte';
+
 	import { game as G } from '../game.svelte';
-	import CardDetails from './CardDetails.svelte';
 	import Card from './Card.svelte';
+	import CardDetails from './CardDetails.svelte';
 
 	let state = $derived(G.state);
 
@@ -13,11 +14,13 @@
 </script>
 
 <Modal bind:open size="xl">
-	<svelte:fragment slot="header">
-		<Span class="mr-3">Horde graveyard</Span>
-		<Badge>{state.G.hordeGraveyard.length}</Badge></svelte:fragment
-	>
-	<div id="graveyard-body">
+	{#snippet header()}
+		<div>
+			<Span class="mr-3">Horde graveyard</Span>
+			<Badge>{state.G.hordeGraveyard.length}</Badge>
+		</div>
+	{/snippet}
+	<div id="graveyard-body" data-autofocus tabindex="-1">
 		<div id="graveyard">
 			{#each state.G.hordeGraveyard as card, index (card.uid)}
 				<div class="graveyard-card">

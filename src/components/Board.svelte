@@ -1,20 +1,22 @@
 <script>
+	import Icon from '@iconify/svelte';
+	import cardBack from '$assets/card-back.jpg';
+	import hordeBg from '$assets/horde-bg.jpg';
+	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-	import { Badge, Button, P, Tooltip } from 'flowbite-svelte';
-	import Icon from '@iconify/svelte';
-	import * as SavepointUtils from '../savepoint';
-	import { game as G } from '../game.svelte';
 
-	import Battlefield from './Battlefield.svelte';
-	import Score from './Score.svelte';
-	import GameInfo from './GameInfo.svelte';
-	import OffCardDetails from './OffCardDetails.svelte';
-	import GraveyardModal from './GraveyardModal.svelte';
+	import { game as G } from '../game.svelte';
+	import * as SavepointUtils from '../savepoint';
 	import AddTokenModal from './AddTokenModal.svelte';
-	import SettingsModal from './SettingsModal.svelte';
 	import AlertToast from './AlertToast.svelte';
+	import Battlefield from './Battlefield.svelte';
 	import FullscreenToggle from './FullscreenToggle.svelte';
+	import GameInfo from './GameInfo.svelte';
+	import GraveyardModal from './GraveyardModal.svelte';
+	import OffCardDetails from './OffCardDetails.svelte';
+	import Score from './Score.svelte';
+	import SettingsModal from './SettingsModal.svelte';
 
 	let gameInfoRef;
 	let cardDetailsRef;
@@ -50,7 +52,7 @@
 {#if state.ctx.phase === G.helpers.PHASES.initialSurvivorsTurns}
 	<div
 		id="survivors-turns"
-		class="absolute w-full top-1/2 -translate-y-2/4 bg-black text-white text-center text-5xl font-bold py-4"
+		class="absolute top-1/2 w-full -translate-y-2/4 bg-black py-4 text-center text-5xl font-bold text-white"
 		in:fly={{ y: 100, duration: 700 }}
 		out:fly={{ easing: expoOut }}
 	>
@@ -67,8 +69,8 @@
 	</div>
 {/if}
 
-<div id="game" class="overflow-hidden h-full">
-	<div id="board" class="grid grid-cols-[max-content_1fr] h-5/6">
+<div id="game" class="h-full overflow-hidden" style:background-image="url({hordeBg})">
+	<div id="board" class="grid h-5/6 grid-cols-[max-content_1fr]">
 		<div id="stacks">
 			{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
 				<div
@@ -78,15 +80,14 @@
 				>
 					<div class="label">Horde</div>
 					<div class="relative">
-						<img src="/assets/card-back.jpg" alt="card bak - horde" />
+						<img src={cardBack} alt="card bak - horde" />
 						<Badge
 							large
 							id="horde-life-badge"
-							color="dark"
-							class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 							>{state.G.hordeDeck.length}</Badge
 						>
-						<Tooltip triggeredBy="#horde-life-badge">Horde life</Tooltip>
+						<Tooltip>Horde life</Tooltip>
 					</div>
 				</div>
 				{#if state.G.hordeGraveyard.length > 0}
@@ -99,19 +100,14 @@
 						<div class="relative">
 							<!-- svelte-ignore a11y_click_events_have_key_events -->
 							<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-							<img
-								src="/assets/card-back.jpg"
-								alt="graveyard zone"
-								onclick={() => graveyardModalRef.show()}
-							/>
+							<img src={cardBack} alt="graveyard zone" onclick={() => graveyardModalRef.show()} />
 							<Badge
 								large
 								id="horde-graveyard-badge"
-								color="dark"
-								class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 								>{state.G.hordeGraveyard.length}</Badge
 							>
-							<Tooltip triggeredBy="#horde-graveyard-badge">Horde graveyard</Tooltip>
+							<Tooltip>Horde graveyard</Tooltip>
 						</div>
 					</div>
 				{/if}
@@ -120,7 +116,7 @@
 				</div>
 			{/if}
 		</div>
-		<div id="battlefield" class="overflow-auto h-full">
+		<div id="battlefield" class="h-full overflow-auto">
 			<Battlefield onCardClick={(card) => cardDetailsRef.show(card)} />
 		</div>
 	</div>
@@ -145,7 +141,7 @@
 			color="white"
 			width="32"
 		/>
-		<Tooltip triggeredBy="#add-card">Add token</Tooltip>
+		<Tooltip>Add token</Tooltip>
 	{/if}
 
 	<FullscreenToggle />
@@ -157,13 +153,13 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#settings">Restart game ?</Tooltip>
+	<Tooltip>Restart game ?</Tooltip>
 
 	<Icon id="save" onclick={onSave} icon="mdi:content-save" color="white" width="32" />
-	<Tooltip triggeredBy="#save">Do savepoint</Tooltip>
+	<Tooltip>Do savepoint</Tooltip>
 
 	<Icon id="restore" onclick={onRestore} icon="mdi:file-restore" color="white" width="32" />
-	<Tooltip triggeredBy="#restore">Restore savepoint</Tooltip>
+	<Tooltip>Restore savepoint</Tooltip>
 
 	<Icon
 		id="info"
@@ -172,12 +168,11 @@
 		color="white"
 		width="32"
 	/>
-	<Tooltip triggeredBy="#info">Open game info</Tooltip>
+	<Tooltip>Open game info</Tooltip>
 </div>
 
 <style>
 	#game {
-		background-image: url('/assets/horde-bg.jpg');
 		background-size: cover;
 	}
 

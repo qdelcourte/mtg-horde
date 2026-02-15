@@ -1,8 +1,8 @@
 <script>
-	import { Button, Input, Select, Label, Spinner } from 'flowbite-svelte';
-	import { game as G } from '../game.svelte';
-
 	import decks from 'decks';
+	import { Button, Input, Label, Select } from 'flowbite-svelte';
+
+	import { game as G } from '../game.svelte';
 
 	let { onGameStart } = $props();
 
@@ -11,13 +11,8 @@
 	let inputNbInitialSurvivorsTurnValue = $state(3);
 	let inputTokenProportionValue = $state(60);
 
-	async function loadDeckList() {
-		const deckList = Object.keys(decks);
-		inputDeckValue = deckList[0];
-		return deckList;
-	}
-
-	function startOrRestartGame() {
+	function startOrRestartGame(event) {
+		event.preventDefault();
 		G.client.reset();
 		G.client.moves.startGame({
 			nbSurvivors: inputNbSurvivorsValue,
@@ -29,56 +24,62 @@
 	}
 </script>
 
-<div class="mb-6">
-	<Label for="deckName"
-		>Choose the horde
-		{#await loadDeckList()}
-			<Spinner size="6" />
-		{:then decks}
+<form onsubmit={startOrRestartGame}>
+	<div class="mb-6">
+		<Label for="deckName"
+			>Choose the horde
 			<Select
 				name="deckName"
 				id="deckName"
-				items={decks.map((d) => ({ value: d, name: d }))}
+				items={Object.keys(decks).map((d) => ({ value: d, name: d }))}
 				bind:value={inputDeckValue}
+				required
 			/>
-		{/await}
-	</Label>
-</div>
+		</Label>
+	</div>
 
-<div class="mb-6">
-	<Label for="nbSurvivors">Number of survivors</Label>
-	<Input
-		bind:value={inputNbSurvivorsValue}
-		type="number"
-		name="nbSurvivors"
-		id="nbSurvivors"
-		placeholder="number of survivors"
-	/>
-</div>
+	<div class="mb-6">
+		<Label for="nbSurvivors">Number of survivors</Label>
+		<Input
+			bind:value={inputNbSurvivorsValue}
+			min="1"
+			step="1"
+			type="number"
+			name="nbSurvivors"
+			id="nbSurvivors"
+			placeholder="number of survivors"
+			required
+		/>
+	</div>
 
-<div class="mb-6">
-	<Label for="numInitialSurvivorsTurn">Number of initial survivors turn</Label>
-	<Input
-		bind:value={inputNbInitialSurvivorsTurnValue}
-		type="number"
-		name="numInitialSurvivorsTurn"
-		id="numInitialSurvivorsTurn"
-		placeholder="number of initial survivors turn"
-	/>
-</div>
+	<div class="mb-6">
+		<Label for="numInitialSurvivorsTurn">Number of initial survivors turn</Label>
+		<Input
+			bind:value={inputNbInitialSurvivorsTurnValue}
+			min="1"
+			step="1"
+			type="number"
+			name="numInitialSurvivorsTurn"
+			id="numInitialSurvivorsTurn"
+			placeholder="number of initial survivors turn"
+			required
+		/>
+	</div>
 
-<div class="mb-6">
-	<Label for="tokenProportion">Token proportion in deck (%)</Label>
-	<Input
-		bind:value={inputTokenProportionValue}
-		min="1"
-		max="100"
-		step="1"
-		type="number"
-		name="tokenProportion"
-		id="tokenProportion"
-		placeholder="token proportion in deck"
-	/>
-</div>
+	<div class="mb-6">
+		<Label for="tokenProportion">Token proportion in deck (%)</Label>
+		<Input
+			bind:value={inputTokenProportionValue}
+			min="1"
+			max="100"
+			step="1"
+			type="number"
+			name="tokenProportion"
+			id="tokenProportion"
+			placeholder="token proportion in deck"
+			required
+		/>
+	</div>
 
-<Button onclick={startOrRestartGame}>Start/Restart Game</Button>
+	<Button type="submit">Start/Restart Game</Button>
+</form>
