@@ -6,8 +6,8 @@
 	import { expoOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	import { game as G } from '../game.svelte';
-	import * as SavepointUtils from '../savepoint';
+	import { game as G } from '../game';
+	import { PHASES } from '../game/phases';
 	import AddTokenModal from './AddTokenModal.svelte';
 	import AlertToast from './AlertToast.svelte';
 	import Battlefield from './Battlefield.svelte';
@@ -25,31 +25,33 @@
 	let addTokenModalRef;
 	let alertToastRef;
 
-	let state = $derived(G.state);
-
 	$effect(() => {
-		if (settingsModalRef && !state.ctx.phase) settingsModalRef.show();
+		if (settingsModalRef && !G.state.turn.phase) settingsModalRef.show();
 	});
 
 	function onSave() {
-		SavepointUtils.savepointInLocalStorage(G.client);
+		G.savepointInLocalStorage();
 		alertToastRef.alert('Savepoint !');
 	}
 
 	function onRestore() {
-		SavepointUtils.restoreSavepointFromLocalStorage(G.client);
-		alertToastRef.alert('Savepoint restored !');
+		try {
+			G.restoreSavepointFromLocalStorage();
+			alertToastRef.alert('Savepoint restored !');
+		} catch (e) {
+			alertToastRef.alert(e.message);
+		}
 	}
 </script>
 
 <GameInfo bind:this={gameInfoRef} />
 <OffCardDetails bind:this={cardDetailsRef} />
 <GraveyardModal bind:this={graveyardModalRef} />
-<SettingsModal bind:this={settingsModalRef} permanent={!state.ctx.phase} />
+<SettingsModal bind:this={settingsModalRef} permanent={!G.state.turn.phase} />
 <AlertToast bind:this={alertToastRef} />
 <AddTokenModal bind:this={addTokenModalRef} />
 
-{#if state.ctx.phase === G.helpers.PHASES.initialSurvivorsTurns}
+{#if G.state.turn.phase === PHASES.initialSurvivorsTurns}
 	<div
 		id="survivors-turns"
 		class="absolute top-1/2 w-full -translate-y-2/4 bg-black py-4 text-center text-5xl font-bold text-white"
@@ -57,13 +59,11 @@
 		out:fly={{ easing: expoOut }}
 	>
 		<div id="current">
-			Survivors turn {state.G.currentInitialSurvivorTurn + 1} / {state.G.nbInitialSurvivorsTurn}
+			Survivors turn {G.state.turn.currentInitialSurvivorTurn} / {G.state.config.nbInitialSurvivorsTurn}
 		</div>
 		<div id="next">
-			<Button onclick={() => G.client.moves.nextInitialTurn()}>
-				{state.G.currentInitialSurvivorTurn + 1 === state.G.nbInitialSurvivorsTurn
-					? 'Go !'
-					: 'Next'}
+			<Button onclick={() => G.moves.nextInitialTurn()}>
+				{G.state.turn.currentInitialSurvivorTurn === G.state.config.nbInitialSurvivorsTurn ? 'Go !' : 'Next'}
 			</Button>
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 <div id="game" class="h-full overflow-hidden" style:background-image="url({hordeBg})">
 	<div id="board" class="grid h-5/6 grid-cols-[max-content_1fr]">
 		<div id="stacks">
-			{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
+			{#if G.state.turn.phase === PHASES.fightTheHorde}
 				<div
 					id="horde"
 					class=" grid grid-cols-[max-content_1fr]"
@@ -85,12 +85,12 @@
 							large
 							id="horde-life-badge"
 							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-							>{state.G.hordeDeck.length}</Badge
+							>{G.state.horde.deck.length}</Badge
 						>
 						<Tooltip>Horde life</Tooltip>
 					</div>
 				</div>
-				{#if state.G.hordeGraveyard.length > 0}
+				{#if G.state.horde.graveyard.length > 0}
 					<div
 						id="graveyard"
 						class="grid grid-cols-[max-content_1fr]"
@@ -105,14 +105,14 @@
 								large
 								id="horde-graveyard-badge"
 								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-								>{state.G.hordeGraveyard.length}</Badge
+								>{G.state.horde.graveyard.length}</Badge
 							>
 							<Tooltip>Horde graveyard</Tooltip>
 						</div>
 					</div>
 				{/if}
 				<div class="bg-gray-400" in:fly={{ x: -100, duration: 500 }}>
-					<P color="text-white">Horde Damage: {G.helpers.computeHordeDamage(state.G)}</P>
+					<P color="text-white">Horde Damage: {G.hordeDamage}</P>
 				</div>
 			{/if}
 		</div>
@@ -122,7 +122,7 @@
 	</div>
 </div>
 
-{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
+{#if G.state.turn.phase === PHASES.fightTheHorde}
 	<div
 		id="footer"
 		class="fixed bottom-0 left-1/2 w-8/12 -translate-x-1/2"
@@ -133,7 +133,7 @@
 {/if}
 
 <div id="options" class="absolute bottom-0 left-2">
-	{#if state.ctx.phase === G.helpers.PHASES.fightTheHorde}
+	{#if G.state.turn.phase === PHASES.fightTheHorde}
 		<Icon
 			id="add-card"
 			onclick={() => addTokenModalRef.show()}

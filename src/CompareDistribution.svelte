@@ -2,7 +2,7 @@
 	import Icon from '@iconify/svelte';
 
 	import zombie_original from '../decks/zombie_original.json';
-	import { isLategameCard, isTokenCard, loadDeck } from './gameHelpers.js';
+	import { isLategameCard, isTokenCard, loadDeck } from './game/helpers.js';
 
 	const distributionModes = ['geometric', 'geometric_boosted', 'random'];
 

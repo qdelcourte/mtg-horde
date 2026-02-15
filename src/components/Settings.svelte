@@ -2,19 +2,20 @@
 	import decks from 'decks';
 	import { Button, Input, Label, Select } from 'flowbite-svelte';
 
-	import { game as G } from '../game.svelte';
+	import { game as G } from '../game';
 
 	let { onGameStart } = $props();
 
-	let inputDeckValue = $state();
+	const deckItems = Object.keys(decks).map((d) => ({ value: d, name: d }));
+
+	let inputDeckValue = $state(deckItems[0].value);
 	let inputNbSurvivorsValue = $state(1);
 	let inputNbInitialSurvivorsTurnValue = $state(3);
 	let inputTokenProportionValue = $state(60);
 
 	function startOrRestartGame(event) {
 		event.preventDefault();
-		G.client.reset();
-		G.client.moves.startGame({
+		G.start({
 			nbSurvivors: inputNbSurvivorsValue,
 			deckName: inputDeckValue,
 			nbInitialSurvivorsTurn: inputNbInitialSurvivorsTurnValue,
@@ -31,7 +32,7 @@
 			<Select
 				name="deckName"
 				id="deckName"
-				items={Object.keys(decks).map((d) => ({ value: d, name: d }))}
+				items={deckItems}
 				bind:value={inputDeckValue}
 				required
 			/>
@@ -81,5 +82,12 @@
 		/>
 	</div>
 
-	<Button type="submit">Start/Restart Game</Button>
+	<Button type="submit">
+		{#if G.state.turn.currentInitialSurvivorTurn > 0}
+			Restart
+		{:else}
+			Start
+		{/if}
+		Game
+	</Button>
 </form>

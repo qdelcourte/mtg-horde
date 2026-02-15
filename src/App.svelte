@@ -1,12 +1,14 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import './app.css';
 	import CompareDistribution from './CompareDistribution.svelte';
 	import Board from './components/Board.svelte';
 	import GithubCorner from './components/GithubCorner.svelte';
-	import { game as G } from './game.svelte';
+	import { game as G } from './game';
 
-	$effect(() => {
-		if (G.state.ctx.gameover) alert(G.state.ctx.gameover.winner);
+	onMount(() => {
+		return G.on('gameover', (event) => alert(event.detail.winner));
 	});
 
 	let page = $state(document.location.hash);

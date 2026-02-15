@@ -3,7 +3,8 @@
 	import cardBack from '$assets/card-back.jpg';
 	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
 
-	import { game as G } from '../game.svelte';
+	import { game as G } from '../game';
+	import { isEnchantmentCard, isInstantCard, isSorceryCard } from '../game/helpers';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();
 
@@ -28,9 +29,9 @@
 		src={cardBack}
 		alt="a card"
 		class:tapped={card.tapped}
-		class:sorcery={G.helpers.isSorceryCard(card)}
-		class:instant={G.helpers.isInstantCard(card)}
-		class:enchantment={G.helpers.isEnchantmentCard(card)}
+		class:sorcery={isSorceryCard(card)}
+		class:instant={isInstantCard(card)}
+		class:enchantment={isEnchantmentCard(card)}
 		{onclick}
 	/>
 	<div class="card-over">
@@ -64,22 +65,22 @@
 						>
 							<DropdownItem
 								class="w-48"
-								onclick={() => G.client.moves.changeCardMarkerCounter(index, 1, 1)}
+								onclick={() => G.moves.changeCardMarkerCounter(index, 1, 1)}
 								>Add marker +1 / +1</DropdownItem
 							>
-							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, -1, -1)}
+							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, -1, -1)}
 								>Add marker -1 / -1</DropdownItem
 							>
-							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 1, 0)}
+							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 1, 0)}
 								>Add marker +1 / 0</DropdownItem
 							>
-							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, -1, 0)}
+							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, -1, 0)}
 								>Add marker -1 / 0</DropdownItem
 							>
-							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 0, 1)}
+							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 0, 1)}
 								>Add marker 0 / +1</DropdownItem
 							>
-							<DropdownItem onclick={() => G.client.moves.changeCardMarkerCounter(index, 0, -1)}
+							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 0, -1)}
 								>Add marker 0 / -1</DropdownItem
 							>
 						</Dropdown>
