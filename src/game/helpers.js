@@ -204,9 +204,19 @@ function getCardFace(card) {
 		? card.card_faces[Math.floor(Math.random() * card.card_faces.length)]
 		: {};
 
+	const merged = { ...card, ...cardFace };
+
 	return {
-		...card,
-		...cardFace,
+		name: merged.name,
+		text: merged.text,
+		images: { normal: merged.images?.normal },
+		power: merged.power,
+		toughness: merged.toughness,
+		type: merged.type,
+		layout: merged.layout,
+		cmc: merged.cmc,
+		rarity: merged.rarity,
+		custom_tags: merged.custom_tags,
 		uid: generateCardRandomId()
 	};
 }
