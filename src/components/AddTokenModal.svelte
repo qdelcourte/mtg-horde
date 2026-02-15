@@ -3,7 +3,7 @@
 	import zombieTokenCard from 'decks/cards/zombie_token.json';
 	import { Button, Drawer, Input, Label } from 'flowbite-svelte';
 
-	import { game as G } from '../game.svelte';
+	import { game as G } from '../game';
 
 	const { placement = 'left' } = $props();
 
@@ -37,7 +37,7 @@
 	<Button
 		class="mt-2"
 		onclick={() =>
-			G.client.moves.addTokenInHordeBattlefield(zombieTokenCard, inputPowerValue, inputToughness)}
+			G.moves.addTokenInHordeBattlefield(zombieTokenCard, inputPowerValue, inputToughness)}
 		>Add token</Button
 	>
 </Drawer>

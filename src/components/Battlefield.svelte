@@ -3,37 +3,35 @@
 	import { DropdownItem } from 'flowbite-svelte';
 	import { fly } from 'svelte/transition';
 
-	import { game as G } from '../game.svelte';
+	import { game as G } from '../game';
 	import Card from './Card.svelte';
 
 	const { onCardClick } = $props();
-
-	let state = $derived(G.state);
 </script>
 
 <div id="battlefield-container">
-	{#each state.G.hordeBattlefield as card, index (card.uid)}
+	{#each G.state.horde.battlefield as card, index (card.uid)}
 		<div class="battlefield-card" in:fly={{ x: 100, duration: 500 }} out:fly>
 			<Card {card} {index} canChangeMarker onclick={() => onCardClick(card)}>
 				{#snippet actions()}
 					{#if card.tapped}
-						<DropdownItem onclick={() => G.client.moves.hordeToggleTapCard(index)}
+						<DropdownItem onclick={() => G.moves.hordeToggleTapCard(index)}
 							><Icon icon="mdi:arrow-u-left-top" class="inline-block" width="16" /> Untap</DropdownItem
 						>
 					{:else}
-						<DropdownItem onclick={() => G.client.moves.hordeToggleTapCard(index)}
+						<DropdownItem onclick={() => G.moves.hordeToggleTapCard(index)}
 							><Icon icon="mdi:arrow-u-right-top" class="inline-block" width="16" /> Tap</DropdownItem
 						>
 					{/if}
 					<DropdownItem
 						class="w-48"
-						onclick={() => G.client.moves.putCardInHordeDeckFromBattlefield(index)}
+						onclick={() => G.moves.putCardInHordeDeckFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the top library</DropdownItem
 					>
-					<DropdownItem onclick={() => G.client.moves.putCardInHordeGraveyardFromBattlefield(index)}
+					<DropdownItem onclick={() => G.moves.putCardInHordeGraveyardFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the graveyard</DropdownItem
 					>
-					<DropdownItem onclick={() => G.client.moves.putCardInHordeExileFromBattlefield(index)}
+					<DropdownItem onclick={() => G.moves.putCardInHordeExileFromBattlefield(index)}
 						><Icon icon="mdi:close" width="16" class="inline-block" /> To the exile</DropdownItem
 					>
 				{/snippet}

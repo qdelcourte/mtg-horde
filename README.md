@@ -4,7 +4,7 @@
 
 [Play!](https://mtg-horde.netlify.app/)
 
-Built with [Svelte](https://github.com/sveltejs/svelte) ([v5 RC](https://svelte-5-preview.vercel.app/docs/introduction)) and [boardgame.io](https://github.com/boardgameio/boardgame.io)
+Built with [Svelte](https://github.com/sveltejs/svelte)
 
 Inspired from https://github.com/dkniffin/mtg-horde
 
