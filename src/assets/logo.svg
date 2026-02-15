@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#14101f"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </radialGradient>
+    <radialGradient id="fog" cx="40%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#581c87" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#12121e"/>
+    </linearGradient>
+    <linearGradient id="zskin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a7a4a"/>
+      <stop offset="100%" stop-color="#384a28"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="300" rx="20" fill="url(#bg)"/>
+  <rect width="800" height="300" rx="20" fill="url(#fog)"/>
+
+  <!-- Illustration: card + zombies on the right -->
+  <g transform="translate(640, 150) scale(0.6)">
+
+    <!-- Row 4 (farthest) - barely visible mass -->
+    <g opacity="0.05">
+      <circle cx="-130" cy="-15" r="12" fill="#4a6a38"/>
+      <circle cx="-105" cy="-20" r="11" fill="#4a6a38"/>
+      <circle cx="-80" cy="-12" r="12" fill="#4a6a38"/>
+      <circle cx="-55" cy="-18" r="11" fill="#4a6a38"/>
+      <circle cx="-30" cy="-14" r="12" fill="#4a6a38"/>
+      <circle cx="-5" cy="-20" r="11" fill="#4a6a38"/>
+      <circle cx="20" cy="-13" r="12" fill="#4a6a38"/>
+      <circle cx="45" cy="-19" r="11" fill="#4a6a38"/>
+      <circle cx="70" cy="-15" r="12" fill="#4a6a38"/>
+      <circle cx="95" cy="-18" r="11" fill="#4a6a38"/>
+      <circle cx="120" cy="-14" r="12" fill="#4a6a38"/>
+    </g>
+
+    <!-- Row 3 -->
+    <g opacity="0.1">
+      <ellipse cx="-120" cy="5" rx="14" ry="17" fill="#4a6a38"/>
+      <ellipse cx="-90" cy="0" rx="13" ry="16" fill="#4a6a38"/>
+      <ellipse cx="-60" cy="8" rx="14" ry="17" fill="#4a6a38"/>
+      <ellipse cx="-30" cy="2" rx="13" ry="16" fill="#4a6a38"/>
+      <ellipse cx="0" cy="7" rx="14" ry="17" fill="#4a6a38"/>
+      <ellipse cx="30" cy="1" rx="13" ry="16" fill="#4a6a38"/>
+      <ellipse cx="60" cy="6" rx="14" ry="17" fill="#4a6a38"/>
+      <ellipse cx="90" cy="3" rx="13" ry="16" fill="#4a6a38"/>
+      <ellipse cx="115" cy="8" rx="14" ry="17" fill="#4a6a38"/>
+      <!-- scattered eyes -->
+      <circle cx="-123" cy="2" r="1.5" fill="#90ee90"/>
+      <circle cx="-117" cy="2" r="1.5" fill="#90ee90"/>
+      <circle cx="-33" cy="-1" r="1.5" fill="#90ee90"/>
+      <circle cx="-27" cy="-1" r="1.5" fill="#90ee90"/>
+      <circle cx="57" cy="3" r="1.5" fill="#90ee90"/>
+      <circle cx="63" cy="3" r="1.5" fill="#90ee90"/>
+      <circle cx="112" cy="5" r="1.5" fill="#90ee90"/>
+      <circle cx="118" cy="5" r="1.5" fill="#90ee90"/>
+    </g>
+
+    <!-- Row 2 -->
+    <g opacity="0.2">
+      <ellipse cx="-105" cy="28" rx="17" ry="20" fill="url(#zskin)"/>
+      <circle cx="-108" cy="25" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+      <circle cx="-102" cy="25" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+
+      <ellipse cx="-70" cy="24" rx="16" ry="19" fill="url(#zskin)"/>
+      <circle cx="-73" cy="21" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+      <circle cx="-67" cy="21" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+
+      <ellipse cx="-35" cy="30" rx="17" ry="20" fill="url(#zskin)"/>
+
+      <ellipse cx="35" cy="30" rx="17" ry="20" fill="url(#zskin)"/>
+
+      <ellipse cx="70" cy="24" rx="16" ry="19" fill="url(#zskin)"/>
+      <circle cx="67" cy="21" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+      <circle cx="73" cy="21" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+
+      <ellipse cx="105" cy="28" rx="17" ry="20" fill="url(#zskin)"/>
+      <circle cx="102" cy="25" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+      <circle cx="108" cy="25" r="2.5" fill="#90ee90" filter="url(#glow)" opacity="0.7"/>
+    </g>
+
+    <!-- Row 1 (front, flanking the card) -->
+    <g opacity="0.35">
+      <!-- Far left -->
+      <ellipse cx="-115" cy="60" rx="22" ry="26" fill="url(#zskin)"/>
+      <ellipse cx="-119" cy="55" rx="7" ry="6" fill="#0a0e06"/>
+      <ellipse cx="-111" cy="55" rx="7" ry="6" fill="#0a0e06"/>
+      <circle cx="-119" cy="55" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <circle cx="-111" cy="55" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <path d="M-123,68 Q-115,66 -107,68" stroke="#c0b890" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Left of card -->
+      <ellipse cx="-80" cy="55" rx="21" ry="25" fill="url(#zskin)"/>
+      <ellipse cx="-84" cy="50" rx="6.5" ry="5.5" fill="#0a0e06"/>
+      <ellipse cx="-76" cy="50" rx="6.5" ry="5.5" fill="#0a0e06"/>
+      <circle cx="-84" cy="50" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <circle cx="-76" cy="50" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <path d="M-88,63 Q-80,61 -72,63" stroke="#c0b890" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Right of card -->
+      <ellipse cx="80" cy="55" rx="21" ry="25" fill="url(#zskin)"/>
+      <ellipse cx="76" cy="50" rx="6.5" ry="5.5" fill="#0a0e06"/>
+      <ellipse cx="84" cy="50" rx="6.5" ry="5.5" fill="#0a0e06"/>
+      <circle cx="76" cy="50" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <circle cx="84" cy="50" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <path d="M72,63 Q80,61 88,63" stroke="#c0b890" stroke-width="1" fill="none" opacity="0.3"/>
+
+      <!-- Far right -->
+      <ellipse cx="115" cy="60" rx="22" ry="26" fill="url(#zskin)"/>
+      <ellipse cx="111" cy="55" rx="7" ry="6" fill="#0a0e06"/>
+      <ellipse cx="119" cy="55" rx="7" ry="6" fill="#0a0e06"/>
+      <circle cx="111" cy="55" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <circle cx="119" cy="55" r="3.5" fill="#90ee90" filter="url(#glow)" opacity="0.9"/>
+      <path d="M107,68 Q115,66 123,68" stroke="#c0b890" stroke-width="1" fill="none" opacity="0.3"/>
+    </g>
+
+    <!-- Zombie hands reaching from the sides -->
+    <g opacity="0.5">
+      <!-- Left side hand -->
+      <g transform="translate(-95, 20) rotate(15)">
+        <path d="M0,15 Q-2,5 -3,-5" stroke="#5a7a48" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M-3,-5 Q-5,-12 -7,-16" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M-3,-5 Q-2,-13 -1,-18" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M-3,-5 Q1,-11 4,-15" stroke="#5a7a48" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Right side hand -->
+      <g transform="translate(95, 18) rotate(-12)">
+        <path d="M0,15 Q2,5 3,-5" stroke="#5a7a48" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M3,-5 Q5,-12 7,-16" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M3,-5 Q2,-13 1,-18" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M3,-5 Q-1,-11 -4,-15" stroke="#5a7a48" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Back cards -->
+    <g transform="rotate(-6)" opacity="0.3">
+      <rect x="-55" y="-80" width="110" height="160" rx="8" fill="#12121e" stroke="#4f5fb3" stroke-width="1.5"/>
+    </g>
+    <g transform="rotate(6)" opacity="0.25">
+      <rect x="-55" y="-80" width="110" height="160" rx="8" fill="#12121e" stroke="#4f5fb3" stroke-width="1.5"/>
+    </g>
+
+    <!-- Main card -->
+    <rect x="-55" y="-80" width="110" height="160" rx="8" fill="url(#card)" stroke="#6479c7" stroke-width="2"/>
+    <rect x="-48" y="-72" width="96" height="146" rx="4" fill="none" stroke="#4f5fb3" stroke-width="0.5" opacity="0.4"/>
+    <rect x="-44" y="-68" width="88" height="62" rx="3" fill="#0a0a0f"/>
+
+    <!-- Shield in card art -->
+    <g transform="translate(0, -38)">
+      <path d="M0,-20 L18,-12 L18,5 Q18,16 0,22 Q-18,16 -18,5 L-18,-12Z" fill="#1e2548" stroke="#818cf8" stroke-width="1.5" opacity="0.9"/>
+      <g transform="scale(0.55)">
+        <g transform="rotate(-25)">
+          <rect x="-2.5" y="-26" width="5" height="35" rx="1" fill="#a5b4fc"/>
+          <polygon points="-2.5,-26 2.5,-26 0,-32" fill="#c7d2fe"/>
+          <rect x="-7" y="8" width="14" height="3" rx="1.5" fill="#818cf8"/>
+        </g>
+        <g transform="rotate(25)">
+          <rect x="-2.5" y="-26" width="5" height="35" rx="1" fill="#a5b4fc"/>
+          <polygon points="-2.5,-26 2.5,-26 0,-32" fill="#c7d2fe"/>
+          <rect x="-7" y="8" width="14" height="3" rx="1.5" fill="#818cf8"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Zombie hands from card -->
+    <g transform="translate(-22, -12)" opacity="0.7">
+      <path d="M0,10 Q-2,0 -3,-8" stroke="#5a7a48" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M-3,-8 Q-5,-14 -8,-18" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M-3,-8 Q-2,-15 -1,-20" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M-3,-8 Q1,-14 4,-17" stroke="#5a7a48" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(25, -10)" opacity="0.7">
+      <path d="M0,10 Q2,-2 1,-10" stroke="#5a7a48" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M1,-10 Q-2,-17 -5,-22" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M1,-10 Q2,-18 2,-24" stroke="#5a7a48" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M1,-10 Q5,-16 8,-20" stroke="#5a7a48" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <path d="M-44,-8 Q-22,-12 0,-9 Q22,-12 44,-8 L44,-5 L-44,-5Z" fill="#1a1020" opacity="0.5"/>
+    <rect x="-44" y="0" width="88" height="12" rx="2" fill="#1e2548" opacity="0.5"/>
+    <rect x="-44" y="16" width="88" height="50" rx="3" fill="#14101f" opacity="0.4"/>
+    <line x1="-36" y1="27" x2="36" y2="27" stroke="#4f5fb3" stroke-width="0.5" opacity="0.25"/>
+    <line x1="-36" y1="36" x2="30" y2="36" stroke="#4f5fb3" stroke-width="0.5" opacity="0.25"/>
+    <line x1="-36" y1="45" x2="33" y2="45" stroke="#4f5fb3" stroke-width="0.5" opacity="0.25"/>
+  </g>
+
+  <!-- Text: left side, large -->
+  <g filter="url(#tglow)">
+    <text x="45" y="115" font-family="Georgia, serif" font-weight="800" font-size="42" fill="#818cf8" letter-spacing="8">MTG</text>
+  </g>
+  <text x="45" y="115" font-family="Georgia, serif" font-weight="800" font-size="42" fill="#e0e7ff" letter-spacing="8">MTG</text>
+
+  <g filter="url(#tglow)">
+    <text x="40" y="200" font-family="Georgia, serif" font-weight="900" font-size="100" fill="#818cf8" letter-spacing="4">HORDE</text>
+  </g>
+  <text x="40" y="200" font-family="Georgia, serif" font-weight="900" font-size="100" fill="#e0e7ff" letter-spacing="4">HORDE</text>
+
+  <!-- Decorative line -->
+  <line x1="45" y1="218" x2="420" y2="218" stroke="#818cf8" stroke-width="1" opacity="0.3"/>
+
+  <text x="45" y="250" font-family="Georgia, serif" font-size="18" fill="#a5b4fc" letter-spacing="6" opacity="0.6">COOPERATIVE SURVIVAL</text>
+</svg>

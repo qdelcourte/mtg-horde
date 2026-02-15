@@ -1,6 +1,10 @@
-# MTG Horde
+<p align="center">
+  <img src="src/assets/logo.svg" alt="MTG Horde" width="600" />
+</p>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c6818713-2f34-43d2-8261-c57a9268cea5/deploy-status)](https://app.netlify.com/sites/mtg-horde/deploys)
+<p align="center">
+  <a href="https://app.netlify.com/sites/mtg-horde/deploys"><img src="https://api.netlify.com/api/v1/badges/c6818713-2f34-43d2-8261-c57a9268cea5/deploy-status" alt="Netlify Status" /></a>
+</p>
 
 [Play!](https://mtg-horde.netlify.app/)
 
