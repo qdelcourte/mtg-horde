@@ -133,4 +133,34 @@ alias: {
 - Tokens don't count toward horde life when marked as `isExtraToken`
 - Sorceries/Instants must be removed from battlefield before ending horde turn (enforced by `hasSorceryOrInstantOnBattlefield` check)
 - All card IDs use `crypto.randomUUID()` for unique tracking
-- UI built with Flowbite-Svelte components + TailwindCSS 4 + @iconify/svelte for icons
+- UI built with Flowbite-Svelte components + TailwindCSS 4 + @iconify/svelte for icons (Material Design Icons set)
+
+## Design System
+
+### Theme & Palette
+
+Dark-mode-first gaming interface. The HTML root has `class="dark"` permanently.
+
+- **Background**: Near-black `#0a0a0f` with subtle purple/blue radial gradients for atmosphere
+- **Surfaces**: Semi-transparent whites (`rgba(255,255,255,0.06–0.15)`) with `backdrop-filter: blur(8px)` (glassmorphism)
+- **Primary action color**: `cornflowerblue` — used for all primary buttons and interactive highlights
+- **Text**: White at varying opacities (1.0 primary, 0.6 secondary, 0.35 muted)
+- **Card type glow colors**: Sorcery `#e879f9` (magenta), Instant `#60a5fa` (blue), Enchantment `#4ade80` (green)
+- **Semantic colors**: Damage/destructive `#ef4444`, Victory `#fbbf24`
+- **Primary palette** (Tailwind theme in `app.css`): Blue-violet scale from `#eef2ff` to `#1e2548`
+
+### Styling Conventions
+
+- Scoped `<style>` blocks per component; global theme in `src/app.css`
+- Prefer opacity layering over hard borders for depth (e.g. `rgba(255,255,255,0.15)` borders)
+- Interactive states: `filter: brightness(1.15)` on hover, `transition: 0.2s`
+- Disabled state: `opacity: 0.35` + `pointer-events: none`
+- Labels: `text-transform: uppercase` + `letter-spacing: 0.5–2px` + `font-weight: 500–600`
+- Border radius: `8px` for components, `50%` for dots/icons
+
+### Layout
+
+- Main layout: CSS Grid with `grid-template-columns: max-content 1fr` (side panel + main content)
+- Side panel: Vertical flex column with glassmorphism background
+- Battlefield: Responsive card grid (columns adapt to card count, 1–8 cols)
+- Animations: Svelte `fly`/`scale` transitions + CSS keyframes for game events (flash, shake, pulse)
