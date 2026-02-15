@@ -9,6 +9,7 @@
 	import AlertToast from './AlertToast.svelte';
 	import Battlefield from './Battlefield.svelte';
 	import GameInfo from './GameInfo.svelte';
+	import GithubLink from './GithubLink.svelte';
 	import GraveyardModal from './GraveyardModal.svelte';
 	import OffCardDetails from './OffCardDetails.svelte';
 	import Pulse from './Pulse.svelte';
@@ -95,6 +96,7 @@
 			</div>
 		</div>
 		<Toolbar {gameInfoRef} {onRestore} {onSave} {addTokenModalRef} {settingsModalRef} />
+		<GithubLink />
 	</div>
 
 	<div id="main-content">
