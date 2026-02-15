@@ -11,5 +11,5 @@
 {/if}
 
 <div class="flex justify-center">
-	<img class="w-72" src={card.images.normal} alt="explain card" />
+	<img class="w-72 rounded-[4.75%/3.5%]" src={card.images.normal} alt="explain card" />
 </div>

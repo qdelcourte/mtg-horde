@@ -36,6 +36,13 @@ const moves = {
 			G.state.horde.battlefield = battlefield.concat(deck.slice(0, indexOfFirstNonToken + 1));
 		}
 	},
+	hordeWrathBattlefield: (G) => {
+		const { horde } = G.state;
+		horde.graveyard = horde.graveyard.concat(
+			horde.battlefield.map(clearCardState).filter((card) => !isTokenCard(card))
+		);
+		horde.battlefield = [];
+	},
 	hordeToggleTapAllCards: (G, tapped = true) => {
 		G.state.horde.battlefield = G.state.horde.battlefield.map((card) => {
 			if (isInstantCard(card) || isSorceryCard(card) || isEnchantmentCard(card)) {
@@ -64,13 +71,12 @@ const moves = {
 		if (n <= 0) return INVALID_MOVE;
 
 		const { horde } = G.state;
-		const deck = horde.deck;
-		horde.deck = deck.slice(n);
+		const toRemove = Math.min(n, horde.deck.length);
+		if (toRemove === 0) return INVALID_MOVE;
+
+		const deckCards = horde.deck.splice(0, toRemove);
 		horde.graveyard = horde.graveyard.concat(
-			deck
-				.slice(0, n)
-				.filter((card) => !isTokenCard(card))
-				.map(clearCardState)
+			deckCards.filter((card) => !isTokenCard(card)).map(clearCardState)
 		);
 	},
 	putCardInHordeGraveyardFromBattlefield: (G, index) => {
@@ -116,6 +122,11 @@ const moves = {
 		const { horde } = G.state;
 		const card = horde.graveyard.splice(index, 1)[0];
 		horde.battlefield.push({ ...card, tapped });
+	},
+	putAllCardsInHordeBattlefieldFromGraveyard: (G) => {
+		const { horde } = G.state;
+		horde.battlefield = horde.battlefield.concat(horde.graveyard);
+		horde.graveyard = [];
 	},
 	putCardInHordeExileFromGraveyard: (G, index) => {
 		const guard = guardIndex(index);

@@ -8,6 +8,6 @@
 	export const show = () => (open = true);
 </script>
 
-<Modal bind:open size="xs" title="Settings" {permanent}>
+<Modal bind:open size="sm" {permanent}>
 	<Settings onGameStart={() => (open = false)} />
 </Modal>

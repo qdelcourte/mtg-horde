@@ -1,15 +1,8 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import './app.css';
 	import CompareDistribution from './CompareDistribution.svelte';
 	import Board from './components/Board.svelte';
 	import GithubCorner from './components/GithubCorner.svelte';
-	import { game as G } from './game';
-
-	onMount(() => {
-		return G.on('gameover', (event) => alert(event.detail.winner));
-	});
 
 	let page = $state(document.location.hash);
 </script>
