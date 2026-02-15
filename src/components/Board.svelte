@@ -59,11 +59,14 @@
 		out:fly={{ easing: expoOut }}
 	>
 		<div id="current">
-			Survivors turn {G.state.turn.currentInitialSurvivorTurn} / {G.state.config.nbInitialSurvivorsTurn}
+			Survivors turn {G.state.turn.currentInitialSurvivorTurn} / {G.state.config
+				.nbInitialSurvivorsTurn}
 		</div>
 		<div id="next">
 			<Button onclick={() => G.moves.nextInitialTurn()}>
-				{G.state.turn.currentInitialSurvivorTurn === G.state.config.nbInitialSurvivorsTurn ? 'Go !' : 'Next'}
+				{G.state.turn.currentInitialSurvivorTurn === G.state.config.nbInitialSurvivorsTurn
+					? 'Go !'
+					: 'Next'}
 			</Button>
 		</div>
 	</div>

@@ -19,12 +19,15 @@ export const STAGES = {
 	attack: 'attack'
 };
 
+function guardIndex(index) {
+	if (index < 0) return INVALID_MOVE;
+}
+
 const moves = {
 	hordeDrawCards: (G) => {
 		// Draw cards in horde deck until the first token
-		let deck = G.state.horde.deck;
+		const { deck, battlefield } = G.state.horde;
 		const indexOfFirstNonToken = deck.findIndex((card) => !isTokenCard(card));
-		let battlefield = G.state.horde.battlefield;
 		if (indexOfFirstNonToken === -1) {
 			G.state.horde.deck = [];
 			G.state.horde.battlefield = battlefield.concat(deck);
@@ -42,17 +45,17 @@ const moves = {
 		});
 	},
 	hordeToggleTapCard: (G, index) => {
-		if (index < 0) return INVALID_MOVE;
-		// Tap or untap card from the battlefield
-		G.state.horde.battlefield[index].tapped = !(
-			G.state.horde.battlefield[index].tapped ?? false
-		);
+		const guard = guardIndex(index);
+		if (guard) return guard;
+
+		const card = G.state.horde.battlefield[index];
+		card.tapped = !card.tapped;
 	},
 	addTokenInHordeBattlefield: (G, card, power, toughness) => {
 		G.state.horde.battlefield.push({
 			...card,
-			power: power,
-			toughness: toughness,
+			power,
+			toughness,
 			isExtraToken: true,
 			uid: generateCardRandomId()
 		});
@@ -60,10 +63,10 @@ const moves = {
 	putCardsInHordeGraveyardFromDeck: (G, n) => {
 		if (n <= 0) return INVALID_MOVE;
 
-		// Put first N cards in the graveyard from the top of the library
-		let deck = [...G.state.horde.deck];
-		G.state.horde.deck = deck.slice(n);
-		G.state.horde.graveyard = G.state.horde.graveyard.concat(
+		const { horde } = G.state;
+		const deck = horde.deck;
+		horde.deck = deck.slice(n);
+		horde.graveyard = horde.graveyard.concat(
 			deck
 				.slice(0, n)
 				.filter((card) => !isTokenCard(card))
@@ -71,47 +74,58 @@ const moves = {
 		);
 	},
 	putCardInHordeGraveyardFromBattlefield: (G, index) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
-		G.state.horde.battlefield[index] = clearCardState(G.state.horde.battlefield[index]);
-		G.state.horde.graveyard = G.state.horde.graveyard.concat(
-			G.state.horde.battlefield.splice(index, 1).filter((card) => !isTokenCard(card))
+		const { horde } = G.state;
+		horde.battlefield[index] = clearCardState(horde.battlefield[index]);
+		horde.graveyard = horde.graveyard.concat(
+			horde.battlefield.splice(index, 1).filter((card) => !isTokenCard(card))
 		);
 	},
 	putCardInHordeDeckFromBattlefield: (G, index) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
-		G.state.horde.battlefield[index] = clearCardState(G.state.horde.battlefield[index]);
-		G.state.horde.deck.push(G.state.horde.battlefield.splice(index, 1)[0]);
+		const { horde } = G.state;
+		horde.battlefield[index] = clearCardState(horde.battlefield[index]);
+		horde.deck.push(horde.battlefield.splice(index, 1)[0]);
 	},
 	putCardInHordeExileFromBattlefield: (G, index) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
 		G.state.horde.battlefield.splice(index, 1);
 	},
 	putCardInHordeDeckFromGraveyard: (G, index, top = true) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
-		const card = G.state.horde.graveyard.splice(index, 1)[0];
+		const { horde } = G.state;
+		const card = horde.graveyard.splice(index, 1)[0];
 		if (top) {
-			G.state.horde.deck.unshift(card);
+			horde.deck.unshift(card);
 		} else {
-			G.state.horde.deck.push(card);
+			horde.deck.push(card);
 		}
 	},
-	putCardInHordeBattefieldFromGraveyard: (G, index, tapped = false) => {
-		if (index < 0) return INVALID_MOVE;
+	putCardInHordeBattlefieldFromGraveyard: (G, index, tapped = false) => {
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
-		const card = G.state.horde.graveyard.splice(index, 1)[0];
-		G.state.horde.battlefield.push({ ...card, tapped });
+		const { horde } = G.state;
+		const card = horde.graveyard.splice(index, 1)[0];
+		horde.battlefield.push({ ...card, tapped });
 	},
 	putCardInHordeExileFromGraveyard: (G, index) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
 		G.state.horde.graveyard.splice(index, 1);
 	},
 	changeCardMarkerCounter: (G, index, powerMarker, toughnessMarker) => {
-		if (index < 0) return INVALID_MOVE;
+		const guard = guardIndex(index);
+		if (guard) return guard;
 
 		const card = G.state.horde.battlefield[index];
 		G.state.horde.battlefield[index] = {
@@ -133,8 +147,7 @@ export const PHASES_CONFIG = {
 			nextInitialTurn: (G) => G.state.turn.currentInitialSurvivorTurn++
 		},
 
-		endIf: (G) =>
-			G.state.turn.currentInitialSurvivorTurn > G.state.config.nbInitialSurvivorsTurn
+		endIf: (G) => G.state.turn.currentInitialSurvivorTurn > G.state.config.nbInitialSurvivorsTurn
 	},
 	[PHASES.fightTheHorde]: {
 		stages: { ...STAGES, initial: STAGES.draw },

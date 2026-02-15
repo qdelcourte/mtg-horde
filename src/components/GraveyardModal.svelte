@@ -32,11 +32,11 @@
 									>To the bottom library</DropdownItem
 								>
 								<DropdownItem
-									onclick={() => G.moves.putCardInHordeBattefieldFromGraveyard(index, false)}
+									onclick={() => G.moves.putCardInHordeBattlefieldFromGraveyard(index, false)}
 									>To the battlefield</DropdownItem
 								>
 								<DropdownItem
-									onclick={() => G.moves.putCardInHordeBattefieldFromGraveyard(index, true)}
+									onclick={() => G.moves.putCardInHordeBattlefieldFromGraveyard(index, true)}
 									>To the battlefield (tapped)</DropdownItem
 								>
 								<DropdownItem onclick={() => G.moves.putCardInHordeExileFromGraveyard(index)}
