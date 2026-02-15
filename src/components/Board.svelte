@@ -96,6 +96,10 @@
 			</div>
 		</div>
 		<Toolbar {gameInfoRef} {onRestore} {onSave} {addTokenModalRef} {settingsModalRef} />
+		<a href="#distribution" class="distribution-link">
+			<Icon icon="mdi:chart-bell-curve-cumulative" color="white" width="20" />
+			<span>Distribution</span>
+		</a>
 		<GithubLink />
 	</div>
 
@@ -447,5 +451,32 @@
 	.legend-text {
 		font-size: 0.7rem;
 		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.distribution-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.4rem 0.5rem;
+		border-radius: 8px;
+		color: rgba(255, 255, 255, 0.6);
+		text-decoration: none;
+		font-size: 0.8rem;
+		font-weight: 500;
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		padding-top: 0.6rem;
+		margin-top: 0.25rem;
+		transition:
+			background 0.2s,
+			color 0.2s;
+	}
+
+	.distribution-link:hover {
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+	}
+
+	.distribution-link span {
+		line-height: normal;
 	}
 </style>
