@@ -64,7 +64,7 @@ class Engine extends EventEmitter {
 	#undoLen = $state(0);
 	#redoLen = $state(0);
 
-	start({ deckName, nbSurvivors, tokenProportion, nbInitialSurvivorsTurn }) {
+	start({ deckName, nbSurvivors, tokenProportion, nbInitialSurvivorsTurn, distributionMode }) {
 		this.#reset();
 		this.state.config.nbSurvivors = nbSurvivors;
 		this.state.config.tokenProportion = tokenProportion;
@@ -73,7 +73,8 @@ class Engine extends EventEmitter {
 		this.state.survivors.life = this.state.config.nbSurvivors * 20;
 		this.state.horde.deck = loadDeck(decks[deckName], {
 			nbSurvivors: this.state.config.nbSurvivors,
-			tokenPercentage: this.state.config.tokenProportion
+			tokenPercentage: this.state.config.tokenProportion,
+			distributionMode
 		});
 		this.state.turn.currentInitialSurvivorTurn++;
 		this.setPhase(PHASES.initialSurvivorsTurns);
