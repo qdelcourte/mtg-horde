@@ -7,7 +7,7 @@ export const INVALID_MOVE = 'INVALID_MOVE';
  *
  * @param {Array} deck
  * @param {Object} options - Configuration options
- * @param {'geometric'|'geometric_boosted'|'random'} options.distributionMode - Specify the token distribution method in deck
+ * @param {'geometric'|'geometric_boosted'|'random'|'escalation'} options.distributionMode - Specify the token distribution method in deck
  * @returns {Array}
  */
 export function loadDeck(deck, options) {
@@ -18,6 +18,8 @@ export function loadDeck(deck, options) {
 			return geometricDistributionHordeDeck(deck, { ...options, limitSuccessiveTokenDraw: true });
 		case 'random':
 			return randomDistributionHordeDeck(deck, options);
+		case 'escalation':
+			return escalationDistributionHordeDeck(deck, options);
 		default:
 			throw Error(`Distribution mode is not supported`);
 	}
@@ -149,6 +151,102 @@ function randomDistributionHordeDeck(deck, options) {
 
 	// Return deck shuffled
 	return shuffle(reducedDeck, shuffleBiasFactor);
+}
+
+/**
+ * Load and generate Horde's deck with escalating difficulty
+ *
+ * Splits the deck into 3 segments (early/mid/late) with decreasing token density.
+ * Each segment uses geometric_boosted logic to avoid long token streaks.
+ *
+ * @param {Array} deck
+ * @param {Object} options
+ * @returns {Array}
+ */
+function escalationDistributionHordeDeck(deck, options) {
+	const { nbSurvivors, tokenPercentage, shuffleBiasFactor = null } = options;
+
+	const totalCards = getNbCardsFromNbSurvivors(nbSurvivors);
+	const segmentSize = Math.floor(totalCards / 3);
+	const lastSegmentSize = totalCards - segmentSize * 2;
+
+	// Token ratios per segment: high early, normal mid, low late
+	const earlyRatio = Math.min(tokenPercentage + 0.15, 0.9);
+	const midRatio = tokenPercentage;
+	const lateRatio = Math.max(tokenPercentage - 0.15, 0.1);
+
+	// Prepare token and non-token pools
+	const tokenCards = deck.filter((card) => isTokenCard(card.card));
+	const totalTokens = tokenCards.reduce((acc, card) => acc + card.qty, 0);
+	const totalNeededTokens = Math.round(totalCards * tokenPercentage);
+
+	const allTokens = shuffle(
+		tokenCards.flatMap((card) =>
+			Array.from({ length: Math.floor((card.qty / totalTokens) * totalNeededTokens) }, () =>
+				getCardFace(card.card)
+			)
+		),
+		shuffleBiasFactor
+	);
+
+	const allNonTokens = shuffle(
+		deck.flatMap((card) =>
+			!isTokenCard(card.card) ? Array.from({ length: card.qty }, () => getCardFace(card.card)) : []
+		),
+		shuffleBiasFactor
+	);
+
+	let tokenIndex = 0;
+	let nonTokenIndex = 0;
+	const reducedDeck = [];
+
+	// Build each segment with its own token ratio
+	const segments = [
+		{ size: segmentSize, ratio: earlyRatio },
+		{ size: segmentSize, ratio: midRatio },
+		{ size: lastSegmentSize, ratio: lateRatio }
+	];
+
+	for (const segment of segments) {
+		const segmentTokenCount = Math.round(segment.size * segment.ratio);
+		let tokensPlaced = 0;
+		let nbTokenInARow = 0;
+		let MAX_TOKEN_IN_A_ROW = 1;
+
+		for (let i = 0; i < segment.size; i++) {
+			const probability = 1 - Math.exp(-0.2 * (i + 1));
+			const shouldAddToken = Math.random() < probability;
+			const needMoreTokens = tokensPlaced < segmentTokenCount;
+
+			if (
+				shouldAddToken &&
+				needMoreTokens &&
+				tokenIndex < allTokens.length &&
+				nbTokenInARow + 1 <= MAX_TOKEN_IN_A_ROW
+			) {
+				reducedDeck.push(allTokens[tokenIndex++]);
+				tokensPlaced++;
+				nbTokenInARow++;
+			} else if (nonTokenIndex < allNonTokens.length) {
+				reducedDeck.push(allNonTokens[nonTokenIndex++]);
+				nbTokenInARow = 0;
+			} else if (tokenIndex < allTokens.length) {
+				reducedDeck.push(allTokens[tokenIndex++]);
+				tokensPlaced++;
+				nbTokenInARow++;
+			}
+
+			if (!shouldAddToken && Math.random() < 0.1) {
+				MAX_TOKEN_IN_A_ROW += 1;
+			}
+		}
+	}
+
+	// Fill remaining spots
+	reducedDeck.push(...allTokens.slice(tokenIndex, totalCards - reducedDeck.length));
+	reducedDeck.push(...allNonTokens.slice(nonTokenIndex, totalCards - reducedDeck.length));
+
+	return reducedDeck;
 }
 
 function getNbCardsFromNbSurvivors(nbSurvivors) {
