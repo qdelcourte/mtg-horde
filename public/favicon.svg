@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <filter id="g">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="g2">
+      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#0a0a0f"/>
+  <!-- Subtle face shape -->
+  <ellipse cx="32" cy="34" rx="24" ry="26" fill="#1a1a2e" opacity="0.4"/>
+  <!-- Outer glow -->
+  <ellipse cx="22" cy="30" rx="9" ry="7" fill="#90ee90" filter="url(#g)" opacity="0.3"/>
+  <ellipse cx="42" cy="30" rx="9" ry="7" fill="#90ee90" filter="url(#g)" opacity="0.3"/>
+  <!-- Eye sockets -->
+  <ellipse cx="22" cy="30" rx="8" ry="6.5" fill="#060810"/>
+  <ellipse cx="42" cy="30" rx="8" ry="6.5" fill="#060810"/>
+  <!-- Glowing eyes -->
+  <ellipse cx="22" cy="30" rx="5.5" ry="4" fill="#90ee90" filter="url(#g2)"/>
+  <ellipse cx="42" cy="30" rx="5.5" ry="4" fill="#90ee90" filter="url(#g2)"/>
+  <!-- Bright center -->
+  <ellipse cx="22" cy="29.5" rx="2.5" ry="2" fill="#d0ffd0"/>
+  <ellipse cx="42" cy="29.5" rx="2.5" ry="2" fill="#d0ffd0"/>
+</svg>

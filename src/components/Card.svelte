@@ -1,12 +1,19 @@
 <script>
 	import Icon from '@iconify/svelte';
 	import cardBack from '$assets/card-back.jpg';
-	import { Button, Dropdown, DropdownItem } from 'flowbite-svelte';
+	import { Button, Dropdown } from 'flowbite-svelte';
 
 	import { game as G } from '../game';
 	import { isEnchantmentCard, isInstantCard, isSorceryCard } from '../game/helpers';
 
 	const { card, index, canChangeMarker = false, actions, onclick } = $props();
+
+	let actionsOpen = $state(false);
+	let markerOpen = $state(false);
+	let markerPower = $state(1);
+	let markerToughness = $state(1);
+	let loaded = $state(false);
+	let imgSrc = $derived(card.images?.normal);
 
 	function cardMarkerRepr(card) {
 		let power = card.power;
@@ -26,66 +33,85 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<img
-		src={cardBack}
-		alt="a card"
+		src={loaded ? imgSrc : cardBack}
+		alt={card.name}
 		class:tapped={card.tapped}
 		class:sorcery={isSorceryCard(card)}
 		class:instant={isInstantCard(card)}
 		class:enchantment={isEnchantmentCard(card)}
 		{onclick}
 	/>
+	{#if imgSrc && !loaded}
+		<img class="preload" src={imgSrc} alt="" loading="lazy" onload={() => (loaded = true)} />
+	{/if}
 	<div class="card-over">
 		<div class="card-name">{card.name}</div>
 
-		<div>
+		<div class="card-bottom">
 			{#if actions}
-				<div class="card-actions">
-					<Button id="action-{card.uid}" class="px-1!" color="dark"
-						><Icon icon="mdi:chevron-down" class="mx-2!" width="18" /></Button
-					>
+				<Button id="action-{card.uid}" class="card-btn pointer-events-auto px-1.5! py-1!" size="xs"
+					><Icon icon="mdi:chevron-down" class="mx-1!" width="16" />
+				</Button>
+				<Dropdown
+					simple
+					size="xs"
+					class="pointer-events-auto"
+					triggeredBy="#action-{card.uid}"
+					placement="right"
+					bind:isOpen={actionsOpen}
+				>
+					<div onclickcapture={() => (actionsOpen = false)}>
+						{@render actions()}
+					</div>
+				</Dropdown>
+			{/if}
+			{#if card.power || card.powerMarker || card.toughness || card.toughnessMarker}
+				<Button
+					id="power-{card.uid}"
+					class="card-btn pointer-events-auto px-1.5! py-1! text-xs!"
+					size="xs">{cardMarkerRepr(card)}</Button
+				>
+				{#if canChangeMarker}
 					<Dropdown
 						simple
 						size="xs"
-						triggeredBy=".card-actions #action-{card.uid}"
+						class="pointer-events-auto"
+						triggeredBy="#power-{card.uid}"
 						placement="right"
+						bind:isOpen={markerOpen}
 					>
-						{@render actions()}
+						<div class="marker-form">
+							<div class="marker-row">
+								<span class="marker-label">Power</span>
+								<input
+									id="marker-power-{card.uid}"
+									type="number"
+									class="marker-input"
+									bind:value={markerPower}
+								/>
+							</div>
+							<div class="marker-row">
+								<span class="marker-label">Toughness</span>
+								<input
+									id="marker-tough-{card.uid}"
+									type="number"
+									class="marker-input"
+									bind:value={markerToughness}
+								/>
+							</div>
+							<button
+								class="marker-apply"
+								onclick={(e) => {
+									e.stopPropagation();
+									G.moves.changeCardMarkerCounter(index, markerPower, markerToughness);
+									markerPower = 1;
+									markerToughness = 1;
+									markerOpen = false;
+								}}>Apply</button
+							>
+						</div>
 					</Dropdown>
-				</div>
-			{/if}
-			{#if card.power || card.powerMarker || card.toughness || card.toughnessMarker}
-				<div class="card-power">
-					<Button id="power-{card.uid}" class="px-2!" color="dark">{cardMarkerRepr(card)}</Button>
-					{#if canChangeMarker}
-						<Dropdown
-							simple
-							size="xs"
-							triggeredBy=".card-power #power-{card.uid}"
-							placement="right"
-						>
-							<DropdownItem
-								class="w-48"
-								onclick={() => G.moves.changeCardMarkerCounter(index, 1, 1)}
-								>Add marker +1 / +1</DropdownItem
-							>
-							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, -1, -1)}
-								>Add marker -1 / -1</DropdownItem
-							>
-							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 1, 0)}
-								>Add marker +1 / 0</DropdownItem
-							>
-							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, -1, 0)}
-								>Add marker -1 / 0</DropdownItem
-							>
-							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 0, 1)}
-								>Add marker 0 / +1</DropdownItem
-							>
-							<DropdownItem onclick={() => G.moves.changeCardMarkerCounter(index, 0, -1)}
-								>Add marker 0 / -1</DropdownItem
-							>
-						</Dropdown>
-					{/if}
-				</div>
+				{/if}
 			{/if}
 		</div>
 	</div>
@@ -97,44 +123,72 @@
 		justify-content: center;
 		align-items: center;
 		overflow: visible;
-		width: min-content;
+		width: 100%;
 		height: min-content;
 		position: relative;
 		padding: 5px;
 	}
 
 	img {
-		max-width: 10rem;
+		width: 100%;
+		max-width: 14rem;
 		transition: transform 0.5s ease-in-out;
+		border-radius: 4.75% / 3.5%;
+	}
+
+	img.preload {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	img.tapped {
-		transform: rotate(15deg);
+		transform: rotate(90deg) scale(0.85);
+		opacity: 0.7;
 	}
 
 	img.sorcery {
-		box-shadow: 0 0 0 5px darkmagenta;
+		box-shadow:
+			0 0 0 3px #e879f9,
+			0 0 10px rgba(232, 121, 249, 0.5);
 	}
 
 	img.instant {
-		box-shadow: 0 0 0 5px blue;
+		box-shadow:
+			0 0 0 3px #60a5fa,
+			0 0 10px rgba(96, 165, 250, 0.5);
 	}
 
 	img.enchantment {
-		box-shadow: 0 0 0 5px green;
+		box-shadow:
+			0 0 0 3px #4ade80,
+			0 0 10px rgba(74, 222, 128, 0.5);
 	}
 
 	img:hover {
 		cursor: pointer;
-		box-shadow: 0 0 0 5px #eee;
+		box-shadow:
+			0 0 0 3px #eee,
+			0 0 10px rgba(255, 255, 255, 0.4);
 	}
 
 	.card-name {
 		position: absolute;
-		background-color: black;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.75);
 		color: white;
-		font-size: 70%;
-		padding: 5px;
+		font-size: 0.65rem;
+		font-weight: 600;
+		padding: 3px 6px;
+		text-align: center;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.card-over {
@@ -144,15 +198,79 @@
 		pointer-events: none;
 	}
 
-	.card-actions,
-	.card-power {
-		padding: 5px;
+	.card-bottom {
 		position: absolute;
-		bottom: 0;
-		pointer-events: all;
+		bottom: 5px;
+		left: 5px;
+		right: 5px;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		pointer-events: none;
 	}
 
-	.card-power {
-		right: 0;
+	.marker-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 0.5rem;
+		min-width: 10rem;
+	}
+
+	.marker-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.marker-label {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.7);
+		flex: 1;
+	}
+
+	.marker-input {
+		width: 4rem;
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 4px;
+		color: white;
+		padding: 0.2rem 0.4rem;
+		font-size: 0.8rem;
+		text-align: center;
+		outline: none;
+	}
+
+	.marker-input:focus {
+		border-color: cornflowerblue;
+	}
+
+	.marker-apply {
+		background: cornflowerblue;
+		color: white;
+		border: none;
+		border-radius: 4px;
+		padding: 0.3rem 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: filter 0.2s;
+	}
+
+	.marker-apply:hover {
+		filter: brightness(1.15);
+	}
+
+	:global(.card-btn) {
+		background: rgba(0, 0, 0, 0.65) !important;
+		backdrop-filter: blur(4px);
+		color: rgba(255, 255, 255, 0.9) !important;
+		border: 1px solid rgba(255, 255, 255, 0.15) !important;
+	}
+
+	:global(.card-btn:hover) {
+		background: rgba(0, 0, 0, 0.8) !important;
+		color: white !important;
 	}
 </style>

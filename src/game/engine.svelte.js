@@ -53,11 +53,16 @@ class Engine extends EventEmitter {
 	);
 
 	hordeDamage = $derived(
-		this.state.horde.battlefield.reduce((a, b) => a + (parseInt(b?.power) || 0), 0)
+		this.state.horde.battlefield.reduce(
+			(a, b) => a + (parseInt(b?.power) || 0) + (parseInt(b?.powerMarker) || 0),
+			0
+		)
 	);
 
 	#undoStack = [];
 	#redoStack = [];
+	#undoLen = $state(0);
+	#redoLen = $state(0);
 
 	start({ deckName, nbSurvivors, tokenProportion, nbInitialSurvivorsTurn }) {
 		this.#reset();
@@ -136,8 +141,10 @@ class Engine extends EventEmitter {
 		const result = fn(this, ...args);
 		if (result === INVALID_MOVE) {
 			this.#restoreSnapshot(this.#undoStack.pop());
-			return;
 		}
+
+		this.#syncStackLens();
+		if (result === INVALID_MOVE) return;
 
 		this.#checkPhaseEnd();
 		this.#checkGameOver();
@@ -161,16 +168,31 @@ class Engine extends EventEmitter {
 		return $state.snapshot(this.state);
 	}
 
+	#syncStackLens() {
+		this.#undoLen = this.#undoStack.length;
+		this.#redoLen = this.#redoStack.length;
+	}
+
+	get canUndo() {
+		return this.#undoLen > 0;
+	}
+
+	get canRedo() {
+		return this.#redoLen > 0;
+	}
+
 	undo() {
 		if (!this.#undoStack.length) return;
 		this.#redoStack.push(this.#snap());
 		this.#restoreSnapshot(this.#undoStack.pop());
+		this.#syncStackLens();
 	}
 
 	redo() {
 		if (!this.#redoStack.length) return;
 		this.#undoStack.push(this.#snap());
 		this.#restoreSnapshot(this.#redoStack.pop());
+		this.#syncStackLens();
 	}
 
 	savepointInLocalStorage() {
@@ -189,12 +211,14 @@ class Engine extends EventEmitter {
 		this.#restoreSnapshot(parsed);
 		this.#undoStack = [];
 		this.#redoStack = [];
+		this.#syncStackLens();
 	}
 
 	#reset() {
 		this.#restoreSnapshot(INITIAL_STATE);
 		this.#undoStack = [];
 		this.#redoStack = [];
+		this.#syncStackLens();
 	}
 }
 
