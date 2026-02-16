@@ -172,10 +172,11 @@ export const PHASES_CONFIG = {
 				G.setCurrentPlayerStage(STAGES.attack);
 			},
 			stageHordeAttackEnd: (G) => {
-				if (hasSorceryOrInstantOnBattlefield(G)) {
-					// TODO: UI responsability to display this error
-					alert(`Please remove sorcery and instant from the horde battlefield`);
-					return INVALID_MOVE;
+				const { horde } = G.state;
+				const sorceries = horde.battlefield.filter((card) => isSorceryCard(card));
+				if (sorceries.length > 0) {
+					horde.battlefield = horde.battlefield.filter((card) => !isSorceryCard(card));
+					horde.graveyard = horde.graveyard.concat(sorceries.map(clearCardState));
 				}
 				G.endTurn();
 			},

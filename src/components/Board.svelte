@@ -366,7 +366,9 @@
 
 	#battlefield {
 		flex: 1;
-		overflow: clip;
+		overflow-y: auto;
+		overflow-x: clip;
+		min-height: 0;
 	}
 
 	#footer {

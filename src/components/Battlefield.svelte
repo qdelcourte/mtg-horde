@@ -100,7 +100,7 @@
 	.battlefield-wrap {
 		height: 100%;
 		position: relative;
-		overflow: hidden;
+		overflow: clip;
 	}
 
 	.battlefield-wrap.wrath {
