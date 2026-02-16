@@ -1,0 +1,40 @@
+name: Feature Request
+description: Proposer une nouvelle fonctionnalité
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Décris la fonctionnalité souhaitée.
+      placeholder: "Ex: Ajouter une barre de recherche dans la modale du graveyard..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Pourquoi cette fonctionnalité est utile ? Quels fichiers/composants sont concernés ?
+      placeholder: |
+        - La modale du graveyard est dans `src/components/GraveyardModal.svelte`
+        - En fin de partie le graveyard peut contenir 50+ cartes
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Comportement attendu
+      description: Décris le résultat attendu étape par étape.
+      placeholder: |
+        - Un champ de recherche en haut de la modale
+        - Filtrage en temps réel sur le nom de la carte
+        - Si aucun résultat, afficher "Aucune carte trouvée"
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Contraintes
+      description: Contraintes techniques ou de design à respecter.
+      placeholder: |
+        - Utiliser les composants Flowbite-Svelte existants
+        - Svelte 5 avec runes ($state, $derived)
