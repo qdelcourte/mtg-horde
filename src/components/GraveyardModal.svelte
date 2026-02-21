@@ -2,31 +2,29 @@
 	import { Badge, DropdownItem, Modal, Span } from 'flowbite-svelte';
 
 	import { game as G } from '../game';
+	import { modals } from '../lib/modals.svelte.js';
 	import Card from './Card.svelte';
 	import CardDetails from './CardDetails.svelte';
 	import CardGrid from './CardGrid.svelte';
 
-	let open = $state(false);
-	export const show = () => (open = true);
-
 	let currentCard = $state();
 </script>
 
-<Modal bind:open size="xl">
+<Modal bind:open={modals.graveyard.isOpen} size="xl">
 	{#snippet header()}
 		<div class="flex items-center gap-3">
 			<Span>Horde graveyard</Span>
 			<Badge>{G.state.horde.graveyard.length}</Badge>
 			<button
-				class="restore-all-btn"
+				class="bg-primary-500 cursor-pointer rounded-md border-none px-3 py-1 text-xs font-semibold text-white transition-[filter] duration-200 hover:brightness-[1.15]"
 				onclick={() => {
 					G.moves.putAllCardsInHordeBattlefieldFromGraveyard();
-					open = false;
+					modals.graveyard.close();
 				}}>All to battlefield</button
 			>
 		</div>
 	{/snippet}
-	<div id="graveyard-body" data-autofocus tabindex="-1">
+	<div class="grid grid-cols-[70%_1fr]" data-autofocus tabindex="-1">
 		<CardGrid count={G.state.horde.graveyard.length}>
 			{#each G.state.horde.graveyard as card, index (card.uid)}
 				<Card {card} {index} onclick={() => (currentCard = card)} canChangeMarker={false}>
@@ -61,26 +59,3 @@
 		</div>
 	</div>
 </Modal>
-
-<style>
-	#graveyard-body {
-		display: grid;
-		grid-template-columns: 70% 1fr;
-	}
-
-	.restore-all-btn {
-		background: cornflowerblue;
-		color: white;
-		border: none;
-		border-radius: 6px;
-		padding: 0.3rem 0.75rem;
-		font-size: 0.75rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: filter 0.2s;
-	}
-
-	.restore-all-btn:hover {
-		filter: brightness(1.15);
-	}
-</style>

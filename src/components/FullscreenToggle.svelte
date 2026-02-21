@@ -4,12 +4,17 @@
 	let fullscreen = $state(false);
 </script>
 
-<svelte:window on:fullscreenchange={() => (fullscreen = document.fullscreenElement !== null)} />
+<svelte:window onfullscreenchange={() => (fullscreen = document.fullscreenElement !== null)} />
 
-<ToolbarButton
-	label={fullscreen ? 'Exit fullscreen' : 'Fullscreen'}
-	icon={fullscreen ? 'mdi:fullscreen-exit' : 'mdi:fullscreen'}
-	onclick={() => {
-		fullscreen ? document.exitFullscreen() : document.documentElement.requestFullscreen();
-	}}
-/>
+{#if document.fullscreenEnabled}
+	<ToolbarButton
+		label={fullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+		icon={fullscreen ? 'mdi:fullscreen-exit' : 'mdi:fullscreen'}
+		onclick={() => {
+			const action = fullscreen
+				? document.exitFullscreen()
+				: document.documentElement.requestFullscreen();
+			action.catch(() => {});
+		}}
+	/>
+{/if}

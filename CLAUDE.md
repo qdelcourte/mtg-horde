@@ -143,11 +143,11 @@ Dark-mode-first gaming interface. The HTML root has `class="dark"` permanently.
 
 - **Background**: Near-black `#0a0a0f` with subtle purple/blue radial gradients for atmosphere
 - **Surfaces**: Semi-transparent whites (`rgba(255,255,255,0.06–0.15)`) with `backdrop-filter: blur(8px)` (glassmorphism)
-- **Primary action color**: `cornflowerblue` — used for all primary buttons and interactive highlights
+- **Primary action color**: `#22c55e` (green-500) — used for all primary buttons and interactive highlights
 - **Text**: White at varying opacities (1.0 primary, 0.6 secondary, 0.35 muted)
 - **Card type glow colors**: Sorcery `#e879f9` (magenta), Instant `#60a5fa` (blue), Enchantment `#4ade80` (green)
 - **Semantic colors**: Damage/destructive `#ef4444`, Victory `#fbbf24`
-- **Primary palette** (Tailwind theme in `app.css`): Blue-violet scale from `#eef2ff` to `#1e2548`
+- **Primary palette** (Tailwind theme in `app.css`): Green scale from `#f0fdf4` to `#052e16`
 
 ### Styling Conventions
 

@@ -1,5 +1,6 @@
 <script>
 	import Icon from '@iconify/svelte';
+	import { fly } from 'svelte/transition';
 
 	import { game as G } from '../game';
 	import { PHASES, STAGES } from '../game/phases';
@@ -11,7 +12,11 @@
 	const hordeDeckSize = $derived(G.state.horde.deck.length);
 </script>
 
-<div id="score" class="select-none">
+<div
+	id="score"
+	class="flex items-center justify-center gap-3 px-4 py-4 text-white select-none"
+	in:fly={{ y: 50, duration: 500 }}
+>
 	<!-- Undo -->
 	<button class="icon-btn" class:disabled={!G.canUndo} onclick={() => G.undo()} aria-label="undo">
 		<Icon icon="mdi:arrow-u-left-top" width="18" />
@@ -19,11 +24,11 @@
 
 	<!-- Horde -->
 	<div class="player-zone" class:active={isHordeTurn}>
-		<div class="player-header">
-			<Icon icon="mdi:skull" width="14" class="player-icon" />
-			<span class="player-label">Horde</span>
+		<div class="flex items-center gap-1">
+			<Icon icon="mdi:skull" width="14" class="text-white/40" />
+			<span class="text-xs font-semibold tracking-[1px] text-white/40 uppercase">Horde</span>
 		</div>
-		<Pulse class="life-value" value={G.hordeLife} />
+		<Pulse class="text-3xl leading-none font-bold tracking-[-0.5px]" value={G.hordeLife} />
 		<div class="life-controls">
 			{#if hordeDeckSize >= 5}
 				<button class="life-btn minus" onclick={() => G.moves.putCardsInHordeGraveyardFromDeck(5)}
@@ -39,7 +44,7 @@
 	</div>
 
 	<!-- Center -->
-	<div class="center-zone">
+	<div class="flex w-30 flex-col items-center gap-1.5">
 		{#if inFight && G.state.turn.stage}
 			{#if G.state.turn.stage === STAGES.draw && isHordeTurn}
 				<button class="action-btn draw" onclick={() => G.moves.stageHordeDraw()}>
@@ -59,19 +64,22 @@
 				End Turn
 			</button>
 		{/if}
-		<div class="turn-indicator">
-			<span class="turn-label">Turn</span>
-			<Pulse class="turn-value" value={G.state.turn.current} />
+		<div class="flex items-baseline gap-1.5">
+			<span class="text-xs font-semibold tracking-[1px] text-white/35 uppercase">Turn</span>
+			<Pulse class="text-sm font-bold text-white/60" value={G.state.turn.current} />
 		</div>
 	</div>
 
 	<!-- Survivors -->
 	<div class="player-zone" class:active={isSurvivorsTurn}>
-		<div class="player-header">
-			<Icon icon="mdi:shield-account" width="14" class="player-icon" />
-			<span class="player-label">Survivors</span>
+		<div class="flex items-center gap-1">
+			<Icon icon="mdi:shield-account" width="14" class="text-white/40" />
+			<span class="text-xs font-semibold tracking-[1px] text-white/40 uppercase">Survivors</span>
 		</div>
-		<Pulse class="life-value" value={G.state.survivors.life} />
+		<Pulse
+			class="text-3xl leading-none font-bold tracking-[-0.5px]"
+			value={G.state.survivors.life}
+		/>
 		<div class="life-controls">
 			<button class="life-btn minus" onclick={() => G.moves.survivorsChangeLife(-5)}>-5</button>
 			<button class="life-btn minus" onclick={() => G.moves.survivorsChangeLife(-1)}>-1</button>
@@ -87,15 +95,6 @@
 </div>
 
 <style>
-	#score {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-		padding: 0.5rem 1rem;
-		color: white;
-	}
-
 	.icon-btn {
 		display: flex;
 		align-items: center;
@@ -147,34 +146,9 @@
 	}
 
 	.player-zone.active {
-		background: rgba(100, 149, 237, 0.1);
-		border-color: rgba(100, 149, 237, 0.4);
-		box-shadow: 0 0 12px rgba(100, 149, 237, 0.15);
-	}
-
-	.player-header {
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
-	}
-
-	:global(.player-icon) {
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	.player-label {
-		font-size: 0.65rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	:global(.life-value) {
-		font-size: 1.75rem;
-		font-weight: 700;
-		line-height: 1;
-		letter-spacing: -0.5px;
+		background: color-mix(in srgb, var(--color-primary-500) 10%, transparent);
+		border-color: color-mix(in srgb, var(--color-primary-500) 40%, transparent);
+		box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
 	}
 
 	/* Life controls (hover reveal) */
@@ -214,40 +188,11 @@
 	}
 
 	.life-btn.minus {
-		background: rgba(239, 68, 68, 0.75);
+		background: color-mix(in srgb, var(--color-danger) 75%, transparent);
 	}
 
 	.life-btn.plus {
-		background: rgba(34, 197, 94, 0.75);
-	}
-
-	/* Center zone */
-	.center-zone {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.35rem;
-		width: 7.5rem;
-	}
-
-	.turn-indicator {
-		display: flex;
-		align-items: baseline;
-		gap: 0.35rem;
-	}
-
-	.turn-label {
-		font-size: 0.65rem;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: rgba(255, 255, 255, 0.35);
-		font-weight: 600;
-	}
-
-	:global(.turn-value) {
-		font-size: 0.9rem;
-		font-weight: 700;
-		color: rgba(255, 255, 255, 0.6);
+		background: color-mix(in srgb, var(--color-primary-500) 75%, transparent);
 	}
 
 	/* Action buttons */
@@ -267,26 +212,26 @@
 	}
 
 	.action-btn.draw {
-		background: rgba(100, 149, 237, 0.8);
+		background: color-mix(in srgb, var(--color-primary-500) 80%, transparent);
 	}
 
 	.action-btn.draw:hover {
-		background: rgba(100, 149, 237, 1);
+		background: var(--color-primary-500);
 	}
 
 	.action-btn.attack {
-		background: rgba(239, 68, 68, 0.75);
+		background: color-mix(in srgb, var(--color-danger) 75%, transparent);
 	}
 
 	.action-btn.attack:hover {
-		background: rgba(239, 68, 68, 0.95);
+		background: color-mix(in srgb, var(--color-danger) 95%, transparent);
 	}
 
 	.action-btn.end-turn {
-		background: rgba(168, 139, 250, 0.7);
+		background: color-mix(in srgb, var(--color-turn-end) 70%, transparent);
 	}
 
 	.action-btn.end-turn:hover {
-		background: rgba(168, 139, 250, 0.9);
+		background: color-mix(in srgb, var(--color-turn-end) 90%, transparent);
 	}
 </style>

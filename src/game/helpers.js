@@ -347,6 +347,15 @@ export function isEnchantmentCard(card) {
 	return card.type === 'Enchantment';
 }
 
+export function getCardDrawType(card) {
+	if (isTokenCard(card)) return 'token';
+	if (isSorceryCard(card)) return 'sorcery';
+	if (isInstantCard(card)) return 'instant';
+	if (isEnchantmentCard(card)) return 'enchantment';
+	if (card.type?.includes('Creature')) return 'creature';
+	return 'other';
+}
+
 export function clearCardState(card) {
 	return {
 		...card,

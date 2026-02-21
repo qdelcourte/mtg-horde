@@ -4,17 +4,15 @@
 	import { Button, Drawer, Input, Label } from 'flowbite-svelte';
 
 	import { game as G } from '../game';
+	import { modals } from '../lib/modals.svelte.js';
 
 	const { placement = 'left' } = $props();
 
 	let inputPowerValue = $state(zombieTokenCard.power);
 	let inputToughness = $state(zombieTokenCard.toughness);
-
-	let open = $state(false);
-	export const show = () => (open = true);
 </script>
 
-<Drawer bind:open {placement} class="bg-gray-900! text-white!">
+<Drawer bind:open={modals.addToken.isOpen} {placement} class="bg-gray-900! text-white!">
 	<h5 id="drawer-label" class="mb-4 inline-flex items-center text-base font-semibold text-gray-300">
 		<Icon icon="mdi:plus-circle" width="18" class="mr-2" /> Add Token
 	</h5>
@@ -22,7 +20,7 @@
 		<img
 			src={zombieTokenCard.images.normal}
 			alt="zombie token card"
-			class="mb-2 rounded-[4.75%/3.5%]"
+			class="card-rounded mb-2"
 			width="488"
 			height="680"
 		/>

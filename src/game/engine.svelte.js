@@ -15,7 +15,8 @@ const INITIAL_STATE = {
 	horde: {
 		deck: [],
 		battlefield: [],
-		graveyard: []
+		graveyard: [],
+		drawHistory: []
 	},
 	survivors: {
 		life: 0

@@ -1,8 +1,9 @@
 <script>
 	import Icon from '@iconify/svelte';
-	import { onMount } from 'svelte';
+	import { untrack } from 'svelte';
 
 	import decks from '../decks/index.js';
+	import RangeInput from './components/RangeInput.svelte';
 	import { isLategameCard, isTokenCard, loadDeck } from './game/helpers.js';
 
 	const distributionModes = ['geometric', 'geometric_boosted', 'escalation', 'random'];
@@ -33,18 +34,17 @@
 	let selectedDeck = $state(deckNames[0]);
 	let tokenPercent = $state(60);
 	let shuffleBias = $state(80);
+	let nbSurvivors = $state(4);
+	let nbGeneration = $state(6);
+	let generations = $state({});
+	let showGeneration = $state();
+	let stats = $state({});
 
-	let options = $derived({
-		nbSurvivors: 4,
+	const options = $derived({
+		nbSurvivors,
 		tokenPercentage: tokenPercent / 100,
 		shuffleBiasFactor: shuffleBias / 100
 	});
-
-	let nbGeneration = $state(6);
-	let generations = $state({});
-	let stats = $state({});
-
-	let showGeneration = $state();
 
 	function longestTokenStreak(cards) {
 		let max = 0;
@@ -85,34 +85,40 @@
 		};
 	}
 
-	function generate() {
-		distributionModes.forEach((m) => {
-			generations[m] = Array.from({ length: nbGeneration }, () =>
-				loadDeck(decks[selectedDeck], { ...options, distributionMode: m })
-			);
-			stats[m] = computeStats(m);
-		});
-	}
-
 	function isInLongestStreak(cards, index) {
 		const { length, start } = longestTokenStreak(cards);
 		return index >= start && index < start + length && isTokenCard(cards[index]);
 	}
 
-	onMount(generate);
+	$effect(() => {
+		if (selectedDeck && nbGeneration && nbSurvivors && shuffleBias && tokenPercent) {
+			untrack(() => {
+				showGeneration = undefined;
+				distributionModes.forEach((m) => {
+					generations[m] = Array.from({ length: nbGeneration }, () =>
+						loadDeck(decks[selectedDeck], { ...options, distributionMode: m })
+					);
+					stats[m] = computeStats(m);
+				});
+			});
+		}
+	});
 </script>
 
-<div class="page">
-	<header>
-		<a href="/" class="back-link">
+<div class="page flex min-h-full flex-col gap-4 p-6 text-white">
+	<header class="flex items-center gap-4">
+		<a
+			href="/"
+			class="flex min-h-9 min-w-9 items-center justify-center rounded-lg text-white/60 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+		>
 			<Icon icon="mdi:home" color="white" width="20" />
 		</a>
-		<h1>Compare distribution modes</h1>
+		<h1 class="text-xl font-bold tracking-[0.5px]">Compare distribution modes</h1>
 	</header>
 
-	<div class="controls">
-		<div class="controls-inputs">
-			<div class="field">
+	<div class="flex items-start justify-between gap-6 rounded-lg bg-white/6 p-3 backdrop-blur-sm">
+		<div class="flex flex-wrap items-end gap-3">
+			<div class="field flex flex-col gap-1">
 				<label for="deck-select">Deck</label>
 				<select id="deck-select" bind:value={selectedDeck}>
 					{#each deckNames as name (name)}
@@ -120,58 +126,45 @@
 					{/each}
 				</select>
 			</div>
-			<div class="field">
+			<div class="field flex flex-col gap-1">
+				<label for="nb-survivors">Survivors</label>
+				<input id="nb-survivors" bind:value={nbSurvivors} type="number" min="1" max="10" />
+			</div>
+			<div class="field flex flex-col gap-1">
 				<label for="nb-generations">Generations</label>
-				<input id="nb-generations" bind:value={nbGeneration} type="number" />
+				<input id="nb-generations" bind:value={nbGeneration} type="number" min="1" max="20" />
 			</div>
-			<div class="field range-field">
+			<div class="field flex min-w-40 flex-col gap-1">
 				<label for="token-proportion">Token %</label>
-				<div class="range-row">
-					<input
-						id="token-proportion"
-						type="range"
-						bind:value={tokenPercent}
-						min="10"
-						max="90"
-						step="5"
-					/>
-					<span class="range-value">{tokenPercent}%</span>
+				<div class="flex items-center gap-3">
+					<RangeInput id="token-proportion" bind:value={tokenPercent} min={10} max={90} step={5} />
+					<span class="min-w-10 text-right text-sm font-semibold text-white">{tokenPercent}%</span>
 				</div>
 			</div>
-			<div class="field range-field">
+			<div class="field flex min-w-40 flex-col gap-1">
 				<label for="biaised-shuffle">Shuffle bias</label>
-				<div class="range-row">
-					<input
-						id="biaised-shuffle"
-						type="range"
-						bind:value={shuffleBias}
-						min="0"
-						max="100"
-						step="10"
-					/>
-					<span class="range-value">{shuffleBias}%</span>
+				<div class="flex items-center gap-3">
+					<RangeInput id="biaised-shuffle" bind:value={shuffleBias} max={100} step={10} />
+					<span class="min-w-10 text-right text-sm font-semibold text-white">{shuffleBias}%</span>
 				</div>
 			</div>
-			<button class="refresh-btn" onclick={generate} type="button">
-				<Icon icon="mdi:refresh" width="20" />
-			</button>
 		</div>
-		<div class="legend">
-			<span class="legend-title">Legend</span>
-			<div class="legend-items">
-				<div class="legend-item">
+		<div class="flex flex-col gap-1.5">
+			<span class="text-xs font-medium tracking-[0.5px] text-white/50 uppercase">Legend</span>
+			<div class="flex flex-col gap-1">
+				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card token"></div>
 					<span>Token</span>
 				</div>
-				<div class="legend-item">
+				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card"></div>
 					<span>Non-token</span>
 				</div>
-				<div class="legend-item">
+				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card lategame"></div>
 					<span>Lategame (powerful cards, biased toward end)</span>
 				</div>
-				<div class="legend-item">
+				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card token longest-streak"></div>
 					<span>Longest streak (longest sequence of consecutive tokens)</span>
 				</div>
@@ -179,17 +172,21 @@
 		</div>
 	</div>
 
-	<div class="modes-grid">
+	<div class="grid grid-cols-3 gap-3">
 		{#each distributionModes as mode (mode)}
-			<div class="mode-panel">
-				<h2>{@render chip(mode)}</h2>
-				<p class="mode-description">{modeDescriptions[mode].text}</p>
-				<div class="mode-pros-cons">
-					<span class="pro">+ {modeDescriptions[mode].pros}</span>
-					<span class="con">- {modeDescriptions[mode].cons}</span>
+			<div class="flex min-w-0 flex-col gap-1.5 rounded-lg bg-white/6 p-3 backdrop-blur-sm">
+				<h2 class="mb-1">{@render chip(mode)}</h2>
+				<p class="mb-0.5 text-xs leading-[1.4] text-white/40">
+					{modeDescriptions[mode].text}
+				</p>
+				<div class="mb-0.5 flex flex-col gap-0.5 text-xs">
+					<span class="text-(--color-enchantment)">+ {modeDescriptions[mode].pros}</span>
+					<span class="text-danger">- {modeDescriptions[mode].cons}</span>
 				</div>
 				{#if stats[mode]}
-					<div class="mode-stats">
+					<div
+						class="mode-stats mb-0.5 flex flex-col gap-0.5 border-b border-white/10 pb-1.5 text-xs text-white/50"
+					>
 						<span>Avg longest streak: <strong>{stats[mode].avgStreak}</strong></span>
 						<span>Avg lategame pos: <strong>{stats[mode].avgLategamePos}%</strong></span>
 					</div>
@@ -197,9 +194,12 @@
 				{#each generations[mode] as cards, n (`${mode}_${n}`)}
 					<!-- svelte-ignore a11y_click_events_have_key_events -->
 					<!-- svelte-ignore a11y_no_static_element_interactions -->
-					<div class="generation" onclick={() => (showGeneration = { mode, n })}>
-						<span class="generation-label">Gen {n + 1}</span>
-						<div class="card-row">
+					<div
+						class="flex cursor-pointer flex-col gap-0.5 rounded px-1 py-0.5 transition-colors duration-200 hover:bg-white/8"
+						onclick={() => (showGeneration = { mode, n })}
+					>
+						<span class="text-xs font-medium text-white/40">Gen {n + 1}</span>
+						<div class="flex overflow-x-auto">
 							{#each cards as card, i (i)}
 								<div
 									class="card"
@@ -217,17 +217,23 @@
 
 	{#if showGeneration}
 		{@const cards = generations[showGeneration.mode][showGeneration.n]}
-		<div class="detail-panel">
-			<div class="detail-header">
-				<h2>{@render chip(showGeneration.mode)}</h2>
-				<span class="detail-gen">Generation {showGeneration.n + 1}</span>
-				<button class="close-btn" onclick={() => (showGeneration = undefined)}>
+		<div class="mt-2 rounded-lg bg-white/6 p-3 backdrop-blur-sm">
+			<div class="mb-2 flex items-center gap-3">
+				<h2 class="mb-0">{@render chip(showGeneration.mode)}</h2>
+				<span class="text-sm font-medium text-white/60">Generation {showGeneration.n + 1}</span>
+				<button
+					class="ml-auto flex size-7 cursor-pointer items-center justify-center rounded-md border border-white/15 bg-white/8 text-white/60 transition-colors duration-200 hover:bg-white/15 hover:text-white"
+					onclick={() => (showGeneration = undefined)}
+				>
 					<Icon icon="mdi:close" width="18" />
 				</button>
 			</div>
-			<div class="detail-list">
+			<div class="flex flex-col">
 				{#each cards as card, i (i)}
-					<div class="detail-row" class:token-row={isTokenCard(card)}>
+					<div
+						class="detail-row flex items-center gap-2 py-0.5 text-sm text-white/80"
+						class:token-row={isTokenCard(card)}
+					>
 						<div
 							class="card"
 							class:token={isTokenCard(card)}
@@ -252,71 +258,18 @@
 
 <style>
 	.page {
-		min-height: 100%;
-		background: #0a0a0f;
+		background: var(--color-bg-base);
 		background-image:
-			radial-gradient(ellipse at 30% 20%, rgba(88, 28, 135, 0.15) 0%, transparent 60%),
-			radial-gradient(ellipse at 70% 80%, rgba(30, 58, 138, 0.12) 0%, transparent 60%);
-		color: white;
-		padding: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	header {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	header h1 {
-		font-size: 1.25rem;
-		font-weight: 700;
-		letter-spacing: 0.5px;
-	}
-
-	.back-link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 36px;
-		min-height: 36px;
-		border-radius: 8px;
-		color: rgba(255, 255, 255, 0.6);
-		transition:
-			background 0.2s,
-			color 0.2s;
-	}
-
-	.back-link:hover {
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-	}
-
-	/* Controls */
-	.controls {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 1.5rem;
-		padding: 0.75rem;
-		background: rgba(255, 255, 255, 0.06);
-		backdrop-filter: blur(8px);
-		border-radius: 8px;
-	}
-
-	.controls-inputs {
-		display: flex;
-		align-items: flex-end;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-	}
-
-	.field {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
+			radial-gradient(
+				ellipse at 30% 20%,
+				color-mix(in srgb, var(--color-primary-800) 15%, transparent) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse at 70% 80%,
+				color-mix(in srgb, var(--color-primary-900) 12%, transparent) 0%,
+				transparent 60%
+			);
 	}
 
 	.field label {
@@ -346,153 +299,23 @@
 	}
 
 	.field select option {
-		background: #1a1a2e;
+		background: var(--color-bg-dropdown);
 		color: white;
 	}
 
 	.field input[type='number']:focus,
 	.field select:focus {
 		outline: none;
-		border-color: cornflowerblue;
-	}
-
-	.range-field {
-		min-width: 10rem;
-	}
-
-	.range-row {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
-
-	.range-row input[type='range'] {
-		flex: 1;
-		accent-color: cornflowerblue;
-	}
-
-	.range-value {
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: white;
-		min-width: 2.5rem;
-		text-align: right;
-	}
-
-	.refresh-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 36px;
-		height: 36px;
-		background: cornflowerblue;
-		border: none;
-		border-radius: 8px;
-		color: white;
-		cursor: pointer;
-		transition: filter 0.2s;
-	}
-
-	.refresh-btn:hover {
-		filter: brightness(1.15);
-	}
-
-	/* Legend */
-	.legend {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-	}
-
-	.legend-title {
-		font-size: 0.7rem;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		color: rgba(255, 255, 255, 0.5);
-	}
-
-	.legend-items {
-		display: flex;
-		flex-direction: column;
-		gap: 0.2rem;
-	}
-
-	.legend-item {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		font-size: 0.75rem;
-		color: rgba(255, 255, 255, 0.7);
-	}
-
-	/* Modes grid */
-	.modes-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 0.75rem;
-	}
-
-	.mode-panel {
-		background: rgba(255, 255, 255, 0.06);
-		backdrop-filter: blur(8px);
-		border-radius: 8px;
-		padding: 0.75rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		min-width: 0;
-	}
-
-	.mode-panel h2 {
-		margin-bottom: 0.25rem;
-	}
-
-	.mode-description {
-		font-size: 0.7rem;
-		color: rgba(255, 255, 255, 0.4);
-		line-height: 1.4;
-		margin-bottom: 0.15rem;
-	}
-
-	.mode-pros-cons {
-		display: flex;
-		flex-direction: column;
-		gap: 0.1rem;
-		font-size: 0.7rem;
-		margin-bottom: 0.15rem;
-	}
-
-	.pro {
-		color: #4ade80;
-	}
-
-	.con {
-		color: #ef4444;
-	}
-
-	.mode-stats {
-		display: flex;
-		flex-direction: column;
-		gap: 0.1rem;
-		font-size: 0.7rem;
-		color: rgba(255, 255, 255, 0.5);
-		padding-bottom: 0.35rem;
-		margin-bottom: 0.1rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	}
-
-	.mode-stats strong {
-		color: rgba(255, 255, 255, 0.8);
+		border-color: var(--color-primary-500);
 	}
 
 	.chip {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		background: rgba(100, 149, 237, 0.2);
-		border: 1px solid rgba(100, 149, 237, 0.4);
-		color: cornflowerblue;
+		background: color-mix(in srgb, var(--color-primary-500) 20%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-primary-500) 40%, transparent);
+		color: var(--color-primary-500);
 		padding: 0.2rem 0.6rem;
 		border-radius: 6px;
 		font-size: 0.75rem;
@@ -501,32 +324,7 @@
 		letter-spacing: 0.5px;
 	}
 
-	.generation {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		cursor: pointer;
-		padding: 0.2rem 0.3rem;
-		border-radius: 4px;
-		transition: background 0.2s;
-	}
-
-	.generation:hover {
-		background: rgba(255, 255, 255, 0.08);
-	}
-
-	.generation-label {
-		font-size: 0.65rem;
-		color: rgba(255, 255, 255, 0.4);
-		font-weight: 500;
-	}
-
-	.card-row {
-		display: flex;
-		overflow-x: auto;
-	}
-
-	/* Cards */
+	/* Card visualizations */
 	.card {
 		width: 1rem;
 		height: 1.5rem;
@@ -537,12 +335,12 @@
 
 	.card.token {
 		width: 0.5rem;
-		background: #ef4444;
+		background: var(--color-danger);
 	}
 
 	.card.token.longest-streak {
-		background: #fbbf24;
-		box-shadow: 0 0 4px rgba(251, 191, 36, 0.6);
+		background: var(--color-warning);
+		box-shadow: 0 0 4px color-mix(in srgb, var(--color-warning) 60%, transparent);
 	}
 
 	.card.lategame::after {
@@ -550,61 +348,7 @@
 		font-size: 0.85rem;
 	}
 
-	/* Detail panel */
-	.detail-panel {
-		background: rgba(255, 255, 255, 0.06);
-		backdrop-filter: blur(8px);
-		border-radius: 8px;
-		padding: 0.75rem;
-		margin-top: 0.5rem;
-	}
-
-	.detail-header {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.detail-gen {
-		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.6);
-		font-weight: 500;
-	}
-
-	.close-btn {
-		margin-left: auto;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 28px;
-		height: 28px;
-		background: rgba(255, 255, 255, 0.08);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 6px;
-		color: rgba(255, 255, 255, 0.6);
-		cursor: pointer;
-		transition:
-			background 0.2s,
-			color 0.2s;
-	}
-
-	.close-btn:hover {
-		background: rgba(255, 255, 255, 0.15);
-		color: white;
-	}
-
-	.detail-list {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.detail-row {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.15rem 0;
-		font-size: 0.8rem;
+	.mode-stats strong {
 		color: rgba(255, 255, 255, 0.8);
 	}
 

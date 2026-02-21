@@ -60,9 +60,12 @@
 	});
 </script>
 
-<div class="battlefield-wrap" class:wrath>
+<div
+	class="battlefield-wrap relative min-h-0 flex-1 overflow-x-clip overflow-y-auto select-none"
+	class:wrath
+>
 	{#if wrath}
-		<div class="wrath-flash"></div>
+		<div class="wrath-flash pointer-events-none absolute inset-0 z-10"></div>
 	{/if}
 	<CardGrid count={frozenCount || G.state.horde.battlefield.length}>
 		{#each G.state.horde.battlefield as card, index (card.uid)}
@@ -97,24 +100,14 @@
 </div>
 
 <style>
-	.battlefield-wrap {
-		height: 100%;
-		position: relative;
-		overflow: hidden;
-	}
-
 	.battlefield-wrap.wrath {
 		animation: shake 0.5s ease-out;
 	}
 
 	.wrath-flash {
-		position: absolute;
-		inset: 0;
-		z-index: 10;
-		pointer-events: none;
 		background: radial-gradient(
 			ellipse at center,
-			rgba(239, 68, 68, 0.4),
+			color-mix(in srgb, var(--color-danger) 40%, transparent),
 			rgba(255, 200, 50, 0.2),
 			transparent 70%
 		);
