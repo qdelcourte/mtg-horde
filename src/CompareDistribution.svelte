@@ -248,10 +248,18 @@
 <style>
 	.page {
 		min-height: 100%;
-		background: #0a0a0f;
+		background: var(--color-bg-base);
 		background-image:
-			radial-gradient(ellipse at 30% 20%, rgba(22, 101, 52, 0.15) 0%, transparent 60%),
-			radial-gradient(ellipse at 70% 80%, rgba(20, 83, 45, 0.12) 0%, transparent 60%);
+			radial-gradient(
+				ellipse at 30% 20%,
+				color-mix(in srgb, var(--color-primary-800) 15%, transparent) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse at 70% 80%,
+				color-mix(in srgb, var(--color-primary-900) 12%, transparent) 0%,
+				transparent 60%
+			);
 		color: white;
 		padding: 1.5rem;
 		display: flex;
@@ -341,14 +349,14 @@
 	}
 
 	.field select option {
-		background: #1a1a2e;
+		background: var(--color-bg-dropdown);
 		color: white;
 	}
 
 	.field input[type='number']:focus,
 	.field select:focus {
 		outline: none;
-		border-color: #22c55e;
+		border-color: var(--color-primary-500);
 	}
 
 	.range-field {
@@ -363,7 +371,7 @@
 
 	.range-row input[type='range'] {
 		flex: 1;
-		accent-color: #22c55e;
+		accent-color: var(--color-primary-500);
 	}
 
 	.range-value {
@@ -380,7 +388,7 @@
 		justify-content: center;
 		width: 36px;
 		height: 36px;
-		background: #22c55e;
+		background: var(--color-primary-500);
 		border: none;
 		border-radius: 8px;
 		color: white;
@@ -459,11 +467,11 @@
 	}
 
 	.pro {
-		color: #4ade80;
+		color: var(--color-enchantment);
 	}
 
 	.con {
-		color: #ef4444;
+		color: var(--color-danger);
 	}
 
 	.mode-stats {
@@ -485,9 +493,9 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		background: rgba(34, 197, 94, 0.2);
-		border: 1px solid rgba(34, 197, 94, 0.4);
-		color: #22c55e;
+		background: color-mix(in srgb, var(--color-primary-500) 20%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-primary-500) 40%, transparent);
+		color: var(--color-primary-500);
 		padding: 0.2rem 0.6rem;
 		border-radius: 6px;
 		font-size: 0.75rem;
@@ -532,12 +540,12 @@
 
 	.card.token {
 		width: 0.5rem;
-		background: #ef4444;
+		background: var(--color-danger);
 	}
 
 	.card.token.longest-streak {
-		background: #fbbf24;
-		box-shadow: 0 0 4px rgba(251, 191, 36, 0.6);
+		background: var(--color-warning);
+		box-shadow: 0 0 4px color-mix(in srgb, var(--color-warning) 60%, transparent);
 	}
 
 	.card.lategame::after {

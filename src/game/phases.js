@@ -1,7 +1,6 @@
 import {
 	clearCardState,
 	generateCardRandomId,
-	hasSorceryOrInstantOnBattlefield,
 	INVALID_MOVE,
 	isEnchantmentCard,
 	isInstantCard,

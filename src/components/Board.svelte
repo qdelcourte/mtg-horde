@@ -78,7 +78,7 @@
 			<span class="zone-label">Damage</span>
 			<Pulse
 				value={G.hordeDamage}
-				class="text-xl font-bold text-[#ef4444] text-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
+				class="text-xl font-bold text-(--color-danger) text-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
 			/>
 		</div>
 		<div class="legend">
@@ -143,7 +143,7 @@
 				<Icon
 					icon={survivorsWin ? 'mdi:trophy' : 'mdi:skull'}
 					width="64"
-					color={survivorsWin ? '#fbbf24' : '#ef4444'}
+					color={survivorsWin ? 'var(--color-warning)' : 'var(--color-danger)'}
 				/>
 				<div class="gameover-title">{survivorsWin ? 'Victory' : 'Defeat'}</div>
 				<div class="gameover-subtitle">{gameover.winner}</div>
@@ -160,10 +160,18 @@
 	#game {
 		display: grid;
 		grid-template-columns: max-content 1fr;
-		background: #0a0a0f;
+		background: var(--color-bg-base);
 		background-image:
-			radial-gradient(ellipse at 30% 20%, rgba(22, 101, 52, 0.15) 0%, transparent 60%),
-			radial-gradient(ellipse at 70% 80%, rgba(20, 83, 45, 0.12) 0%, transparent 60%),
+			radial-gradient(
+				ellipse at 30% 20%,
+				color-mix(in srgb, var(--color-primary-800) 15%, transparent) 0%,
+				transparent 60%
+			),
+			radial-gradient(
+				ellipse at 70% 80%,
+				color-mix(in srgb, var(--color-primary-900) 12%, transparent) 0%,
+				transparent 60%
+			),
 			radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%);
 	}
 
@@ -217,7 +225,7 @@
 		font-weight: 700;
 		line-height: 1;
 		color: white;
-		text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+		text-shadow: 0 0 20px color-mix(in srgb, var(--color-primary-500) 50%, transparent);
 	}
 
 	.survivors-separator {
@@ -237,7 +245,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: #22c55e;
+		background: var(--color-primary-500);
 		color: white;
 		border: none;
 		border-radius: 8px;
@@ -266,13 +274,17 @@
 	.gameover-overlay.win {
 		background: radial-gradient(
 			ellipse at center,
-			rgba(251, 191, 36, 0.15),
+			color-mix(in srgb, var(--color-warning) 15%, transparent),
 			rgba(0, 0, 0, 0.85) 70%
 		);
 	}
 
 	.gameover-overlay.lose {
-		background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.2), rgba(0, 0, 0, 0.85) 70%);
+		background: radial-gradient(
+			ellipse at center,
+			color-mix(in srgb, var(--color-danger) 20%, transparent),
+			rgba(0, 0, 0, 0.85) 70%
+		);
 	}
 
 	.gameover-flash {
@@ -282,11 +294,19 @@
 	}
 
 	.gameover-overlay.win .gameover-flash {
-		background: radial-gradient(ellipse at center, rgba(251, 191, 36, 0.4), transparent 60%);
+		background: radial-gradient(
+			ellipse at center,
+			color-mix(in srgb, var(--color-warning) 40%, transparent),
+			transparent 60%
+		);
 	}
 
 	.gameover-overlay.lose .gameover-flash {
-		background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.4), transparent 60%);
+		background: radial-gradient(
+			ellipse at center,
+			color-mix(in srgb, var(--color-danger) 40%, transparent),
+			transparent 60%
+		);
 	}
 
 	.gameover-content {
@@ -316,7 +336,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: #22c55e;
+		background: var(--color-primary-500);
 		color: white;
 		border: none;
 		border-radius: 8px;
@@ -436,18 +456,18 @@
 	}
 
 	.legend-dot.sorcery {
-		background: #e879f9;
-		box-shadow: 0 0 6px rgba(232, 121, 249, 0.6);
+		background: var(--color-sorcery);
+		box-shadow: 0 0 6px color-mix(in srgb, var(--color-sorcery) 60%, transparent);
 	}
 
 	.legend-dot.instant {
-		background: #60a5fa;
-		box-shadow: 0 0 6px rgba(96, 165, 250, 0.6);
+		background: var(--color-instant);
+		box-shadow: 0 0 6px color-mix(in srgb, var(--color-instant) 60%, transparent);
 	}
 
 	.legend-dot.enchantment {
-		background: #4ade80;
-		box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+		background: var(--color-enchantment);
+		box-shadow: 0 0 6px color-mix(in srgb, var(--color-enchantment) 60%, transparent);
 	}
 
 	.legend-text {

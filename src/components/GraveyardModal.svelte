@@ -69,7 +69,7 @@
 	}
 
 	.restore-all-btn {
-		background: #22c55e;
+		background: var(--color-primary-500);
 		color: white;
 		border: none;
 		border-radius: 6px;

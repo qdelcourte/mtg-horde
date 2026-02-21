@@ -163,17 +163,17 @@
 
 	select:focus,
 	input[type='number']:focus {
-		border-color: #22c55e;
+		border-color: var(--color-primary-500);
 	}
 
 	select option {
-		background: #1a1a2e;
+		background: var(--color-bg-dropdown);
 		color: white;
 	}
 
 	input[type='range'] {
 		flex: 1;
-		accent-color: #22c55e;
+		accent-color: var(--color-primary-500);
 	}
 
 	.range-row {
@@ -195,7 +195,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.5rem;
-		background: #22c55e;
+		background: var(--color-primary-500);
 		color: white;
 		border: none;
 		border-radius: 8px;

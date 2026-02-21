@@ -114,7 +114,7 @@
 		pointer-events: none;
 		background: radial-gradient(
 			ellipse at center,
-			rgba(239, 68, 68, 0.4),
+			color-mix(in srgb, var(--color-danger) 40%, transparent),
 			rgba(255, 200, 50, 0.2),
 			transparent 70%
 		);

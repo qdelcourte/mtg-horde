@@ -151,20 +151,20 @@
 
 	img.sorcery {
 		box-shadow:
-			0 0 0 3px #e879f9,
-			0 0 10px rgba(232, 121, 249, 0.5);
+			0 0 0 3px var(--color-sorcery),
+			0 0 10px color-mix(in srgb, var(--color-sorcery) 50%, transparent);
 	}
 
 	img.instant {
 		box-shadow:
-			0 0 0 3px #60a5fa,
-			0 0 10px rgba(96, 165, 250, 0.5);
+			0 0 0 3px var(--color-instant),
+			0 0 10px color-mix(in srgb, var(--color-instant) 50%, transparent);
 	}
 
 	img.enchantment {
 		box-shadow:
-			0 0 0 3px #4ade80,
-			0 0 10px rgba(74, 222, 128, 0.5);
+			0 0 0 3px var(--color-enchantment),
+			0 0 10px color-mix(in srgb, var(--color-enchantment) 50%, transparent);
 	}
 
 	img:hover {
@@ -243,11 +243,11 @@
 	}
 
 	.marker-input:focus {
-		border-color: #22c55e;
+		border-color: var(--color-primary-500);
 	}
 
 	.marker-apply {
-		background: #22c55e;
+		background: var(--color-primary-500);
 		color: white;
 		border: none;
 		border-radius: 4px;

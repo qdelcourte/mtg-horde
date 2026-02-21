@@ -15,6 +15,21 @@
 	--color-primary-800: #166534;
 	--color-primary-900: #14532d;
 	--color-primary-950: #052e16;
+
+	/* Card type colors */
+	--color-sorcery: #e879f9;
+	--color-instant: #60a5fa;
+	--color-enchantment: #4ade80;
+
+	/* Semantic colors */
+	--color-danger: #ef4444;
+	--color-warning: #fbbf24;
+	--color-turn-end: #a88bfa;
+
+	/* Background tokens */
+	--color-bg-base: #0a0a0f;
+	--color-bg-modal: #12121e;
+	--color-bg-dropdown: #1a1a2e;
 }
 
 html,
@@ -27,7 +42,7 @@ body {
 /* Flowbite Dropdown dark overrides */
 :global([data-popover]) {
 	--tw-bg-opacity: 1;
-	background: #1a1a2e !important;
+	background: var(--color-bg-dropdown) !important;
 	border: 1px solid rgba(255, 255, 255, 0.1) !important;
 	border-radius: 8px !important;
 }
@@ -46,7 +61,7 @@ body {
 /* Flowbite Modal dark overrides */
 :global(.modal-content),
 :global([class*='bg-white']:where(.dark *)) {
-	background: #12121e !important;
+	background: var(--color-bg-modal) !important;
 	color: white !important;
 }
 

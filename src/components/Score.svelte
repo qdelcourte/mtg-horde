@@ -147,9 +147,9 @@
 	}
 
 	.player-zone.active {
-		background: rgba(34, 197, 94, 0.1);
-		border-color: rgba(34, 197, 94, 0.4);
-		box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+		background: color-mix(in srgb, var(--color-primary-500) 10%, transparent);
+		border-color: color-mix(in srgb, var(--color-primary-500) 40%, transparent);
+		box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
 	}
 
 	.player-header {
@@ -214,11 +214,11 @@
 	}
 
 	.life-btn.minus {
-		background: rgba(239, 68, 68, 0.75);
+		background: color-mix(in srgb, var(--color-danger) 75%, transparent);
 	}
 
 	.life-btn.plus {
-		background: rgba(34, 197, 94, 0.75);
+		background: color-mix(in srgb, var(--color-primary-500) 75%, transparent);
 	}
 
 	/* Center zone */
@@ -267,26 +267,26 @@
 	}
 
 	.action-btn.draw {
-		background: rgba(34, 197, 94, 0.8);
+		background: color-mix(in srgb, var(--color-primary-500) 80%, transparent);
 	}
 
 	.action-btn.draw:hover {
-		background: rgba(34, 197, 94, 1);
+		background: var(--color-primary-500);
 	}
 
 	.action-btn.attack {
-		background: rgba(239, 68, 68, 0.75);
+		background: color-mix(in srgb, var(--color-danger) 75%, transparent);
 	}
 
 	.action-btn.attack:hover {
-		background: rgba(239, 68, 68, 0.95);
+		background: color-mix(in srgb, var(--color-danger) 95%, transparent);
 	}
 
 	.action-btn.end-turn {
-		background: rgba(168, 139, 250, 0.7);
+		background: color-mix(in srgb, var(--color-turn-end) 70%, transparent);
 	}
 
 	.action-btn.end-turn:hover {
-		background: rgba(168, 139, 250, 0.9);
+		background: color-mix(in srgb, var(--color-turn-end) 90%, transparent);
 	}
 </style>
