@@ -11,7 +11,7 @@
 	const hordeDeckSize = $derived(G.state.horde.deck.length);
 </script>
 
-<div id="score" class="select-none">
+<div id="score" class="flex items-center justify-center gap-3 px-4 py-2 text-white select-none">
 	<!-- Undo -->
 	<button class="icon-btn" class:disabled={!G.canUndo} onclick={() => G.undo()} aria-label="undo">
 		<Icon icon="mdi:arrow-u-left-top" width="18" />
@@ -19,11 +19,11 @@
 
 	<!-- Horde -->
 	<div class="player-zone" class:active={isHordeTurn}>
-		<div class="player-header">
-			<Icon icon="mdi:skull" width="14" class="player-icon" />
-			<span class="player-label">Horde</span>
+		<div class="flex items-center gap-1">
+			<Icon icon="mdi:skull" width="14" class="text-white/40" />
+			<span class="text-xs font-semibold tracking-[1px] text-white/40 uppercase">Horde</span>
 		</div>
-		<Pulse class="life-value" value={G.hordeLife} />
+		<Pulse class="text-3xl leading-none font-bold tracking-[-0.5px]" value={G.hordeLife} />
 		<div class="life-controls">
 			{#if hordeDeckSize >= 5}
 				<button class="life-btn minus" onclick={() => G.moves.putCardsInHordeGraveyardFromDeck(5)}
@@ -39,7 +39,7 @@
 	</div>
 
 	<!-- Center -->
-	<div class="center-zone">
+	<div class="flex w-30 flex-col items-center gap-1.5">
 		{#if inFight && G.state.turn.stage}
 			{#if G.state.turn.stage === STAGES.draw && isHordeTurn}
 				<button class="action-btn draw" onclick={() => G.moves.stageHordeDraw()}>
@@ -59,19 +59,22 @@
 				End Turn
 			</button>
 		{/if}
-		<div class="turn-indicator">
-			<span class="turn-label">Turn</span>
-			<Pulse class="turn-value" value={G.state.turn.current} />
+		<div class="flex items-baseline gap-1.5">
+			<span class="text-xs font-semibold tracking-[1px] text-white/35 uppercase">Turn</span>
+			<Pulse class="text-sm font-bold text-white/60" value={G.state.turn.current} />
 		</div>
 	</div>
 
 	<!-- Survivors -->
 	<div class="player-zone" class:active={isSurvivorsTurn}>
-		<div class="player-header">
-			<Icon icon="mdi:shield-account" width="14" class="player-icon" />
-			<span class="player-label">Survivors</span>
+		<div class="flex items-center gap-1">
+			<Icon icon="mdi:shield-account" width="14" class="text-white/40" />
+			<span class="text-xs font-semibold tracking-[1px] text-white/40 uppercase">Survivors</span>
 		</div>
-		<Pulse class="life-value" value={G.state.survivors.life} />
+		<Pulse
+			class="text-3xl leading-none font-bold tracking-[-0.5px]"
+			value={G.state.survivors.life}
+		/>
 		<div class="life-controls">
 			<button class="life-btn minus" onclick={() => G.moves.survivorsChangeLife(-5)}>-5</button>
 			<button class="life-btn minus" onclick={() => G.moves.survivorsChangeLife(-1)}>-1</button>
@@ -87,15 +90,6 @@
 </div>
 
 <style>
-	#score {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-		padding: 0.5rem 1rem;
-		color: white;
-	}
-
 	.icon-btn {
 		display: flex;
 		align-items: center;
@@ -152,31 +146,6 @@
 		box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
 	}
 
-	.player-header {
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
-	}
-
-	:global(.player-icon) {
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	.player-label {
-		font-size: 0.65rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	:global(.life-value) {
-		font-size: 1.75rem;
-		font-weight: 700;
-		line-height: 1;
-		letter-spacing: -0.5px;
-	}
-
 	/* Life controls (hover reveal) */
 	.life-controls {
 		display: flex;
@@ -219,35 +188,6 @@
 
 	.life-btn.plus {
 		background: color-mix(in srgb, var(--color-primary-500) 75%, transparent);
-	}
-
-	/* Center zone */
-	.center-zone {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.35rem;
-		width: 7.5rem;
-	}
-
-	.turn-indicator {
-		display: flex;
-		align-items: baseline;
-		gap: 0.35rem;
-	}
-
-	.turn-label {
-		font-size: 0.65rem;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: rgba(255, 255, 255, 0.35);
-		font-weight: 600;
-	}
-
-	:global(.turn-value) {
-		font-size: 0.9rem;
-		font-weight: 700;
-		color: rgba(255, 255, 255, 0.6);
 	}
 
 	/* Action buttons */

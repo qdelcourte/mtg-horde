@@ -38,35 +38,3 @@ body {
 	width: 100%;
 	height: 100%;
 }
-
-/* Flowbite Dropdown dark overrides */
-:global([data-popover]) {
-	--tw-bg-opacity: 1;
-	background: var(--color-bg-dropdown) !important;
-	border: 1px solid rgba(255, 255, 255, 0.1) !important;
-	border-radius: 8px !important;
-}
-
-:global([data-popover] li > a),
-:global([data-popover] li > button) {
-	color: rgba(255, 255, 255, 0.85) !important;
-}
-
-:global([data-popover] li > a:hover),
-:global([data-popover] li > button:hover) {
-	background: rgba(255, 255, 255, 0.1) !important;
-	color: white !important;
-}
-
-/* Flowbite Modal dark overrides */
-:global(.modal-content),
-:global([class*='bg-white']:where(.dark *)) {
-	background: var(--color-bg-modal) !important;
-	color: white !important;
-}
-
-/* Flowbite Badge */
-:global(.badge) {
-	background: rgba(255, 255, 255, 0.1) !important;
-	color: white !important;
-}

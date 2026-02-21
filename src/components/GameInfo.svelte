@@ -3,14 +3,12 @@
 	import { Badge, Drawer, P } from 'flowbite-svelte';
 
 	import { game as G } from '../game';
+	import { modals } from '../lib/modals.svelte.js';
 
 	const { placement = 'left' } = $props();
-
-	let open = $state(false);
-	export const show = () => (open = true);
 </script>
 
-<Drawer bind:open {placement}>
+<Drawer bind:open={modals.gameInfo} {placement}>
 	<h5
 		id="drawer-label"
 		class="mb-4 inline-flex items-center text-base font-semibold text-gray-500 dark:text-gray-400"

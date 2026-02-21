@@ -1,20 +1,21 @@
 <script>
 	import { game as G } from '../game';
 	import { PHASES } from '../game/phases';
+	import { modals } from '../lib/modals.svelte.js';
 	import FullscreenToggle from './FullscreenToggle.svelte';
 	import ToolbarButton from './ToolbarButton.svelte';
 
-	const { addTokenModalRef, settingsModalRef, gameInfoRef, onSave, onRestore } = $props();
+	const { onSave, onRestore } = $props();
 
 	const inGame = $derived(G.state.turn.phase === PHASES.fightTheHorde);
 </script>
 
-<div class="toolbar">
+<div class="flex flex-col gap-0.5 rounded-lg border-t border-white/15 pt-2">
 	<ToolbarButton
 		label="Add token"
 		icon="mdi:plus-circle"
 		disabled={!inGame}
-		onclick={() => addTokenModalRef.show()}
+		onclick={() => (modals.addToken = true)}
 	/>
 	<ToolbarButton
 		label="Wrath"
@@ -42,23 +43,12 @@
 	<ToolbarButton
 		label="Restart"
 		icon="mdi:mixer-settings"
-		onclick={() => settingsModalRef.show()}
+		onclick={() => (modals.settings = true)}
 	/>
 	<ToolbarButton
 		label="Info"
 		icon="mdi:information-slab-circle"
-		onclick={() => gameInfoRef.show()}
+		onclick={() => (modals.gameInfo = true)}
 	/>
 	<FullscreenToggle />
 </div>
-
-<style>
-	.toolbar {
-		border-top: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 8px;
-		padding-top: 0.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-	}
-</style>

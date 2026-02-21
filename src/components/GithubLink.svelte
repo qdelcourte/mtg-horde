@@ -6,35 +6,8 @@
 	href="https://github.com/qdelcourte/mtg-horde"
 	target="_blank"
 	rel="noreferrer"
-	class="github-link"
+	class="mt-auto flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium text-white/60 no-underline transition-colors duration-200 hover:bg-white/10 hover:text-white"
 >
 	<Icon icon="mdi:github" color="white" width="20" />
-	<span class="github-text">GitHub</span>
+	<span class="leading-normal">GitHub</span>
 </a>
-
-<style>
-	.github-link {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.4rem 0.5rem;
-		border-radius: 8px;
-		color: rgba(255, 255, 255, 0.6);
-		text-decoration: none;
-		font-size: 0.8rem;
-		font-weight: 500;
-		margin-top: auto;
-		transition:
-			background 0.2s,
-			color 0.2s;
-	}
-
-	.github-link:hover {
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-	}
-
-	.github-link span {
-		line-height: normal;
-	}
-</style>

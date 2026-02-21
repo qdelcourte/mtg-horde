@@ -3,6 +3,7 @@
 	import decks from 'decks';
 
 	import { game as G } from '../game';
+	import RangeInput from './RangeInput.svelte';
 
 	let { onGameStart } = $props();
 
@@ -36,13 +37,13 @@
 	const isRestart = $derived(G.state.turn.currentInitialSurvivorTurn > 0);
 </script>
 
-<form onsubmit={startOrRestartGame} class="settings-form">
-	<h2 class="settings-title">
+<form onsubmit={startOrRestartGame} class="flex flex-col gap-5">
+	<h2 class="m-0 flex items-center gap-2 text-xl font-bold text-white">
 		<Icon icon="mdi:sword-cross" width="24" />
 		{isRestart ? 'Restart' : 'New'} Game
 	</h2>
 
-	<div class="field">
+	<div class="flex flex-1 flex-col gap-1.5">
 		<label for="deckName">
 			<Icon icon="mdi:cards" width="16" />
 			Horde deck
@@ -54,8 +55,8 @@
 		</select>
 	</div>
 
-	<div class="field-row">
-		<div class="field">
+	<div class="flex gap-4">
+		<div class="flex flex-1 flex-col gap-1.5">
 			<label for="nbSurvivors">
 				<Icon icon="mdi:account-group" width="16" />
 				Survivors
@@ -69,7 +70,7 @@
 				required
 			/>
 		</div>
-		<div class="field">
+		<div class="flex flex-1 flex-col gap-1.5">
 			<label for="numInitialSurvivorsTurn">
 				<Icon icon="mdi:timer-sand" width="16" />
 				Setup turns
@@ -85,59 +86,29 @@
 		</div>
 	</div>
 
-	<div class="field">
+	<div class="flex flex-1 flex-col gap-1.5">
 		<label for="tokenProportion">
 			<Icon icon="mdi:percent" width="16" />
 			Token proportion
 		</label>
-		<div class="range-row">
-			<input
-				id="tokenProportion"
-				type="range"
-				bind:value={inputTokenProportionValue}
-				min="1"
-				max="100"
-				step="1"
-			/>
-			<span class="range-value">{inputTokenProportionValue}%</span>
+		<div class="flex items-center gap-3">
+			<RangeInput id="tokenProportion" bind:value={inputTokenProportionValue} min={1} max={100} />
+			<span class="min-w-12 text-right text-sm font-semibold text-white"
+				>{inputTokenProportionValue}%</span
+			>
 		</div>
 	</div>
 
-	<button type="submit" class="submit-btn">
+	<button
+		type="submit"
+		class="bg-primary-500 mt-2 flex cursor-pointer items-center justify-center gap-2 rounded-lg border-none px-4 py-2.5 text-base font-semibold text-white transition-[filter] duration-200 hover:brightness-[1.15]"
+	>
 		<Icon icon={isRestart ? 'mdi:restart' : 'mdi:play'} width="20" />
 		{isRestart ? 'Restart' : 'Start'} Game
 	</button>
 </form>
 
 <style>
-	.settings-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
-
-	.settings-title {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: white;
-		margin: 0;
-	}
-
-	.field {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		flex: 1;
-	}
-
-	.field-row {
-		display: flex;
-		gap: 1rem;
-	}
-
 	label {
 		display: flex;
 		align-items: center;
@@ -169,45 +140,5 @@
 	select option {
 		background: var(--color-bg-dropdown);
 		color: white;
-	}
-
-	input[type='range'] {
-		flex: 1;
-		accent-color: var(--color-primary-500);
-	}
-
-	.range-row {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
-
-	.range-value {
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: white;
-		min-width: 3rem;
-		text-align: right;
-	}
-
-	.submit-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		background: var(--color-primary-500);
-		color: white;
-		border: none;
-		border-radius: 8px;
-		padding: 0.65rem 1rem;
-		font-size: 0.95rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: filter 0.2s;
-		margin-top: 0.5rem;
-	}
-
-	.submit-btn:hover {
-		filter: brightness(1.15);
 	}
 </style>
