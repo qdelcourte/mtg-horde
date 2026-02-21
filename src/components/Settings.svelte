@@ -163,7 +163,7 @@
 
 	select:focus,
 	input[type='number']:focus {
-		border-color: cornflowerblue;
+		border-color: #22c55e;
 	}
 
 	select option {
@@ -173,7 +173,7 @@
 
 	input[type='range'] {
 		flex: 1;
-		accent-color: cornflowerblue;
+		accent-color: #22c55e;
 	}
 
 	.range-row {
@@ -195,7 +195,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.5rem;
-		background: cornflowerblue;
+		background: #22c55e;
 		color: white;
 		border: none;
 		border-radius: 8px;

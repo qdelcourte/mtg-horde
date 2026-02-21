@@ -162,8 +162,8 @@
 		grid-template-columns: max-content 1fr;
 		background: #0a0a0f;
 		background-image:
-			radial-gradient(ellipse at 30% 20%, rgba(88, 28, 135, 0.15) 0%, transparent 60%),
-			radial-gradient(ellipse at 70% 80%, rgba(30, 58, 138, 0.12) 0%, transparent 60%),
+			radial-gradient(ellipse at 30% 20%, rgba(22, 101, 52, 0.15) 0%, transparent 60%),
+			radial-gradient(ellipse at 70% 80%, rgba(20, 83, 45, 0.12) 0%, transparent 60%),
 			radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%);
 	}
 
@@ -217,7 +217,7 @@
 		font-weight: 700;
 		line-height: 1;
 		color: white;
-		text-shadow: 0 0 20px rgba(100, 149, 237, 0.5);
+		text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
 	}
 
 	.survivors-separator {
@@ -237,7 +237,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: cornflowerblue;
+		background: #22c55e;
 		color: white;
 		border: none;
 		border-radius: 8px;
@@ -316,7 +316,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		background: cornflowerblue;
+		background: #22c55e;
 		color: white;
 		border: none;
 		border-radius: 8px;

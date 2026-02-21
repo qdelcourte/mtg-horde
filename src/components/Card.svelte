@@ -243,11 +243,11 @@
 	}
 
 	.marker-input:focus {
-		border-color: cornflowerblue;
+		border-color: #22c55e;
 	}
 
 	.marker-apply {
-		background: cornflowerblue;
+		background: #22c55e;
 		color: white;
 		border: none;
 		border-radius: 4px;

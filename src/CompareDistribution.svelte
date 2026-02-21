@@ -250,8 +250,8 @@
 		min-height: 100%;
 		background: #0a0a0f;
 		background-image:
-			radial-gradient(ellipse at 30% 20%, rgba(88, 28, 135, 0.15) 0%, transparent 60%),
-			radial-gradient(ellipse at 70% 80%, rgba(30, 58, 138, 0.12) 0%, transparent 60%);
+			radial-gradient(ellipse at 30% 20%, rgba(22, 101, 52, 0.15) 0%, transparent 60%),
+			radial-gradient(ellipse at 70% 80%, rgba(20, 83, 45, 0.12) 0%, transparent 60%);
 		color: white;
 		padding: 1.5rem;
 		display: flex;
@@ -348,7 +348,7 @@
 	.field input[type='number']:focus,
 	.field select:focus {
 		outline: none;
-		border-color: cornflowerblue;
+		border-color: #22c55e;
 	}
 
 	.range-field {
@@ -363,7 +363,7 @@
 
 	.range-row input[type='range'] {
 		flex: 1;
-		accent-color: cornflowerblue;
+		accent-color: #22c55e;
 	}
 
 	.range-value {
@@ -380,7 +380,7 @@
 		justify-content: center;
 		width: 36px;
 		height: 36px;
-		background: cornflowerblue;
+		background: #22c55e;
 		border: none;
 		border-radius: 8px;
 		color: white;
@@ -485,9 +485,9 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		background: rgba(100, 149, 237, 0.2);
-		border: 1px solid rgba(100, 149, 237, 0.4);
-		color: cornflowerblue;
+		background: rgba(34, 197, 94, 0.2);
+		border: 1px solid rgba(34, 197, 94, 0.4);
+		color: #22c55e;
 		padding: 0.2rem 0.6rem;
 		border-radius: 6px;
 		font-size: 0.75rem;

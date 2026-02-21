@@ -147,9 +147,9 @@
 	}
 
 	.player-zone.active {
-		background: rgba(100, 149, 237, 0.1);
-		border-color: rgba(100, 149, 237, 0.4);
-		box-shadow: 0 0 12px rgba(100, 149, 237, 0.15);
+		background: rgba(34, 197, 94, 0.1);
+		border-color: rgba(34, 197, 94, 0.4);
+		box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
 	}
 
 	.player-header {
@@ -267,11 +267,11 @@
 	}
 
 	.action-btn.draw {
-		background: rgba(100, 149, 237, 0.8);
+		background: rgba(34, 197, 94, 0.8);
 	}
 
 	.action-btn.draw:hover {
-		background: rgba(100, 149, 237, 1);
+		background: rgba(34, 197, 94, 1);
 	}
 
 	.action-btn.attack {
