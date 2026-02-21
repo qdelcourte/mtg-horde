@@ -18,6 +18,7 @@
 	import Score from './Score.svelte';
 	import SettingsModal from './SettingsModal.svelte';
 	import Toolbar from './Toolbar.svelte';
+	import ThemeColorPicker from './ThemeColorPicker.svelte';
 
 	const inGame = $derived(G.state.turn.phase === PHASES.fightTheHorde);
 	const gameover = $derived(G.state.turn.gameover);
@@ -91,12 +92,15 @@
 			</div>
 		</div>
 		<Toolbar {onRestore} {onSave} />
+		<div class="rounded-lg border-t border-white/15 pt-2">
+			<ThemeColorPicker />
+		</div>
 		<a
 			href="#distribution"
 			class="mt-1 flex items-center gap-2 rounded-lg border-t border-white/15 px-2 pt-2.5 pb-1.5 text-sm font-medium text-white/60 no-underline transition-colors duration-200 hover:bg-white/10 hover:text-white"
 		>
 			<Icon icon="mdi:chart-bell-curve-cumulative" color="white" width="20" />
-			<span class="leading-normal">Distribution</span>
+			<span class="leading-normal">Shuffle Analysis</span>
 		</a>
 		<GithubLink />
 	</div>
@@ -106,6 +110,7 @@
 			<div
 				class="flex flex-1 flex-col items-center justify-center gap-6 bg-black/40 text-center text-white"
 				in:fly={{ y: 100, duration: 700 }}
+		out:fly={{ y: -100, duration: 500 }}
 			>
 				<Icon icon="mdi:shield-sword" color="rgba(255,255,255,0.15)" width="80" />
 				<div class="text-xl font-semibold tracking-[2px] text-white/60 uppercase">
