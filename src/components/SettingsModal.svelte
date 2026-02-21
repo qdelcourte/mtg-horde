@@ -7,6 +7,6 @@
 	let { permanent = false } = $props();
 </script>
 
-<Modal bind:open={modals.settings} size="sm" {permanent}>
-	<Settings onGameStart={() => (modals.settings = false)} />
+<Modal bind:open={modals.settings.isOpen} size="sm" {permanent}>
+	<Settings onGameStart={() => modals.settings.close()} />
 </Modal>

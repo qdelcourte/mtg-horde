@@ -1,5 +1,6 @@
 <script>
 	import Icon from '@iconify/svelte';
+	import { fly } from 'svelte/transition';
 
 	import { game as G } from '../game';
 	import { PHASES, STAGES } from '../game/phases';
@@ -11,7 +12,11 @@
 	const hordeDeckSize = $derived(G.state.horde.deck.length);
 </script>
 
-<div id="score" class="flex items-center justify-center gap-3 px-4 py-2 text-white select-none">
+<div
+	id="score"
+	class="flex items-center justify-center gap-3 px-4 py-4 text-white select-none"
+	in:fly={{ y: 50, duration: 500 }}
+>
 	<!-- Undo -->
 	<button class="icon-btn" class:disabled={!G.canUndo} onclick={() => G.undo()} aria-label="undo">
 		<Icon icon="mdi:arrow-u-left-top" width="18" />

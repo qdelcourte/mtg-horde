@@ -60,7 +60,10 @@
 	});
 </script>
 
-<div class="battlefield-wrap relative h-full overflow-clip select-none" class:wrath>
+<div
+	class="battlefield-wrap relative min-h-0 flex-1 overflow-x-clip overflow-y-auto select-none"
+	class:wrath
+>
 	{#if wrath}
 		<div class="wrath-flash pointer-events-none absolute inset-0 z-10"></div>
 	{/if}

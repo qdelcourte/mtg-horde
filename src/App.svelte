@@ -1,7 +1,7 @@
 <script>
 	import './app.css';
 	import CompareDistribution from './CompareDistribution.svelte';
-	import Board from './components/Board.svelte';
+	import Game from './components/Game.svelte';
 	let page = $state(document.location.hash);
 </script>
 
@@ -10,7 +10,5 @@
 {#if page === '#distribution'}
 	<CompareDistribution />
 {:else}
-	<div id="app" class="h-full">
-		<Board />
-	</div>
+	<Game />
 {/if}

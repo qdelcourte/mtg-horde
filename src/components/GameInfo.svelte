@@ -8,7 +8,7 @@
 	const { placement = 'left' } = $props();
 </script>
 
-<Drawer bind:open={modals.gameInfo} {placement}>
+<Drawer bind:open={modals.gameInfo.isOpen} {placement}>
 	<h5
 		id="drawer-label"
 		class="mb-4 inline-flex items-center text-base font-semibold text-gray-500 dark:text-gray-400"

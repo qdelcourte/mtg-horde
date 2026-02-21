@@ -10,7 +10,7 @@
 	let currentCard = $state();
 </script>
 
-<Modal bind:open={modals.graveyard} size="xl">
+<Modal bind:open={modals.graveyard.isOpen} size="xl">
 	{#snippet header()}
 		<div class="flex items-center gap-3">
 			<Span>Horde graveyard</Span>
@@ -19,7 +19,7 @@
 				class="bg-primary-500 cursor-pointer rounded-md border-none px-3 py-1 text-xs font-semibold text-white transition-[filter] duration-200 hover:brightness-[1.15]"
 				onclick={() => {
 					G.moves.putAllCardsInHordeBattlefieldFromGraveyard();
-					modals.graveyard = false;
+					modals.graveyard.close();
 				}}>All to battlefield</button
 			>
 		</div>

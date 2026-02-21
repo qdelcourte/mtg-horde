@@ -36,6 +36,7 @@
 	<img
 		src={loaded ? imgSrc : cardBack}
 		alt={card.name}
+		class="card-rounded"
 		class:tapped={card.tapped}
 		class:sorcery={isSorceryCard(card)}
 		class:instant={isInstantCard(card)}
@@ -127,7 +128,6 @@
 		width: 100%;
 		max-width: 14rem;
 		transition: transform 0.5s ease-in-out;
-		border-radius: 4.75% / 3.5%;
 	}
 
 	img.preload {
