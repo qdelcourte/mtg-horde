@@ -1,27 +1,14 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import './app.css';
 	import CompareDistribution from './CompareDistribution.svelte';
-	import Board from './components/Board.svelte';
-	import GithubCorner from './components/GithubCorner.svelte';
-	import { game as G } from './game';
-
-	onMount(() => {
-		return G.on('gameover', (event) => alert(event.detail.winner));
-	});
-
+	import Game from './components/Game.svelte';
 	let page = $state(document.location.hash);
 </script>
 
 <svelte:window on:hashchange={() => (page = document.location.hash)} />
 
-<GithubCorner />
-
 {#if page === '#distribution'}
 	<CompareDistribution />
 {:else}
-	<div id="app" class="h-full">
-		<Board />
-	</div>
+	<Game />
 {/if}

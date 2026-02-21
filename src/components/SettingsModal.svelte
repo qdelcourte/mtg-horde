@@ -1,13 +1,12 @@
 <script>
 	import { Modal } from 'flowbite-svelte';
 
+	import { modals } from '../lib/modals.svelte.js';
 	import Settings from './Settings.svelte';
 
 	let { permanent = false } = $props();
-	let open = $state(false);
-	export const show = () => (open = true);
 </script>
 
-<Modal bind:open size="xs" title="Settings" {permanent}>
-	<Settings onGameStart={() => (open = false)} />
+<Modal bind:open={modals.settings.isOpen} size="sm" {permanent}>
+	<Settings onGameStart={() => modals.settings.close()} />
 </Modal>

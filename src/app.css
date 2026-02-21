@@ -4,17 +4,32 @@
 @source '../node_modules/flowbite-svelte/dist';
 
 @theme {
-	--color-primary-50: #eff6ff;
-	--color-primary-100: #dbeafe;
-	--color-primary-200: #bfdbfe;
-	--color-primary-300: #93c5fd;
-	--color-primary-400: #60a5fa;
-	--color-primary-500: #3b82f6;
-	--color-primary-600: #2563eb;
-	--color-primary-700: #1d4ed8;
-	--color-primary-800: #1e40af;
-	--color-primary-900: #1e3a8a;
-	--color-primary-950: #172554;
+	--color-primary-50: #f0fdf4;
+	--color-primary-100: #dcfce7;
+	--color-primary-200: #bbf7d0;
+	--color-primary-300: #86efac;
+	--color-primary-400: #4ade80;
+	--color-primary-500: #22c55e;
+	--color-primary-600: #16a34a;
+	--color-primary-700: #15803d;
+	--color-primary-800: #166534;
+	--color-primary-900: #14532d;
+	--color-primary-950: #052e16;
+
+	/* Card type colors */
+	--color-sorcery: #e879f9;
+	--color-instant: #60a5fa;
+	--color-enchantment: #4ade80;
+
+	/* Semantic colors */
+	--color-danger: #ef4444;
+	--color-warning: #fbbf24;
+	--color-turn-end: #a88bfa;
+
+	/* Background tokens */
+	--color-bg-base: #0a0a0f;
+	--color-bg-modal: #12121e;
+	--color-bg-dropdown: #1a1a2e;
 }
 
 html,
@@ -22,4 +37,8 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+
+.card-rounded {
+	border-radius: 4.75% / 3.5%;
 }

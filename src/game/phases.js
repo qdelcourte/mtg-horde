@@ -1,7 +1,7 @@
 import {
 	clearCardState,
 	generateCardRandomId,
-	hasSorceryOrInstantOnBattlefield,
+	getCardDrawType,
 	INVALID_MOVE,
 	isEnchantmentCard,
 	isInstantCard,
@@ -36,6 +36,13 @@ const moves = {
 			G.state.horde.battlefield = battlefield.concat(deck.slice(0, indexOfFirstNonToken + 1));
 		}
 	},
+	hordeWrathBattlefield: (G) => {
+		const { horde } = G.state;
+		horde.graveyard = horde.graveyard.concat(
+			horde.battlefield.map(clearCardState).filter((card) => !isTokenCard(card))
+		);
+		horde.battlefield = [];
+	},
 	hordeToggleTapAllCards: (G, tapped = true) => {
 		G.state.horde.battlefield = G.state.horde.battlefield.map((card) => {
 			if (isInstantCard(card) || isSorceryCard(card) || isEnchantmentCard(card)) {
@@ -64,13 +71,12 @@ const moves = {
 		if (n <= 0) return INVALID_MOVE;
 
 		const { horde } = G.state;
-		const deck = horde.deck;
-		horde.deck = deck.slice(n);
+		const toRemove = Math.min(n, horde.deck.length);
+		if (toRemove === 0) return INVALID_MOVE;
+
+		const deckCards = horde.deck.splice(0, toRemove);
 		horde.graveyard = horde.graveyard.concat(
-			deck
-				.slice(0, n)
-				.filter((card) => !isTokenCard(card))
-				.map(clearCardState)
+			deckCards.filter((card) => !isTokenCard(card)).map(clearCardState)
 		);
 	},
 	putCardInHordeGraveyardFromBattlefield: (G, index) => {
@@ -117,6 +123,11 @@ const moves = {
 		const card = horde.graveyard.splice(index, 1)[0];
 		horde.battlefield.push({ ...card, tapped });
 	},
+	putAllCardsInHordeBattlefieldFromGraveyard: (G) => {
+		const { horde } = G.state;
+		horde.battlefield = horde.battlefield.concat(horde.graveyard);
+		horde.graveyard = [];
+	},
 	putCardInHordeExileFromGraveyard: (G, index) => {
 		const guard = guardIndex(index);
 		if (guard) return guard;
@@ -157,14 +168,19 @@ export const PHASES_CONFIG = {
 			// Stages moves
 			stageHordeDraw: (G) => {
 				G.state.turn.current++;
+				const { deck } = G.state.horde;
+				const indexOfFirstNonToken = deck.findIndex((card) => !isTokenCard(card));
+				const drawnCount = indexOfFirstNonToken === -1 ? deck.length : indexOfFirstNonToken + 1;
+				G.state.horde.drawHistory.push(deck.slice(0, drawnCount).map(getCardDrawType));
 				moves.hordeDrawCards(G);
 				G.setCurrentPlayerStage(STAGES.attack);
 			},
 			stageHordeAttackEnd: (G) => {
-				if (hasSorceryOrInstantOnBattlefield(G)) {
-					// TODO: UI responsability to display this error
-					alert(`Please remove sorcery and instant from the horde battlefield`);
-					return INVALID_MOVE;
+				const { horde } = G.state;
+				const sorceries = horde.battlefield.filter((card) => isSorceryCard(card));
+				if (sorceries.length > 0) {
+					horde.battlefield = horde.battlefield.filter((card) => !isSorceryCard(card));
+					horde.graveyard = horde.graveyard.concat(sorceries.map(clearCardState));
 				}
 				G.endTurn();
 			},

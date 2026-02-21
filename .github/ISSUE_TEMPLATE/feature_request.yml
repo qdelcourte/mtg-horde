@@ -1,13 +1,13 @@
 name: Feature Request
 description: Proposer une nouvelle fonctionnalité
-labels: ["enhancement"]
+labels: ['enhancement']
 body:
   - type: textarea
     id: description
     attributes:
       label: Description
       description: Décris la fonctionnalité souhaitée.
-      placeholder: "Ex: Ajouter une barre de recherche dans la modale du graveyard..."
+      placeholder: 'Ex: Ajouter une barre de recherche dans la modale du graveyard...'
     validations:
       required: true
 

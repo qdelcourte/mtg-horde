@@ -1,28 +1,20 @@
 <script>
-	import Icon from '@iconify/svelte';
-	import { Tooltip } from 'flowbite-svelte';
+	import ToolbarButton from './ToolbarButton.svelte';
 
 	let fullscreen = $state(false);
 </script>
 
-<svelte:window on:fullscreenchange={() => (fullscreen = document.fullscreenElement !== null)} />
+<svelte:window onfullscreenchange={() => (fullscreen = document.fullscreenElement !== null)} />
 
-{#if fullscreen}
-	<Icon
-		id="exit-fullscreen"
-		onclick={() => document.exitFullscreen()}
-		icon="mdi:fullscreen-exit"
-		color="white"
-		width="32"
+{#if document.fullscreenEnabled}
+	<ToolbarButton
+		label={fullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+		icon={fullscreen ? 'mdi:fullscreen-exit' : 'mdi:fullscreen'}
+		onclick={() => {
+			const action = fullscreen
+				? document.exitFullscreen()
+				: document.documentElement.requestFullscreen();
+			action.catch(() => {});
+		}}
 	/>
-	<Tooltip>Exit fullscreen</Tooltip>
-{:else}
-	<Icon
-		id="enter-fullscreen"
-		onclick={() => document.documentElement.requestFullscreen()}
-		icon="mdi:fullscreen"
-		color="white"
-		width="32"
-	/>
-	<Tooltip>Enter fullscreen</Tooltip>
 {/if}
