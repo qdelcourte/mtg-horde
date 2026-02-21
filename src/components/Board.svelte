@@ -17,8 +17,9 @@
 	import Pulse from './Pulse.svelte';
 	import Score from './Score.svelte';
 	import SettingsModal from './SettingsModal.svelte';
-	import Toolbar from './Toolbar.svelte';
 	import ThemeColorPicker from './ThemeColorPicker.svelte';
+	import Toolbar from './Toolbar.svelte';
+	import TurnHistory from './TurnHistory.svelte';
 
 	const inGame = $derived(G.state.turn.phase === PHASES.fightTheHorde);
 	const gameover = $derived(G.state.turn.gameover);
@@ -110,7 +111,7 @@
 			<div
 				class="flex flex-1 flex-col items-center justify-center gap-6 bg-black/40 text-center text-white"
 				in:fly={{ y: 100, duration: 700 }}
-		out:fly={{ y: -100, duration: 500 }}
+				out:fly={{ y: -100, duration: 500 }}
 			>
 				<Icon icon="mdi:shield-sword" color="rgba(255,255,255,0.15)" width="80" />
 				<div class="text-xl font-semibold tracking-[2px] text-white/60 uppercase">
@@ -141,6 +142,8 @@
 				</button>
 			</div>
 		{:else if G.state.turn.phase === PHASES.fightTheHorde}
+			<TurnHistory />
+
 			<div class="min-h-0 flex-1 overflow-x-clip overflow-y-auto">
 				<Battlefield
 					onCardClick={(card) => {
@@ -180,6 +183,7 @@
 					<Icon icon="mdi:restart" width="20" />
 					New Game
 				</button>
+				<TurnHistory />
 			</div>
 		</div>
 	{/if}

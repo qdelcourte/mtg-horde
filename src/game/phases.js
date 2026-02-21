@@ -1,6 +1,7 @@
 import {
 	clearCardState,
 	generateCardRandomId,
+	getCardDrawType,
 	INVALID_MOVE,
 	isEnchantmentCard,
 	isInstantCard,
@@ -167,6 +168,10 @@ export const PHASES_CONFIG = {
 			// Stages moves
 			stageHordeDraw: (G) => {
 				G.state.turn.current++;
+				const { deck } = G.state.horde;
+				const indexOfFirstNonToken = deck.findIndex((card) => !isTokenCard(card));
+				const drawnCount = indexOfFirstNonToken === -1 ? deck.length : indexOfFirstNonToken + 1;
+				G.state.horde.drawHistory.push(deck.slice(0, drawnCount).map(getCardDrawType));
 				moves.hordeDrawCards(G);
 				G.setCurrentPlayerStage(STAGES.attack);
 			},
