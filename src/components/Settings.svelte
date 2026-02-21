@@ -76,7 +76,7 @@
 		</select>
 		<a href="#distribution" class="distribution-hint" target="_blank">
 			<Icon icon="mdi:chart-bell-curve-cumulative" width="14" />
-			Compare distribution modes
+			Shuffle Analysis
 		</a>
 	</div>
 
