@@ -18,7 +18,15 @@
 		name: deckLabels[d] || d.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 	}));
 
+	const distributionModeItems = [
+		{ value: 'geometric_boosted', name: 'Geometric Boosted' },
+		{ value: 'geometric', name: 'Geometric' },
+		{ value: 'escalation', name: 'Escalation' },
+		{ value: 'random', name: 'Random' }
+	];
+
 	let inputDeckValue = $state(deckItems[0].value);
+	let inputDistributionMode = $state('geometric_boosted');
 	let inputNbSurvivorsValue = $state(1);
 	let inputNbInitialSurvivorsTurnValue = $state(3);
 	let inputTokenProportionValue = $state(60);
@@ -29,7 +37,8 @@
 			nbSurvivors: inputNbSurvivorsValue,
 			deckName: inputDeckValue,
 			nbInitialSurvivorsTurn: inputNbInitialSurvivorsTurnValue,
-			tokenProportion: inputTokenProportionValue / 100
+			tokenProportion: inputTokenProportionValue / 100,
+			distributionMode: inputDistributionMode
 		});
 		onGameStart();
 	}
@@ -53,6 +62,22 @@
 				<option value={item.value}>{item.name}</option>
 			{/each}
 		</select>
+	</div>
+
+	<div class="flex flex-1 flex-col gap-1.5">
+		<label for="distributionMode">
+			<Icon icon="mdi:shuffle-variant" width="16" />
+			Distribution mode
+		</label>
+		<select id="distributionMode" name="distributionMode" bind:value={inputDistributionMode}>
+			{#each distributionModeItems as item (item.value)}
+				<option value={item.value}>{item.name}</option>
+			{/each}
+		</select>
+		<a href="#distribution" class="distribution-hint" target="_blank">
+			<Icon icon="mdi:chart-bell-curve-cumulative" width="14" />
+			Shuffle Analysis
+		</a>
 	</div>
 
 	<div class="flex gap-4">
@@ -140,5 +165,19 @@
 	select option {
 		background: var(--color-bg-dropdown);
 		color: white;
+	}
+
+	.distribution-hint {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.75rem;
+		color: rgba(255, 255, 255, 0.4);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.distribution-hint:hover {
+		color: var(--color-primary-500);
 	}
 </style>

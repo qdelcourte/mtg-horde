@@ -6,7 +6,7 @@
 	import RangeInput from './components/RangeInput.svelte';
 	import { isLategameCard, isTokenCard, loadDeck } from './game/helpers.js';
 
-	const distributionModes = ['geometric', 'geometric_boosted', 'random'];
+	const distributionModes = ['geometric', 'geometric_boosted', 'escalation', 'random'];
 	const modeDescriptions = {
 		geometric: {
 			text: 'Even token distribution using geometric probability.',
@@ -22,6 +22,11 @@
 			text: 'Fully random token placement.',
 			pros: 'High variance — some turns feel easy, some are overwhelming',
 			cons: 'Can flip 10+ tokens in a row (boring) or stack all spells together (instant death)'
+		},
+		escalation: {
+			text: 'Progressive difficulty — token density decreases across the deck. Early game is calm, late game is intense.',
+			pros: 'Natural difficulty curve, survivors have time to set up before facing the real threats',
+			cons: 'Early game can feel too easy, less surprise factor'
 		}
 	};
 	const deckNames = Object.keys(decks);
@@ -157,7 +162,7 @@
 				</div>
 				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card lategame"></div>
-					<span>Lategame</span>
+					<span>Lategame (powerful cards, biased toward end)</span>
 				</div>
 				<div class="flex items-center gap-1.5 text-xs text-white/70">
 					<div class="card token longest-streak"></div>
